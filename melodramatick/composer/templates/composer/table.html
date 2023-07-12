@@ -1,0 +1,23 @@
+{% extends 'django_tables2/bootstrap4.html' %}
+{% load django_tables2 %}
+{% load i18n %}
+
+{% block table.thead %}
+    {% if table.show_header %}
+        <thead {{ table.attrs.thead.as_html }}>
+        <tr>
+        {% for column in table.columns %}
+            {% if column.attrs.help_text %}
+                <th {{ column.attrs.th.as_html }}>
+                    <a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}" data-toggle="tooltip" data-placement="right" title="{{ column.attrs.help_text|safe }}">{{ column.header }}</a>
+                </th>
+            {% else %}
+                <th {{ column.attrs.th.as_html }}>
+                    <a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}">{{ column.header }}</a>
+                </th>
+            {% endif %}
+        {% endfor %}
+        </tr>
+        </thead>
+    {% endif %}
+{% endblock table.thead %}

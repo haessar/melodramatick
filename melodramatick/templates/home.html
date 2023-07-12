@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block nav-home %}
+  <li class="nav-item active">
+    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <div class="row" style="background-color: #625798;">
+    <img class="mx-auto d-block" src="{% static 'images/logo_banner.PNG' %}" alt="">
+  </div>
+  <div class="row" style="margin: 50px;">
+    <div class="col-6">
+      <div class="row" style="margin: 50px;">
+      {% if user.is_authenticated %}
+        <h3>Hi {{ user.username }}!</h3>
+      {% else %}
+        <ul class="list-unstyled">
+          <li><p>You are not logged in</p></li>
+          <li>
+            <a href="{% url 'login' %}">Log In</a> |
+            <a href="{% url 'signup' %}">Sign Up</a>
+          </li>
+        </ul>
+      {% endif %}
+      </div>
+      <div class="row" style="margin: 50px;">
+        {% if qod %}
+        <div class="card">
+          <div class="card-header">
+            Quote of the Day
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p>{{ qod }}</p>
+              <footer class="blockquote-footer">{{ qod.composer.full_name }}</footer>
+            </blockquote>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-6">
+      <a class="twitter-timeline" data-lang="en" data-height="500" data-width="750" href="https://twitter.com/willhhill/lists/1673686262048235526?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </div>
+{% endblock %}

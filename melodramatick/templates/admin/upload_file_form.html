@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <div>
+        {% if docs %}
+         <p>{{docs|linebreaks}}</p>
+        {% endif %}
+        <form action="." method="POST" enctype="multipart/form-data">
+            {{ form.as_p }}
+            {% csrf_token %}
+
+                <button type="submit">Upload</button>
+        </form>
+    </div>
+    <br />
+
+{% endblock %}

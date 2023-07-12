@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Log In{% endblock %}
+
+{% block nav-login %}
+  <li class="nav-item active">
+    <a class="nav-link" href="#">Log In <span class="sr-only">(current)</span></a>
+  </li>
+{% endblock %}
+
+{% block content %}
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+{% endblock %}

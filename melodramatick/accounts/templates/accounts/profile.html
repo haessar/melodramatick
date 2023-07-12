@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% load mathfilters %}
+
+{% block title %}Profile - {{ user }} {% if user.get_full_name %}({{user.get_full_name}}){% endif %}{% endblock %}
+
+{% block head %}
+  <style>
+    .progress-bar {
+      background-color: white;
+    }
+    .bronze-marker {
+      border-left: 2px solid #CD7F32;
+    }
+    .silver-marker {
+      border-left: 2px solid #AAA9AD;
+    }
+    .gold-marker {
+      border-left: 2px solid #FFD700;
+    }
+    .platinum-marker {
+      border-left: 2px solid #E5E4E2;
+    }
+  </style>
+{% endblock %}
+
+{% block nav-profile %}
+  <li class="nav-item active">
+    <a class="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <div class="d-flex">
+    <div>
+      <h1>{{ user }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-7">
+      <h3>Awards</h3>
+      <dl class="row" style="font-size:18px">
+        {% for award in awards %}
+        <dt class="col-sm-9"><a href="{% url 'table:index' %}?opera_list={{ award.list.id }}">{{ award.list }}</a></dt>
+        <dd class="col-sm-3">{{ award.html_icon }}</dd>
+        {% endfor %}
+      </dl>
+    </div>
+    <div class="col-sm-5">
+      <h3>Progress</h3>
+      <ul class="list-group">
+        {% for prog in progress %}
+        <li class="list-group-item">
+          <div class="content d-flex w-100 justify-content-between">
+            <a href="{% url 'table:index' %}?opera_list={{ prog.list.id }}" class="mb-1">{{ prog.list }}</a>
+            <span>{{ prog.count }} / {{ prog.list.length }}</span>
+          </div>
+          <div class="progress" style="background-color: rgba(225, 225, 225, 0.1);">
+            {% if prog.ratio < 0.5 %}
+            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to bronze award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: #CD7F32;" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: {{ 50|sub:prog.as_percentage }}%;" aria-valuenow="{{ 50|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="bronze-marker" title="bronze award" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            {% elif prog.ratio < 0.75 %}
+            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to silver award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: #AAA9AD;" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: {{ 75|sub:prog.as_percentage }}%;" aria-valuenow="{{ 75|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="silver-marker" title="silver award" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            {% elif prog.ratio < 0.9 %}
+            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to gold award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: #FFD700;" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: {{ 90|sub:prog.as_percentage }}%;" aria-valuenow="{{ 90|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="gold-marker" title="gold award" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            {% elif prog.ratio < 1 %}
+            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to platinum award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: #E5E4E2;" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: {{ 100|sub:prog.as_percentage }}%;" aria-valuenow="{{ 100|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="platinum-marker" title="platinum award" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            {% else %}
+            <div class="progress-bar" role="progressbar" style="width: 100%; background-color: #E5E4E2;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+  </div>
+  <div class="row">
+  </div>
+{% endblock %}
