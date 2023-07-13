@@ -1,0 +1,110 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+
+{% block title %}Table of works{% endblock %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/custom_slider.css' %}">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(document).on('click', '.expand_all', function() {
+        $("tr[id^=ticked]").next().find('p').slideDown();
+      });
+      $(document).on('click', '.collapse_all', function() {
+        $("p[class=expanded]").slideUp();
+      });
+      $("td[id=hiddencell]").find("p").hide();
+      $("table").click(function(event) {
+        // Commented out the following as it prevents spotify_link click event from working.
+        //event.stopPropagation();
+        var $target = $(event.target);
+        if ( $target.closest("td").attr("colspan") > 1 ) {
+          $target.closest("td").children("p").slideUp();
+        } else {
+          $target.closest("tr[id^=ticked]").next().find("p").slideToggle();
+        }
+      });
+    });
+  </script>
+
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    #hiddencell {
+      padding: 0;
+      margin: 0;
+      border: 0;
+      width: 100%;
+    }
+
+    #hiddencell > p {
+      margin-bottom: 1px;
+      background-color: #baffba4f;
+      padding-left: 12px;
+    }
+
+    #hiddencell > p.streamed {
+      background-color: #fff5fb;
+    }
+
+    #ticked {
+      background-color: #96ff96a8;
+    }
+
+    #ticked-stream-only {
+      background-color: #fcd7ec;
+    }
+  </style>
+{% endblock %}
+
+{% block nav-table %}
+  <li class="nav-item active">
+    <a class="nav-link" href="#">Table<span class="sr-only">(current)</span></a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <div class='row'>
+    <div class='col-md-11'>
+    {% if filter %}
+      {% crispy filter.form %}
+      {% comment %} <form action="" method="get" class="form form-inline">
+          {% bootstrap_form filter.form layout='inline' bound_css_class='' %}
+          {% bootstrap_field filter.form.duration_range %}
+          {% bootstrap_button 'filter' %}
+      </form> {% endcomment %}
+    {% endif %}
+    </div>
+    <div class='col-md-1 text-right'>
+      <div class='row'>
+        {% if random_uri %}
+        <span>Play random</span>
+        <a class="spotify_link" href="/listen/play/{{work_id}}/">
+          <img uri="{{random_uri}}:play" src="/static/images/Spotify-Shuffle-Button.png" width="32px;">
+        </a>
+        {% endif %}
+      </div>
+      <div class='row'>
+        <a class="expand_all">
+          <i class="fa-regular fa-square-plus fa-lg"></i>
+        </a>
+        <a class="collapse_all">
+          <i class="fa-regular fa-square-minus fa-lg"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'js/custom_slider.js' %}"></script>
+
+  {% render_table table %}
+{% endblock %}

@@ -54,9 +54,9 @@ class Work(models.Model):
 
     @property
     def random_uri(self):
-        playlists = self.playlist.all()
-        if playlists:
-            uris = [p.uri for p in playlists]
+        albums = self.album.all()
+        if albums:
+            uris = [a.uri for a in albums]
             if len(uris) > 1:
                 return uris[random.randint(0, len(uris)-1)]
             return uris[0]
@@ -72,7 +72,7 @@ class Work(models.Model):
 
     @property
     def top_lists(self):
-        return len(self.list_work.all())
+        return len(self.list_item.all())
 
     # @property
     # def language_verbose(self):

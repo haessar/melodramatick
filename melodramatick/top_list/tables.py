@@ -15,8 +15,8 @@ class TopListTable(tables.Table):
         exclude = ['id']
         sequence = ('publication', 'name', 'year', 'author', 'length', 'url')
 
-    # def render_name(self, record):
-    #     return format_html('<a href={}?opera_list={}>{}</a>', reverse('table:index'), record.id, record.name)
+    def render_name(self, record):
+        return format_html('<a href={}?top_list={}>{}</a>', reverse('work:index'), record.id, record.name)
 
     def render_url(self, record):
         return format_html('<a href={} target="_blank">Link</a>', record.url)

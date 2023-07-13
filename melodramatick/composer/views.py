@@ -1,3 +1,4 @@
+from dal import autocomplete
 from django.db.models import Count, F, FloatField, IntegerField, Case, When
 from django.db.models.functions import Cast
 from django_filters.views import FilterView
@@ -6,6 +7,16 @@ from django_tables2 import SingleTableMixin
 from .filters import ComposerFilter
 from .models import Composer
 from .tables import ComposerTable
+
+
+class ComposerAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        if not self.request.user.is_authenticated:
+            return Composer.objects.none()
+        qs = Composer.objects.all()
+        if self.q:
+            qs = qs.filter(surname__istartswith=self.q)
+        return qs
 
 
 class ComposerListView(SingleTableMixin, FilterView):

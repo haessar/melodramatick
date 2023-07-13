@@ -158,7 +158,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / __package__ / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -206,3 +210,13 @@ WORK_MODEL = 'work.Work'
 YEAR_CHOICES = []
 for r in range(1500, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
+
+ERAS_MAP = (
+    ("1598-1749", "Baroque"),
+    ("1750-1809", "Classical"),
+    ("1810-1839", "Early Romantic"),
+    ("1840-1879", "Romantic"),
+    ("1880-1914", "Late Romantic"),
+    ("1915-1975", "Modern"),
+    ("1976-{}".format(datetime.datetime.now().year), "Contemporary"),
+)

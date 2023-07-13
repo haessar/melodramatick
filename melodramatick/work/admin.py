@@ -10,7 +10,7 @@ from django.shortcuts import redirect, render
 from django.urls import path
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 
-from .models import AKA, Genre, SubGenre, Work
+from .models import AKA, Genre, SubGenre
 from melodramatick.forms import CsvImportForm
 from melodramatick.composer.models import Composer
 from melodramatick.listen.forms import AlbumForm

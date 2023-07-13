@@ -1,5 +1,7 @@
 include README.md
+recursive-include melodramatick/static *
 recursive-include melodramatick/templates *
 recursive-include melodramatick/accounts/templates *
 recursive-include melodramatick/composer/templates *
 recursive-include melodramatick/top_list/templates *
+recursive-include melodramatick/work/templates *

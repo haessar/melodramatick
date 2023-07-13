@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% load mathfilters %}
+
+{% block title %}{{ object.title }} ({{ object.year }}){% endblock %}
+
+{% block content %}
+  <div class="d-flex">
+    <div>
+      <h1>{{ object.composer }} - {{ object.title }} ({{ object.year }})</h1>
+    </div>
+    {% if user.is_superuser %}
+    <div class="ml-auto">
+      {% block edit_button %}
+      {% comment %} <a href="{% url 'admin:table_opera_change' object.id %}">Edit</a> {% endcomment %}
+      {% endblock %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Information</h3>
+      <dl class="row">
+        <dt class="col-sm-3">Year</dt>
+        <dd class="col-sm-9">{{ object.year }}</dd>
+        <dt class="col-sm-3">Composer</dt>
+        <dd class="col-sm-9">{{ object.composer.full_name }}</dd>
+        {% if object.sub_genre %}
+        <dt class="col-sm-3">Sub-Genre</dt>
+        <dd class="col-sm-9">{{ object.sub_genre }}</dd>
+        {% endif %}
+        <dt class="col-sm-3">Era</dt>
+        <dd class="col-sm-9">{{ object.era }}</dd>
+        {% block information_rows %}
+        {% comment %} <dt class="col-sm-3">Language</dt>
+        <dd class="col-sm-9">{{ object.language_verbose }}</dd> {% endcomment %}
+        {% endblock %}
+        {% if object.notes %}
+        <dt class="col-sm-3">Notes</dt>
+        <dd class="col-sm-9">
+          <p>{{ object.notes }}</p>
+        </dd>
+        {% endif %}
+        {% if object.aka.all %}
+        <dt class="col-sm-3">AKA</dt>
+        <dd class="col-sm-9">
+          <p>{% for aka in object.aka.all %}"{{ aka }}"{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        </dd>
+        {% endif %}
+      </dl>
+      {% if object.album.all %}
+      <div class="row">
+        <div class="col-sm-9">
+          <h3>Spotify playlists</h3>
+          <ul class="list-group">
+            {% for album in object.album.all %}
+            <li class="list-group-item">
+              <div class="content d-flex w-100 justify-content-between">
+                <div>
+                  <a href="{{ album.uri }}:play">
+                    <img src="{{ album.image }}" width="120px;">
+                  </a>
+                </div>
+                <div>
+                  <p>Duration: {{ album.duration }} minutes</p>
+                  <a class="spotify_link" href="/listen/play/{{ object.id }}/">
+                    <img uri="{{ album.uri }}:play" src="/static/images/Spotify-Play-Button.png" width="32px;">
+                  </a>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col">
+      <h3>In {{ object.top_lists }} top lists</h3>
+      <ul class="list-group">
+        {% for list_entry in object.list_item.all %}
+        <li class="list-group-item">
+          <div class="content d-flex w-100 justify-content-between">
+            <a href="{% url 'work:index' %}?top_list={{ list_entry.list.id }}" class="mb-1">{{ list_entry.list }}</a>
+            <span>{{ list_entry.position }}</span>
+          </div>
+          <div class="progress" style="opacity: 0.5;">
+            {% widthratio list_entry.position|sub:1 list_entry.list.length 100 as width %}
+            {% if list_entry.position == 1 %}
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{ 100|sub:width }}%" aria-valuenow="{{ 100|sub:width }}" aria-valuemin="0" aria-valuemax="100"></div>
+            {% else %}
+            <div class="progress-bar" role="progressbar" style="width: {{ 100|sub:width }}%" aria-valuenow="{{ 100|sub:width }}" aria-valuemin="0" aria-valuemax="100"></div>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

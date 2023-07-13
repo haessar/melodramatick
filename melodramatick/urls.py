@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from .admin import user_admin
 from .views import HomePageView
 
 
@@ -26,6 +27,8 @@ urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path('adminactions/', include('adminactions.urls')),
+    path('user-admin/', user_admin.urls),
     path('composers/', include('melodramatick.composer.urls')),
     path('top-lists/', include('melodramatick.top_list.urls')),
+    path('performances/', include('melodramatick.performance.urls')),
 ]
