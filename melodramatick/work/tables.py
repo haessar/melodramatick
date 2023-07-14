@@ -98,9 +98,6 @@ class WorkTable(tables.Table):
             return ""
         template_name = "work/table.html"
         exclude = ['id']
-        # sequence = ["position", "title", "composer", "language", "year", "sub_genre", "notes", "total_lists",
-        #             "user_listens", "random_uri", "uri", "duration",
-        #             "user_performances", "tickbox"]
         row_attrs = {
             "id": assign_row_id,
         }

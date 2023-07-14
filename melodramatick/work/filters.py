@@ -34,7 +34,6 @@ class WorkFilter(CustomEmptyLabelMixin, django_filters.FilterSet):
         widget=autocomplete.ModelSelect2(
             url=reverse_lazy("composer:composer-autocomplete"),
             attrs={'data-theme': 'bootstrap-4'}))
-    # language = django_filters.ChoiceFilter(choices=LANGUAGE_CHOICES)
     top_list = django_filters.ModelChoiceFilter(queryset=List.objects.all(), method='filter_top_list', label="Top List")
     duration_range = AllRangeFilter(method='filter_duration_range', label="Album duration")
     era = EraChoiceFilter(choices=settings.ERAS_MAP)

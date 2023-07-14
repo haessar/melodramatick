@@ -35,7 +35,6 @@ class SubGenre(models.Model):
 class Work(models.Model):
     composer = models.ForeignKey(Composer, on_delete=models.PROTECT)
     title = models.CharField(max_length=100)
-    # language = models.CharField(choices=settings.LANGUAGE_CHOICES, max_length=2, blank=True)
     year = models.IntegerField(choices=settings.YEAR_CHOICES, default=datetime.datetime.now().year)
     notes = models.TextField(null=True, blank=True)
     sub_genre = models.ForeignKey(SubGenre, on_delete=models.PROTECT, null=True, blank=True)
@@ -73,10 +72,6 @@ class Work(models.Model):
     @property
     def top_lists(self):
         return len(self.list_item.all())
-
-    # @property
-    # def language_verbose(self):
-    #     return [v for (c, v) in settings.LANGUAGE_CHOICES if c == self.language][0]
 
 
 @receiver([post_save, post_delete], sender=Work, dispatch_uid="update_work")
