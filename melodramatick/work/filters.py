@@ -1,5 +1,6 @@
 from dal import autocomplete
 import django_filters
+from django.apps import apps
 from django.conf import settings
 from django.db.models import Q, F
 from django.urls import reverse_lazy
@@ -42,8 +43,8 @@ class WorkFilter(CustomEmptyLabelMixin, django_filters.FilterSet):
                                                       lookup_expr='exact', label="Composer Group")
 
     class Meta:
-        # model = Opera
-        # fields = ['composer', 'composer_group', 'language', 'opera_list', 'duration_range', 'genre']
+        model = apps.get_model(settings.WORK_MODEL)
+        fields = ['composer', 'composer_group', 'top_list', 'duration_range', 'genre']
         form = WorkFilterFormHelper
 
     def filter_top_list(self, queryset, name, value):

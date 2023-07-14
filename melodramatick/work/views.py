@@ -1,8 +1,10 @@
 import random
 
+from django.apps import apps
+from django.conf import settings
 from django.db.models import Count, Q, Sum
 from django.db.models.functions import Coalesce
-from django.views.generic import ListView
+from django.views.generic import DetailView, ListView
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
 
@@ -10,7 +12,7 @@ from . import plots
 
 
 class WorkTableView(SingleTableMixin, FilterView):
-    # model = Opera
+    model = apps.get_model(settings.WORK_MODEL)
     # table_class = OperaTable
     template_name = 'work/index.html'
     # filterset_class = OperaFilter
@@ -66,7 +68,7 @@ class WorkTableView(SingleTableMixin, FilterView):
 
 class WorkGraphsView(ListView):
     template_name = 'work/work_graphs.html'
-    # model = Opera
+    model = apps.get_model(settings.WORK_MODEL)
 
     def get_context_data(self, **kwargs):
         qs = self.object_list.annotate(
@@ -95,3 +97,7 @@ class WorkGraphsView(ListView):
             'user_listen_count': qs.aggregate(Sum('user_listens'))['user_listens__sum'],
         }
         return context
+
+
+class WorkDetailView(DetailView):
+    model = apps.get_model(settings.WORK_MODEL)
