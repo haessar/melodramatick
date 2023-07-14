@@ -20,7 +20,7 @@ class PerformanceAdmin(admin.ModelAdmin):
         return qs.filter(user=request.user)
 
     def get_works(self, obj):
-        return ", ".join([w.title for w in obj.works.all()])
+        return ", ".join([w.title for w in obj.work.all()])
     get_works.short_description = "Work(s)"
 
     def get_composers(self, obj):

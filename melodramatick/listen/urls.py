@@ -4,5 +4,5 @@ from .views import spotify_playback_view
 
 app_name = 'listen'
 urlpatterns = [
-    path("play/<opera>/", spotify_playback_view, name="playback"),
+    path("play/<work>/", spotify_playback_view, name="playback"),
 ]

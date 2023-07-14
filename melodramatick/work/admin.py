@@ -50,7 +50,7 @@ class WorkAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "composer", "year", "sub_genre")
     list_filter = (('composer', RelatedDropdownFilter), ('sub_genre__genre', RelatedDropdownFilter))
     actions = ['save_performance']
-    # inlines = [ListenInline, AKAInline, AlbumInline]
+    inlines = [ListenInline, AKAInline, AlbumInline]
 
     def get_urls(self):
         urls = super().get_urls()
@@ -71,7 +71,7 @@ class WorkAdmin(admin.ModelAdmin):
                 except ObjectDoesNotExist:
                     self.message_user(
                         request,
-                        'Composer not recognised. Please add an entry for the composer whose operas you wish to import.')
+                        'Composer not recognised. Please add an entry for the composer whose work you wish to import.')
                     return redirect("..")
                 try:
                     apps.get_model(settings.WORK_MODEL).objects.get_or_create(**row)

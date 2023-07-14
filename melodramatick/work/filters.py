@@ -9,7 +9,7 @@ from melodramatick.top_list.models import List
 from melodramatick.utils.filters import CustomEmptyLabelMixin
 from melodramatick.utils.widgets import CustomRangeWidget
 from melodramatick.work.forms import WorkFilterFormHelper
-from melodramatick.work.models import Genre  # , Opera
+from melodramatick.work.models import Genre
 
 
 class EraChoiceFilter(django_filters.ChoiceFilter):

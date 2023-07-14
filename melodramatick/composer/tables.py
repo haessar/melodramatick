@@ -1,5 +1,3 @@
-import urllib.parse
-
 from django.urls import reverse
 from django.utils.html import format_html
 import django_tables2 as tables
@@ -22,11 +20,10 @@ class ComposerTable(tables.Table):
         model = Composer
         template_name = "composer/table.html"
         sequence = ['first_name', 'surname']
-        exclude = ['group']
+        exclude = ['id', 'group']
 
-    # def render_total_works(self, record):
-    #     return format_html('<a href={}?composer={}>{}</a>', reverse('table:index'),
-    #                        urllib.parse.quote(record.surname), record.total_works)
+    def render_total_works(self, record):
+        return format_html('<a href={}?composer={}>{}</a>', reverse('work:index'), record.id, record.total_works)
 
     def render_surname(self, record):
         return format_html('<p class="font-weight-bold">{}</p>', record.surname)

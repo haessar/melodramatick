@@ -41,7 +41,7 @@
       <h3>Awards</h3>
       <dl class="row" style="font-size:18px">
         {% for award in awards %}
-        <dt class="col-sm-9"><a href="{% url 'table:index' %}?opera_list={{ award.list.id }}">{{ award.list }}</a></dt>
+        <dt class="col-sm-9"><a href="{% url 'work:index' %}?top_list={{ award.list.id }}">{{ award.list }}</a></dt>
         <dd class="col-sm-3">{{ award.html_icon }}</dd>
         {% endfor %}
       </dl>
@@ -52,7 +52,7 @@
         {% for prog in progress %}
         <li class="list-group-item">
           <div class="content d-flex w-100 justify-content-between">
-            <a href="{% url 'table:index' %}?opera_list={{ prog.list.id }}" class="mb-1">{{ prog.list }}</a>
+            <a href="{% url 'work:index' %}?top_list={{ prog.list.id }}" class="mb-1">{{ prog.list }}</a>
             <span>{{ prog.count }} / {{ prog.list.length }}</span>
           </div>
           <div class="progress" style="background-color: rgba(225, 225, 225, 0.1);">
