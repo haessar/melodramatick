@@ -86,11 +86,11 @@
               <a class="nav-link" href="{% url 'composer:index' %}">Composers</a>
             </li>
             {% endblock%}
-            {% comment %} {% block nav-graphs %}
+            {% block nav-graphs %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'table:graphs' %}">Graphs</a>
+              <a class="nav-link" href="{% url 'work:graphs' %}">Graphs</a>
             </li>
-            {% endblock %} {% endcomment %}
+            {% endblock %}
           {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="https://www.operabase.com/productions/en" target="_blank">Operabase</a>

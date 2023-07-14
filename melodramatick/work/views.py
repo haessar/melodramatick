@@ -1,8 +1,12 @@
 import random
 
 from django.db.models import Count, Q, Sum
+from django.db.models.functions import Coalesce
+from django.views.generic import ListView
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
+
+from . import plots
 
 
 class WorkTableView(SingleTableMixin, FilterView):
@@ -58,3 +62,36 @@ class WorkTableView(SingleTableMixin, FilterView):
             'exclude': excluded,
             'order_by': order_by
         }
+
+
+class WorkGraphsView(ListView):
+    template_name = 'work/work_graphs.html'
+    # model = Opera
+
+    def get_context_data(self, **kwargs):
+        qs = self.object_list.annotate(
+                user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=self.request.user)), 0),
+                user_perfs=Count('performance', filter=Q(performance__user=self.request.user) & Q(performance__streamed=False))
+            )
+        top = plots.plot_works_by_decade(qs, figsize=(12, 6))
+        middle_left = plots.plot_works_per_composer(qs, figsize=(4, 6))
+        middle_centre = plots.plot_perfs_per_composer(qs, figsize=(4, 6))
+        middle_right = plots.plot_listens_per_composer(qs, figsize=(4, 6))
+        bottom_left = plots.plot_works_per_era(qs, figsize=(3, 6))
+        bottom_centre = plots.plot_perfs_per_era(qs, figsize=(3, 6))
+        bottom_right = plots.plot_listens_per_era(qs, figsize=(3, 6))
+        duration_hist = plots.plot_duration_hist(qs, figsize=(12, 6))
+        context = {
+            'top': top,
+            'middle_left': middle_left,
+            'middle_centre': middle_centre,
+            'middle_right': middle_right,
+            'bottom_left': bottom_left,
+            'bottom_centre': bottom_centre,
+            'bottom_right': bottom_right,
+            'duration_hist': duration_hist,
+            'work_count': self.object_list.count(),
+            'user_performance_count': qs.aggregate(Sum('user_perfs'))['user_perfs__sum'],
+            'user_listen_count': qs.aggregate(Sum('user_listens'))['user_listens__sum'],
+        }
+        return context

@@ -207,6 +207,8 @@ SITE = __package__.title()
 
 WORK_MODEL = 'work.Work'
 
+WORK_PLURAL_LABEL = 'works'
+
 YEAR_CHOICES = []
 for r in range(1500, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
