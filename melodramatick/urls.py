@@ -31,4 +31,5 @@ urlpatterns = [
     path('composers/', include('melodramatick.composer.urls')),
     path('top-lists/', include('melodramatick.top_list.urls')),
     path('performances/', include('melodramatick.performance.urls')),
+    path('', include('melodramatick.listen.urls')),
 ]
