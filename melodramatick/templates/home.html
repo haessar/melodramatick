@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load settings %}
 {% load static %}
 
 {% block title %}Home{% endblock %}
@@ -11,8 +11,8 @@
 {% endblock %}
 
 {% block content %}
-  <div class="row" style="background-color: #625798;">
-    <img class="mx-auto d-block" src="{% static 'images/logo_banner.PNG' %}" alt="">
+  <div class="row" style="background-color: {% settings_value 'BACKGROUND_COLOUR' %}; padding: 16px;">
+    <img class="mx-auto d-block" src="{% static 'images/banner.png' %}" alt="">
   </div>
   <div class="row" style="margin: 50px;">
     <div class="col-6">
