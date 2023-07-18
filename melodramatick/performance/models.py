@@ -8,7 +8,7 @@ from partial_date import PartialDateField
 
 # This might be Operatick-specific (with Ensemble/Orchestra)
 class Company(models.Model):
-    name = models.CharField(primary_key=True, max_length=50)
+    name = models.CharField(max_length=50)
 
     class Meta:
         verbose_name_plural = "Companies"
