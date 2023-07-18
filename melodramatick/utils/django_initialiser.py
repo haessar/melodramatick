@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
 
 # The DJANGO_SETTINGS_MODULE has to be set to allow us to access django imports
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "melodramatick.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{}.settings".format(__package__))
 
 #  Allow queryset filtering asynchronously when running in a Jupyter notebook
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
