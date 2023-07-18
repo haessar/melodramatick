@@ -7,7 +7,7 @@
 {% block content %}
   <div class="d-flex">
     <div>
-      <h1>{{ object.composer }} - {{ object.title }} ({{ object.year }})</h1>
+      <h1>{{ object.composer.surname }} - {{ object.title }} ({{ object.year }})</h1>
     </div>
     {% if user.is_superuser %}
     <div class="ml-auto">
