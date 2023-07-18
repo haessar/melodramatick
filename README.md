@@ -13,6 +13,7 @@ Install Melodramatick and dependencies
 Start new django project in same dir
 
     django-admin startproject balletick .
+    cp ../melodramatick/melodramatick/settings_template.py balletick/settings.py
 
 Create "work" app
 
