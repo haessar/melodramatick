@@ -154,6 +154,7 @@ static/*
 !static/images/
 !static/css/
 !static/js/
+*.xcf
 
 # service account credentials
 operatick-*.json
