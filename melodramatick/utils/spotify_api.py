@@ -22,29 +22,33 @@ def auth_manager(scope=None):
     return spotipy.Spotify(auth_manager=auth_manager)
 
 
-def get_playlist_image(playlist_uri):
-    scope = "playlist-read-private playlist-read-collaborative"
-    sp = auth_manager(scope)
+def get_playlist_image(playlist_uri, sp=None):
+    if not sp:
+        scope = "playlist-read-private playlist-read-collaborative"
+        sp = auth_manager(scope)
     pl = sp.playlist(playlist_uri)
     return pl['images'][0]['url'] if pl['images'] else ''
 
 
-def get_playlist_duration(playlist_id):
-    scope = "playlist-read-private playlist-read-collaborative"
-    sp = auth_manager(scope)
+def get_playlist_duration(playlist_id, sp=None):
+    if not sp:
+        scope = "playlist-read-private playlist-read-collaborative"
+        sp = auth_manager(scope)
     track_durations = sp.playlist_tracks(playlist_id, fields=['items.track.duration_ms'])
     total_ms = sum(d['track']['duration_ms'] for d in track_durations['items'])
     return str(int(total_ms/(1000*60)))
 
 
-def get_album_image(album_uri):
-    sp = auth_manager()
+def get_album_image(album_uri, sp=None):
+    if not sp:
+        sp = auth_manager()
     al = sp.album(album_uri)
     return al['images'][0]['url']
 
 
-def get_album_duration(album_id):
-    sp = auth_manager()
+def get_album_duration(album_id, sp=None):
+    if not sp:
+        sp = auth_manager()
     offset = 0
     increment = 50
     items = []
