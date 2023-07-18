@@ -26,7 +26,7 @@ def get_playlist_image(playlist_uri):
     scope = "playlist-read-private playlist-read-collaborative"
     sp = auth_manager(scope)
     pl = sp.playlist(playlist_uri)
-    return pl['images'][0]['url']
+    return pl['images'][0]['url'] if pl['images'] else ''
 
 
 def get_playlist_duration(playlist_id):

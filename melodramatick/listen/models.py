@@ -50,7 +50,8 @@ def set_image_url(sender, instance, **kwargs):
             image_url = get_album_image(instance.uri)
         else:
             image_url = get_playlist_image(instance.uri)
-        sender.objects.filter(pk=instance.pk).update(image_url=image_url)
+        if image_url:
+            sender.objects.filter(pk=instance.pk).update(image_url=image_url)
 
 
 @receiver(post_save, sender=Album)
