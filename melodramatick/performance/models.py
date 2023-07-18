@@ -32,9 +32,6 @@ class Venue(models.Model):
         return '%s, %s' % (self.name, self.location)
 
 
-# Use https://realpython.com/move-django-model/#the-short-way-reference-the-new-django-model-to-the-old-table
-# to move Performance and related models/utilities to a new "performance" app, then look to rename the
-# "table" app to "opera"
 class Performance(models.Model):
     work = models.ManyToManyField(settings.WORK_MODEL, related_name='performance')
     date = PartialDateField(null=True, blank=True)
