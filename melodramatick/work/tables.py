@@ -71,10 +71,10 @@ class WorkTable(tables.Table):
         user = self.request.user
         performances = Performance.objects.filter(user=user)
         if performances.filter(work=record):
-            tickbox_img = "images/ticked.png"
+            tickbox_img, width = "images/ticked.png", "28px"
         else:
-            tickbox_img = "images/unticked.png"
-        return format_html('<img src="{}" width="24px;"/>', static(tickbox_img))
+            tickbox_img, width = "images/unticked.png", "24px"
+        return format_html('<img src="{}" width="{};"/>', static(tickbox_img), width)
 
     def render_user_listens(self, record):
         return record.user_listens if record.user_listens else "—"
