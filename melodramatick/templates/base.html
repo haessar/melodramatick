@@ -92,12 +92,7 @@
             </li>
             {% endblock %}
           {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.operabase.com/productions/en" target="_blank">Operabase</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://britopblog.wordpress.com/" target="_blank">Blog</a>
-          </li>
+          {% block more-links %}{% endblock %}
           {% comment %} <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Dropdown
