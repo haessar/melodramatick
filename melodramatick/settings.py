@@ -220,3 +220,8 @@ ERAS_MAP = (
     ("1915-1975", "Modern"),
     ("1976-{}".format(datetime.datetime.now().year), "Contemporary"),
 )
+
+AWARD_LEVEL_PLATINUM_HEX = "#E5E4E2"
+AWARD_LEVEL_GOLD_HEX = "#FFD700"
+AWARD_LEVEL_SILVER_HEX = "#AAA9AD"
+AWARD_LEVEL_BRONZE_HEX = "#CD7F32"
