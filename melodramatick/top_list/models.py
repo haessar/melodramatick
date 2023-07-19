@@ -28,8 +28,6 @@ class List(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['name', 'publication'], name='unique_list')
         ]
-        # TODO Remove this
-        db_table = 'table_list'
         ordering = ['-year']
 
     @property
@@ -47,8 +45,6 @@ class ListItem(models.Model):
             models.UniqueConstraint(fields=['item', 'list', 'position'], name='unique_list_item')
         ]
         ordering = ['position']
-        # TODO Remove this
-        db_table = 'table_listopera'
 
     def __str__(self):
         return "{} - {}".format(self.item, self.list)
