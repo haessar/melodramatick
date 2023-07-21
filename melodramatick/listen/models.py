@@ -6,7 +6,7 @@ from django.db import models
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
-from melodramatick.utils.spotify_api import get_album_duration, get_album_image, get_playlist_duration, get_playlist_image
+from melodramatick.utils.spotify_api import get_album_duration, get_album_image  # , get_playlist_duration, get_playlist_image
 from melodramatick.work.models import Work
 
 
@@ -50,8 +50,8 @@ def set_image_url(sender, instance, **kwargs):
     if not instance.image_url:
         if "album" in instance.uri:
             image_url = get_album_image(instance.uri)
-        else:
-            image_url = get_playlist_image(instance.uri)
+        # else:
+        #     image_url = get_playlist_image(instance.uri)
         if image_url:
             sender.objects.filter(pk=instance.pk).update(image_url=image_url)
 
@@ -61,6 +61,7 @@ def set_duration(sender, instance, **kwargs):
     if not instance.duration:
         if "album" in instance.uri:
             duration = get_album_duration(instance.uri)
-        else:
-            duration = get_playlist_duration(instance.uri)
-        sender.objects.filter(pk=instance.pk).update(duration=duration)
+        # else:
+        #     duration = get_playlist_duration(instance.uri)
+        if duration:
+            sender.objects.filter(pk=instance.pk).update(duration=duration)
