@@ -51,7 +51,7 @@ def plot_works_by_decade(ax, qs):
         .order_by()
     )
 
-    decades = [x['year'] for x in by_decades]
+    decades = [int(x['year']) for x in by_decades]
     counts = [x['dcount'] for x in by_decades]
     listens = [x['user_listens'] for x in by_decades]
     perfs = [x['user_perfs'] for x in by_decades]
