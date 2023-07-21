@@ -1,3 +1,4 @@
+__all__ = ["Album", "Listen"]
 from django.conf import settings
 from django.core.cache import cache
 from django.core.validators import RegexValidator
@@ -6,10 +7,11 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from melodramatick.utils.spotify_api import get_album_duration, get_album_image, get_playlist_duration, get_playlist_image
+from melodramatick.work.models import Work
 
 
 class Listen(models.Model):
-    work = models.ForeignKey(settings.WORK_MODEL, on_delete=models.CASCADE, related_name='listen')
+    work = models.ForeignKey(Work, on_delete=models.CASCADE, related_name='listen')
     tally = models.PositiveSmallIntegerField(default=0)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False, on_delete=models.CASCADE)
 
@@ -30,7 +32,7 @@ def clear_cache_listen(*args, **kwargs):
 
 
 class Album(models.Model):
-    work = models.ForeignKey(settings.WORK_MODEL, on_delete=models.CASCADE, related_name='album')
+    work = models.ForeignKey(Work, on_delete=models.CASCADE, related_name='album')
     duration = models.IntegerField(default=0)
     id = models.CharField(primary_key=True, max_length=220,
                           validators=[RegexValidator(regex=r"^([a-zA-Z0-9]{22}[,]?)+$")])

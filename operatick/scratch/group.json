@@ -1,0 +1,93 @@
+[
+    {
+        "model": "composer.group",
+        "pk": 1,
+        "fields": {
+            "name": "Mozart and Salieri",
+            "composer": [
+                "Mozart",
+                "Salieri"
+            ]
+        }
+    },
+    {
+        "model": "composer.group",
+        "pk": 2,
+        "fields": {
+            "name": "Mighty Handful",
+            "composer": [
+                "Balakirev",
+                "Borodin",
+                "Cui",
+                "Mussorgsky",
+                "Rimsky-Korsakov"
+            ]
+        }
+    },
+    {
+        "model": "composer.group",
+        "pk": 3,
+        "fields": {
+            "name": "Bel canto",
+            "composer": [
+                "Bellini",
+                "Donizetti",
+                "Rossini"
+            ]
+        }
+    },
+    {
+        "model": "composer.group",
+        "pk": 4,
+        "fields": {
+            "name": "Second Viennese School",
+            "composer": [
+                "Berg",
+                "Schoenberg",
+                "Webern"
+            ]
+        }
+    },
+    {
+        "model": "composer.group",
+        "pk": 5,
+        "fields": {
+            "name": "First Viennese School",
+            "composer": [
+                "Beethoven",
+                "Haydn",
+                "Mozart",
+                "Schubert"
+            ]
+        }
+    },
+    {
+        "model": "composer.group",
+        "pk": 6,
+        "fields": {
+            "name": "Giovane scuola",
+            "composer": [
+                "Catalani",
+                "Cilea",
+                "Floridia",
+                "Franchetti",
+                "Giordano",
+                "Leoncavallo",
+                "Mascagni",
+                "Puccini"
+            ]
+        }
+    },
+    {
+        "model": "composer.group",
+        "pk": 7,
+        "fields": {
+            "name": "New Music Manchester",
+            "composer": [
+                "Birtwistle",
+                "Davies",
+                "Goehr"
+            ]
+        }
+    }
+]

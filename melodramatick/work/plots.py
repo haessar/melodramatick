@@ -45,7 +45,7 @@ def to_bytes_fig(f):
 def plot_works_by_decade(ax, qs):
     by_decades = (
         qs
-        .extra(select={'year': 'floor(year/10*10)'})
+        .extra(select={'year': 'FLOOR(year/10)*10'})
         .values('year', 'user_listens', 'user_perfs')
         .annotate(dcount=Count('year'))
         .order_by()

@@ -1,7 +1,5 @@
 import os
 
-from django.apps import apps
-from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
@@ -9,6 +7,7 @@ from django.shortcuts import redirect, render
 from django.urls import path, reverse
 
 from melodramatick.forms import TxtImportForm
+from melodramatick.work.models import Work
 from .models import List, ListItem
 
 
@@ -22,6 +21,12 @@ class ListAdmin(admin.ModelAdmin):
     change_list_template = "admin/import_txt_changelist.html"
     list_display = ("id", "name", "publication")
     inlines = [ListItemInline]
+    exclude = ['site']
+    list_select_related = True
+
+    def save_model(self, request, obj, form, change):
+        obj.site = request.site
+        super().save_model(request, obj, form, change)
 
     def get_urls(self):
         urls = super().get_urls()
@@ -52,7 +57,7 @@ class ListAdmin(admin.ModelAdmin):
             titles = decoded_file.split(',')
             for idx, title in enumerate(titles, 1):
                 try:
-                    work = apps.get_model(settings.WORK_MODEL).objects.get(title=title)
+                    work = Work.objects.get(title=title)
                     ListItem.objects.create(list=list, item=work, position=idx)
                 except ObjectDoesNotExist:
                     self.message_user(request,

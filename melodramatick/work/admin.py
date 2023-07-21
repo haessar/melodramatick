@@ -1,8 +1,6 @@
 import csv
 import io
 
-from django.apps import apps
-from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.utils import IntegrityError
@@ -16,6 +14,8 @@ from melodramatick.composer.models import Composer
 from melodramatick.listen.forms import AlbumForm
 from melodramatick.listen.models import Listen, Album
 from melodramatick.performance.models import Performance
+
+from .models import Work
 
 admin.site.register(Genre)
 
@@ -44,6 +44,7 @@ class SubGenreAdmin(admin.ModelAdmin):
     list_display = ("name", "genre")
 
 
+# TODO Work out how to change model manager to allow all objects in WorkAdmin (not site-specific)
 # @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
     change_list_template = "admin/import_csv_changelist.html"
@@ -74,7 +75,8 @@ class WorkAdmin(admin.ModelAdmin):
                         'Composer not recognised. Please add an entry for the composer whose work you wish to import.')
                     return redirect("..")
                 try:
-                    apps.get_model(settings.WORK_MODEL).objects.get_or_create(**row)
+                    # TODO add site to creation?
+                    Work.objects.get_or_create(**row)
                 except IntegrityError:
                     pass
             # If CSV only contains work of single composer, assume it is full compilation of their work.

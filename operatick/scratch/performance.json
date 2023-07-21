@@ -1,0 +1,995 @@
+[
+  {
+    "model": "performance.performance",
+    "pk": 1,
+    "fields": {
+      "date": "2013-04-29",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": true,
+      "work": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 2,
+    "fields": {
+      "date": "2014-03-18",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        10
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 3,
+    "fields": {
+      "date": "2018-10-21",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        17
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 4,
+    "fields": {
+      "date": "2017-06-14",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        19
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 5,
+    "fields": {
+      "date": "2017-10-12",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        20
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 6,
+    "fields": {
+      "date": "2018-03-17",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        25
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 7,
+    "fields": {
+      "date": "2018-03-06",
+      "company": "Welsh National Opera",
+      "venue": 5,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        26
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 8,
+    "fields": {
+      "date": "2017-11-27",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        29
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 9,
+    "fields": {
+      "date": "2017-07-10",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        30
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 10,
+    "fields": {
+      "date": "2021-07-10",
+      "company": "Scottish Opera",
+      "venue": 10,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        31
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 11,
+    "fields": {
+      "date": "2017-05-30",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        175
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 12,
+    "fields": {
+      "date": "2015-11-18",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        127
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 13,
+    "fields": {
+      "date": "2019-03",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        130
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 14,
+    "fields": {
+      "date": "2017-11-29",
+      "company": "Royal College of Music",
+      "venue": 12,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        131
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 15,
+    "fields": {
+      "date": "2017-11-02",
+      "company": "Welsh National Opera",
+      "venue": 5,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        133
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 16,
+    "fields": {
+      "date": "2017-06-12",
+      "company": "The Mozartists",
+      "venue": 2,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        103
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 17,
+    "fields": {
+      "date": "2018-06-02",
+      "company": "The Mozartists",
+      "venue": 3,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        105
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 18,
+    "fields": {
+      "date": "2017-09-14",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        124
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 19,
+    "fields": {
+      "date": "2016-03-08",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        121
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 20,
+    "fields": {
+      "date": "2016-05-31",
+      "company": "English Touring Opera",
+      "venue": 9,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        120
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 21,
+    "fields": {
+      "date": "2017-07-05",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        101
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 25,
+    "fields": {
+      "date": "2017-06-08",
+      "company": "Opera Holland Park",
+      "venue": 16,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        97
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 26,
+    "fields": {
+      "date": "2018-03-08",
+      "company": "Welsh National Opera",
+      "venue": 5,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        94
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 27,
+    "fields": {
+      "date": "2017-09-19",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        93
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 28,
+    "fields": {
+      "date": "2017-05-22",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        28
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 29,
+    "fields": {
+      "date": "2018-10-28",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        91
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 30,
+    "fields": {
+      "date": "2017-10-05",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        48
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 31,
+    "fields": {
+      "date": "2013-05-27",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": true,
+      "work": [
+        60
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 32,
+    "fields": {
+      "date": "2017-11-22",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        65
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 33,
+    "fields": {
+      "date": "2018-01-17",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        75
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 35,
+    "fields": {
+      "date": "2017-11-03",
+      "company": "Welsh National Opera",
+      "venue": 5,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        243
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 38,
+    "fields": {
+      "date": "2016-03-12",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        280
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 39,
+    "fields": {
+      "date": "2018-01-10",
+      "company": "The Royal Opera",
+      "venue": 6,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        285
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 40,
+    "fields": {
+      "date": "2017-06-15",
+      "company": "Royal Academy Opera",
+      "venue": 7,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        325
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 41,
+    "fields": {
+      "date": "2017-03-22",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        375
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 42,
+    "fields": {
+      "date": "2022-02-24",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        377
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 43,
+    "fields": {
+      "date": "2018-02-14",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        397
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 44,
+    "fields": {
+      "date": "2016-06-06",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        452
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 72,
+    "fields": {
+      "date": "2017-11-04",
+      "company": "Welsh National Opera",
+      "venue": 5,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        418
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 73,
+    "fields": {
+      "date": "2021-10-20",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        483
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 74,
+    "fields": {
+      "date": "2021-10-16",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        484
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 75,
+    "fields": {
+      "date": "2017-07-19",
+      "company": "Welsh National Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        485
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 76,
+    "fields": {
+      "date": "2017-10-30",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        187
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 77,
+    "fields": {
+      "date": "2018-02-07",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        94
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 78,
+    "fields": {
+      "date": "2017-12-12",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        270,
+        229
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 79,
+    "fields": {
+      "date": "2017-03-14",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        486
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 80,
+    "fields": {
+      "date": "2017-11-15",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        333
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 81,
+    "fields": {
+      "date": "2018-02-13",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        487
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 82,
+    "fields": {
+      "date": "2017-11-28",
+      "company": "English National Opera",
+      "venue": 11,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        488
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 83,
+    "fields": {
+      "date": "2017-10-18",
+      "company": "Orchestra of the Age of Enlightenment",
+      "venue": 13,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        339
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 84,
+    "fields": {
+      "date": "2019-01-24",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        489
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 85,
+    "fields": {
+      "date": "2015-11-17",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        48
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 86,
+    "fields": {
+      "date": "2019-12-01",
+      "company": "Scottish Opera",
+      "venue": 14,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        490
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 87,
+    "fields": {
+      "date": "2018-02-01",
+      "company": "La Nuova Musica",
+      "venue": 2,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        284
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 88,
+    "fields": {
+      "date": "2018-03-18",
+      "company": "Birmingham Opera Company",
+      "venue": 15,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        491
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 89,
+    "fields": {
+      "date": "2018-06-09",
+      "company": "Welsh National Opera",
+      "venue": 17,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        492
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 90,
+    "fields": {
+      "date": "2019-10",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        94
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 91,
+    "fields": {
+      "date": "2019-05",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        124
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 92,
+    "fields": {
+      "date": "2015-11-28",
+      "company": "The Royal Danish Opera",
+      "venue": 18,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        100,
+        98,
+        99
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 93,
+    "fields": {
+      "date": "2020-09-10",
+      "company": "Scottish Opera",
+      "venue": 10,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        93
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 94,
+    "fields": {
+      "date": "2016-03-10",
+      "company": "Opera North",
+      "venue": 8,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        175
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 95,
+    "fields": {
+      "date": "2017-07-07",
+      "company": "The Royal Opera",
+      "venue": 4,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        106
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 96,
+    "fields": {
+      "date": "2022-08-11",
+      "company": "Scottish Opera",
+      "venue": 10,
+      "notes": "I performed in this as part of the Community Chorus",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        422
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 97,
+    "fields": {
+      "date": "2022-10-29",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        493
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 98,
+    "fields": {
+      "date": "2023-02-03",
+      "company": "Royal Conservatoire of Scotland",
+      "venue": 19,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        440
+      ]
+    }
+  },
+  {
+    "model": "performance.performance",
+    "pk": 99,
+    "fields": {
+      "date": "2023-05-18",
+      "company": "Scottish Opera",
+      "venue": 1,
+      "notes": "",
+      "user": 1,
+      "streamed": false,
+      "work": [
+        238
+      ]
+    }
+  }
+]

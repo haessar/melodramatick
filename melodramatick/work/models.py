@@ -1,8 +1,10 @@
+__all__ = ["AKA", "Genre", "SubGenre", "Work"]
 import datetime
 import random
 
-from django.apps import apps
 from django.conf import settings
+from django.contrib.sites.managers import CurrentSiteManager
+from django.contrib.sites.models import Site
 from django.core.cache import cache
 from django.db import models
 from django.db.models.signals import post_save, post_delete
@@ -34,20 +36,22 @@ class SubGenre(models.Model):
 
 class Work(models.Model):
     composer = models.ForeignKey(Composer, on_delete=models.PROTECT)
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, db_index=True)
     year = models.IntegerField(choices=settings.YEAR_CHOICES, default=datetime.datetime.now().year)
     notes = models.TextField(null=True, blank=True)
     sub_genre = models.ForeignKey(SubGenre, on_delete=models.PROTECT, null=True, blank=True)
+    site = models.ForeignKey(Site, on_delete=models.PROTECT)
+    objects = CurrentSiteManager()
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['composer', 'title'], name='unique_work')
         ]
         ordering = ['title']
-        abstract = True
+        # abstract = True
 
     def __str__(self):
-        if len(apps.get_model(settings.WORK_MODEL).objects.filter(title=self.title)) > 1:
+        if len(Work.objects.filter(title=self.title)) > 1:
             return "{} ({})".format(self.title, self.composer.surname)
         return self.title
 
@@ -80,7 +84,7 @@ def clear_cache_work(*args, **kwargs):
 
 
 class AKA(models.Model):
-    work = models.ForeignKey(settings.WORK_MODEL, on_delete=models.CASCADE, related_name="aka")
+    work = models.ForeignKey(Work, on_delete=models.CASCADE, related_name="aka")
     title = models.CharField(max_length=100)
 
     def __str__(self):

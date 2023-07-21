@@ -1,6 +1,5 @@
 from dal import autocomplete
 import django_filters
-from django.apps import apps
 from django.conf import settings
 from django.db.models import Q, F
 from django.urls import reverse_lazy
@@ -9,8 +8,8 @@ from melodramatick.composer.models import Composer, Group
 from melodramatick.top_list.models import List
 from melodramatick.utils.filters import CustomEmptyLabelMixin
 from melodramatick.utils.widgets import CustomRangeWidget
-from melodramatick.work.forms import WorkFilterFormHelper
-from melodramatick.work.models import Genre
+from .forms import WorkFilterFormHelper
+from .models import Genre, Work
 
 
 class EraChoiceFilter(django_filters.ChoiceFilter):
@@ -43,7 +42,7 @@ class WorkFilter(CustomEmptyLabelMixin, django_filters.FilterSet):
                                                       lookup_expr='exact', label="Composer Group")
 
     class Meta:
-        model = apps.get_model(settings.WORK_MODEL)
+        model = Work
         fields = ['composer', 'composer_group', 'top_list', 'duration_range', 'genre']
         form = WorkFilterFormHelper
 

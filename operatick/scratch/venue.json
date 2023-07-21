@@ -1,0 +1,154 @@
+[
+    {
+        "model": "performance.venue",
+        "pk": 1,
+        "fields": {
+            "name": "Theatre Royal",
+            "location": "Glasgow, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 2,
+        "fields": {
+            "name": "St John's Smith Square",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 3,
+        "fields": {
+            "name": "Town Hall",
+            "location": "Birmingham, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 4,
+        "fields": {
+            "name": "Royal Opera House",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 5,
+        "fields": {
+            "name": "Birmingham Hippodrome",
+            "location": "Birmingham, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 6,
+        "fields": {
+            "name": "Roundhouse",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 7,
+        "fields": {
+            "name": "Shoreditch Town Hall",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 8,
+        "fields": {
+            "name": "Theatre Royal",
+            "location": "Nottingham, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 9,
+        "fields": {
+            "name": "Curve",
+            "location": "Leicester, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 10,
+        "fields": {
+            "name": "Scottish Opera Production Studios",
+            "location": "Glasgow, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 11,
+        "fields": {
+            "name": "London Coliseum",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 12,
+        "fields": {
+            "name": "Britten Theatre",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 13,
+        "fields": {
+            "name": "Royal Festival Hall",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 14,
+        "fields": {
+            "name": "City Halls",
+            "location": "Glasgow, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 15,
+        "fields": {
+            "name": "B12 Warehouse",
+            "location": "Birmingham, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 16,
+        "fields": {
+            "name": "Holland Park",
+            "location": "London, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 17,
+        "fields": {
+            "name": "Midlands Arts Centre",
+            "location": "Birmingham, UK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 18,
+        "fields": {
+            "name": "Copenhagen Opera House",
+            "location": "Copenhagen, DK"
+        }
+    },
+    {
+        "model": "performance.venue",
+        "pk": 19,
+        "fields": {
+            "name": "New Athenaeum Theatre",
+            "location": "Glasgow, UK"
+        }
+    }
+]

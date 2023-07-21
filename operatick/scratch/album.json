@@ -1,0 +1,5162 @@
+[
+    {
+        "model": "listen.album",
+        "pk": "016O57O4OalNmciR12oIRf",
+        "fields": {
+            "work": 361,
+            "duration": 148,
+            "uri": "spotify:album:016O57O4OalNmciR12oIRf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730600e81a078dd23b6eccbdba"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "01B72NX2L24VGRbO3bmHXm",
+        "fields": {
+            "work": 471,
+            "duration": 182,
+            "uri": "spotify:playlist:01B72NX2L24VGRbO3bmHXm",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273047db48d7fbc71d5311930ab"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "01gx7S99vcCEAgVMAvaOFS",
+        "fields": {
+            "work": 19,
+            "duration": 136,
+            "uri": "spotify:playlist:01gx7S99vcCEAgVMAvaOFS",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735ace77eb6c3e7006b6e5e3dd"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "01tuW2IRuFq5EkuScGSbLF",
+        "fields": {
+            "work": 377,
+            "duration": 143,
+            "uri": "spotify:album:01tuW2IRuFq5EkuScGSbLF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d72f7200ecbf52d2c1aae280"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "06Rffs7LOnplzKZ5GiWtI4",
+        "fields": {
+            "work": 300,
+            "duration": 162,
+            "uri": "spotify:album:06Rffs7LOnplzKZ5GiWtI4",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737578d8164a97faabb1d0295e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "06ZBy3uKBTVfCbquawHi25",
+        "fields": {
+            "work": 612,
+            "duration": 135,
+            "uri": "spotify:album:06ZBy3uKBTVfCbquawHi25",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737148c7c150bb42ab47fec4b8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "08IICNOdgpKNruZEt1O5re",
+        "fields": {
+            "work": 111,
+            "duration": 117,
+            "uri": "spotify:playlist:08IICNOdgpKNruZEt1O5re",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732c0fd9e4f8b4acf54397493c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "09eeBUTji3hcF9MqKiFlKK",
+        "fields": {
+            "work": 463,
+            "duration": 148,
+            "uri": "spotify:playlist:09eeBUTji3hcF9MqKiFlKK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fd3e4cb2956b31472fae90ab"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0ANRtncABLUdW85KbrEl83",
+        "fields": {
+            "work": 166,
+            "duration": 129,
+            "uri": "spotify:playlist:0ANRtncABLUdW85KbrEl83",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273416790db032437d661356338"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0BWeWe0vrsE3LP3EHnnsoO",
+        "fields": {
+            "work": 480,
+            "duration": 103,
+            "uri": "spotify:playlist:0BWeWe0vrsE3LP3EHnnsoO",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737d9564f8f87666b862755a9c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0G69SCtGluSYAgNQ19RL7P",
+        "fields": {
+            "work": 11,
+            "duration": 126,
+            "uri": "spotify:playlist:0G69SCtGluSYAgNQ19RL7P",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27362344eb457b6b47c61d41677"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0H12SZuuwjI3KzcVIlLj7K",
+        "fields": {
+            "work": 458,
+            "duration": 53,
+            "uri": "spotify:playlist:0H12SZuuwjI3KzcVIlLj7K",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27371242db513889a73dc06c2bc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0HSDExYuZmJZsm79ehyOgl",
+        "fields": {
+            "work": 428,
+            "duration": 98,
+            "uri": "spotify:playlist:0HSDExYuZmJZsm79ehyOgl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fc08948d80126eb28baa7f2c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0KIFEBPRm5H1mLxCO2gZdW",
+        "fields": {
+            "work": 444,
+            "duration": 102,
+            "uri": "spotify:album:0KIFEBPRm5H1mLxCO2gZdW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ad3d46615bbfc94211f4d836"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0KWQDuT2B9dYb7DsUCwSj3",
+        "fields": {
+            "work": 654,
+            "duration": 76,
+            "uri": "spotify:album:0KWQDuT2B9dYb7DsUCwSj3",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e8735f772a2420302cf98fc1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0LHDMnWocL1KqKa4EPrpDk",
+        "fields": {
+            "work": 301,
+            "duration": 136,
+            "uri": "spotify:album:0LHDMnWocL1KqKa4EPrpDk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d950445131759cf2e7ef1381"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0LKY6mXfjENaT05djgsi97",
+        "fields": {
+            "work": 641,
+            "duration": 55,
+            "uri": "spotify:album:0LKY6mXfjENaT05djgsi97",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732f29437f26fb6e207e769ea8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0Li0fdkCgWYl8ahteO9WWN",
+        "fields": {
+            "work": 238,
+            "duration": 169,
+            "uri": "spotify:playlist:0Li0fdkCgWYl8ahteO9WWN",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273eeab70c831fe787c8de4240f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0NQEBRJtlNYtYMoo83XIGl",
+        "fields": {
+            "work": 26,
+            "duration": 164,
+            "uri": "spotify:playlist:0NQEBRJtlNYtYMoo83XIGl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738fb0ef0b58ec02d6bf7eee71"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0NsD2jdnVCzDE2ZRVG6C6e",
+        "fields": {
+            "work": 329,
+            "duration": 157,
+            "uri": "spotify:playlist:0NsD2jdnVCzDE2ZRVG6C6e",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273bf649950a41bc05392082091"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0O2xNPHhfYTMHwG4FrN9hq",
+        "fields": {
+            "work": 240,
+            "duration": 147,
+            "uri": "spotify:playlist:0O2xNPHhfYTMHwG4FrN9hq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273305a6cd72e1ef68a08df9adc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0Pw5gdZbEVKCGpHeUR4MX9",
+        "fields": {
+            "work": 507,
+            "duration": 141,
+            "uri": "spotify:album:0Pw5gdZbEVKCGpHeUR4MX9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739797005b3af88be8fc3e4066"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0Q0QgJY80Lowyq3ZAh4Uyb",
+        "fields": {
+            "work": 429,
+            "duration": 27,
+            "uri": "spotify:playlist:0Q0QgJY80Lowyq3ZAh4Uyb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a3bb42b01e52ac9adfeaacaf"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0QhIzsJd3waUW7itUihJGC",
+        "fields": {
+            "work": 142,
+            "duration": 185,
+            "uri": "spotify:playlist:0QhIzsJd3waUW7itUihJGC",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735f6e8b78c7c2260b986c5950"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0QwuuNaD0u5sZ9hOBjX7dQ",
+        "fields": {
+            "work": 238,
+            "duration": 146,
+            "uri": "spotify:playlist:0QwuuNaD0u5sZ9hOBjX7dQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a0cddf459ff24a2bc129603d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0T8dHGrsheiaz457Pa6fjq",
+        "fields": {
+            "work": 242,
+            "duration": 205,
+            "uri": "spotify:playlist:0T8dHGrsheiaz457Pa6fjq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273cf44caa16f19c5b6ff40f08b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0THyWnUrN4d4PCeQdZrOON",
+        "fields": {
+            "work": 28,
+            "duration": 231,
+            "uri": "spotify:playlist:0THyWnUrN4d4PCeQdZrOON",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27367d3400a79fc977c3a7a6585"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0VBtXDzEZBY2fJdx7RkqaI",
+        "fields": {
+            "work": 132,
+            "duration": 95,
+            "uri": "spotify:playlist:0VBtXDzEZBY2fJdx7RkqaI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273313ecc1309644c19f98b777a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0VCF8LolMDDOWiStSATpvR",
+        "fields": {
+            "work": 175,
+            "duration": 116,
+            "uri": "spotify:playlist:0VCF8LolMDDOWiStSATpvR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734185a0c33f712df4a981fe99"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0WMtGiLHJDbu58tUFpXb5w",
+        "fields": {
+            "work": 186,
+            "duration": 144,
+            "uri": "spotify:playlist:0WMtGiLHJDbu58tUFpXb5w",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27355ebfd02d0c03ff715dcecbf"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0XAvZqSa27E8yg7P5zC2PI",
+        "fields": {
+            "work": 74,
+            "duration": 88,
+            "uri": "spotify:playlist:0XAvZqSa27E8yg7P5zC2PI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273882768e2da2b600f79818121"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0YyjL9CGMl5pj8wKsJtrfZ",
+        "fields": {
+            "work": 345,
+            "duration": 170,
+            "uri": "spotify:playlist:0YyjL9CGMl5pj8wKsJtrfZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733572c3264188f83ba8df7f0a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0ZAx24XIE5AKi52J9AJnUz",
+        "fields": {
+            "work": 391,
+            "duration": 125,
+            "uri": "spotify:playlist:0ZAx24XIE5AKi52J9AJnUz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732b65f54004f5ea0159b8983a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0cGF0rF3d3rga6yZIvm9DG",
+        "fields": {
+            "work": 356,
+            "duration": 128,
+            "uri": "spotify:playlist:0cGF0rF3d3rga6yZIvm9DG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27337bb38ea12cd3528a811e59b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0cqSOSMTtpuaGuZkQjnlMv",
+        "fields": {
+            "work": 615,
+            "duration": 79,
+            "uri": "spotify:album:0cqSOSMTtpuaGuZkQjnlMv",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e9807a634522a6a2b3809870"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0iPmNa8p11hssKAlr4Bj7g",
+        "fields": {
+            "work": 170,
+            "duration": 92,
+            "uri": "spotify:playlist:0iPmNa8p11hssKAlr4Bj7g",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730ae6169148c6d10113151391"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0j9l0vK4w5OF5Zm6rW0pNy",
+        "fields": {
+            "work": 109,
+            "duration": 143,
+            "uri": "spotify:playlist:0j9l0vK4w5OF5Zm6rW0pNy",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a141c8fcf99217dc7e6974de"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0jAea9reXIeOQRnuF0onoE",
+        "fields": {
+            "work": 405,
+            "duration": 27,
+            "uri": "spotify:playlist:0jAea9reXIeOQRnuF0onoE",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27370a87ecf5211efbd39feb254"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0mOe9i8Ob3kq0crEHkQAAG",
+        "fields": {
+            "work": 16,
+            "duration": 114,
+            "uri": "spotify:playlist:0mOe9i8Ob3kq0crEHkQAAG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273354f551f75cdfa5cdb184df9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0nOYVkOz7hGGGFGigGJ9aK",
+        "fields": {
+            "work": 195,
+            "duration": 133,
+            "uri": "spotify:playlist:0nOYVkOz7hGGGFGigGJ9aK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732e5a142a5d0df49cb1b9e7cb"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0nnHlkIZtpKhur4tLWgSxs",
+        "fields": {
+            "work": 55,
+            "duration": 136,
+            "uri": "spotify:playlist:0nnHlkIZtpKhur4tLWgSxs",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731940973dadfeb43485bc35ec"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0oVC0ysSpqJVKksFYoItFa",
+        "fields": {
+            "work": 676,
+            "duration": 241,
+            "uri": "spotify:album:0oVC0ysSpqJVKksFYoItFa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738ffa3eff45064618cfe30077"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0qA1thzsasF5nDqzgZoQJk",
+        "fields": {
+            "work": 87,
+            "duration": 165,
+            "uri": "spotify:playlist:0qA1thzsasF5nDqzgZoQJk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27325202a82a3e03277d5a4d396"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0tVzV8w1Zu3f2N1YW2UTdB",
+        "fields": {
+            "work": 447,
+            "duration": 145,
+            "uri": "spotify:playlist:0tVzV8w1Zu3f2N1YW2UTdB",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b936e6bfdc37b62e4c3df31d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0uHo2j4yBVOoE44WPcscKf",
+        "fields": {
+            "work": 430,
+            "duration": 150,
+            "uri": "spotify:playlist:0uHo2j4yBVOoE44WPcscKf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27321bc2d3321ba0291faa24c23"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0uI9o0Qj4HQMQkkzzP6czY",
+        "fields": {
+            "work": 298,
+            "duration": 169,
+            "uri": "spotify:album:0uI9o0Qj4HQMQkkzzP6czY",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730ac8a412a880be4479a0e4a5"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0wcQqUgoDL3uQrO4v0l5W4",
+        "fields": {
+            "work": 383,
+            "duration": 95,
+            "uri": "spotify:playlist:0wcQqUgoDL3uQrO4v0l5W4",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733f2900e7ddc70581a6add58d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "0zwAtCqj1VrMMGCgFrqDcM",
+        "fields": {
+            "work": 614,
+            "duration": 109,
+            "uri": "spotify:album:0zwAtCqj1VrMMGCgFrqDcM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b4f3db9b20bf51a3f8139288"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "100RhaZhr32PkPpTbt256v",
+        "fields": {
+            "work": 632,
+            "duration": 185,
+            "uri": "spotify:album:100RhaZhr32PkPpTbt256v",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273dc88f1363cff8dce4b8be3ee"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "10AkLVJIc6c6oGpakGURGX",
+        "fields": {
+            "work": 379,
+            "duration": 125,
+            "uri": "spotify:playlist:10AkLVJIc6c6oGpakGURGX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737e9330f46fe48846a164e917"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1144Pv75h1aKHp4QOmiiUj",
+        "fields": {
+            "work": 223,
+            "duration": 179,
+            "uri": "spotify:playlist:1144Pv75h1aKHp4QOmiiUj",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273362b5204f792f038d434235b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "11j0HZbeyTBju1GXacGUWu",
+        "fields": {
+            "work": 452,
+            "duration": 136,
+            "uri": "spotify:playlist:11j0HZbeyTBju1GXacGUWu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273afc149a8ece206b817e019dc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "12IHAly6pEFghQcYimsQpb",
+        "fields": {
+            "work": 241,
+            "duration": 136,
+            "uri": "spotify:playlist:12IHAly6pEFghQcYimsQpb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273be69aab2b345ca1ec1b31ef1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "12MyQ2Vgy36MlTIMtR0dqO",
+        "fields": {
+            "work": 464,
+            "duration": 140,
+            "uri": "spotify:playlist:12MyQ2Vgy36MlTIMtR0dqO",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b846665da471243acdaae557"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "12ooHKFI67W7cuU9S1sqvH",
+        "fields": {
+            "work": 205,
+            "duration": 151,
+            "uri": "spotify:playlist:12ooHKFI67W7cuU9S1sqvH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273bee23e6a2c821a6283c59dda"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "13QBYuR7OLZA9HEo72r3ep",
+        "fields": {
+            "work": 30,
+            "duration": 136,
+            "uri": "spotify:playlist:13QBYuR7OLZA9HEo72r3ep",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273deff2d1bfff4f07374e574b2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "14SETSKmsJKfJOqBaVxW2U",
+        "fields": {
+            "work": 409,
+            "duration": 129,
+            "uri": "spotify:album:14SETSKmsJKfJOqBaVxW2U",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273cbc63e280abed7a9b7c81328"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "14TNZe9UTa5EhkiWaNzmEh",
+        "fields": {
+            "work": 360,
+            "duration": 170,
+            "uri": "spotify:playlist:14TNZe9UTa5EhkiWaNzmEh",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273482e76d5e91d1343424c21dc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "15C7k7nmtb5HSFN24rIuEa",
+        "fields": {
+            "work": 187,
+            "duration": 140,
+            "uri": "spotify:playlist:15C7k7nmtb5HSFN24rIuEa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ee162e281313e43c47953557"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "17LVaf5K7A7nOUKajBQ58V",
+        "fields": {
+            "work": 436,
+            "duration": 160,
+            "uri": "spotify:playlist:17LVaf5K7A7nOUKajBQ58V",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732cac180465d00d2196d9f0e7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "19oMgP9TO2tZyYVyHSSKDu",
+        "fields": {
+            "work": 208,
+            "duration": 122,
+            "uri": "spotify:playlist:19oMgP9TO2tZyYVyHSSKDu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738b72df813b09dfab0f6814ec"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "19t42kJfm4Diwll8OAQntB",
+        "fields": {
+            "work": 41,
+            "duration": 169,
+            "uri": "spotify:playlist:19t42kJfm4Diwll8OAQntB",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730568e34db79ca4f3d00a1c71"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1AExop14FhtHZTlzmbx1Ja",
+        "fields": {
+            "work": 435,
+            "duration": 119,
+            "uri": "spotify:playlist:1AExop14FhtHZTlzmbx1Ja",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d65b09c56fa861c9c7fa2fa1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1Cxw8pvL6IXig16rGxIIt9",
+        "fields": {
+            "work": 28,
+            "duration": 176,
+            "uri": "spotify:playlist:1Cxw8pvL6IXig16rGxIIt9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b9abf3c5b769fa6c1f8381e6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1DXQA1OA6iKlFFwPcvEpb1",
+        "fields": {
+            "work": 104,
+            "duration": 66,
+            "uri": "spotify:playlist:1DXQA1OA6iKlFFwPcvEpb1",
+            "image_url": "https://i.scdn.co/image/b682b54e11fcd3b092216afa5f888d8692b2e63c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1EOIrxoakUoJgkP7GOD29X",
+        "fields": {
+            "work": 261,
+            "duration": 171,
+            "uri": "spotify:playlist:1EOIrxoakUoJgkP7GOD29X",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b3c77723a4c1e05fc6a71af0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1EbWiw23vyRSh3vUeMDiuM",
+        "fields": {
+            "work": 334,
+            "duration": 156,
+            "uri": "spotify:album:1EbWiw23vyRSh3vUeMDiuM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737edb15b25c4ebe285f43f5e4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1FqglkyDO689xx8Zwhy6by",
+        "fields": {
+            "work": 14,
+            "duration": 107,
+            "uri": "spotify:playlist:1FqglkyDO689xx8Zwhy6by",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735f2150a7162351ddac9cf9aa"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1IQoe6mgaA2kLcn1GmLYzD",
+        "fields": {
+            "work": 496,
+            "duration": 141,
+            "uri": "spotify:album:1IQoe6mgaA2kLcn1GmLYzD",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a572032524a064e8c8593623"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1Ig4QmYOBPGCeBJPgxR77X",
+        "fields": {
+            "work": 221,
+            "duration": 161,
+            "uri": "spotify:playlist:1Ig4QmYOBPGCeBJPgxR77X",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273875ef09239c5f554cc397ef0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1JXEABtKytrsgyNPNvLqdU",
+        "fields": {
+            "work": 442,
+            "duration": 64,
+            "uri": "spotify:playlist:1JXEABtKytrsgyNPNvLqdU",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737eca2ef9fbee309f8a965858"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1K9VHs3c4VyXcRhlqdTLF1",
+        "fields": {
+            "work": 619,
+            "duration": 88,
+            "uri": "spotify:album:1K9VHs3c4VyXcRhlqdTLF1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f4bf23ec77abc34ed6f5074c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1KbJiz2xPnki7LaEuIue5S",
+        "fields": {
+            "work": 503,
+            "duration": 100,
+            "uri": "spotify:album:1KbJiz2xPnki7LaEuIue5S",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733c17d50e2feb272e047cdade"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1L2O2dPMf4mnF9wiTlKbU4",
+        "fields": {
+            "work": 122,
+            "duration": 115,
+            "uri": "spotify:playlist:1L2O2dPMf4mnF9wiTlKbU4",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273588c543a4f642cc0de8a701f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1M0HtnuiDKMtVoSjOyIjPu",
+        "fields": {
+            "work": 179,
+            "duration": 131,
+            "uri": "spotify:playlist:1M0HtnuiDKMtVoSjOyIjPu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736808eb7fabbb3bb23bba7ff8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1MW5NPh5CUiZqm0IRU5CbV",
+        "fields": {
+            "work": 347,
+            "duration": 107,
+            "uri": "spotify:album:1MW5NPh5CUiZqm0IRU5CbV",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273da5bf70f601a2dcc9ac57beb"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1NAEQkCSqbMYiIY7pPjPSu",
+        "fields": {
+            "work": 181,
+            "duration": 133,
+            "uri": "spotify:playlist:1NAEQkCSqbMYiIY7pPjPSu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273215be5ba096ee90f9c166164"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1NjYXy1B4Zyuwu8wNRetWK",
+        "fields": {
+            "work": 319,
+            "duration": 181,
+            "uri": "spotify:album:1NjYXy1B4Zyuwu8wNRetWK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732efd3f98f43f8c38bf728c7f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1OAHRFtPBv2TanxbE5xXPe",
+        "fields": {
+            "work": 227,
+            "duration": 165,
+            "uri": "spotify:album:1OAHRFtPBv2TanxbE5xXPe",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c871955022755b40145cef41"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1OJGYYEJYXinL0kGt0Z6wE",
+        "fields": {
+            "work": 254,
+            "duration": 116,
+            "uri": "spotify:playlist:1OJGYYEJYXinL0kGt0Z6wE",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734e18355c8ba454da0f45e51a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1Okc8FLv04fMFXlOWqwDoo",
+        "fields": {
+            "work": 119,
+            "duration": 129,
+            "uri": "spotify:playlist:1Okc8FLv04fMFXlOWqwDoo",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731bb8c0be802ab63b89dd3df8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1PUbHODLRICkTBZR90dj4K",
+        "fields": {
+            "work": 352,
+            "duration": 255,
+            "uri": "spotify:playlist:1PUbHODLRICkTBZR90dj4K",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736021b70c9fbbd20a56899b7b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1QvGR4ZPBWAvTQGl55NxKX",
+        "fields": {
+            "work": 350,
+            "duration": 114,
+            "uri": "spotify:album:1QvGR4ZPBWAvTQGl55NxKX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273899270929780c6d283f25677"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1RTHNHEK9pUrfbSvQqxsMz",
+        "fields": {
+            "work": 130,
+            "duration": 139,
+            "uri": "spotify:album:1RTHNHEK9pUrfbSvQqxsMz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27342a73c78a27ed410b4eb8da7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1SFxzEAr0lGmxxL57YdGAb",
+        "fields": {
+            "work": 183,
+            "duration": 133,
+            "uri": "spotify:album:1SFxzEAr0lGmxxL57YdGAb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27344e28e4c8eb25ad587725700"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1SGSshckSQ5JSoe5xLBp9T",
+        "fields": {
+            "work": 245,
+            "duration": 153,
+            "uri": "spotify:playlist:1SGSshckSQ5JSoe5xLBp9T",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739be4ca909f0c7f54fb3386b4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1Sbq7uVRvruNsVDkBsdXi2",
+        "fields": {
+            "work": 152,
+            "duration": 65,
+            "uri": "spotify:playlist:1Sbq7uVRvruNsVDkBsdXi2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273442623adb5a92213dfe3c303"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1TM5ktSF4Ooht0woTCTiRg",
+        "fields": {
+            "work": 271,
+            "duration": 108,
+            "uri": "spotify:playlist:1TM5ktSF4Ooht0woTCTiRg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27315b84ac0e4a8b74d36c44176"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1TVaQfyeKEwduHvsj3ZHCi",
+        "fields": {
+            "work": 395,
+            "duration": 101,
+            "uri": "spotify:album:1TVaQfyeKEwduHvsj3ZHCi",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273679fcb6789bd8922dc3005cd"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1UGAkxz11vZ4OgKudF3srL",
+        "fields": {
+            "work": 194,
+            "duration": 125,
+            "uri": "spotify:playlist:1UGAkxz11vZ4OgKudF3srL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273071e1388c03d12fca71d4ced"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1URWspc3yPzXyyUeFuySNZ",
+        "fields": {
+            "work": 106,
+            "duration": 125,
+            "uri": "spotify:playlist:1URWspc3yPzXyyUeFuySNZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273cfa258c12489d37f32cf531f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1UZWmyt1nxEiSS5yWi2B7s",
+        "fields": {
+            "work": 660,
+            "duration": 61,
+            "uri": "spotify:album:1UZWmyt1nxEiSS5yWi2B7s",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273de07a76b764c33bd90b9d171"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1VPxj6LngBeJWEJhIaMXZg",
+        "fields": {
+            "work": 38,
+            "duration": 165,
+            "uri": "spotify:playlist:1VPxj6LngBeJWEJhIaMXZg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e459b352d4007e572cde31b3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1VzifdZdJZWshpXjSSjPal",
+        "fields": {
+            "work": 482,
+            "duration": 171,
+            "uri": "spotify:playlist:1VzifdZdJZWshpXjSSjPal",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273145d22ff938658141e1aaa73"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1W04FRFnbYom8s9HY2MRwL",
+        "fields": {
+            "work": 663,
+            "duration": 118,
+            "uri": "spotify:album:1W04FRFnbYom8s9HY2MRwL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27370695df27b35fb0704307b16"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1WawnCgV7U1TkW2SgZQYKF",
+        "fields": {
+            "work": 286,
+            "duration": 152,
+            "uri": "spotify:album:1WawnCgV7U1TkW2SgZQYKF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c83b0a4125b9891c7258a741"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1XARXJxk59jE7TlIsI7YxX",
+        "fields": {
+            "work": 427,
+            "duration": 83,
+            "uri": "spotify:playlist:1XARXJxk59jE7TlIsI7YxX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27359349849bca14cc5d797bf01"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1XLXzFZcvckif08U8mDdUa",
+        "fields": {
+            "work": 374,
+            "duration": 121,
+            "uri": "spotify:playlist:1XLXzFZcvckif08U8mDdUa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f286e8d13b1a5589a0f3b38f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1XniNfbCPZKV8ml43yJQKa",
+        "fields": {
+            "work": 508,
+            "duration": 130,
+            "uri": "spotify:album:1XniNfbCPZKV8ml43yJQKa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736931b22008d306221dbc07aa"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1ZP2H7ZVAFIKOn4FRgqZZk",
+        "fields": {
+            "work": 86,
+            "duration": 103,
+            "uri": "spotify:playlist:1ZP2H7ZVAFIKOn4FRgqZZk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b9cccba85018a807d1fa55de"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1bEX0tULL0JUMgX05DS4TI",
+        "fields": {
+            "work": 188,
+            "duration": 118,
+            "uri": "spotify:playlist:1bEX0tULL0JUMgX05DS4TI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27387f115bf0c9b104fdce00bfc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1bFnSTFjxWQGcGEOMBigEF",
+        "fields": {
+            "work": 460,
+            "duration": 166,
+            "uri": "spotify:playlist:1bFnSTFjxWQGcGEOMBigEF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273479c40402a0e15f64926eb07"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1bTO9oCNeLSbcrcgPmfYxu",
+        "fields": {
+            "work": 497,
+            "duration": 102,
+            "uri": "spotify:album:1bTO9oCNeLSbcrcgPmfYxu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ee940bd530bcca06482c080f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1e6c5YaxY84DzYOcV5l8dl",
+        "fields": {
+            "work": 550,
+            "duration": 173,
+            "uri": "spotify:album:1e6c5YaxY84DzYOcV5l8dl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27388437c1e36a684753b4a99b2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1eMPzepuc1tvdEJ5Il93Bj",
+        "fields": {
+            "work": 505,
+            "duration": 147,
+            "uri": "spotify:playlist:1eMPzepuc1tvdEJ5Il93Bj",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ec08d66f986b9f80bc87b715"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1fTFC7EPUDUUryU7euNpf0",
+        "fields": {
+            "work": 5,
+            "duration": 123,
+            "uri": "spotify:playlist:1fTFC7EPUDUUryU7euNpf0",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b38e36e82d9698ed65032e66"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1fjwA4uj1sHRLiLLWJbMJb",
+        "fields": {
+            "work": 172,
+            "duration": 65,
+            "uri": "spotify:playlist:1fjwA4uj1sHRLiLLWJbMJb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732aeaac849e6628c32623d154"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1fvLAyrrzbUoY0Fgy1sE8v",
+        "fields": {
+            "work": 101,
+            "duration": 131,
+            "uri": "spotify:playlist:1fvLAyrrzbUoY0Fgy1sE8v",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b09496d4a8dd81a7dabafce1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1g57djC4yJLOqMwbaTLuyQ",
+        "fields": {
+            "work": 629,
+            "duration": 114,
+            "uri": "spotify:album:1g57djC4yJLOqMwbaTLuyQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d3c72667ff128009fb493dd3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1gMSZcr87N7AcHHk3vliap",
+        "fields": {
+            "work": 8,
+            "duration": 99,
+            "uri": "spotify:playlist:1gMSZcr87N7AcHHk3vliap",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273005e80a4733da643ef1fa2de"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1gYxSzxQuy09kG9nj4S4Ks",
+        "fields": {
+            "work": 95,
+            "duration": 143,
+            "uri": "spotify:playlist:1gYxSzxQuy09kG9nj4S4Ks",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737ac224b6c471b9594125b964"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1h7GIDrDktGGI5yO0vBmly",
+        "fields": {
+            "work": 623,
+            "duration": 181,
+            "uri": "spotify:album:1h7GIDrDktGGI5yO0vBmly",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ddab9298e2aeada417fc0721"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1hJEWMtOXJAx1lKm0Tit1u",
+        "fields": {
+            "work": 307,
+            "duration": 194,
+            "uri": "spotify:album:1hJEWMtOXJAx1lKm0Tit1u",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736693e81903d75072462d9114"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1iCmzfciHgrc6DTgCh39w4",
+        "fields": {
+            "work": 174,
+            "duration": 156,
+            "uri": "spotify:playlist:1iCmzfciHgrc6DTgCh39w4",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27382c04935f73dc07bd7ffc860"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1iDeY9lSf8Z208Y1qyKLVt",
+        "fields": {
+            "work": 182,
+            "duration": 149,
+            "uri": "spotify:playlist:1iDeY9lSf8Z208Y1qyKLVt",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736c51afad97cb7308c6085cda"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1iN72mBjHS69sAmmvat14J",
+        "fields": {
+            "work": 381,
+            "duration": 58,
+            "uri": "spotify:album:1iN72mBjHS69sAmmvat14J",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735b4f55d36feee1ffa0d74b6b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1kJENDBZJ9CQGuNqd24Vo8",
+        "fields": {
+            "work": 438,
+            "duration": 138,
+            "uri": "spotify:playlist:1kJENDBZJ9CQGuNqd24Vo8",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fcf69c37aa881d8caff315b2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1kJOZUcYlCHZ7su6oPwYZu",
+        "fields": {
+            "work": 380,
+            "duration": 136,
+            "uri": "spotify:album:1kJOZUcYlCHZ7su6oPwYZu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273af28fdb5a27574a195315d50"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1kSE1FgjaqqPJdinbahnVg",
+        "fields": {
+            "work": 305,
+            "duration": 212,
+            "uri": "spotify:playlist:1kSE1FgjaqqPJdinbahnVg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b93750729244ffa95c2f7ff3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1l9EIdOEA2dHBAmRYSa9vY",
+        "fields": {
+            "work": 329,
+            "duration": 200,
+            "uri": "spotify:playlist:1l9EIdOEA2dHBAmRYSa9vY",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273111acef8c2642d36a8e6238d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1lM6hKA8ZunyD80wQU6aYI",
+        "fields": {
+            "work": 333,
+            "duration": 146,
+            "uri": "spotify:album:1lM6hKA8ZunyD80wQU6aYI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27365c27aa58570a4749522601f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1meMvR1B12MObd2ZU3Gc3K",
+        "fields": {
+            "work": 272,
+            "duration": 122,
+            "uri": "spotify:playlist:1meMvR1B12MObd2ZU3Gc3K",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e0fb7fc8fcfed00dfc91f84d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1nV0aej1TzcOAmaJblZzCF",
+        "fields": {
+            "work": 190,
+            "duration": 61,
+            "uri": "spotify:playlist:1nV0aej1TzcOAmaJblZzCF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739b6c9024acc9df4953cfdd76"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1qJbsofqzQZmtY3hgDdM7h",
+        "fields": {
+            "work": 285,
+            "duration": 166,
+            "uri": "spotify:album:1qJbsofqzQZmtY3hgDdM7h",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d9c808fc448ec72c712193ad"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1r5hyUV2THXsaBHQhKGNkD",
+        "fields": {
+            "work": 316,
+            "duration": 172,
+            "uri": "spotify:playlist:1r5hyUV2THXsaBHQhKGNkD",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27319b1bcc139942e68bc68d15b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1srM4ftgbiKPJPtRi4iRKI",
+        "fields": {
+            "work": 535,
+            "duration": 144,
+            "uri": "spotify:album:1srM4ftgbiKPJPtRi4iRKI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273523dce998fb45b8ca6d3f270"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1teJPyN1YjqNOpRLRDiqG1",
+        "fields": {
+            "work": 230,
+            "duration": 134,
+            "uri": "spotify:playlist:1teJPyN1YjqNOpRLRDiqG1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b2f06d3be191cb7032d1c0a6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1vutOX5UaqtRiUYaVcNzuA",
+        "fields": {
+            "work": 257,
+            "duration": 255,
+            "uri": "spotify:album:1vutOX5UaqtRiUYaVcNzuA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738c55d13f86775d5b4d68364e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1wmSkfMkQyz1qFE49p0EsX",
+        "fields": {
+            "work": 255,
+            "duration": 190,
+            "uri": "spotify:album:1wmSkfMkQyz1qFE49p0EsX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27312b87aece7c4b210695a884a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1xePs8kzYW78FMsVTczFG7",
+        "fields": {
+            "work": 28,
+            "duration": 213,
+            "uri": "spotify:playlist:1xePs8kzYW78FMsVTczFG7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731e73672fbcef67df39ef08ec"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1xtGpSwrJV5qbo3RDTJtFg",
+        "fields": {
+            "work": 296,
+            "duration": 134,
+            "uri": "spotify:playlist:1xtGpSwrJV5qbo3RDTJtFg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a37fdf6f24134c2bf368a238"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1yZSNORDNawzMXerF4iU6L",
+        "fields": {
+            "work": 366,
+            "duration": 194,
+            "uri": "spotify:playlist:1yZSNORDNawzMXerF4iU6L",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273207c33705cf43d2486ab0150"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1z2TULt6EkOXMq8hs4tDCu",
+        "fields": {
+            "work": 15,
+            "duration": 133,
+            "uri": "spotify:playlist:1z2TULt6EkOXMq8hs4tDCu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273218bdb9b992ce20f417ffdcf"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "1zSEPoFA6vQkEEVJMthMq4",
+        "fields": {
+            "work": 94,
+            "duration": 112,
+            "uri": "spotify:playlist:1zSEPoFA6vQkEEVJMthMq4",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27353131d392d3f26e15bf81b29"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "20NkUJrPF18qJAjIUdpAnQ",
+        "fields": {
+            "work": 613,
+            "duration": 161,
+            "uri": "spotify:album:20NkUJrPF18qJAjIUdpAnQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b0c839772b97ff61ad77e071"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "23klC9NeIWLCDy20e6HL74",
+        "fields": {
+            "work": 454,
+            "duration": 99,
+            "uri": "spotify:playlist:23klC9NeIWLCDy20e6HL74",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27346238a3b7970249940752551"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "23lcFoeNshaG9WTX9uoZaV",
+        "fields": {
+            "work": 411,
+            "duration": 164,
+            "uri": "spotify:album:23lcFoeNshaG9WTX9uoZaV",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736353ae67f69b9c27725534a1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "23mV2xwsPJxW68gw6IMzcl",
+        "fields": {
+            "work": 209,
+            "duration": 119,
+            "uri": "spotify:playlist:23mV2xwsPJxW68gw6IMzcl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273949b96a7a2c4d415f906c76f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "24ICcUsdVURTAjUyg0Kxre",
+        "fields": {
+            "work": 396,
+            "duration": 123,
+            "uri": "spotify:album:24ICcUsdVURTAjUyg0Kxre",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27364645154b1e5a107a2c5ae2a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "25OXYOVVQPEcG8K1iJbXIp",
+        "fields": {
+            "work": 162,
+            "duration": 116,
+            "uri": "spotify:playlist:25OXYOVVQPEcG8K1iJbXIp",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732e0fc5bbdd5a80140b5d9af6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "25Y3iYkZgq2DvQrNZA9XWK",
+        "fields": {
+            "work": 2,
+            "duration": 118,
+            "uri": "spotify:playlist:25Y3iYkZgq2DvQrNZA9XWK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733173458e1994b6159f534bbc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "26AX6qslaU49NmG3Ub3Yf2",
+        "fields": {
+            "work": 187,
+            "duration": 127,
+            "uri": "spotify:playlist:26AX6qslaU49NmG3Ub3Yf2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273120a6807dfde45f9e05b25b3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "26kiskrYkkPvaATymLs5J2",
+        "fields": {
+            "work": 168,
+            "duration": 192,
+            "uri": "spotify:playlist:26kiskrYkkPvaATymLs5J2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27367bf9f0c193c6e91af21825d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "26oxKZVwmd98SzPrG05IBJ",
+        "fields": {
+            "work": 277,
+            "duration": 44,
+            "uri": "spotify:playlist:26oxKZVwmd98SzPrG05IBJ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739c35be9193a7ab802fe63934"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "26pEVcY1hmMlKMZNQlcHh8",
+        "fields": {
+            "work": 433,
+            "duration": 132,
+            "uri": "spotify:playlist:26pEVcY1hmMlKMZNQlcHh8",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f7a4c3a53974a49d9a883f43"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "26xZw0VT4VFFUOeDe5VIhU",
+        "fields": {
+            "work": 287,
+            "duration": 153,
+            "uri": "spotify:playlist:26xZw0VT4VFFUOeDe5VIhU",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27395f9faafd0ed2d3c7bcb59be"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "274wqPk7L3UN7UV61rM7RB",
+        "fields": {
+            "work": 93,
+            "duration": 99,
+            "uri": "spotify:playlist:274wqPk7L3UN7UV61rM7RB",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735295be82bd4c7fe946b360db"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "277tBLlwFS6RZ0WBR2xXwQ",
+        "fields": {
+            "work": 52,
+            "duration": 180,
+            "uri": "spotify:playlist:277tBLlwFS6RZ0WBR2xXwQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27312638af91c0cd161e0656a08"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2862tN2wek8YDelGwjIGuK",
+        "fields": {
+            "work": 308,
+            "duration": 136,
+            "uri": "spotify:playlist:2862tN2wek8YDelGwjIGuK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273283a2f8df582c642cebc52ef"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "29V4zER7MtNnynSCUNnKOB",
+        "fields": {
+            "work": 75,
+            "duration": 101,
+            "uri": "spotify:playlist:29V4zER7MtNnynSCUNnKOB",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735c3fd3758320c76bce466239"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "29tHybkeavtRNYtk4XTBjo",
+        "fields": {
+            "work": 25,
+            "duration": 127,
+            "uri": "spotify:playlist:29tHybkeavtRNYtk4XTBjo",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273257224d0d3ea3f194e72cde1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2A79OL0OYwvw266V5nsQ0j",
+        "fields": {
+            "work": 243,
+            "duration": 139,
+            "uri": "spotify:playlist:2A79OL0OYwvw266V5nsQ0j",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e446f1955010e97df5ed88fc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2A7RX4130SJj7WIGkyq7Xw",
+        "fields": {
+            "work": 315,
+            "duration": 182,
+            "uri": "spotify:playlist:2A7RX4130SJj7WIGkyq7Xw",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27332266a9e4dbe256b5939f442"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2B8dkrGOieUbdUwQw4nlvY",
+        "fields": {
+            "work": 269,
+            "duration": 109,
+            "uri": "spotify:album:2B8dkrGOieUbdUwQw4nlvY",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737374129fc093d63dc66c6bd4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2C5h8foDxg6TgwPkogPk5f",
+        "fields": {
+            "work": 502,
+            "duration": 174,
+            "uri": "spotify:album:2C5h8foDxg6TgwPkogPk5f",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a277113d8bd400b6314b5c64"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2DjoavsQKlBnR4pRUsS9Qk",
+        "fields": {
+            "work": 470,
+            "duration": 39,
+            "uri": "spotify:playlist:2DjoavsQKlBnR4pRUsS9Qk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737eb93c39f08b866174e7c487"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2EDbvh35qRPGaeLguL8pzo",
+        "fields": {
+            "work": 620,
+            "duration": 149,
+            "uri": "spotify:album:2EDbvh35qRPGaeLguL8pzo",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27331f4fb3f8b98ff45e5397247"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2ENN6yrTMam2ztq1kWgjgm",
+        "fields": {
+            "work": 9,
+            "duration": 109,
+            "uri": "spotify:playlist:2ENN6yrTMam2ztq1kWgjgm",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738c7d24e2a514f1978f0d0edd"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2EU9Uibr3YGNfYR6yt6OUR",
+        "fields": {
+            "work": 306,
+            "duration": 44,
+            "uri": "spotify:playlist:2EU9Uibr3YGNfYR6yt6OUR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733403f6ae9703d75f4beecd5c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2F51lA1nWWfJqFSTohNdM3",
+        "fields": {
+            "work": 51,
+            "duration": 147,
+            "uri": "spotify:album:2F51lA1nWWfJqFSTohNdM3",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730844941d7147996f6e0cbcf1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2FMcpXTWcDsiAvO52W20Wb",
+        "fields": {
+            "work": 167,
+            "duration": 121,
+            "uri": "spotify:playlist:2FMcpXTWcDsiAvO52W20Wb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e08951fb13dc224b22471751"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2GWNEMnqW4jEAhMQoPJDlR",
+        "fields": {
+            "work": 170,
+            "duration": 59,
+            "uri": "spotify:playlist:2GWNEMnqW4jEAhMQoPJDlR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739b6c9024acc9df4953cfdd76"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2Haf23oAyVyWPhMSdvrzIK",
+        "fields": {
+            "work": 292,
+            "duration": 192,
+            "uri": "spotify:album:2Haf23oAyVyWPhMSdvrzIK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273210c5e58809321747fe4618a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2KjIC6Ki4bwJ4VnIyKZGQP",
+        "fields": {
+            "work": 239,
+            "duration": 163,
+            "uri": "spotify:playlist:2KjIC6Ki4bwJ4VnIyKZGQP",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739bc97aaf1f2914bb13badb15"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2LIsre35OjJt2AXKK0j79u",
+        "fields": {
+            "work": 165,
+            "duration": 66,
+            "uri": "spotify:playlist:2LIsre35OjJt2AXKK0j79u",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273403b6d1572179415dc4ee51b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2LVYGXuWzVqEMk160lVVae",
+        "fields": {
+            "work": 404,
+            "duration": 119,
+            "uri": "spotify:album:2LVYGXuWzVqEMk160lVVae",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273531f1fe09f2889747dd82a69"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2Matz9XEoBD8KbjLlp6GHa",
+        "fields": {
+            "work": 657,
+            "duration": 60,
+            "uri": "spotify:album:2Matz9XEoBD8KbjLlp6GHa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734df4bd25ac166870eb63e95d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2NCowZjlpKgmNpxhALAmYa",
+        "fields": {
+            "work": 225,
+            "duration": 58,
+            "uri": "spotify:album:2NCowZjlpKgmNpxhALAmYa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27371645f56ba3dc104f3ca512b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2NWk03UqEWT9PyNs2Oejg2",
+        "fields": {
+            "work": 143,
+            "duration": 121,
+            "uri": "spotify:playlist:2NWk03UqEWT9PyNs2Oejg2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b1781a345616bee4966f946c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2OI9d4OqQaJby5oZLkux3R",
+        "fields": {
+            "work": 156,
+            "duration": 101,
+            "uri": "spotify:playlist:2OI9d4OqQaJby5oZLkux3R",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732dc532ae36bee55312b02be2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2OJ34ygwSKtpr2gECtfAxg",
+        "fields": {
+            "work": 224,
+            "duration": 114,
+            "uri": "spotify:album:2OJ34ygwSKtpr2gECtfAxg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27334e36ed924be552c7d0bf8c4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2QUyGqjZao72mKQdyZhTMJ",
+        "fields": {
+            "work": 385,
+            "duration": 202,
+            "uri": "spotify:playlist:2QUyGqjZao72mKQdyZhTMJ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738000f61218f5da798d5f7755"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2UnxlWXAm9CqN0TvYstLia",
+        "fields": {
+            "work": 249,
+            "duration": 89,
+            "uri": "spotify:playlist:2UnxlWXAm9CqN0TvYstLia",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737ab9c6d1563f7ea7f28b01f7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2VhpPRGlwUqBssHY97CfcJ",
+        "fields": {
+            "work": 679,
+            "duration": 129,
+            "uri": "spotify:album:2VhpPRGlwUqBssHY97CfcJ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d926f089310c035b5b59e026"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2VjsKpCAefgh6dhwiYBEkO",
+        "fields": {
+            "work": 237,
+            "duration": 239,
+            "uri": "spotify:playlist:2VjsKpCAefgh6dhwiYBEkO",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273bd6f41b964ef5f4ddec2e185"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2VulQn1yzS4EOurFTiANi1",
+        "fields": {
+            "work": 345,
+            "duration": 166,
+            "uri": "spotify:playlist:2VulQn1yzS4EOurFTiANi1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b3fd2caea17549505068fb2c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2WNg0AxXB56ShrmvpylS7T",
+        "fields": {
+            "work": 384,
+            "duration": 175,
+            "uri": "spotify:album:2WNg0AxXB56ShrmvpylS7T",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735aadcadbd164303cd9b8a488"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2XRwNxIA9xqGf4RR9Gw7vW",
+        "fields": {
+            "work": 3,
+            "duration": 123,
+            "uri": "spotify:playlist:2XRwNxIA9xqGf4RR9Gw7vW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733ba2283d209df3471d19b835"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2YrdyB2OVgCjQWN0VlpysK",
+        "fields": {
+            "work": 17,
+            "duration": 119,
+            "uri": "spotify:playlist:2YrdyB2OVgCjQWN0VlpysK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a4f2d401c69685504970fa8b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2Ytixn189zubGFBFhX0HzZ",
+        "fields": {
+            "work": 215,
+            "duration": 142,
+            "uri": "spotify:playlist:2Ytixn189zubGFBFhX0HzZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732db53521fc062b17bb697941"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2ZCYNnQ5MfaUVhLNRhsRPI",
+        "fields": {
+            "work": 266,
+            "duration": 194,
+            "uri": "spotify:album:2ZCYNnQ5MfaUVhLNRhsRPI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27328c75b642479285bb78ce699"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2ZSlbTyS2TG1ZaTLpGeUh9",
+        "fields": {
+            "work": 653,
+            "duration": 142,
+            "uri": "spotify:album:2ZSlbTyS2TG1ZaTLpGeUh9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27308d67bdf4bdc488e27696459"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2awdad7VKlLavQXm6uje6Q",
+        "fields": {
+            "work": 368,
+            "duration": 145,
+            "uri": "spotify:album:2awdad7VKlLavQXm6uje6Q",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d9d6a259a2e168bd8d9b16f7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2bA5SW5ndauKJc5x0LDFFZ",
+        "fields": {
+            "work": 229,
+            "duration": 70,
+            "uri": "spotify:playlist:2bA5SW5ndauKJc5x0LDFFZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c94373a281fca5f87b8ef7f6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2bYCP0RwxuOb3vfjzfZVX5",
+        "fields": {
+            "work": 291,
+            "duration": 157,
+            "uri": "spotify:playlist:2bYCP0RwxuOb3vfjzfZVX5",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f1eed52a431c0fce3b69b2c0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2bw2vwyPLpT7VxB3pdhbMT",
+        "fields": {
+            "work": 453,
+            "duration": 148,
+            "uri": "spotify:playlist:2bw2vwyPLpT7VxB3pdhbMT",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273863704c5b141cb1467b8d760"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2bwzHZjb9P6HeLs5c5QaN6",
+        "fields": {
+            "work": 412,
+            "duration": 115,
+            "uri": "spotify:playlist:2bwzHZjb9P6HeLs5c5QaN6",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734237e46ce13d59bd9fa3cffb"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2cFtsqA7TOYrBHfz6AfGDY",
+        "fields": {
+            "work": 224,
+            "duration": 114,
+            "uri": "spotify:album:2cFtsqA7TOYrBHfz6AfGDY",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e920998dad7e5ebd5c1a548f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2eGMXeLgZt8OFVyVm6ciu9",
+        "fields": {
+            "work": 4,
+            "duration": 136,
+            "uri": "spotify:playlist:2eGMXeLgZt8OFVyVm6ciu9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735ed0f247c9b726e50a67ecc9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2hLsGEkaVGOzWwZJhx7wd6",
+        "fields": {
+            "work": 116,
+            "duration": 38,
+            "uri": "spotify:playlist:2hLsGEkaVGOzWwZJhx7wd6",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f41d28904ab7b2c694627afa"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2i12T5dJrI0kvQgu7LrTFb",
+        "fields": {
+            "work": 50,
+            "duration": 152,
+            "uri": "spotify:album:2i12T5dJrI0kvQgu7LrTFb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273db1f2514fa3d415d5b779034"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2iKRknMv3xcpXZILrQNB8a",
+        "fields": {
+            "work": 154,
+            "duration": 126,
+            "uri": "spotify:playlist:2iKRknMv3xcpXZILrQNB8a",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27319a7cbaeee8a02577e698285"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2j7n3XOlvafjDeEqKVlpHQ",
+        "fields": {
+            "work": 462,
+            "duration": 203,
+            "uri": "spotify:playlist:2j7n3XOlvafjDeEqKVlpHQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ba3dbb5d132ad742f8f47142"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2kGJPpI8RTvkDKBHW0oyc5",
+        "fields": {
+            "work": 149,
+            "duration": 199,
+            "uri": "spotify:playlist:2kGJPpI8RTvkDKBHW0oyc5",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739992f59c3826e02cf8348e4b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2lRIgrupkRz2GvizDm1PqH",
+        "fields": {
+            "work": 622,
+            "duration": 90,
+            "uri": "spotify:album:2lRIgrupkRz2GvizDm1PqH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731c9dd46f750af5fb17f5d92c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2mZTjjXQvQF3ewtS9Pa1lT",
+        "fields": {
+            "work": 375,
+            "duration": 191,
+            "uri": "spotify:album:2mZTjjXQvQF3ewtS9Pa1lT",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c85168a3da0ed68654c0a4a3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2mnftFLsMflPnLLGTaGBgq",
+        "fields": {
+            "work": 233,
+            "duration": 233,
+            "uri": "spotify:album:2mnftFLsMflPnLLGTaGBgq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27331b9a74732688fe110c3ac37"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2nWfNsjSXHT8V1tf5U18uR",
+        "fields": {
+            "work": 65,
+            "duration": 168,
+            "uri": "spotify:playlist:2nWfNsjSXHT8V1tf5U18uR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ca290b4086267c262aedc6a7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2nrwx4s2JKqRIvTDBVH7uL",
+        "fields": {
+            "work": 1,
+            "duration": 121,
+            "uri": "spotify:playlist:2nrwx4s2JKqRIvTDBVH7uL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732c29018f78c1412a41a96682"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2nwVPQmFCeQrpo5cHmCG4Q",
+        "fields": {
+            "work": 668,
+            "duration": 84,
+            "uri": "spotify:album:2nwVPQmFCeQrpo5cHmCG4Q",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730ab3973c3d92a900074c32a8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2oeNU2d76ruuzMHHMHXaZ9",
+        "fields": {
+            "work": 309,
+            "duration": 101,
+            "uri": "spotify:playlist:2oeNU2d76ruuzMHHMHXaZ9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730624491a7775d8243f075395"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2qSFbB09NEmXrzjpGVvq8A",
+        "fields": {
+            "work": 128,
+            "duration": 78,
+            "uri": "spotify:playlist:2qSFbB09NEmXrzjpGVvq8A",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27375ddd9cbfe9bdb4c70805862"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2qmAz6FNzs8NQ5zcBj3781",
+        "fields": {
+            "work": 206,
+            "duration": 165,
+            "uri": "spotify:playlist:2qmAz6FNzs8NQ5zcBj3781",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736bbdb6ac183a9a3cfe437a32"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2sG4mtjrpYJhW9tbd6WPp2",
+        "fields": {
+            "work": 693,
+            "duration": 122,
+            "uri": "spotify:album:2sG4mtjrpYJhW9tbd6WPp2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273cad70f1fcb8dda82ec6483c1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2sMHLRV1FQWLxKQ8FO4i43",
+        "fields": {
+            "work": 650,
+            "duration": 95,
+            "uri": "spotify:album:2sMHLRV1FQWLxKQ8FO4i43",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27343d5881466d7218817dcebef"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2t7SdYNagWVanR8ZSNSsZu",
+        "fields": {
+            "work": 99,
+            "duration": 55,
+            "uri": "spotify:playlist:2t7SdYNagWVanR8ZSNSsZu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fda42618ce772a8f8f3e5e3c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2twkeFhnYJI1v92ytRZZVK",
+        "fields": {
+            "work": 228,
+            "duration": 102,
+            "uri": "spotify:playlist:2twkeFhnYJI1v92ytRZZVK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273686226667e6f4c2de455653f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2uthZtACRMc20o9fFtsgXM",
+        "fields": {
+            "work": 10,
+            "duration": 150,
+            "uri": "spotify:playlist:2uthZtACRMc20o9fFtsgXM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273368d70bd2c598538e299d73b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2vHFvfp18FhfbBOMuFoWuM",
+        "fields": {
+            "work": 302,
+            "duration": 145,
+            "uri": "spotify:album:2vHFvfp18FhfbBOMuFoWuM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733166bf71684b61776c3846fc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2veDmpCytJAWH4ZfcbTbbv",
+        "fields": {
+            "work": 511,
+            "duration": 143,
+            "uri": "spotify:album:2veDmpCytJAWH4ZfcbTbbv",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d6db13de25f3678038642b65"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2wml2ylQYA5k7YjR8JYMkW",
+        "fields": {
+            "work": 451,
+            "duration": 223,
+            "uri": "spotify:playlist:2wml2ylQYA5k7YjR8JYMkW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732c6e1b0d2b87a4792eef2d10"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2xdflRvelCzeJfl2hoKeNz",
+        "fields": {
+            "work": 100,
+            "duration": 53,
+            "uri": "spotify:playlist:2xdflRvelCzeJfl2hoKeNz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fda42618ce772a8f8f3e5e3c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2y0vjdulqafG62QT5yG8pg",
+        "fields": {
+            "work": 634,
+            "duration": 219,
+            "uri": "spotify:album:2y0vjdulqafG62QT5yG8pg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27304b0f421347691d875011579"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2zCeFrz8MsBfUjkcMgmfgA",
+        "fields": {
+            "work": 80,
+            "duration": 194,
+            "uri": "spotify:playlist:2zCeFrz8MsBfUjkcMgmfgA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d9528d326ccc82ffa7d551a4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2zFhnVtFN5VoLoftDPS4Ol",
+        "fields": {
+            "work": 210,
+            "duration": 176,
+            "uri": "spotify:playlist:2zFhnVtFN5VoLoftDPS4Ol",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27305ff685445afddb497f978ee"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2zTsfNYTnQT6jdxXv73ZYk",
+        "fields": {
+            "work": 73,
+            "duration": 116,
+            "uri": "spotify:playlist:2zTsfNYTnQT6jdxXv73ZYk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27332551840483a3c9c9230bff7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "2zXarYBGc4FPVECGrwYwFq",
+        "fields": {
+            "work": 330,
+            "duration": 170,
+            "uri": "spotify:album:2zXarYBGc4FPVECGrwYwFq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735f8b83764804a18bd0ef5967"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "30Y9NTZJp2sDhohbcTBI09",
+        "fields": {
+            "work": 236,
+            "duration": 79,
+            "uri": "spotify:playlist:30Y9NTZJp2sDhohbcTBI09",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273eb918a15459f5f22ae0315db"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "32xLFRJehY7iw0YkVByp2L",
+        "fields": {
+            "work": 678,
+            "duration": 123,
+            "uri": "spotify:album:32xLFRJehY7iw0YkVByp2L",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27319882773c9454bec33bb85ba"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "32zTo60cPvNLGhH8gVIAAV",
+        "fields": {
+            "work": 90,
+            "duration": 64,
+            "uri": "spotify:playlist:32zTo60cPvNLGhH8gVIAAV",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730eeff928ba6e4065ab5f5149"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "33yoL1ChnWISq7SIxYNHeH",
+        "fields": {
+            "work": 325,
+            "duration": 53,
+            "uri": "spotify:playlist:33yoL1ChnWISq7SIxYNHeH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27390a7ad6bc2aa3b4df629dac7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "34L0WMGEDCbU2PZNIY84UL",
+        "fields": {
+            "work": 7,
+            "duration": 120,
+            "uri": "spotify:playlist:34L0WMGEDCbU2PZNIY84UL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738d4456f51cee8a36d436cb13"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "35IreeRh2KPXndbkR2aujl",
+        "fields": {
+            "work": 310,
+            "duration": 187,
+            "uri": "spotify:playlist:35IreeRh2KPXndbkR2aujl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27337d86ae9c8d703f6dfb47ca6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "378Jfm3mGI200P23DoRT8T",
+        "fields": {
+            "work": 207,
+            "duration": 103,
+            "uri": "spotify:playlist:378Jfm3mGI200P23DoRT8T",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ff79c8fd5e1ad8193db6490d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "37LSQeu9XfUaXFFkzRrErk",
+        "fields": {
+            "work": 76,
+            "duration": 107,
+            "uri": "spotify:playlist:37LSQeu9XfUaXFFkzRrErk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f9dd0dc9503cbd287d8f4de9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "398oE1n7RAxWFkWPJAUpQk",
+        "fields": {
+            "work": 276,
+            "duration": 133,
+            "uri": "spotify:playlist:398oE1n7RAxWFkWPJAUpQk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27320424471621cf893cd17bfc8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3B4y6YypX4k3cZ0Pn8aKK1",
+        "fields": {
+            "work": 119,
+            "duration": 172,
+            "uri": "spotify:playlist:3B4y6YypX4k3cZ0Pn8aKK1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739a8028fe70e0afb7b366c846"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3BE6etN2HekqsXb80Kt8e5",
+        "fields": {
+            "work": 346,
+            "duration": 108,
+            "uri": "spotify:playlist:3BE6etN2HekqsXb80Kt8e5",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732cdda156a98cf89c2e0aacae"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3C27p3KMPUuHVSujclSW3B",
+        "fields": {
+            "work": 348,
+            "duration": 101,
+            "uri": "spotify:album:3C27p3KMPUuHVSujclSW3B",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27319d1bb9a7d40112975e07f22"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3DL40yAjFAVOVZIi2TBNgQ",
+        "fields": {
+            "work": 500,
+            "duration": 113,
+            "uri": "spotify:album:3DL40yAjFAVOVZIi2TBNgQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d46650cca031b84bae9240d8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3ELg7Nr77UyETlbqG6JixM",
+        "fields": {
+            "work": 280,
+            "duration": 106,
+            "uri": "spotify:playlist:3ELg7Nr77UyETlbqG6JixM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e7f2186e2f7658aa689aded9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3ENPgudQm3jjzHf7VN8l4b",
+        "fields": {
+            "work": 342,
+            "duration": 138,
+            "uri": "spotify:playlist:3ENPgudQm3jjzHf7VN8l4b",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e4ce6c47a90f4cc039ea7ec4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3FvHuFGmkjXsP1WzQnTjCC",
+        "fields": {
+            "work": 305,
+            "duration": 216,
+            "uri": "spotify:playlist:3FvHuFGmkjXsP1WzQnTjCC",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27398b3ce60a4e35c0516c5f5b1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3G1nsR6LBE9u8gkfG7bL4P",
+        "fields": {
+            "work": 349,
+            "duration": 100,
+            "uri": "spotify:playlist:3G1nsR6LBE9u8gkfG7bL4P",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27330407e179e63678299f40a07"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3H2wkIc4zBTuf8UtTtyqib",
+        "fields": {
+            "work": 185,
+            "duration": 127,
+            "uri": "spotify:playlist:3H2wkIc4zBTuf8UtTtyqib",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b1ffb63387762cb841eae82c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3HZlCApRipLB1ex0shqcId",
+        "fields": {
+            "work": 256,
+            "duration": 210,
+            "uri": "spotify:playlist:3HZlCApRipLB1ex0shqcId",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739f9bb50ddd37297172459e0c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3IGJfSGSDrG6Ogy2rgOe54",
+        "fields": {
+            "work": 220,
+            "duration": 140,
+            "uri": "spotify:playlist:3IGJfSGSDrG6Ogy2rgOe54",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e2532d226358334f7cf4c4a9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3IJEnNh2kqsaCUVbeogiIh",
+        "fields": {
+            "work": 365,
+            "duration": 109,
+            "uri": "spotify:playlist:3IJEnNh2kqsaCUVbeogiIh",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f1ed90d2debb7b09b4c23409"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3IeXJeQJwXjlAefkelh873",
+        "fields": {
+            "work": 23,
+            "duration": 136,
+            "uri": "spotify:playlist:3IeXJeQJwXjlAefkelh873",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736d98ca4414846a154501c002"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3KfVZd5e7BnnvRZoOdjHfA",
+        "fields": {
+            "work": 501,
+            "duration": 61,
+            "uri": "spotify:playlist:3KfVZd5e7BnnvRZoOdjHfA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a1255d1ecb40bcaad3160d50"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3Lb47iMM02oPk9w9r19jgh",
+        "fields": {
+            "work": 363,
+            "duration": 118,
+            "uri": "spotify:playlist:3Lb47iMM02oPk9w9r19jgh",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27336fde75505562973a5fd75f6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3MwqV5t3OC2pyJcVy9Ohas",
+        "fields": {
+            "work": 107,
+            "duration": 140,
+            "uri": "spotify:playlist:3MwqV5t3OC2pyJcVy9Ohas",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273048196e78f77e65578dff418"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3NkzmYUu6hbISsZqiwKMXr",
+        "fields": {
+            "work": 457,
+            "duration": 82,
+            "uri": "spotify:playlist:3NkzmYUu6hbISsZqiwKMXr",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273af790c9b86dc5cb37a0e6dbc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3OBTyGE19kpB5VB65nLhBf",
+        "fields": {
+            "work": 358,
+            "duration": 142,
+            "uri": "spotify:playlist:3OBTyGE19kpB5VB65nLhBf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27341acfbcf96bd21fda29389be"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3OjxVLMFrdeiEkRAerPgke",
+        "fields": {
+            "work": 283,
+            "duration": 194,
+            "uri": "spotify:playlist:3OjxVLMFrdeiEkRAerPgke",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273805deb0ca7c5d042fecf9f71"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3R2qVQZlBlbwFLO9gI9oye",
+        "fields": {
+            "work": 219,
+            "duration": 127,
+            "uri": "spotify:playlist:3R2qVQZlBlbwFLO9gI9oye",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736063cdcd2c65c0a398bfb665"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3SEWOfV4184UlNwlk6BRBz",
+        "fields": {
+            "work": 332,
+            "duration": 143,
+            "uri": "spotify:album:3SEWOfV4184UlNwlk6BRBz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b4f8db34ecbb061a55c86b62"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3SPvV9gNv6xNGlB1EfISo7",
+        "fields": {
+            "work": 226,
+            "duration": 220,
+            "uri": "spotify:album:3SPvV9gNv6xNGlB1EfISo7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732e5f817c0c92cf91a75d3ee2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3Ur8C3DEylhjHFnzA8ZH6p",
+        "fields": {
+            "work": 341,
+            "duration": 135,
+            "uri": "spotify:playlist:3Ur8C3DEylhjHFnzA8ZH6p",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273767d5e0b07ec2862e4007dc2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3XHMp8IcBH9WS2TLw6t1eB",
+        "fields": {
+            "work": 399,
+            "duration": 119,
+            "uri": "spotify:album:3XHMp8IcBH9WS2TLw6t1eB",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732a90ce776b67ce09c829806f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3XQclaBsJINDlYGVa2IEtC",
+        "fields": {
+            "work": 67,
+            "duration": 135,
+            "uri": "spotify:playlist:3XQclaBsJINDlYGVa2IEtC",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fc333c0651403d0abe7844cc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3XnQF6b4rweiMLttepzraO",
+        "fields": {
+            "work": 425,
+            "duration": 110,
+            "uri": "spotify:playlist:3XnQF6b4rweiMLttepzraO",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737cf6267825142d80c0d68bd3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3ZHM5f5FIlJGw7CZX1VudG",
+        "fields": {
+            "work": 474,
+            "duration": 97,
+            "uri": "spotify:playlist:3ZHM5f5FIlJGw7CZX1VudG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273baa5dc4f096ed1c652532c93"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3b12C0INaz9Gvyyqfd6Agl",
+        "fields": {
+            "work": 449,
+            "duration": 123,
+            "uri": "spotify:playlist:3b12C0INaz9Gvyyqfd6Agl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27306ea2057ca0ef42273367c20"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3bRZWymIojcZLloHblZ18m",
+        "fields": {
+            "work": 370,
+            "duration": 50,
+            "uri": "spotify:playlist:3bRZWymIojcZLloHblZ18m",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735ea5ad351fbdf7814c624f15"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3bo3EO5kP85TJZ6Va8DlG5",
+        "fields": {
+            "work": 469,
+            "duration": 55,
+            "uri": "spotify:playlist:3bo3EO5kP85TJZ6Va8DlG5",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273614a88af841c6fa21b2033be"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3ca6iCe5P5CO3b28N34q9X",
+        "fields": {
+            "work": 274,
+            "duration": 121,
+            "uri": "spotify:playlist:3ca6iCe5P5CO3b28N34q9X",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273de04af22ddbc02ac7c0abd0c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3dAazWfUuaoCov8p31WN9k",
+        "fields": {
+            "work": 77,
+            "duration": 191,
+            "uri": "spotify:playlist:3dAazWfUuaoCov8p31WN9k",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a06052fde655af99187d04fb"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3dO6Hnk26C7nciDlh8mmBv",
+        "fields": {
+            "work": 151,
+            "duration": 127,
+            "uri": "spotify:playlist:3dO6Hnk26C7nciDlh8mmBv",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736d02a6018dd5be7a4f823e9a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3dtpRYdF7q7AZUI6FJ3jHu",
+        "fields": {
+            "work": 398,
+            "duration": 147,
+            "uri": "spotify:playlist:3dtpRYdF7q7AZUI6FJ3jHu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27370f002e0e6ad996816dbd3df"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3eJdJbDqJzLZH0QapzOaMC",
+        "fields": {
+            "work": 29,
+            "duration": 146,
+            "uri": "spotify:playlist:3eJdJbDqJzLZH0QapzOaMC",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27389dcf712adc1dcedf39436a1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3ioNzbPhvPlzZiM7kI5GKb",
+        "fields": {
+            "work": 631,
+            "duration": 152,
+            "uri": "spotify:album:3ioNzbPhvPlzZiM7kI5GKb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732279ae3821ffacb09c5509d4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3jfd6v4B8AX85Rli7NDlSf",
+        "fields": {
+            "work": 376,
+            "duration": 230,
+            "uri": "spotify:album:3jfd6v4B8AX85Rli7NDlSf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f3bbbfa6df0761482badacf1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3kLDEqo6nRk9NEzshd8fUM",
+        "fields": {
+            "work": 682,
+            "duration": 118,
+            "uri": "spotify:album:3kLDEqo6nRk9NEzshd8fUM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d761f9930fc54e887243916d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3l7oy37NBj0z4U3AupTYgd",
+        "fields": {
+            "work": 200,
+            "duration": 153,
+            "uri": "spotify:playlist:3l7oy37NBj0z4U3AupTYgd",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737b0f1dd207423467edd95d3d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3nX8nbzMtGR6FBfW7cYAWE",
+        "fields": {
+            "work": 260,
+            "duration": 105,
+            "uri": "spotify:playlist:3nX8nbzMtGR6FBfW7cYAWE",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27353bcbb4eb4f7d95ace5b7846"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3nxt9UK7H8vYjVJWrGz4gK",
+        "fields": {
+            "work": 443,
+            "duration": 117,
+            "uri": "spotify:playlist:3nxt9UK7H8vYjVJWrGz4gK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ae704a109e7883e8c9536333"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3o1qiYKCiLmRP8sZ6pszY3",
+        "fields": {
+            "work": 303,
+            "duration": 208,
+            "uri": "spotify:playlist:3o1qiYKCiLmRP8sZ6pszY3",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733f43cf0becfeae076b881091"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3oKrrtUkQn8lxk6yj0MADu",
+        "fields": {
+            "work": 424,
+            "duration": 65,
+            "uri": "spotify:playlist:3oKrrtUkQn8lxk6yj0MADu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273225f496e673f35262b67b7cb"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3oSy9Dcdoh3s2PpKg0sJoq",
+        "fields": {
+            "work": 509,
+            "duration": 103,
+            "uri": "spotify:album:3oSy9Dcdoh3s2PpKg0sJoq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f077144041eb7723f2b3bb52"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3paA8HyfeMsW81VLtKwNa2",
+        "fields": {
+            "work": 421,
+            "duration": 152,
+            "uri": "spotify:playlist:3paA8HyfeMsW81VLtKwNa2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c428507fa5cc728f60e0902c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3peLxV8s0UjykAeZ3jXecL",
+        "fields": {
+            "work": 13,
+            "duration": 94,
+            "uri": "spotify:playlist:3peLxV8s0UjykAeZ3jXecL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273158ae6ff88999e590ec3342f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3s07muCQNI5JCkhxgBcN9c",
+        "fields": {
+            "work": 280,
+            "duration": 115,
+            "uri": "spotify:playlist:3s07muCQNI5JCkhxgBcN9c",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f10194d7d076027bb3fcb8b8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3uNYoQJxRObR7QwHhwdh0O",
+        "fields": {
+            "work": 175,
+            "duration": 140,
+            "uri": "spotify:playlist:3uNYoQJxRObR7QwHhwdh0O",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c229c5e4830fd354c379f617"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "3xVd91JdKEz1uQCBXx4LjF",
+        "fields": {
+            "work": 403,
+            "duration": 140,
+            "uri": "spotify:playlist:3xVd91JdKEz1uQCBXx4LjF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b08a1e7248b5d16e5266f46e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "411IOTMA6gxWasKiueKGhH",
+        "fields": {
+            "work": 290,
+            "duration": 170,
+            "uri": "spotify:playlist:411IOTMA6gxWasKiueKGhH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731cb7eea9eb52a83332786623"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "417QSouxsGBY0aCg2dGRNx",
+        "fields": {
+            "work": 28,
+            "duration": 169,
+            "uri": "spotify:playlist:417QSouxsGBY0aCg2dGRNx",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f4c9900f40db2bd72f2cee27"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "44iGemXEsEP1gQxbuAkQ7A",
+        "fields": {
+            "work": 343,
+            "duration": 155,
+            "uri": "spotify:playlist:44iGemXEsEP1gQxbuAkQ7A",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273dcba663f3acb6bcbf1cd43fc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "45hrOZWzsdUeYAni9B4AWm",
+        "fields": {
+            "work": 294,
+            "duration": 170,
+            "uri": "spotify:playlist:45hrOZWzsdUeYAni9B4AWm",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27301f8bfb2fc0df242cfaefe9e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "45uiQP1W8ajjaRWxCJfACa",
+        "fields": {
+            "work": 344,
+            "duration": 51,
+            "uri": "spotify:playlist:45uiQP1W8ajjaRWxCJfACa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a27e958877a259d30136698d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "469GbDtrA7bZDr2GCE5olH",
+        "fields": {
+            "work": 423,
+            "duration": 137,
+            "uri": "spotify:playlist:469GbDtrA7bZDr2GCE5olH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735d06e3fb801895f9cb4f15e8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "469m8ggoAB0j5RsJmi86ee",
+        "fields": {
+            "work": 637,
+            "duration": 137,
+            "uri": "spotify:album:469m8ggoAB0j5RsJmi86ee",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730e17fdd549e46ae1a83fb8d0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "47ybP4IpQ7tHyOqqfdtL1P",
+        "fields": {
+            "work": 273,
+            "duration": 163,
+            "uri": "spotify:playlist:47ybP4IpQ7tHyOqqfdtL1P",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27324a70f01e0f35c62091b304a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "49EyT4MyQ9QBR0EsS5ia3C",
+        "fields": {
+            "work": 337,
+            "duration": 161,
+            "uri": "spotify:playlist:49EyT4MyQ9QBR0EsS5ia3C",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732dfc4272dda4c46d11acd7fc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "49sfdf8Zug1zjzpjVtJ7qq",
+        "fields": {
+            "work": 621,
+            "duration": 116,
+            "uri": "spotify:album:49sfdf8Zug1zjzpjVtJ7qq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738e7ccdeaf23228bb91435309"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4AcKpoMtOIZ6bajiVJgXHA",
+        "fields": {
+            "work": 477,
+            "duration": 130,
+            "uri": "spotify:playlist:4AcKpoMtOIZ6bajiVJgXHA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273598f85654e6b65b451b609ab"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4AkfFXEtK5tdXv68w8XH5Q",
+        "fields": {
+            "work": 265,
+            "duration": 132,
+            "uri": "spotify:playlist:4AkfFXEtK5tdXv68w8XH5Q",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273715da21bcd4930ad0463d503"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4CWQlsEKtx7xiAd5IVn4W8",
+        "fields": {
+            "work": 434,
+            "duration": 120,
+            "uri": "spotify:playlist:4CWQlsEKtx7xiAd5IVn4W8",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fb010118dab3f7fb8c6d100b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4EwE857Z6TVUVf5mar29ri",
+        "fields": {
+            "work": 83,
+            "duration": 144,
+            "uri": "spotify:playlist:4EwE857Z6TVUVf5mar29ri",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732e32f207aa5a182568ed025e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4GAOw62o4m4DruXscgDtOW",
+        "fields": {
+            "work": 369,
+            "duration": 107,
+            "uri": "spotify:playlist:4GAOw62o4m4DruXscgDtOW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27323a19e6dc7be67e39647b108"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4GlnjJxg1yZRUZSMHCYiBp",
+        "fields": {
+            "work": 326,
+            "duration": 169,
+            "uri": "spotify:playlist:4GlnjJxg1yZRUZSMHCYiBp",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ec7451a07c371a78eb064fc3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4GpI6iQh18mkgiT4tqwjif",
+        "fields": {
+            "work": 372,
+            "duration": 130,
+            "uri": "spotify:playlist:4GpI6iQh18mkgiT4tqwjif",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733d3c38e91de0d01072094572"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4GtwfdAXTRit0fr7ReoBbX",
+        "fields": {
+            "work": 259,
+            "duration": 173,
+            "uri": "spotify:playlist:4GtwfdAXTRit0fr7ReoBbX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273328a110ac9d22de0ec9f5365"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4IhvpCsjwIyoE2foF7BQbj",
+        "fields": {
+            "work": 134,
+            "duration": 31,
+            "uri": "spotify:playlist:4IhvpCsjwIyoE2foF7BQbj",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736df78ea79347b2a20e7b44d0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4J7W3sapn6QQUQqAwAxv3a",
+        "fields": {
+            "work": 388,
+            "duration": 50,
+            "uri": "spotify:album:4J7W3sapn6QQUQqAwAxv3a",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27320452429807d868701a9ab65"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4KqdW8TsGwzbmwAYWCJHIM",
+        "fields": {
+            "work": 651,
+            "duration": 112,
+            "uri": "spotify:album:4KqdW8TsGwzbmwAYWCJHIM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734424715512d1a26f3897b6e2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4L1hyO0tROxoIK700GEzvl",
+        "fields": {
+            "work": 110,
+            "duration": 177,
+            "uri": "spotify:playlist:4L1hyO0tROxoIK700GEzvl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733b0b488e97f50cdc46beb9dc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4LQM0thmaG4ONhFr32Pm2h",
+        "fields": {
+            "work": 46,
+            "duration": 141,
+            "uri": "spotify:playlist:4LQM0thmaG4ONhFr32Pm2h",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c5da1ebc14f3b3ea93f053c2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4LamRFq8qPgwEHt0nhe2U7",
+        "fields": {
+            "work": 465,
+            "duration": 156,
+            "uri": "spotify:playlist:4LamRFq8qPgwEHt0nhe2U7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732edb3292dcc1debd46761cf4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4LnvwPNUlb1FMQamAeoSsC",
+        "fields": {
+            "work": 431,
+            "duration": 144,
+            "uri": "spotify:playlist:4LnvwPNUlb1FMQamAeoSsC",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273bf928dd74eb932aec222552c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4M2x52bHY4wZryeRoGrjg9",
+        "fields": {
+            "work": 198,
+            "duration": 142,
+            "uri": "spotify:playlist:4M2x52bHY4wZryeRoGrjg9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27333e3855fcf5a3701892ccdb0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4MaFdme02QWQtaf8GgaiI9",
+        "fields": {
+            "work": 390,
+            "duration": 178,
+            "uri": "spotify:playlist:4MaFdme02QWQtaf8GgaiI9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273bf02b0a09163847b04d9b26b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4McAqaBM0lfP5FvhdzSJaZ",
+        "fields": {
+            "work": 57,
+            "duration": 183,
+            "uri": "spotify:playlist:4McAqaBM0lfP5FvhdzSJaZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273eead150873d9383592169de8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4N4Yiu1u96a0EHHjWbUEw4",
+        "fields": {
+            "work": 89,
+            "duration": 78,
+            "uri": "spotify:playlist:4N4Yiu1u96a0EHHjWbUEw4",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2739ecb676e639d1b8bc22374f7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4N89HPy8FJ6MTqyO5esFQF",
+        "fields": {
+            "work": 378,
+            "duration": 135,
+            "uri": "spotify:playlist:4N89HPy8FJ6MTqyO5esFQF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d4c4e7f80257afd4603c8592"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4NMJb6pBWTCA4O5qLFCOVY",
+        "fields": {
+            "work": 19,
+            "duration": 124,
+            "uri": "spotify:playlist:4NMJb6pBWTCA4O5qLFCOVY",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273dc5c46ff9361170000f1bd36"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4OqEIwSiDikqH4O7wYmJWS",
+        "fields": {
+            "work": 633,
+            "duration": 106,
+            "uri": "spotify:album:4OqEIwSiDikqH4O7wYmJWS",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273365062dc3d4cf0cc209de1ec"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4PYZVxn10Kn8yW8iuen665",
+        "fields": {
+            "work": 129,
+            "duration": 122,
+            "uri": "spotify:playlist:4PYZVxn10Kn8yW8iuen665",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736d1b84ac58eb63d4965e6219"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4S7S6s2Iwn9XHfP3moLBmR",
+        "fields": {
+            "work": 472,
+            "duration": 135,
+            "uri": "spotify:playlist:4S7S6s2Iwn9XHfP3moLBmR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b0a1b9729a635eb60c53d528"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4TfEh5n18s55LAAdhKvPg9",
+        "fields": {
+            "work": 362,
+            "duration": 89,
+            "uri": "spotify:playlist:4TfEh5n18s55LAAdhKvPg9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c8a4572eab79416298ddb85f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4VjNzfqMZWHxD7tCdZbgBK",
+        "fields": {
+            "work": 150,
+            "duration": 152,
+            "uri": "spotify:playlist:4VjNzfqMZWHxD7tCdZbgBK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273010933d9eabf62741ec19080"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4WFbiGopZXi5LwiYyoaCUu",
+        "fields": {
+            "work": 418,
+            "duration": 109,
+            "uri": "spotify:playlist:4WFbiGopZXi5LwiYyoaCUu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730670eb1c155f17f95f8dc123"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4Wm68MrbYblbbYzSsDw4sG",
+        "fields": {
+            "work": 278,
+            "duration": 174,
+            "uri": "spotify:playlist:4Wm68MrbYblbbYzSsDw4sG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d8f973f0804e1c0244a00003"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4bGCvr8SbzpTdoZl2inAtk",
+        "fields": {
+            "work": 217,
+            "duration": 141,
+            "uri": "spotify:playlist:4bGCvr8SbzpTdoZl2inAtk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27338604d076d8fa632e7249a57"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4cHTWikSaGAgMHZxzgdZeN",
+        "fields": {
+            "work": 357,
+            "duration": 93,
+            "uri": "spotify:album:4cHTWikSaGAgMHZxzgdZeN",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735367a813fafe36da2ed1285c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4gk3QOjz5t9wONhaF7h9Ic",
+        "fields": {
+            "work": 354,
+            "duration": 165,
+            "uri": "spotify:playlist:4gk3QOjz5t9wONhaF7h9Ic",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27364d5fb8b4b12863bb671e054"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4h8N1F97N0T8srRPrJcDou",
+        "fields": {
+            "work": 30,
+            "duration": 131,
+            "uri": "spotify:playlist:4h8N1F97N0T8srRPrJcDou",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27331008a2848d676b27a1b1a98"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4jH8TQjzQRZzAucNQvpgiH",
+        "fields": {
+            "work": 171,
+            "duration": 76,
+            "uri": "spotify:playlist:4jH8TQjzQRZzAucNQvpgiH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a4e32636d5f78a2ea8f49bb0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4kCWXKTkAfFEYKwQfMeFpQ",
+        "fields": {
+            "work": 113,
+            "duration": 75,
+            "uri": "spotify:playlist:4kCWXKTkAfFEYKwQfMeFpQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738f6ca082b66dd2a2707c7bec"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4kt4KK5Yt7b7F8RA2nWeBZ",
+        "fields": {
+            "work": 82,
+            "duration": 128,
+            "uri": "spotify:playlist:4kt4KK5Yt7b7F8RA2nWeBZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ebd80bc1c64f1b6bba71c673"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4meCLPtA5zTLikMuCAW4Wf",
+        "fields": {
+            "work": 439,
+            "duration": 170,
+            "uri": "spotify:playlist:4meCLPtA5zTLikMuCAW4Wf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a7075e5dce9aed5fafa68190"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4nIEkykMGRpRmky5ayy0NN",
+        "fields": {
+            "work": 114,
+            "duration": 175,
+            "uri": "spotify:playlist:4nIEkykMGRpRmky5ayy0NN",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273febac9c3cacec1f5d8952019"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4nfuFbt1J5IE5iiNj0B7Jt",
+        "fields": {
+            "work": 263,
+            "duration": 146,
+            "uri": "spotify:playlist:4nfuFbt1J5IE5iiNj0B7Jt",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734cc3f99b70e22303b17904de"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4oGOCTjKn3sSZeraceLEyz",
+        "fields": {
+            "work": 98,
+            "duration": 53,
+            "uri": "spotify:playlist:4oGOCTjKn3sSZeraceLEyz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fda42618ce772a8f8f3e5e3c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4qaFNHhhJMMGRZtMw0UFEE",
+        "fields": {
+            "work": 112,
+            "duration": 54,
+            "uri": "spotify:playlist:4qaFNHhhJMMGRZtMw0UFEE",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b206ad92ce709cfa876da2d4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4r27ylT3wG1On4Z75d9U5E",
+        "fields": {
+            "work": 270,
+            "duration": 69,
+            "uri": "spotify:playlist:4r27ylT3wG1On4Z75d9U5E",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c94373a281fca5f87b8ef7f6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4rLfwXusfl8bAqn0LB2CGx",
+        "fields": {
+            "work": 123,
+            "duration": 140,
+            "uri": "spotify:playlist:4rLfwXusfl8bAqn0LB2CGx",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735aea8961b514f8dd2d31c63f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4s3ISDiXEkZlJpSfSRFgYZ",
+        "fields": {
+            "work": 466,
+            "duration": 46,
+            "uri": "spotify:playlist:4s3ISDiXEkZlJpSfSRFgYZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737af78d1f347125f78d16923f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4tAUWObmhBZUDqGeBc3B2p",
+        "fields": {
+            "work": 282,
+            "duration": 166,
+            "uri": "spotify:playlist:4tAUWObmhBZUDqGeBc3B2p",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273358c7b4f0fc22e28a8f06fbb"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4tihZdAsS1dr7OBXtOpblO",
+        "fields": {
+            "work": 445,
+            "duration": 140,
+            "uri": "spotify:playlist:4tihZdAsS1dr7OBXtOpblO",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734f0658bcedf8fb05b66eee6c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4ufX7x0ePQAvryGUb7Esze",
+        "fields": {
+            "work": 120,
+            "duration": 144,
+            "uri": "spotify:playlist:4ufX7x0ePQAvryGUb7Esze",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734fb333052e7730b114c95a2d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4w2mQ6spzOmmdkCMM8N5J1",
+        "fields": {
+            "work": 121,
+            "duration": 141,
+            "uri": "spotify:playlist:4w2mQ6spzOmmdkCMM8N5J1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737d7d83d5ad05ed38d31941e6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4w4IxtMwQvbHcxiFekPvoU",
+        "fields": {
+            "work": 681,
+            "duration": 116,
+            "uri": "spotify:album:4w4IxtMwQvbHcxiFekPvoU",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737e85d3828e38d7f4a3001992"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4wxnM2FjfHhcXm4523KwJs",
+        "fields": {
+            "work": 268,
+            "duration": 101,
+            "uri": "spotify:playlist:4wxnM2FjfHhcXm4523KwJs",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c58eefd4b3c8177a41442925"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "4yWQTsrwiF84ilLBn7L1Vf",
+        "fields": {
+            "work": 416,
+            "duration": 113,
+            "uri": "spotify:playlist:4yWQTsrwiF84ilLBn7L1Vf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273219e0f544a0e3352d6aba6b7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "50A2moC3gOpjHb3rYqlBvG",
+        "fields": {
+            "work": 338,
+            "duration": 53,
+            "uri": "spotify:playlist:50A2moC3gOpjHb3rYqlBvG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273381be637fdcef3b8c6dc72cc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "50CDmUvkZRwqH8sFmMX4SH",
+        "fields": {
+            "work": 267,
+            "duration": 188,
+            "uri": "spotify:playlist:50CDmUvkZRwqH8sFmMX4SH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730d992bb9d8b6207b9b2ad616"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "55QAoqVCn8d1wspFA6ezim",
+        "fields": {
+            "work": 284,
+            "duration": 157,
+            "uri": "spotify:album:55QAoqVCn8d1wspFA6ezim",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273409a2777e184778c5625a22c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "565L8qzK621M40moi9xGoW",
+        "fields": {
+            "work": 70,
+            "duration": 130,
+            "uri": "spotify:playlist:565L8qzK621M40moi9xGoW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732a55ccd7ebcfda6321175d46"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "58JN9SQSLLA5Xh6GpbYLkR",
+        "fields": {
+            "work": 102,
+            "duration": 84,
+            "uri": "spotify:playlist:58JN9SQSLLA5Xh6GpbYLkR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27304d14d92f6c8e6b7c3f71bcf"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5D88juSoFbpaPaot1AsHJY",
+        "fields": {
+            "work": 264,
+            "duration": 165,
+            "uri": "spotify:album:5D88juSoFbpaPaot1AsHJY",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735fd1a84a397589dbe60429c3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5EtxQYn3ZawCAQ020Cd24P",
+        "fields": {
+            "work": 426,
+            "duration": 41,
+            "uri": "spotify:playlist:5EtxQYn3ZawCAQ020Cd24P",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731541457f4f86fb52d50a1a6f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5ExJzyWn7E0OHVk754DWmS",
+        "fields": {
+            "work": 58,
+            "duration": 134,
+            "uri": "spotify:playlist:5ExJzyWn7E0OHVk754DWmS",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27377ed827f38ba6c1b75a00039"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5FeGfgOc1NE7c22EEmImO5",
+        "fields": {
+            "work": 77,
+            "duration": 204,
+            "uri": "spotify:playlist:5FeGfgOc1NE7c22EEmImO5",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730de726bf842dd47df54552ba"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5Ge22oTQRqe2E1Ff9cO78B",
+        "fields": {
+            "work": 108,
+            "duration": 108,
+            "uri": "spotify:playlist:5Ge22oTQRqe2E1Ff9cO78B",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733cf338052aeab7c9b725361d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5HTMdEg3ra2wb8PiDLUJzu",
+        "fields": {
+            "work": 231,
+            "duration": 134,
+            "uri": "spotify:playlist:5HTMdEg3ra2wb8PiDLUJzu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ffad8abb322d5c3b92d07d43"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5HdhWW7GH7TR4X3etyxAxX",
+        "fields": {
+            "work": 147,
+            "duration": 142,
+            "uri": "spotify:playlist:5HdhWW7GH7TR4X3etyxAxX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e2bec1ce1f453dd1fdda2f5a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5IGSiBLiNtxPYmMvfZjjf4",
+        "fields": {
+            "work": 223,
+            "duration": 142,
+            "uri": "spotify:playlist:5IGSiBLiNtxPYmMvfZjjf4",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273965e473f5e3274a6cb64a43d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5J13OC7WPMtuNcs61rwkYZ",
+        "fields": {
+            "work": 275,
+            "duration": 179,
+            "uri": "spotify:album:5J13OC7WPMtuNcs61rwkYZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27312bfff040d0f5696b3beb583"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5JyvW79dpjG8olRpxrWlV6",
+        "fields": {
+            "work": 314,
+            "duration": 105,
+            "uri": "spotify:playlist:5JyvW79dpjG8olRpxrWlV6",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273577136a2c43f5202ffdc501f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5LFC0Mw8mAidV9m5iLPyYE",
+        "fields": {
+            "work": 320,
+            "duration": 230,
+            "uri": "spotify:album:5LFC0Mw8mAidV9m5iLPyYE",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273eee1c664982550f1cb3428db"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5MjtgqTFPEm4ybZ4NanKxb",
+        "fields": {
+            "work": 339,
+            "duration": 174,
+            "uri": "spotify:album:5MjtgqTFPEm4ybZ4NanKxb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273da95289a46f9eef0400e8c31"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5OFIANYzBBc0NIkZ62sH9N",
+        "fields": {
+            "work": 323,
+            "duration": 217,
+            "uri": "spotify:playlist:5OFIANYzBBc0NIkZ62sH9N",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b9c5c0df83e0f35b0fef3a2a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5OOYuil6Qb2744ZhdQpqEk",
+        "fields": {
+            "work": 289,
+            "duration": 103,
+            "uri": "spotify:playlist:5OOYuil6Qb2744ZhdQpqEk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273db3bc3b1b27abd57ddf320b1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5Q6TkEdWmaZFk18R6EjxmM",
+        "fields": {
+            "work": 419,
+            "duration": 111,
+            "uri": "spotify:playlist:5Q6TkEdWmaZFk18R6EjxmM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733450df5388ed58830a5a8ec8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5QSMyrtNFYIg3WCdPedySI",
+        "fields": {
+            "work": 191,
+            "duration": 124,
+            "uri": "spotify:playlist:5QSMyrtNFYIg3WCdPedySI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c952f03091c3f13b005498b7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5QUVKECJXvhvFgTFhjkrCy",
+        "fields": {
+            "work": 441,
+            "duration": 116,
+            "uri": "spotify:playlist:5QUVKECJXvhvFgTFhjkrCy",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27399bc575318a1c6f153b79f0d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5QYavFMVaKkY9EALfp51AK",
+        "fields": {
+            "work": 669,
+            "duration": 157,
+            "uri": "spotify:album:5QYavFMVaKkY9EALfp51AK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c70a6235016817aec075e57e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5QYdnW5wvLfgU1boNaXMTz",
+        "fields": {
+            "work": 322,
+            "duration": 234,
+            "uri": "spotify:playlist:5QYdnW5wvLfgU1boNaXMTz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ab74eaedc25adf6d2ad4c442"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5QgEWC4IWXoF070Tiaxpfk",
+        "fields": {
+            "work": 410,
+            "duration": 132,
+            "uri": "spotify:playlist:5QgEWC4IWXoF070Tiaxpfk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730724a8ca91a473416bceb461"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5QwBC2dYWg7qB1AoltOrl8",
+        "fields": {
+            "work": 336,
+            "duration": 216,
+            "uri": "spotify:album:5QwBC2dYWg7qB1AoltOrl8",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731444a033345410180d7d43a7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5R2thEm2zbSmsjx5xDfICt",
+        "fields": {
+            "work": 420,
+            "duration": 154,
+            "uri": "spotify:playlist:5R2thEm2zbSmsjx5xDfICt",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738f1578ea8afaae22f6074869"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5R7ZGZpXBHSVgFftQi6khq",
+        "fields": {
+            "work": 331,
+            "duration": 127,
+            "uri": "spotify:playlist:5R7ZGZpXBHSVgFftQi6khq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737becf91eb87a34bb59bd4e1a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5SoOzNywyKoA48iMCEGxua",
+        "fields": {
+            "work": 15,
+            "duration": 131,
+            "uri": "spotify:playlist:5SoOzNywyKoA48iMCEGxua",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27305d00a723a94dbc5598c1ed1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5T3De6iAtlNGtSAQfso49c",
+        "fields": {
+            "work": 297,
+            "duration": 152,
+            "uri": "spotify:album:5T3De6iAtlNGtSAQfso49c",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ea8193f1c6cf823f0ebd8d67"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5TGsczRD1g2aya1cKT27F5",
+        "fields": {
+            "work": 450,
+            "duration": 248,
+            "uri": "spotify:playlist:5TGsczRD1g2aya1cKT27F5",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736f21ba09235a67b60345f4f6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5TmvnoCdDJbDFEsx7zteyV",
+        "fields": {
+            "work": 91,
+            "duration": 92,
+            "uri": "spotify:playlist:5TmvnoCdDJbDFEsx7zteyV",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730f931ebd8b6e9a57fdd3b9ba"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5UhcsOk8xzyILuPSX392FJ",
+        "fields": {
+            "work": 162,
+            "duration": 111,
+            "uri": "spotify:playlist:5UhcsOk8xzyILuPSX392FJ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b6d58827b498919f6eb8d174"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5VcZ3GxUFKsFhFDz9GlzqY",
+        "fields": {
+            "work": 568,
+            "duration": 85,
+            "uri": "spotify:album:5VcZ3GxUFKsFhFDz9GlzqY",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a3e835ec0c8ad71bd5484109"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5ViWaS9jUVFvsQsXkVrKI1",
+        "fields": {
+            "work": 351,
+            "duration": 142,
+            "uri": "spotify:playlist:5ViWaS9jUVFvsQsXkVrKI1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732e08224062dfef49507f579d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5WUBNp0eZVmsOElLnsHICG",
+        "fields": {
+            "work": 262,
+            "duration": 201,
+            "uri": "spotify:album:5WUBNp0eZVmsOElLnsHICG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273cf232eedf7edc3054135b483"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5XEBFtV96CRsmZkJc0kU7T",
+        "fields": {
+            "work": 140,
+            "duration": 147,
+            "uri": "spotify:playlist:5XEBFtV96CRsmZkJc0kU7T",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731f8dd9ea257c6c409535c412"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5XQ3skQYN5awxlPW95vQwr",
+        "fields": {
+            "work": 672,
+            "duration": 110,
+            "uri": "spotify:album:5XQ3skQYN5awxlPW95vQwr",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733b67449d9dc2b222b52be5d8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5YFPjlUJJhxmC8Ct2TiJCj",
+        "fields": {
+            "work": 53,
+            "duration": 152,
+            "uri": "spotify:playlist:5YFPjlUJJhxmC8Ct2TiJCj",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c562b5525d2d08b9d33becac"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5YRxHBCYDIL7aQcHyyOUNr",
+        "fields": {
+            "work": 675,
+            "duration": 175,
+            "uri": "spotify:album:5YRxHBCYDIL7aQcHyyOUNr",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738fae0de9c4b2bdfdcb4b8419"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5bQOJue1vAqeMOadAOfG07",
+        "fields": {
+            "work": 473,
+            "duration": 92,
+            "uri": "spotify:playlist:5bQOJue1vAqeMOadAOfG07",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273665ccbd9f41df08d609a6f05"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5c3dApQAqDvkwQRDppEogU",
+        "fields": {
+            "work": 247,
+            "duration": 135,
+            "uri": "spotify:album:5c3dApQAqDvkwQRDppEogU",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c489b2e75b605d5659bfb82e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5cvsiAfbZeXU01ayPYGQSt",
+        "fields": {
+            "work": 467,
+            "duration": 131,
+            "uri": "spotify:playlist:5cvsiAfbZeXU01ayPYGQSt",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27315576a8cc31b14c2f236bca8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5djx4i2DAKuuaCeu0MgJ0j",
+        "fields": {
+            "work": 437,
+            "duration": 53,
+            "uri": "spotify:playlist:5djx4i2DAKuuaCeu0MgJ0j",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fdc8c4961acf39ec0c522dda"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5eBwUafFunOxD3nDzYhNNK",
+        "fields": {
+            "work": 311,
+            "duration": 152,
+            "uri": "spotify:playlist:5eBwUafFunOxD3nDzYhNNK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27333f4cd9231b5c582f4594c39"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5fDrmXnHspPuqvz40W79H6",
+        "fields": {
+            "work": 222,
+            "duration": 149,
+            "uri": "spotify:playlist:5fDrmXnHspPuqvz40W79H6",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c5cf23797183514e68c6f16d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5fcKebNeSIVSrtNtqBcD90",
+        "fields": {
+            "work": 448,
+            "duration": 124,
+            "uri": "spotify:playlist:5fcKebNeSIVSrtNtqBcD90",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735196c07d012163a0be399cc9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5gQBwJ1SrCsjiEaxtnJDCi",
+        "fields": {
+            "work": 392,
+            "duration": 135,
+            "uri": "spotify:playlist:5gQBwJ1SrCsjiEaxtnJDCi",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738163acec241a37aa751b7e67"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5gdcjr8JoF4WflnfhJKqE3",
+        "fields": {
+            "work": 359,
+            "duration": 162,
+            "uri": "spotify:album:5gdcjr8JoF4WflnfhJKqE3",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c0d02e4466a54d2a6b870838"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5hJdcdDpieq6KHZm9lc2tg",
+        "fields": {
+            "work": 484,
+            "duration": 128,
+            "uri": "spotify:album:5hJdcdDpieq6KHZm9lc2tg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273660717d9ce1f71680d5536ba"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5hjyHdw2pS1JE0aLQjRhcy",
+        "fields": {
+            "work": 16,
+            "duration": 126,
+            "uri": "spotify:playlist:5hjyHdw2pS1JE0aLQjRhcy",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736fdc855c3383092a0ed946fc"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5j3z82OYYYUt2bWYAP8ryp",
+        "fields": {
+            "work": 371,
+            "duration": 156,
+            "uri": "spotify:playlist:5j3z82OYYYUt2bWYAP8ryp",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e24b99202dfe4ef8c47edca8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5lAy9DQZI4MFyRE8R5C8lA",
+        "fields": {
+            "work": 281,
+            "duration": 130,
+            "uri": "spotify:playlist:5lAy9DQZI4MFyRE8R5C8lA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f042acf93fa693bf0c8b9e70"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5mdRbXzEDs1F7H9HIcKLry",
+        "fields": {
+            "work": 198,
+            "duration": 148,
+            "uri": "spotify:playlist:5mdRbXzEDs1F7H9HIcKLry",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b327841b6a222d183705d5c4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5nEdE0XlJXFYnoVyqRPmxi",
+        "fields": {
+            "work": 253,
+            "duration": 127,
+            "uri": "spotify:playlist:5nEdE0XlJXFYnoVyqRPmxi",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e2b388466eabfb19ca9c83d4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5nTF2w4RSNzLkgiISEC5C7",
+        "fields": {
+            "work": 4,
+            "duration": 167,
+            "uri": "spotify:playlist:5nTF2w4RSNzLkgiISEC5C7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736dd136fadc9a69dcef5eabc2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5pwTXGvyiZBzgq4n9ZdXot",
+        "fields": {
+            "work": 353,
+            "duration": 48,
+            "uri": "spotify:album:5pwTXGvyiZBzgq4n9ZdXot",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27333dc3bd9641c71b1f3f9a800"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5qlTHH1TyDH8bVQwSni4y2",
+        "fields": {
+            "work": 490,
+            "duration": 123,
+            "uri": "spotify:album:5qlTHH1TyDH8bVQwSni4y2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736504c44d14cdc46e0ab0968d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5xE7mkPZfZa8eu5A1DxzhG",
+        "fields": {
+            "work": 387,
+            "duration": 128,
+            "uri": "spotify:album:5xE7mkPZfZa8eu5A1DxzhG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273499040d0b899af4cf9e774c0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5xUPQo8vttgifaDRKuELel",
+        "fields": {
+            "work": 196,
+            "duration": 111,
+            "uri": "spotify:playlist:5xUPQo8vttgifaDRKuELel",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27396a0faac4fef4609ba3938ec"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5xr2IosjQcUbD0btYTNw8A",
+        "fields": {
+            "work": 516,
+            "duration": 49,
+            "uri": "spotify:album:5xr2IosjQcUbD0btYTNw8A",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735f736b9599e5d059b6563aa9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "5yaahFhIsffzkXnLJSiaVI",
+        "fields": {
+            "work": 153,
+            "duration": 145,
+            "uri": "spotify:playlist:5yaahFhIsffzkXnLJSiaVI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738222893f1ca787a3fcc3cf75"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "60EjwjPevQg2ivdYu4SGa7",
+        "fields": {
+            "work": 42,
+            "duration": 147,
+            "uri": "spotify:playlist:60EjwjPevQg2ivdYu4SGa7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e7853ee4fcceb2b16e8722af"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "60Gjt876ZA19Z2OTsIJT5i",
+        "fields": {
+            "work": 402,
+            "duration": 135,
+            "uri": "spotify:album:60Gjt876ZA19Z2OTsIJT5i",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732fb54e46ee4e1fd5736e43f5"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "64G7FRg2EAeOAimZZYwlbe",
+        "fields": {
+            "work": 394,
+            "duration": 154,
+            "uri": "spotify:playlist:64G7FRg2EAeOAimZZYwlbe",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fc16d3891e93c636d662c35b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "65VFDnLx01Zjycr1g9IhaJ",
+        "fields": {
+            "work": 665,
+            "duration": 145,
+            "uri": "spotify:album:65VFDnLx01Zjycr1g9IhaJ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273859b9d3157dafeb33a6dd05d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "65ZZwR6pHtz6P9FKH6Lf5y",
+        "fields": {
+            "work": 432,
+            "duration": 124,
+            "uri": "spotify:playlist:65ZZwR6pHtz6P9FKH6Lf5y",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734843836900d7bfdc6e7a4515"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "66QnNKgQJn4QBhy0g75SJZ",
+        "fields": {
+            "work": 479,
+            "duration": 79,
+            "uri": "spotify:playlist:66QnNKgQJn4QBhy0g75SJZ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27388d40ffd2e3601058d330d07"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "67BxzFqA8bGyy3QS73Uht7",
+        "fields": {
+            "work": 60,
+            "duration": 156,
+            "uri": "spotify:playlist:67BxzFqA8bGyy3QS73Uht7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273156db5561bba59f43eb712c6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "67FiEJLByVu4Wp6DMc1TQV",
+        "fields": {
+            "work": 317,
+            "duration": 79,
+            "uri": "spotify:album:67FiEJLByVu4Wp6DMc1TQV",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738d3f68d6398c80ef7156a186"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "67tuKvLvOh9ienVvkwqnwQ",
+        "fields": {
+            "work": 340,
+            "duration": 102,
+            "uri": "spotify:playlist:67tuKvLvOh9ienVvkwqnwQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737d9725353f8d6ef5dc931395"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "68Po65PTU6MPkz8kbjcV9P",
+        "fields": {
+            "work": 671,
+            "duration": 64,
+            "uri": "spotify:album:68Po65PTU6MPkz8kbjcV9P",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273832089420416f802c9882d27"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "69K0fDrkRCq2rkAKAGXmtC",
+        "fields": {
+            "work": 386,
+            "duration": 124,
+            "uri": "spotify:playlist:69K0fDrkRCq2rkAKAGXmtC",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273951e2f730fb19332a941f1be"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6A6EgSmtfGQcbzhfLqBDHA",
+        "fields": {
+            "work": 251,
+            "duration": 142,
+            "uri": "spotify:playlist:6A6EgSmtfGQcbzhfLqBDHA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273111513a5884ad2f611610e98"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6ATH0RCDjYls12podPVkEL",
+        "fields": {
+            "work": 611,
+            "duration": 164,
+            "uri": "spotify:album:6ATH0RCDjYls12podPVkEL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734136621896d66b85f8c066af"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6AgRQdcq6Wwg4tcC4er59I",
+        "fields": {
+            "work": 226,
+            "duration": 219,
+            "uri": "spotify:playlist:6AgRQdcq6Wwg4tcC4er59I",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736eb01232bb42b9d5a7e128d5"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6AsNq2nopB9ogZ3ER84bGi",
+        "fields": {
+            "work": 312,
+            "duration": 202,
+            "uri": "spotify:playlist:6AsNq2nopB9ogZ3ER84bGi",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730aec95331e31178b7aeb1135"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6B3yDNtYhPuOWhLlhtgyGI",
+        "fields": {
+            "work": 232,
+            "duration": 212,
+            "uri": "spotify:album:6B3yDNtYhPuOWhLlhtgyGI",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273dbebb05f61ce0380d3baeb75"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6C0ltfZCL4ZLux2FPgOYeo",
+        "fields": {
+            "work": 512,
+            "duration": 103,
+            "uri": "spotify:album:6C0ltfZCL4ZLux2FPgOYeo",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2732c4c02dcfe42fcb4e17bcf6c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6Crw3tppYEH96X7XRlgFHz",
+        "fields": {
+            "work": 662,
+            "duration": 99,
+            "uri": "spotify:album:6Crw3tppYEH96X7XRlgFHz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c4d48cafb24181d9ba55ddf8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6DBKVKYgZycNAFeVKOBz8O",
+        "fields": {
+            "work": 413,
+            "duration": 201,
+            "uri": "spotify:playlist:6DBKVKYgZycNAFeVKOBz8O",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27321216e26fdf4dba593014da8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6EaxJCCMur4I9y02j3CAoU",
+        "fields": {
+            "work": 397,
+            "duration": 123,
+            "uri": "spotify:album:6EaxJCCMur4I9y02j3CAoU",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273cf9170d0532af1d2769f64e4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6GKHZQrymRi68lOLLMK6AS",
+        "fields": {
+            "work": 324,
+            "duration": 90,
+            "uri": "spotify:playlist:6GKHZQrymRi68lOLLMK6AS",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c642cba52b1a5a9501a63670"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6GRkgdoLlMuYs86c2WCMSK",
+        "fields": {
+            "work": 225,
+            "duration": 69,
+            "uri": "spotify:album:6GRkgdoLlMuYs86c2WCMSK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fc3818233b0d00ae6349ca8c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6Hz2pECqjixHdEWhIopCmC",
+        "fields": {
+            "work": 367,
+            "duration": 120,
+            "uri": "spotify:album:6Hz2pECqjixHdEWhIopCmC",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d72a3caba6fd89f9f3919551"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6Jau78TItgvrdvTv2ZI1Gw",
+        "fields": {
+            "work": 96,
+            "duration": 134,
+            "uri": "spotify:playlist:6Jau78TItgvrdvTv2ZI1Gw",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273abe6bb6e4f01b1366807a10d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6K0kV1epSePDx1E4xAQz0S",
+        "fields": {
+            "work": 327,
+            "duration": 133,
+            "uri": "spotify:playlist:6K0kV1epSePDx1E4xAQz0S",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273884881eddda20d1b652da26b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6KGwlXfSSIRHruIq21gppO",
+        "fields": {
+            "work": 476,
+            "duration": 153,
+            "uri": "spotify:playlist:6KGwlXfSSIRHruIq21gppO",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c783f6c08150710954d47d18"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6KUeekX5ESrE2MDXkmHxLQ",
+        "fields": {
+            "work": 189,
+            "duration": 60,
+            "uri": "spotify:playlist:6KUeekX5ESrE2MDXkmHxLQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735e73ae610d8103e3c683ac51"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6MHQpyl25sWoTdltZvY12M",
+        "fields": {
+            "work": 252,
+            "duration": 106,
+            "uri": "spotify:album:6MHQpyl25sWoTdltZvY12M",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730f26c6f4141c85f05083da94"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6MK3fPzi08t3o35YMzhrPW",
+        "fields": {
+            "work": 216,
+            "duration": 117,
+            "uri": "spotify:playlist:6MK3fPzi08t3o35YMzhrPW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27310387b904a782d635367c5ed"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6NIrTrXR1V5SJzbj2hVhW8",
+        "fields": {
+            "work": 18,
+            "duration": 129,
+            "uri": "spotify:playlist:6NIrTrXR1V5SJzbj2hVhW8",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273705c3af929cf8fbcb94d4a3b"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6OqrQ65Z8Bcjz8gUD4f41x",
+        "fields": {
+            "work": 415,
+            "duration": 183,
+            "uri": "spotify:playlist:6OqrQ65Z8Bcjz8gUD4f41x",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736bcce45f2f63ab8c83a957ac"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6QxxKL0y3uZ0W0etkomaeR",
+        "fields": {
+            "work": 250,
+            "duration": 181,
+            "uri": "spotify:playlist:6QxxKL0y3uZ0W0etkomaeR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273be4255d41ed20477e1b7b630"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6QyTkqLjRHi50suKXCu1Qx",
+        "fields": {
+            "work": 293,
+            "duration": 196,
+            "uri": "spotify:playlist:6QyTkqLjRHi50suKXCu1Qx",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a39c9e20d86857ad77fe9c0c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6Rtj4qoauDCZoOld87sP2u",
+        "fields": {
+            "work": 364,
+            "duration": 182,
+            "uri": "spotify:playlist:6Rtj4qoauDCZoOld87sP2u",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738323ff60cc2dbae1a61edca1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6V6nj1pXbeHunNWibPSedm",
+        "fields": {
+            "work": 44,
+            "duration": 141,
+            "uri": "spotify:playlist:6V6nj1pXbeHunNWibPSedm",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27305797724fff42a83b7b83e15"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6Y26CR3k2ltm3p1uID2tMw",
+        "fields": {
+            "work": 201,
+            "duration": 106,
+            "uri": "spotify:playlist:6Y26CR3k2ltm3p1uID2tMw",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733f40b0d4a8287ed506c4eb30"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6YDnCGrOEM58ZeBG9ThcVf",
+        "fields": {
+            "work": 574,
+            "duration": 144,
+            "uri": "spotify:album:6YDnCGrOEM58ZeBG9ThcVf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a09673b4db23fffb2bcae4c9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6av3nMthafn7WF4AjPo6jz",
+        "fields": {
+            "work": 295,
+            "duration": 118,
+            "uri": "spotify:album:6av3nMthafn7WF4AjPo6jz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d828aa45b40d0608be20e85e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6cFilQ75s73oOGg03ttBR7",
+        "fields": {
+            "work": 577,
+            "duration": 148,
+            "uri": "spotify:album:6cFilQ75s73oOGg03ttBR7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c15a035a5d73bdbbcbc1820f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6d3bIOUnb4FibJEasFSSOF",
+        "fields": {
+            "work": 455,
+            "duration": 57,
+            "uri": "spotify:playlist:6d3bIOUnb4FibJEasFSSOF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273818c88676fa3a627eb63561a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6dojF56pdvjwzgEGAxL1s7",
+        "fields": {
+            "work": 569,
+            "duration": 156,
+            "uri": "spotify:album:6dojF56pdvjwzgEGAxL1s7",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734fd61bad28ad4a169f88ea9e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6e0aArFFAkrD9sUY9jxGpb",
+        "fields": {
+            "work": 393,
+            "duration": 69,
+            "uri": "spotify:playlist:6e0aArFFAkrD9sUY9jxGpb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27335467bed4a8a47c2ca15e4a8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6eaHFtRFZRvPyQAzTUAxhk",
+        "fields": {
+            "work": 548,
+            "duration": 187,
+            "uri": "spotify:album:6eaHFtRFZRvPyQAzTUAxhk",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fcb21c560e5c0b22f0bd2696"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6fpkiHuGpCSeCIyjp5nVlm",
+        "fields": {
+            "work": 97,
+            "duration": 99,
+            "uri": "spotify:playlist:6fpkiHuGpCSeCIyjp5nVlm",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734cfed1d0a19cc30337bf5b4e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6gHcMJqPhKxF7ZACVmVlcK",
+        "fields": {
+            "work": 204,
+            "duration": 53,
+            "uri": "spotify:playlist:6gHcMJqPhKxF7ZACVmVlcK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738010c22f61b0abf4d1604b59"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6gkbA2jEqunWpKm0uqsPSS",
+        "fields": {
+            "work": 649,
+            "duration": 121,
+            "uri": "spotify:album:6gkbA2jEqunWpKm0uqsPSS",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27323ddec68a46509b197eca449"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6h91CijQAtrh3HFbwBFzma",
+        "fields": {
+            "work": 131,
+            "duration": 89,
+            "uri": "spotify:playlist:6h91CijQAtrh3HFbwBFzma",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27352ad844beb4f4a101f85195f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6hUdBgDDCAIzDqXZDfdbAj",
+        "fields": {
+            "work": 81,
+            "duration": 132,
+            "uri": "spotify:playlist:6hUdBgDDCAIzDqXZDfdbAj",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a7f4ebc4fcd824b0e8919711"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6jREUZib2i3JKS7WWU95IF",
+        "fields": {
+            "work": 258,
+            "duration": 152,
+            "uri": "spotify:playlist:6jREUZib2i3JKS7WWU95IF",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736bcb1119f4d3637cbac12379"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6kP2u5hJ2uk1iEek7LLSEd",
+        "fields": {
+            "work": 48,
+            "duration": 160,
+            "uri": "spotify:playlist:6kP2u5hJ2uk1iEek7LLSEd",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2731e9dd5224ea013a03fdf293d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6kiaToC2CKNsR1TsJ2AJBU",
+        "fields": {
+            "work": 301,
+            "duration": 121,
+            "uri": "spotify:album:6kiaToC2CKNsR1TsJ2AJBU",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27309c6c530f75095b6a9ff4719"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6koGZToZi5K20YlBZqjhcl",
+        "fields": {
+            "work": 407,
+            "duration": 165,
+            "uri": "spotify:playlist:6koGZToZi5K20YlBZqjhcl",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a447e09d57da4893da5bf598"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6kowdoy13m7hOaOtGA0i7Y",
+        "fields": {
+            "work": 414,
+            "duration": 134,
+            "uri": "spotify:album:6kowdoy13m7hOaOtGA0i7Y",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738ad8b0e2f901aca82b7aea5e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6mhmp3YnxkuqLEJNKS9UE1",
+        "fields": {
+            "work": 199,
+            "duration": 137,
+            "uri": "spotify:playlist:6mhmp3YnxkuqLEJNKS9UE1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f6323128f316df1021b9a5a8"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6mlY32vvYhhGxmi8OMtJSN",
+        "fields": {
+            "work": 20,
+            "duration": 199,
+            "uri": "spotify:playlist:6mlY32vvYhhGxmi8OMtJSN",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273cb43f50453e09eab623b07f3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6nd8mDHPJi4FXEKb1sVX4Y",
+        "fields": {
+            "work": 446,
+            "duration": 115,
+            "uri": "spotify:playlist:6nd8mDHPJi4FXEKb1sVX4Y",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730370e43579073fb7af41159f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6ndpvcvJm9sZVO9S5SIY93",
+        "fields": {
+            "work": 105,
+            "duration": 150,
+            "uri": "spotify:playlist:6ndpvcvJm9sZVO9S5SIY93",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738e20c439eac744cea33540f0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6nhqx4oqX4eqysnAtCP3NR",
+        "fields": {
+            "work": 115,
+            "duration": 135,
+            "uri": "spotify:playlist:6nhqx4oqX4eqysnAtCP3NR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a1c2f29ca0700a09c959ef10"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6o3U3gXVngRIPxusYJKsQL",
+        "fields": {
+            "work": 18,
+            "duration": 159,
+            "uri": "spotify:playlist:6o3U3gXVngRIPxusYJKsQL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e13a868202e8cfd017208794"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6oAIAi8p2ZpntZfycYl5LG",
+        "fields": {
+            "work": 71,
+            "duration": 232,
+            "uri": "spotify:playlist:6oAIAi8p2ZpntZfycYl5LG",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273da0afa273bea0528ae5cb907"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6p8XeAhqgwXC47OMsJ36Tf",
+        "fields": {
+            "work": 440,
+            "duration": 95,
+            "uri": "spotify:playlist:6p8XeAhqgwXC47OMsJ36Tf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27354da8c0c7902da0dd9a08459"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6qdSPzob3SAVaagIY8Rq7h",
+        "fields": {
+            "work": 133,
+            "duration": 122,
+            "uri": "spotify:album:6qdSPzob3SAVaagIY8Rq7h",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273539bb76065b1bd4e9b968d7e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6qhegLr1dBjRyDtH41ey2o",
+        "fields": {
+            "work": 328,
+            "duration": 144,
+            "uri": "spotify:playlist:6qhegLr1dBjRyDtH41ey2o",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734e5c1dc9f304f5ec34caa987"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6ryhbMO2FRJfQLXG987tyu",
+        "fields": {
+            "work": 389,
+            "duration": 182,
+            "uri": "spotify:album:6ryhbMO2FRJfQLXG987tyu",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737d07296654690c75b7ce73a3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6shcRbUS6mcBO0uUA8fNCL",
+        "fields": {
+            "work": 418,
+            "duration": 106,
+            "uri": "spotify:playlist:6shcRbUS6mcBO0uUA8fNCL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27348f2facf18a8a02eabe9189a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6t2a2JzWOGUagysIbKLPvc",
+        "fields": {
+            "work": 355,
+            "duration": 29,
+            "uri": "spotify:playlist:6t2a2JzWOGUagysIbKLPvc",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2737a5943bd693cb0b32fbbd814"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6u5MamhbcUmO8RBmqDiMth",
+        "fields": {
+            "work": 636,
+            "duration": 65,
+            "uri": "spotify:album:6u5MamhbcUmO8RBmqDiMth",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27357812b8ef62f35cca2584b8e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6uMjPFdMbscKqi6eJW4qOr",
+        "fields": {
+            "work": 408,
+            "duration": 150,
+            "uri": "spotify:playlist:6uMjPFdMbscKqi6eJW4qOr",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c55f5246a4bfbb88aeef0e04"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6wcQyXQMWpe04EhDnPl7iq",
+        "fields": {
+            "work": 6,
+            "duration": 104,
+            "uri": "spotify:playlist:6wcQyXQMWpe04EhDnPl7iq",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b92877cdfe07421ba15a808e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "6zaJH8MyIrEQBtfykLLbaN",
+        "fields": {
+            "work": 213,
+            "duration": 142,
+            "uri": "spotify:playlist:6zaJH8MyIrEQBtfykLLbaN",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733edb2f91f7579a2e55ae79d4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "74YG69SpxdD4OahtkZK8pH",
+        "fields": {
+            "work": 422,
+            "duration": 111,
+            "uri": "spotify:playlist:74YG69SpxdD4OahtkZK8pH",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273e6eefce92c673ca5c0993ee1"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "77kooncyrlFZN9HPwN5Tha",
+        "fields": {
+            "work": 313,
+            "duration": 137,
+            "uri": "spotify:playlist:77kooncyrlFZN9HPwN5Tha",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f061a5e04366c8e16a1edea3"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7AS8GRUR0b4B3gEDEZp7XL",
+        "fields": {
+            "work": 192,
+            "duration": 136,
+            "uri": "spotify:playlist:7AS8GRUR0b4B3gEDEZp7XL",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273aed96fb4d89205a929feb404"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7BTDZrZ5Ky4C7x6iL7C0A9",
+        "fields": {
+            "work": 88,
+            "duration": 142,
+            "uri": "spotify:playlist:7BTDZrZ5Ky4C7x6iL7C0A9",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735422749075df2b0b8780ff22"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7DYpSzSh2l0dVwrwPiUoOt",
+        "fields": {
+            "work": 103,
+            "duration": 82,
+            "uri": "spotify:playlist:7DYpSzSh2l0dVwrwPiUoOt",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a13d0f1d9efa2004f25d0ce9"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7DmCrDUAFxbEFdKOCiZ8uW",
+        "fields": {
+            "work": 475,
+            "duration": 171,
+            "uri": "spotify:playlist:7DmCrDUAFxbEFdKOCiZ8uW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a99aca31ef7c35f83ec47b93"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7DoVkgCIaFXHXjWZki77l6",
+        "fields": {
+            "work": 468,
+            "duration": 62,
+            "uri": "spotify:playlist:7DoVkgCIaFXHXjWZki77l6",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273163493fcb40400a78ae67cfa"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7Docnx6ktocbn6yoBsRX2R",
+        "fields": {
+            "work": 202,
+            "duration": 149,
+            "uri": "spotify:playlist:7Docnx6ktocbn6yoBsRX2R",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273faa1fd72050847897031b8c7"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7FrcYVToPt4KWxOLosKOqb",
+        "fields": {
+            "work": 118,
+            "duration": 44,
+            "uri": "spotify:playlist:7FrcYVToPt4KWxOLosKOqb",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273086998c5c043d4d7c1c0bdc6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7HH7k1ThO2bmqjsuFVkAG1",
+        "fields": {
+            "work": 335,
+            "duration": 143,
+            "uri": "spotify:playlist:7HH7k1ThO2bmqjsuFVkAG1",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fc35004b4319022797e04422"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7HWBHyRgZwnOEXq8IezrGJ",
+        "fields": {
+            "work": 625,
+            "duration": 174,
+            "uri": "spotify:album:7HWBHyRgZwnOEXq8IezrGJ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27366b131752953205d7f03d36d"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7IX4qNx6BAAMQKGwNNsD52",
+        "fields": {
+            "work": 79,
+            "duration": 117,
+            "uri": "spotify:playlist:7IX4qNx6BAAMQKGwNNsD52",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27303b4095d7280b6bb4dbe4d9f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7KWa6ouM31pvShAP3Sy6pz",
+        "fields": {
+            "work": 459,
+            "duration": 101,
+            "uri": "spotify:playlist:7KWa6ouM31pvShAP3Sy6pz",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2736d425bb9be67f7c656d1c106"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7Lkp1jgJWofODLlETMm6nR",
+        "fields": {
+            "work": 373,
+            "duration": 63,
+            "uri": "spotify:playlist:7Lkp1jgJWofODLlETMm6nR",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f0383f8eba704159ce7e46c0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7M25v1TwFh0fs2rQNsbr13",
+        "fields": {
+            "work": 79,
+            "duration": 124,
+            "uri": "spotify:playlist:7M25v1TwFh0fs2rQNsbr13",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273466336edd115fedb1f343bde"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7MCUfMtKZE3Zh7n5QjPbRf",
+        "fields": {
+            "work": 506,
+            "duration": 107,
+            "uri": "spotify:playlist:7MCUfMtKZE3Zh7n5QjPbRf",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730d748da62e61475097107ab6"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7aLJmGIDpZNLyyTedV4d5M",
+        "fields": {
+            "work": 223,
+            "duration": 174,
+            "uri": "spotify:playlist:7aLJmGIDpZNLyyTedV4d5M",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27370f1c4054883380720c75015"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7ahYF7F5EuY2NZKZrlv1Tm",
+        "fields": {
+            "work": 694,
+            "duration": 65,
+            "uri": "spotify:album:7ahYF7F5EuY2NZKZrlv1Tm",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738862a7e0f4d8ec900343ed94"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7azHFq7We6f6dMUCy5RgNn",
+        "fields": {
+            "work": 124,
+            "duration": 134,
+            "uri": "spotify:playlist:7azHFq7We6f6dMUCy5RgNn",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273782a72d5bb911d914f19bf28"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7b013AoSOqRbur5sLblr5O",
+        "fields": {
+            "work": 401,
+            "duration": 117,
+            "uri": "spotify:album:7b013AoSOqRbur5sLblr5O",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27316f399aa80c5f19d5ce41292"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7bKXufeaUlvh5JDsVYAcCH",
+        "fields": {
+            "work": 85,
+            "duration": 76,
+            "uri": "spotify:playlist:7bKXufeaUlvh5JDsVYAcCH",
+            "image_url": null
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7cHdh7HjjKnH54jd088ZlX",
+        "fields": {
+            "work": 216,
+            "duration": 134,
+            "uri": "spotify:playlist:7cHdh7HjjKnH54jd088ZlX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733edb2f91f7579a2e55ae79d4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7cbg4J8QFdffSOHj6gVdg2",
+        "fields": {
+            "work": 646,
+            "duration": 53,
+            "uri": "spotify:album:7cbg4J8QFdffSOHj6gVdg2",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d9081bc45b1bdaf2e1675128"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7dFoqnGPFf9jOuhmNNXoCA",
+        "fields": {
+            "work": 80,
+            "duration": 184,
+            "uri": "spotify:playlist:7dFoqnGPFf9jOuhmNNXoCA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fbbdea9afd426cfa9128f82c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7fnPsK6PzzZfCjubxCqxmd",
+        "fields": {
+            "work": 478,
+            "duration": 118,
+            "uri": "spotify:playlist:7fnPsK6PzzZfCjubxCqxmd",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2738f355916fce7ea23c951c8aa"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7gJUDeTabw9fej5EbmayZK",
+        "fields": {
+            "work": 10,
+            "duration": 153,
+            "uri": "spotify:playlist:7gJUDeTabw9fej5EbmayZK",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2734104ffab1663d40631444d44"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7hchW1E2VW6lNp6DWMB27u",
+        "fields": {
+            "work": 673,
+            "duration": 58,
+            "uri": "spotify:album:7hchW1E2VW6lNp6DWMB27u",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273d6be461c58159cd4f99ba867"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7kRdoqxNuQUrsdp9DAimng",
+        "fields": {
+            "work": 299,
+            "duration": 142,
+            "uri": "spotify:playlist:7kRdoqxNuQUrsdp9DAimng",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a61a1b49ebaff414aea09a35"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7kSEHB7lmFN3Yu6RGgmFw8",
+        "fields": {
+            "work": 288,
+            "duration": 137,
+            "uri": "spotify:playlist:7kSEHB7lmFN3Yu6RGgmFw8",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27353470c7e3508252a4263312a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7lgIsZMFZZiEfFIPKLx6sy",
+        "fields": {
+            "work": 243,
+            "duration": 142,
+            "uri": "spotify:playlist:7lgIsZMFZZiEfFIPKLx6sy",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2730b570042533d8ce16c69483a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7n7BQhwAyhmrYfWppPFZef",
+        "fields": {
+            "work": 248,
+            "duration": 54,
+            "uri": "spotify:playlist:7n7BQhwAyhmrYfWppPFZef",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273975b2c7b36444857cce9277a"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7nIrI32OMYxMy06Ti4mbgM",
+        "fields": {
+            "work": 246,
+            "duration": 230,
+            "uri": "spotify:playlist:7nIrI32OMYxMy06Ti4mbgM",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27389f1309e552042166c6ba0fa"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7nJfnkcN6OCPA1I046SvCy",
+        "fields": {
+            "work": 11,
+            "duration": 120,
+            "uri": "spotify:playlist:7nJfnkcN6OCPA1I046SvCy",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273da39d69e903eb2fda3e9e749"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7nRJW2YY2nHXJgAnWE64As",
+        "fields": {
+            "work": 127,
+            "duration": 129,
+            "uri": "spotify:playlist:7nRJW2YY2nHXJgAnWE64As",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273416d201ceb4d4c4936306c2c"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7nUVpZy2DAaQl7jiRJZPKs",
+        "fields": {
+            "work": 92,
+            "duration": 116,
+            "uri": "spotify:playlist:7nUVpZy2DAaQl7jiRJZPKs",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273da14fd3fd315ae888bbf2547"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7oZdOwzoHjMvmnskefr24y",
+        "fields": {
+            "work": 279,
+            "duration": 118,
+            "uri": "spotify:playlist:7oZdOwzoHjMvmnskefr24y",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273c3e190bb7d77c617755b2eb0"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7pa4xiN9nQQUxAudWFvcfg",
+        "fields": {
+            "work": 18,
+            "duration": 138,
+            "uri": "spotify:playlist:7pa4xiN9nQQUxAudWFvcfg",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273a5e1c92813d097855181da16"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7pu1E4vdbQxaDkj18uhpZX",
+        "fields": {
+            "work": 318,
+            "duration": 198,
+            "uri": "spotify:playlist:7pu1E4vdbQxaDkj18uhpZX",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27307ebd8cd51d91e144c58b560"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7rxURe655wGNWLZSqXR8ix",
+        "fields": {
+            "work": 84,
+            "duration": 173,
+            "uri": "spotify:playlist:7rxURe655wGNWLZSqXR8ix",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273919fc85dcc07d1eeb421d901"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7se1gDuTcS8CjfTPYRd3Fo",
+        "fields": {
+            "work": 461,
+            "duration": 143,
+            "uri": "spotify:playlist:7se1gDuTcS8CjfTPYRd3Fo",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733ff24623a46a7e4c249c6e21"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7spF7q5HBQizhwJAGTGrtW",
+        "fields": {
+            "work": 31,
+            "duration": 113,
+            "uri": "spotify:playlist:7spF7q5HBQizhwJAGTGrtW",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273b7590ae9eb38d89d674f14e2"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7tAvkdPha0qk9FtO3LY2YA",
+        "fields": {
+            "work": 207,
+            "duration": 115,
+            "uri": "spotify:playlist:7tAvkdPha0qk9FtO3LY2YA",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273f31d56ddd070fd0f717b2456"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7wNUmhFhxyQc0bvswc2AXQ",
+        "fields": {
+            "work": 218,
+            "duration": 152,
+            "uri": "spotify:playlist:7wNUmhFhxyQc0bvswc2AXQ",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2733edb2f91f7579a2e55ae79d4"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7wXUNOmQNXT2xXGYPlFWgw",
+        "fields": {
+            "work": 234,
+            "duration": 269,
+            "uri": "spotify:album:7wXUNOmQNXT2xXGYPlFWgw",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27355d0ea0f4c371e291c624add"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7xZsjdyK8rgUNI8XMUvl8A",
+        "fields": {
+            "work": 92,
+            "duration": 122,
+            "uri": "spotify:playlist:7xZsjdyK8rgUNI8XMUvl8A",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273fcbe99ba3e75f703d07f5f89"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7yWZ6T27tODxssUnbb2h8Q",
+        "fields": {
+            "work": 321,
+            "duration": 112,
+            "uri": "spotify:playlist:7yWZ6T27tODxssUnbb2h8Q",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27396c7bfba0a8037fb48c80d0e"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7yYNsdFJZamEXtjvejHRwa",
+        "fields": {
+            "work": 417,
+            "duration": 115,
+            "uri": "spotify:playlist:7yYNsdFJZamEXtjvejHRwa",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b273ad051cbe77ab62db78133b89"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7yqR30WdAfjTmr0pkN9Mg5",
+        "fields": {
+            "work": 661,
+            "duration": 148,
+            "uri": "spotify:album:7yqR30WdAfjTmr0pkN9Mg5",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b27352aebf540b5057a4923ca24f"
+        }
+    },
+    {
+        "model": "listen.album",
+        "pk": "7yzY8tvA6uL6xjl9hBVFtc",
+        "fields": {
+            "work": 549,
+            "duration": 182,
+            "uri": "spotify:album:7yzY8tvA6uL6xjl9hBVFtc",
+            "image_url": "https://i.scdn.co/image/ab67616d0000b2735409d2a442ab28da07aa9f07"
+        }
+    }
+]

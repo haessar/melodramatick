@@ -1,4 +1,6 @@
 __all__ = ["GENDER_CHOICES", "Composer", "Group", "Quote"]
+from django.contrib.sites.managers import CurrentSiteManager
+from django.contrib.sites.models import Site
 from django.db import models
 
 
@@ -11,20 +13,14 @@ class Composer(models.Model):
     nationality = models.CharField(max_length=20)
     complete = models.BooleanField()
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1, default="M")
+    sites = models.ManyToManyField(Site)
+    objects = CurrentSiteManager()
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['surname', 'first_name'], name='unique_composer')
         ]
         ordering = ['surname']
-
-    # @property
-    # def true_surname(self):
-    #     """
-    #     I stupidly assigned surname CharField as pk originally which appears incredibly difficult to rectify
-    #     without rebuilding the db, so this at least makes things more presentable.
-    #     """
-    #     return self.surname.split("(")[0].strip() if "(" in self.surname else self.surname
 
     def __str__(self):
         return "{}, {}".format(self.surname, self.first_name)

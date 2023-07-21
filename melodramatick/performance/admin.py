@@ -12,6 +12,7 @@ class PerformanceAdmin(admin.ModelAdmin):
     list_filter = (('user', admin.RelatedOnlyFieldListFilter),)
     actions = ['merge_performances', 'split_performance']
     ordering = ['-date', ]
+    exclude = ['site']
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -54,5 +55,6 @@ class PerformanceAdmin(admin.ModelAdmin):
         self.message_user(request, "Your performance has been split.")
 
     def save_model(self, request, obj, form, change):
+        obj.site = request.site
         obj.user = request.user
         super().save_model(request, obj, form, change)
