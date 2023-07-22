@@ -24,14 +24,15 @@
       });
       $("td[id=hiddencell]").find("p").hide();
       $("table").click(function(event) {
-        // Commented out the following as it prevents spotify_link click event from working.
-        //event.stopPropagation();
         var $target = $(event.target);
         if ( $target.closest("td").attr("colspan") > 1 ) {
           $target.closest("td").children("p").slideUp();
         } else {
           $target.closest("tr[id^=ticked]").next().find("p").slideToggle();
         }
+      });
+      $("table a").click(function(event) {
+        event.stopImmediatePropagation();
       });
     });
   </script>
