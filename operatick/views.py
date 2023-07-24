@@ -11,5 +11,6 @@ class OperaDetailView(DetailView):
 
 
 class OperaTableView(WorkTableView):
+    model = Opera
     table_class = OperaTable
     filterset_class = OperaFilter
