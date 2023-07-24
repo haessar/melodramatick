@@ -31,9 +31,9 @@
           $target.closest("tr[id^=ticked]").next().find("p").slideToggle();
         }
       });
-      $("table a").click(function(event) {
+      {% comment %} $("table a").click(function(event) {
         event.stopImmediatePropagation();
-      });
+      }); {% endcomment %}
     });
   </script>
 
