@@ -45,13 +45,14 @@ class SubGenreAdmin(admin.ModelAdmin):
 
 
 # TODO Work out how to change model manager to allow all objects in WorkAdmin (not site-specific)
-# @admin.register(Work)
+@admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
     change_list_template = "admin/import_csv_changelist.html"
     list_display = ("id", "title", "composer", "year", "sub_genre")
     list_filter = (('composer', RelatedDropdownFilter), ('sub_genre__genre', RelatedDropdownFilter))
     actions = ['save_performance']
     inlines = [ListenInline, AKAInline, AlbumInline]
+    search_fields = ['title']
 
     def get_urls(self):
         urls = super().get_urls()

@@ -14,6 +14,7 @@ from .models import List, ListItem
 class ListItemInline(admin.TabularInline):
     model = ListItem
     extra = 0
+    autocomplete_fields = ["item"]
 
 
 @admin.register(List)
