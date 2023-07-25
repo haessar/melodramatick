@@ -45,7 +45,7 @@ class Album(models.Model):
             return self.image_url
 
 
-# @receiver(post_save, sender=Album)
+@receiver(post_save, sender=Album)
 def set_image_url(sender, instance, **kwargs):
     if not instance.image_url:
         if "album" in instance.uri:
@@ -56,7 +56,7 @@ def set_image_url(sender, instance, **kwargs):
             sender.objects.filter(pk=instance.pk).update(image_url=image_url)
 
 
-# @receiver(post_save, sender=Album)
+@receiver(post_save, sender=Album)
 def set_duration(sender, instance, **kwargs):
     if not instance.duration:
         if "album" in instance.uri:
