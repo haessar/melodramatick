@@ -108,6 +108,14 @@ WSGI_APPLICATION = 'melodramatick.wsgi.application'
 
 DEVELOPMENT_MODE = config("DEVELOPMENT_MODE", default=False, cast=bool)
 if DEVELOPMENT_MODE is True:
+    INTERNAL_IPS = [
+        "127.0.0.1",
+    ]
+
+    MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
+
+    INSTALLED_APPS.append('debug_toolbar')
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
