@@ -158,3 +158,6 @@ static/*
 
 # service account credentials
 operatick-*.json
+
+# data files
+operatick/notebooks/data
