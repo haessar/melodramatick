@@ -33,9 +33,12 @@ urlpatterns = [
     path('top-lists/', include('melodramatick.top_list.urls')),
     path('performances/', include('melodramatick.performance.urls')),
     path('', include('melodramatick.listen.urls')),
-    path('works/', include('operatick.urls')),
 ]
 
 if settings.DEVELOPMENT_MODE is True:
     urlpatterns.append(path("__debug__/", include("debug_toolbar.urls")))
 
+if settings.SITE_ID == 1:
+    urlpatterns.append(path('works/', include('operatick.urls')))
+elif settings.SITE_ID == 2:
+    urlpatterns.append(path('works/', include('balletick.urls')))
