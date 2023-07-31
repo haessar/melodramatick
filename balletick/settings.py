@@ -45,7 +45,7 @@ STATICFILES_DIRS = [BASE_DIR / "balletick" / "static"] + STATICFILES_DIRS
 
 # Site-specific settings
 
-# WORK_MODEL = 'ballet.Ballet'
+WORK_MODEL_RELATED_NAME = 'ballet'
 WORK_PLURAL_LABEL = 'ballets'
 
 SITE = 'Balletick'

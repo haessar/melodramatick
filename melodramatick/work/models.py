@@ -1,5 +1,6 @@
 __all__ = ["AKA", "Genre", "SubGenre", "Work"]
 import datetime
+import importlib
 import random
 
 from django.conf import settings
@@ -76,6 +77,12 @@ class Work(models.Model):
     @property
     def top_lists(self):
         return len(self.list_item.all())
+
+    @property
+    def type(self):
+        app_label = settings.SITE_APP_MAP[self.site.id]
+        app_settings = importlib.import_module('{}.settings'.format(app_label))
+        return app_settings.WORK_MODEL_RELATED_NAME
 
 
 @receiver([post_save, post_delete], sender=Work, dispatch_uid="update_work")

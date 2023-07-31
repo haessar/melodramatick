@@ -28,8 +28,6 @@ INSTALLED_APPS = ['operatick'] + IMPORTED_APPS + ['django_extensions']
 
 TEMPLATES[0]['DIRS'].extend([BASE_DIR / "operatick" / "templates"])
 
-# WSGI_APPLICATION = 'operatick.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -50,7 +48,7 @@ GOOGLE_CLOUD_SERVICE_ACCOUNT_JSON = BASE_DIR / config('GOOGLE_CLOUD_SERVICE_ACCO
 
 # Site-specific settings
 
-# WORK_MODEL = 'operatick.Opera'
+WORK_MODEL_RELATED_NAME = 'opera'
 WORK_PLURAL_LABEL = 'operas'
 
 SITE = 'Operatick'
