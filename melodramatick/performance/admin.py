@@ -3,7 +3,13 @@ from django.contrib import admin
 from .models import Company, Performance, Venue
 
 admin.site.register(Company)
-admin.site.register(Venue)
+
+
+@admin.register(Venue)
+class VenueAdmin(admin.ModelAdmin):
+
+    def get_queryset(self, request):
+        return Venue.all_sites.all()
 
 
 @admin.register(Performance)

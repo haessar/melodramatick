@@ -38,8 +38,10 @@ class WorkFilter(CustomEmptyLabelMixin, django_filters.FilterSet):
     duration_range = AllRangeFilter(method='filter_duration_range', label="Album duration")
     era = EraChoiceFilter(choices=settings.ERAS_MAP)
     genre = django_filters.ModelChoiceFilter(queryset=Genre.objects.all(), field_name='sub_genre__genre', lookup_expr='exact')
-    composer_group = django_filters.ModelChoiceFilter(queryset=Group.objects.all(), field_name='composer__group',
-                                                      lookup_expr='exact', label="Composer Group")
+    composer_group = django_filters.ModelChoiceFilter(
+        queryset=Group.objects.filter(composer__sites__in=[settings.SITE_ID]).distinct(),
+        field_name='composer__group',
+        lookup_expr='exact', label="Composer Group")
 
     class Meta:
         model = Work

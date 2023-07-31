@@ -39,7 +39,7 @@ def populate_composer_quotes():
         "X-RapidAPI-Host": "quotel-quotes.p.rapidapi.com"
     }
     for k, v in COMPOSER_AUTHOR_ID.items():
-        composer = Composer.objects.get(surname=k)
+        composer = Composer.all_sites.get(surname=k)
         if Quote.objects.filter(composer=composer):
             continue
         payload = {"authorId": v}
