@@ -1,20 +1,18 @@
 __all__ = ["GENDER_CHOICES", "Composer", "Group", "Quote"]
-from django.contrib.sites.managers import CurrentSiteManager
-from django.contrib.sites.models import Site
 from django.db import models
+
+from melodramatick.utils.models import AbstractManySitesModel
 
 
 GENDER_CHOICES = [("M", "Male"), ("F", "Female")]
 
 
-class Composer(models.Model):
+class Composer(AbstractManySitesModel):
     surname = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     nationality = models.CharField(max_length=20)
     complete = models.BooleanField()
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1, default="M")
-    sites = models.ManyToManyField(Site)
-    objects = CurrentSiteManager()
 
     class Meta:
         constraints = [

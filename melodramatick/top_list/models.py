@@ -4,8 +4,6 @@ import math
 
 from django.conf import settings
 from django.contrib.auth.signals import user_logged_in
-from django.contrib.sites.models import Site
-from django.contrib.sites.managers import CurrentSiteManager
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models.signals import m2m_changed, pre_delete
@@ -13,18 +11,17 @@ from django.dispatch import receiver
 from django.utils.safestring import mark_safe
 
 from melodramatick.performance.models import Performance
+from melodramatick.utils.models import AbstractSingleSiteModel
 from melodramatick.work.models import Work
 
 
-class List(models.Model):
+class List(AbstractSingleSiteModel):
     items = models.ManyToManyField(Work, through='ListItem')
     name = models.CharField(max_length=100)
     publication = models.CharField(max_length=50)
     year = models.IntegerField(choices=settings.YEAR_CHOICES, default=datetime.datetime.now().year, blank=True, null=True)
     author = models.CharField(null=True, blank=True, max_length=50)
     url = models.URLField(null=True, blank=True)
-    site = models.ForeignKey(Site, on_delete=models.PROTECT)
-    objects = CurrentSiteManager()
 
     def __str__(self):
         return '{} - {}'.format(self.name, self.publication)

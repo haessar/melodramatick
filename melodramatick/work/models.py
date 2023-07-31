@@ -4,17 +4,16 @@ import importlib
 import random
 
 from django.conf import settings
-from django.contrib.sites.managers import CurrentSiteManager
-from django.contrib.sites.models import Site
 from django.core.cache import cache
 from django.db import models
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from melodramatick.composer.models import Composer
+from melodramatick.utils.models import AbstractSingleSiteModel
 
 
-class Genre(models.Model):
+class Genre(AbstractSingleSiteModel):
     name = models.CharField(max_length=50)
 
     class Meta:
@@ -24,7 +23,7 @@ class Genre(models.Model):
         return self.name
 
 
-class SubGenre(models.Model):
+class SubGenre(AbstractSingleSiteModel):
     name = models.CharField(max_length=50)
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, null=True, blank=True)
 
@@ -35,21 +34,18 @@ class SubGenre(models.Model):
         return self.name
 
 
-class Work(models.Model):
+class Work(AbstractSingleSiteModel):
     composer = models.ForeignKey(Composer, on_delete=models.PROTECT)
     title = models.CharField(max_length=100, db_index=True)
     year = models.IntegerField(choices=settings.YEAR_CHOICES, default=datetime.datetime.now().year)
     notes = models.TextField(null=True, blank=True)
     sub_genre = models.ForeignKey(SubGenre, on_delete=models.PROTECT, null=True, blank=True)
-    site = models.ForeignKey(Site, on_delete=models.PROTECT)
-    objects = CurrentSiteManager()
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['composer', 'title'], name='unique_work')
         ]
         ordering = ['title']
-        # abstract = True
 
     def __str__(self):
         if len(Work.objects.filter(title=self.title)) > 1:
