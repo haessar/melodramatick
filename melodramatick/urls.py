@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+import notifications.urls
 
 from .admin import user_admin
 from .views import HomePageView
@@ -33,6 +34,7 @@ urlpatterns = [
     path('top-lists/', include('melodramatick.top_list.urls')),
     path('performances/', include('melodramatick.performance.urls')),
     path('', include('melodramatick.listen.urls')),
+    path('inbox/notifications/', include(notifications.urls, namespace='notifications')),
 ]
 
 if settings.DEVELOPMENT_MODE is True:

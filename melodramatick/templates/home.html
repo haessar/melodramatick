@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load settings %}
 {% load static %}
+{% load notifications_tags %}
 
 {% block title %}Home{% endblock %}
 
@@ -18,7 +19,13 @@
     <div class="col-6">
       <div class="row" style="margin: 50px;">
       {% if user.is_authenticated %}
-        <h3>Hi {{ user.username }}!</h3>
+        <div>
+          <h3>Hi {{ user.username }}!</h3>
+          {% notifications_unread as unread_count %}
+          {% if unread_count %}
+          <p>You have <strong>{{ unread_count }}</strong> unread notifications.</p>
+          {% endif %}
+        </div>
       {% else %}
         <ul class="list-unstyled">
           <li><p>You are not logged in</p></li>

@@ -9,6 +9,7 @@ from django.db import models
 from django.db.models.signals import m2m_changed, pre_delete
 from django.dispatch import receiver
 from django.utils.safestring import mark_safe
+from notifications.signals import notify
 
 from melodramatick.performance.models import Performance
 from melodramatick.utils.models import AbstractSingleSiteModel
@@ -136,6 +137,7 @@ def update_user_award(**kwargs):
                 award = Award.objects.get(user=user, list=l)
             except Award.DoesNotExist:
                 award = Award.objects.create(user=user, list=l, level=AwardLevel.objects.get(rank=4))
+                notify.send(user, recipient=user, verb="earned", action_object=award, target=l)
             if ratio == 1.0:
                 award.level = AwardLevel.objects.get(rank=1)
             elif ratio >= 0.9:
