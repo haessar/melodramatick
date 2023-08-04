@@ -137,11 +137,16 @@ def update_user_award(**kwargs):
                 award = Award.objects.get(user=user, list=l)
             except Award.DoesNotExist:
                 award = Award.objects.create(user=user, list=l, level=AwardLevel.objects.get(rank=4))
-                notify.send(user, recipient=user, verb="earned", action_object=award, target=l)
+                new_award = True
+            else:
+                new_award = False
             if ratio == 1.0:
                 award.level = AwardLevel.objects.get(rank=1)
             elif ratio >= 0.9:
                 award.level = AwardLevel.objects.get(rank=2)
             elif ratio >= 0.75:
                 award.level = AwardLevel.objects.get(rank=3)
+            if new_award:
+                notify.send(user, recipient=user, verb="achieved an award", target=award.level, action_object=award,
+                            description="for {}".format(l))
             award.save()
