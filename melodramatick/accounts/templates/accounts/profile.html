@@ -3,7 +3,7 @@
 {% load mathfilters %}
 {% load settings %}
 
-{% block title %}Profile - {{ user }} {% if user.get_full_name %}({{user.get_full_name}}){% endif %}{% endblock %}
+{% block title %}Profile - {{ customuser }} {% if customuser.get_full_name %}({{ customuser.get_full_name }}){% endif %}{% endblock %}
 
 {% block head %}
   <style>
@@ -25,16 +25,22 @@
   </style>
 {% endblock %}
 
+
 {% block nav-profile %}
+{% if customuser == user %}
   <li class="nav-item active">
     <a class="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
   </li>
+{% else %}
+  {{ block.super }}
+{% endif %}
 {% endblock %}
+
 
 {% block content %}
   <div class="d-flex">
     <div>
-      <h1>{{ user }}</h1>
+      <h1>{{ customuser }}</h1>
     </div>
   </div>
   <div class="row">
