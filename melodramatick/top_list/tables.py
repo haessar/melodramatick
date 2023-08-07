@@ -12,8 +12,9 @@ class TopListTable(tables.Table):
     class Meta:
         model = List
         template_name = 'django_tables2/bootstrap4.html'
-        exclude = ['id']
+        exclude = ['id', 'site']
         sequence = ('publication', 'name', 'year', 'author', 'length', 'url')
+        order_by = ('publication', '-year', 'name')
 
     def render_name(self, record):
         return format_html('<a href={}?top_list={}>{}</a>', reverse('work:index'), record.id, record.name)
