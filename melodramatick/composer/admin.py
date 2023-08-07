@@ -15,7 +15,7 @@ class GroupAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-        return qs.filter(composer__sites__in=[request.site])
+        return qs.filter(composer__sites__in=[request.site]).distinct()
 
 
 @admin.register(Quote)
