@@ -6,4 +6,4 @@ from melodramatick.work.admin import BaseWorkAdmin
 
 @admin.register(Ballet)
 class BalletAdmin(BaseWorkAdmin):
-    pass
+    base_model = Ballet

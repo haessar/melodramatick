@@ -48,7 +48,7 @@ GOOGLE_CLOUD_SERVICE_ACCOUNT_JSON = BASE_DIR / config('GOOGLE_CLOUD_SERVICE_ACCO
 
 # Site-specific settings
 
-WORK_MODEL_RELATED_NAME = 'opera'
+WORK_MODEL = 'operatick.Opera'
 WORK_PLURAL_LABEL = 'operas'
 
 SITE = 'Operatick'

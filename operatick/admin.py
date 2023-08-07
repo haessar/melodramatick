@@ -6,4 +6,4 @@ from .models import Opera
 
 @admin.register(Opera)
 class OperaAdmin(BaseWorkAdmin):
-    pass
+    base_model = Opera

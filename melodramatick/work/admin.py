@@ -1,18 +1,15 @@
 import csv
-import importlib
 import io
-import operator
 
+from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.admin.filters import RelatedFieldListFilter
-from django.contrib.admin.utils import quote
-from django.contrib.admin.views.main import ChangeList
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.utils import IntegrityError
 from django.shortcuts import redirect, render
-from django.urls import NoReverseMatch, path, reverse
+from django.urls import path
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
 
 from .models import AKA, Genre, SubGenre, Work
 from melodramatick.forms import CsvImportForm
@@ -27,8 +24,11 @@ admin.site.register(Genre)
 
 class ListenInline(admin.StackedInline):
     model = Listen
-    extra = 1
+    extra = 0
     max_num = 1
+
+    def has_add_permission(self, request, obj):
+        return False
 
 
 class AKAInline(admin.StackedInline):
@@ -49,14 +49,14 @@ class SubGenreAdmin(admin.ModelAdmin):
     list_display = ("name", "genre")
 
 
-class BaseWorkAdmin(admin.ModelAdmin):
+class BaseWorkAdmin(PolymorphicChildModelAdmin):
+    base_model = Work
     change_list_template = "admin/import_csv_changelist.html"
     exclude = ('site',)
     list_display = ("id", "title", "composer", "year", "sub_genre", "type")
     list_filter = (('composer', RelatedDropdownFilter), ('sub_genre__genre', RelatedDropdownFilter))
     actions = ['save_performance']
     inlines = [ListenInline, AKAInline, AlbumInline]
-    search_fields = ['title']
 
     def get_urls(self):
         urls = super().get_urls()
@@ -113,67 +113,17 @@ class BaseWorkAdmin(admin.ModelAdmin):
         self.message_user(request, "Your performances have been logged.")
 
 
-class ChildChangeList(ChangeList):
-    def url_for_result(self, result):
-        """
-        Override Changelist.url_for_result method so that the linked change form will be site-specific.
-        e.g. In the Work admin, a Ballet object will redirect to admin:balletick_ballet_change
-        rather than the default admin:work_work_change.
-        """
-        pk = getattr(result, self.pk_attname)
-        if result.site.id == settings.SITE_ID:
-            app_label = settings.SITE_APP_MAP[result.site.id]
-            app_settings = importlib.import_module('{}.settings'.format(app_label))
-            return reverse('admin:%s_%s_change' % (app_label,
-                                                   app_settings.WORK_MODEL_RELATED_NAME),
-                           args=(quote(pk),),
-                           current_app=self.model_admin.admin_site.name)
-        raise NoReverseMatch
-
-
-class AllSitesRelatedDropdownFilter(RelatedDropdownFilter):
-    def field_choices(self, field, request, model_admin):
-        """
-        Field.get_choices has a hard-coded reference to _default_manager, which is usually set to
-        CurrentSiteManager. This method overrides that to allow the all_sites manager to be used
-        instead.
-        """
-        ordering = self.field_admin_ordering(field, request, model_admin)
-        choice_func = operator.attrgetter(
-            field.remote_field.get_related_field().attname
-            if hasattr(field.remote_field, 'get_related_field')
-            else 'pk'
-        )
-        qs = field.remote_field.model.all_sites.complex_filter(field.get_limit_choices_to())
-        if ordering:
-            qs = qs.order_by(*ordering)
-        return [(choice_func(x), str(x)) for x in qs]
-
-
 @admin.register(Work)
-class AllWorksAdmin(BaseWorkAdmin):
-    exclude = ()
-    list_display = ("id", "title", "composer", "year", "sub_genre", "site", "type")
-    list_filter = (
-        ('composer', AllSitesRelatedDropdownFilter),
-        ('site', RelatedFieldListFilter))
+class WorkParentAdmin(PolymorphicParentModelAdmin):
+    base_model = Work
+    list_filter = (PolymorphicChildModelFilter,)
+    search_fields = ['title']
 
-    def get_changelist(self, request, **kwargs):
-        return ChildChangeList
+    def get_child_models(self):
+        return (apps.get_model(settings.WORK_MODEL),)
 
-    def get_queryset(self, request):
-        return Work.all_sites.all()
-
-    def save_model(self, request, obj, form, change):
+    def get_search_results(self, request, queryset, search_term):
         """
-        Use save_model method from admin.ModelAdmin
+        Filter autocomplete fields search results for current site.
         """
-        super(BaseWorkAdmin, self).save_model(request, obj, form, change)
-
-    def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == "composer":
-            kwargs["queryset"] = Composer.all_sites.all()
-        return super().formfield_for_foreignkey(db_field, request, **kwargs)
-
-    def has_add_permission(self, request):
-        return False
+        return super().get_search_results(request, queryset.filter(site=request.site), search_term)

@@ -4,12 +4,15 @@ import importlib
 import random
 
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.cache import cache
 from django.db import models
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
+from polymorphic.models import PolymorphicModel
 
 from melodramatick.composer.models import Composer
+from melodramatick.utils.managers import CurrentSitePolymorphicManager
 from melodramatick.utils.models import AbstractSingleSiteModel
 
 
@@ -34,12 +37,14 @@ class SubGenre(AbstractSingleSiteModel):
         return self.name
 
 
-class Work(AbstractSingleSiteModel):
+class Work(PolymorphicModel):
     composer = models.ForeignKey(Composer, on_delete=models.PROTECT)
     title = models.CharField(max_length=100, db_index=True)
     year = models.IntegerField(choices=settings.YEAR_CHOICES, default=datetime.datetime.now().year)
     notes = models.TextField(null=True, blank=True)
     sub_genre = models.ForeignKey(SubGenre, on_delete=models.PROTECT, null=True, blank=True)
+    site = models.ForeignKey(Site, on_delete=models.PROTECT)
+    objects = CurrentSitePolymorphicManager()
 
     class Meta:
         constraints = [
@@ -76,9 +81,7 @@ class Work(AbstractSingleSiteModel):
 
     @property
     def type(self):
-        app_label = settings.SITE_APP_MAP[self.site.id]
-        app_settings = importlib.import_module('{}.settings'.format(app_label))
-        return app_settings.WORK_MODEL_RELATED_NAME
+        return self.polymorphic_ctype.model
 
 
 @receiver([post_save, post_delete], sender=Work, dispatch_uid="update_work")
