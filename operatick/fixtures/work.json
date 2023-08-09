@@ -1,22 +1,12 @@
 [
     {
         "model": "work.work",
-        "pk": 722,
-        "fields": {
-            "polymorphic_ctype": 18,
-            "composer": 1,
-            "title": "Giselle",
-            "year": 1841,
-            "notes": "",
-            "sub_genre": null,
-            "site": 2
-        }
-    },
-    {
-        "model": "work.work",
         "pk": 230,
         "fields": {
-            "polymorphic_ctype": 1,
+            "polymorphic_ctype": [
+                "operatick",
+                "opera"
+            ],
             "composer": 2,
             "title": "Fidelio",
             "year": 1805,
@@ -29,13 +19,32 @@
         "model": "work.work",
         "pk": 435,
         "fields": {
-            "polymorphic_ctype": 1,
+            "polymorphic_ctype": [
+                "operatick",
+                "opera"
+            ],
             "composer": 1,
             "title": "Le Postillon De Lonjumeau",
             "year": 1836,
             "notes": "",
             "sub_genre": null,
             "site": 1
+        }
+    },
+    {
+        "model": "operatick.opera",
+        "pk": 230,
+        "fields": {
+            "work_ptr": 230,
+            "language": "de"
+        }
+    },
+    {
+        "model": "operatick.opera",
+        "pk": 435,
+        "fields": {
+            "work_ptr": 435,
+            "language": "fr"
         }
     }
 ]
