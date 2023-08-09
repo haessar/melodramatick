@@ -12,6 +12,7 @@ from melodramatick.models import (
     Composer,
     Group,
     Quote,
+    Genre,
     SubGenre,
     Company,
     Performance,
@@ -71,8 +72,29 @@ for q in quotes:
 """
 WORK
 """
-call_command('loaddata', 'operatick/scratch/genre.json')
-call_command('loaddata', 'operatick/scratch/sub_genre.json')
+with open("operatick/scratch/genre.json", 'r') as f:
+    genres = json.load(f)
+
+for g in genres:
+    try:
+        Genre.objects.create(id=g['pk'], name=g['fields']['name'], site=site)
+    except IntegrityError:
+        print("Genres already loaded. Skipping")
+        break
+
+with open("operatick/scratch/sub_genre.json", 'r') as f:
+    sub_genres = json.load(f)
+
+for sg in sub_genres:
+    if sg['fields']['genre']:
+        genre = Genre.objects.get(id=sg['fields']['genre'])
+    else:
+        genre = None
+    try:
+        SubGenre.objects.create(id=sg['pk'], genre=genre, name=g['fields']['name'], site=site)
+    except IntegrityError:
+        print("SubGenres already loaded. Skipping")
+        break
 
 with open("operatick/scratch/opera.json", 'r') as f:
     operas = json.load(f)
