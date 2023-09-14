@@ -9,21 +9,26 @@ from django.db.utils import IntegrityError
 from django.shortcuts import redirect, render
 from django.urls import path
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
 
-from .models import AKA, Genre, SubGenre
+from .models import AKA, Genre, SubGenre, Work
 from melodramatick.forms import CsvImportForm
 from melodramatick.composer.models import Composer
 from melodramatick.listen.forms import AlbumForm
 from melodramatick.listen.models import Listen, Album
 from melodramatick.performance.models import Performance
 
+
 admin.site.register(Genre)
 
 
 class ListenInline(admin.StackedInline):
     model = Listen
-    extra = 1
+    extra = 0
     max_num = 1
+
+    def has_add_permission(self, request, obj):
+        return False
 
 
 class AKAInline(admin.StackedInline):
@@ -44,10 +49,11 @@ class SubGenreAdmin(admin.ModelAdmin):
     list_display = ("name", "genre")
 
 
-# @admin.register(Work)
-class WorkAdmin(admin.ModelAdmin):
+class BaseWorkAdmin(PolymorphicChildModelAdmin):
+    base_model = Work
     change_list_template = "admin/import_csv_changelist.html"
-    list_display = ("id", "title", "composer", "year", "sub_genre")
+    exclude = ('site',)
+    list_display = ("id", "title", "composer", "year", "sub_genre", "type")
     list_filter = (('composer', RelatedDropdownFilter), ('sub_genre__genre', RelatedDropdownFilter))
     actions = ['save_performance']
     inlines = [ListenInline, AKAInline, AlbumInline]
@@ -66,7 +72,8 @@ class WorkAdmin(admin.ModelAdmin):
             for row in rows:
                 unique_composers.add(row['composer'])
                 try:
-                    composer = Composer.objects.get(surname=row['composer'])
+                    composer = Composer.all_sites.get(surname=row['composer'])
+                    # TODO add current site to composer if it doesn't exist
                     row['composer'] = composer
                 except ObjectDoesNotExist:
                     self.message_user(
@@ -74,7 +81,8 @@ class WorkAdmin(admin.ModelAdmin):
                         'Composer not recognised. Please add an entry for the composer whose work you wish to import.')
                     return redirect("..")
                 try:
-                    apps.get_model(settings.WORK_MODEL).objects.get_or_create(**row)
+                    # TODO add site to creation?
+                    Work.objects.get_or_create(**row)
                 except IntegrityError:
                     pass
             # If CSV only contains work of single composer, assume it is full compilation of their work.
@@ -89,6 +97,13 @@ class WorkAdmin(admin.ModelAdmin):
             request, "admin/upload_file_form.html", payload
         )
 
+    def save_model(self, request, obj, form, change):
+        """
+        Add current site to saved model
+        """
+        obj.site = request.site
+        super().save_model(request, obj, form, change)
+
     @admin.action(description='Add performance for each work')
     def save_performance(self, request, queryset):
         for work in queryset:
@@ -96,3 +111,19 @@ class WorkAdmin(admin.ModelAdmin):
             p.save()
             p.work.add(work)
         self.message_user(request, "Your performances have been logged.")
+
+
+@admin.register(Work)
+class WorkParentAdmin(PolymorphicParentModelAdmin):
+    base_model = Work
+    list_filter = (PolymorphicChildModelFilter,)
+    search_fields = ['title']
+
+    def get_child_models(self):
+        return (apps.get_model(settings.WORK_MODEL),)
+
+    def get_search_results(self, request, queryset, search_term):
+        """
+        Filter autocomplete fields search results for current site.
+        """
+        return super().get_search_results(request, queryset.filter(site=request.site), search_term)

@@ -1,0 +1,53 @@
+[
+    {
+        "model": "top_list.list",
+        "pk": 1,
+        "fields": {
+            "site": 1,
+            "name": "Top operas",
+            "publication": "Example Dot Com",
+            "year": 2009,
+            "author": "Anon",
+            "url": "https://www.example.com/music/2023/top-operas"
+        }
+    },
+    {
+        "model": "top_list.list",
+        "pk": 2,
+        "fields": {
+            "site": 1,
+            "name": "Another List",
+            "publication": "Example Dot Com",
+            "year": 2020,
+            "author": "Anon",
+            "url": "https://www.example.com/music/2023/another-list"
+        }
+    },
+    {
+        "model": "top_list.listitem",
+        "pk": 1,
+        "fields": {
+            "item": 230,
+            "list": 1,
+            "position": 1
+        }
+    },
+    {
+        "model": "top_list.listitem",
+        "pk": 2,
+        "fields": {
+            "item": 435,
+            "list": 1,
+            "position": 2
+        }
+    },
+    {
+        "model": "top_list.listitem",
+        "pk": 3,
+        "fields": {
+            "item": 230,
+            "list": 2,
+            "position": 1
+        }
+    }
+]

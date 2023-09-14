@@ -1,0 +1,26 @@
+[
+    {
+        "model": "work.work",
+        "pk": 722,
+        "fields": {
+            "polymorphic_ctype": [
+                "balletick",
+                "ballet"
+            ],
+            "composer": 1,
+            "title": "Giselle",
+            "year": 1841,
+            "notes": "",
+            "sub_genre": null,
+            "site": 2
+        }
+    },
+    {
+        "model": "balletick.ballet",
+        "pk": 722,
+        "fields": {
+            "work_ptr": 722,
+            "choreographer": "Jean Coralli"
+        }
+    }
+]

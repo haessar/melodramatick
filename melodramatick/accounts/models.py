@@ -1,3 +1,4 @@
+__all__ = ["CustomUser"]
 from django.contrib.auth.models import AbstractUser
 
 

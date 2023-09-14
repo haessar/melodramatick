@@ -24,8 +24,6 @@
       });
       $("td[id=hiddencell]").find("p").hide();
       $("table").click(function(event) {
-        // Commented out the following as it prevents spotify_link click event from working.
-        //event.stopPropagation();
         var $target = $(event.target);
         if ( $target.closest("td").attr("colspan") > 1 ) {
           $target.closest("td").children("p").slideUp();
@@ -33,6 +31,9 @@
           $target.closest("tr[id^=ticked]").next().find("p").slideToggle();
         }
       });
+      {% comment %} $("table a").click(function(event) {
+        event.stopImmediatePropagation();
+      }); {% endcomment %}
     });
   </script>
 
@@ -90,7 +91,7 @@
       <div class='row'>
         {% if random_uri %}
         <span>Play random</span>
-        <a class="spotify_link" href="/listen/play/{{work_id}}/">
+        <a class="spotify_link" href="/play/{{work_id}}/">
           <img uri="{{random_uri}}:play" src="/static/images/Spotify-Shuffle-Button.png" width="32px;">
         </a>
         {% endif %}

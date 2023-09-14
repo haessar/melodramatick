@@ -1,3 +1,4 @@
+__all__ = ["Company", "Performance", "Venue"]
 from django.conf import settings
 from django.core.cache import cache
 from django.db import models
@@ -5,9 +6,11 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from partial_date import PartialDateField
 
+from melodramatick.utils.models import AbstractManySitesModel, AbstractSingleSiteModel
+from melodramatick.work.models import Work
 
-# This might be Operatick-specific (with Ensemble/Orchestra)
-class Company(models.Model):
+
+class Company(AbstractSingleSiteModel):
     name = models.CharField(max_length=50)
 
     class Meta:
@@ -18,7 +21,7 @@ class Company(models.Model):
         return self.name
 
 
-class Venue(models.Model):
+class Venue(AbstractManySitesModel):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
 
@@ -32,8 +35,8 @@ class Venue(models.Model):
         return '%s, %s' % (self.name, self.location)
 
 
-class Performance(models.Model):
-    work = models.ManyToManyField(settings.WORK_MODEL, related_name='performance')
+class Performance(AbstractSingleSiteModel):
+    work = models.ManyToManyField(Work, related_name='performance')
     date = PartialDateField(null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True, blank=True)
     venue = models.ForeignKey(Venue, to_field="id", on_delete=models.SET_NULL, null=True, blank=True)

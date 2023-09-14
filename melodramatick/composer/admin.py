@@ -9,7 +9,13 @@ from django.urls import path
 from .models import Composer, Group, Quote
 from melodramatick.forms import CsvImportForm
 
-admin.site.register(Group)
+
+@admin.register(Group)
+class GroupAdmin(admin.ModelAdmin):
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.filter(composer__sites__in=[request.site]).distinct()
 
 
 @admin.register(Quote)
@@ -20,6 +26,9 @@ class QuoteAdmin(admin.ModelAdmin):
 @admin.register(Composer)
 class ComposerAdmin(admin.ModelAdmin):
     change_list_template = "admin/import_csv_changelist.html"
+
+    def get_queryset(self, request):
+        return Composer.all_sites.all()
 
     def get_urls(self):
         urls = super().get_urls()
@@ -33,7 +42,7 @@ class ComposerAdmin(admin.ModelAdmin):
             rows = csv.DictReader(io_string)
             for row in rows:
                 try:
-                    Composer.objects.get_or_create(**dict(row, **{"complete": False}))
+                    Composer.all_sites.get_or_create(**dict(row, **{"complete": False}))
                 except IntegrityError:
                     pass
             self.message_user(request, "Your csv file has been imported.")

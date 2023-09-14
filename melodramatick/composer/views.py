@@ -1,5 +1,5 @@
 from dal import autocomplete
-from django.db.models import Count, F, FloatField, IntegerField, Case, When
+from django.db.models import Count, F, FloatField, IntegerField, Case, When, Q
 from django.db.models.functions import Cast
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
@@ -30,8 +30,8 @@ class ComposerListView(SingleTableMixin, FilterView):
         return (
             table_data
             .annotate(
-                total_works=Count("work", distinct=True),
-                total_top_lists=Count("work__list_item", distinct=True)
+                total_works=Count("work", filter=Q(work__site=self.request.site), distinct=True),
+                total_top_lists=Count("work__list_item", filter=Q(work__site=self.request.site), distinct=True)
             ).annotate(
                 top_lists_to_works=Cast(F("total_top_lists"), IntegerField()) / Cast(F("total_works"), FloatField()),
             )

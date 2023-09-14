@@ -21,6 +21,10 @@ class ProfileView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.get_object()
-        context["progress"] = sorted(user.progress.filter(count__gt=0), key=lambda x: x.ticks_to_next_award)
-        context["awards"] = sorted(user.award.all(), key=lambda x: (x.level.rank, -x.list.length))
+        context["progress"] = sorted(
+            user.progress.filter(count__gt=0).filter(list__site=self.request.site),
+            key=lambda x: x.ticks_to_next_award)
+        context["awards"] = sorted(
+            user.award.filter(list__site=self.request.site),
+            key=lambda x: (x.level.rank, -x.list.length))
         return context

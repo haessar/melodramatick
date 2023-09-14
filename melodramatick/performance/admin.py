@@ -3,7 +3,13 @@ from django.contrib import admin
 from .models import Company, Performance, Venue
 
 admin.site.register(Company)
-admin.site.register(Venue)
+
+
+@admin.register(Venue)
+class VenueAdmin(admin.ModelAdmin):
+
+    def get_queryset(self, request):
+        return Venue.all_sites.all()
 
 
 @admin.register(Performance)
@@ -12,6 +18,7 @@ class PerformanceAdmin(admin.ModelAdmin):
     list_filter = (('user', admin.RelatedOnlyFieldListFilter),)
     actions = ['merge_performances', 'split_performance']
     ordering = ['-date', ]
+    exclude = ['site']
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -54,5 +61,6 @@ class PerformanceAdmin(admin.ModelAdmin):
         self.message_user(request, "Your performance has been split.")
 
     def save_model(self, request, obj, form, change):
+        obj.site = request.site
         obj.user = request.user
         super().save_model(request, obj, form, change)

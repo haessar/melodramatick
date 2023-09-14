@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load notifications_tags %}
+
+{% block title %}Notifications{% endblock %}
+{% block head %}
+<style>
+  ul.notifications i::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .icon-close::before {
+    font: var(--fa-font-solid);
+    content: "\f00c";
+  }
+
+  .icon-mail::before{
+    font: var(--fa-font-solid);
+    content: "\f2b6";
+  }
+
+  .icon-mail-alt::before{
+    font: var(--fa-font-solid);
+    content: "\f0e0";
+  }
+</style>
+{% endblock %}
+{% block nav-notifications %}
+  {% notifications_unread as unread_count %}
+  <li class="nav-item active">
+    <a class="nav-link" href="#">
+      <i class="fa-solid fa-inbox">{% if unread_count %}{% live_notify_badge badge_class="live_notify_badge badge badge-pill badge-danger" %}{% endif %}</i>
+      <span class="sr-only">(current)</span>
+    </a>
+  </li>
+{% endblock %}
+{% block content %}
+<ul class="notifications">
+  {% for notice in notifications %}
+    {% include 'notifications/notice.html' %}
+  {% endfor %}
+</ul>
+{% endblock %}

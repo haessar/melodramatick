@@ -53,7 +53,6 @@ STATICFILES_DIRS = [
 
 # Site-specific settings
 
-WORK_MODEL = '<WORK_APP.MODEL>'
 WORK_PLURAL_LABEL = '<LABEL>'
 
 SITE = '<PROJECT_TITLE>'

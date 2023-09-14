@@ -1,0 +1,818 @@
+[
+    {
+        "model": "composer.quote",
+        "pk": 155712,
+        "fields": {
+            "composer": "Britten",
+            "quote": "It is cruel, you know, that music should be so beautiful. It has the beauty of loneliness of pain: of strength and freedom. The beauty of disappointment and never-satisfied love. The cruel beauty of nature and everlasting beauty of monotony."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 155713,
+        "fields": {
+            "composer": "Britten",
+            "quote": "Composing is like driving down a foggy road toward a house. Slowly you see more details of the house-the color of the slates and bricks, the shape of the windows. The notes are the bricks and the mortar of the house."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 155714,
+        "fields": {
+            "composer": "Britten",
+            "quote": "These two are not two Love has made them one Amo Ergo Sum! And by its mystery Each is no less but more."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 155715,
+        "fields": {
+            "composer": "Britten",
+            "quote": "The old idea of a composer suddenly having a terrific idea and sitting up all night to write it is nonsense. Nighttime is for sleeping."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 362523,
+        "fields": {
+            "composer": "Bizet",
+            "quote": "Religion is a means of exploitation employed by the strong against the weak; religion is a cloak of ambition, injustice and vice."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 362545,
+        "fields": {
+            "composer": "Bizet",
+            "quote": "As a musician I tell you that if you were to suppress adultery, fanaticism, crime, evil, the supernatural, there would no longer be the means for writing one note."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 362555,
+        "fields": {
+            "composer": "Bizet",
+            "quote": "What a beautiful art, but what a wretched profession."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 362573,
+        "fields": {
+            "composer": "Bizet",
+            "quote": "I want to do nothing chic, I want to have ideas before beginning a piece."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364708,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "I pay no attention whatever to anybody's praise or blame. I simply follow my own feelings."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364725,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "Neither a lofty degree of intelligence nor imagination nor both together go to the making of genius. Love, love, love, that is the soul of genius."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364747,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "I thank my God for graciously granting me the opportunity of learning that death is the key which unlocks the door to our true happiness."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364754,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "Nevertheless the passions, whether violent or not, should never be so expressed as to reach the point of causing disgust; and music, even in situations of the greatest horror, should never be painful to the ear but should flatter and charm it, and thereby always remain music."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364773,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "I cannot write poetically, for I am no poet. I cannot make fine artistic phrases that cast light and shadow, for I am no painter. I can neither by signs nor by pantomime express my thoughts and feelings, for I am no dancer; but I can by tones, for I am a musician."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364790,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "One must not make oneself cheap here - that is a cardinal point - or else one is done. Whoever is most impertinent has the best chance."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364808,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "It is a great consolation for me to remember that the Lord, to whom I had drawn near in humble and child-like faith, has suffered and died for me, and that He will look on me in love and compassion."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364829,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "I am one of those who will go on doing till all doings are at an end."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364844,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "We live in this world in order always to learn industriously and to enlighten each other by means of discussion and to strive vigorously to promote the progress of science and the fine arts."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364860,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "If I were obliged to marry all those with whom I have jested, I should have at least two hundred wives."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364873,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "Just as people behave to me, so do I behave to them. When I see that a person despises me and treats me with contempt, I can be as proud as any peacock."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364882,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "When I am traveling in a carriage, or walking after a good meal, or during the night when I cannot sleep; it is on such occasions that ideas flow best and most abundantly."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364895,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "Believe me, I do not like idleness but work."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364913,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "An unmarried man, in my opinion, enjoys only half a life."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364930,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "How sad it is that these great gentlemen should believe what anyone tells them and do not choose to judge for themselves! But it is always so."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364941,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "As for pupils, I can have as many as I choose, but I do not choose to take many. I intend to be better paid than others, and so I wish to have fewer scholars. It is advisable to hang back a little at first, or it is all over with you, and you must pursue the common highway with the rest."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364952,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "I hope never to marry in this way; I wish to make my wife happy, but not to become rich by her means, so I will let things alone and enjoy my golden freedom till I am so well off that I can support both wife and children."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364967,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "Versification is, indeed, indispensable for music, but rhyme, solely for rhyming's sake, most pernicious."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364973,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "When I come to reflect on the subject, in no country have I received such honors or been so esteemed as in Italy, and nothing contributes more to a man's fame than to have written Italian operas, and especially for Naples."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364977,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "I know nothing new except that Herr Gellert, the Leipzig poet, is dead, and has written no more poetry since his death."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364987,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "My father is maestro at the Metropolitan church, which gives me an opportunity to write for the church as much as I please."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364995,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "The happy medium - truth in all things - is no longer either known or valued; to gain applause, one must write things so inane that they might be played on barrel-organs, or so unintelligible that no rational being can comprehend them, though on that very account, they are likely to please."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 364999,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "I live in a country where music has very little success, though, exclusive of those who have forsaken us, we have still admirable professors and, more particularly, composers of great solidity, knowledge, and taste."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 365005,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "My sole recreations consist in dancing English hornpipes and cutting capers. Italy is a land of sleep; I am always drowsy here."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 365011,
+        "fields": {
+            "composer": "Mozart",
+            "quote": "My Constanze is the virtuous, honourable, discreet, and faithful darling of her honest and kindly-disposed Mozart."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 462885,
+        "fields": {
+            "composer": "Puccini",
+            "quote": "Art is a kind of illness."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 462895,
+        "fields": {
+            "composer": "Puccini",
+            "quote": "Inspiration is an awakening, a quickening of all man's faculties, and it is manifested in all high artistic achievements."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 506463,
+        "fields": {
+            "composer": "Rossini",
+            "quote": "Wagner has lovely moments but awful quarters of an hour."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 506476,
+        "fields": {
+            "composer": "Rossini",
+            "quote": "One can't judge Wagner's opera Lohengrin after a first hearing, and I certainly don't intend to hear it a second time."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 506489,
+        "fields": {
+            "composer": "Rossini",
+            "quote": "Give me a laundry-list and I'll set it to music."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 506502,
+        "fields": {
+            "composer": "Rossini",
+            "quote": "Every kind of music is good, except the boring kind."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 506513,
+        "fields": {
+            "composer": "Rossini",
+            "quote": "Mr. Wagner has beautiful moments but bad quarters of an hour."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 506525,
+        "fields": {
+            "composer": "Rossini",
+            "quote": "Wagner is a composer who has beautiful moments but awful quarter hours."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 514919,
+        "fields": {
+            "composer": "Verdi",
+            "quote": "You may have the universe if I may have Italy."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 514934,
+        "fields": {
+            "composer": "Verdi",
+            "quote": "I adore art... when I am alone with my notes, my heart pounds and the tears stream from my eyes, and my emotion and my joys are too much to bear."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 539261,
+        "fields": {
+            "composer": "Strauss",
+            "quote": "The human voice is the most beautiful instrument of all, but it is the most difficult to play."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 539275,
+        "fields": {
+            "composer": "Strauss",
+            "quote": "Never look encouragingly at the brass, except with a short glance to give an important cue."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 539279,
+        "fields": {
+            "composer": "Strauss",
+            "quote": "I may not be a first-rate composer, but I am a first-class second-rate composer."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 539289,
+        "fields": {
+            "composer": "Strauss",
+            "quote": "Bear in mind that you are not making music for your own pleasure, but for the pleasure of your audience."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 539301,
+        "fields": {
+            "composer": "Strauss",
+            "quote": "Never let the horns and woodwinds out of your sight; if you can hear them at all, they are too loud."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 539312,
+        "fields": {
+            "composer": "Strauss",
+            "quote": "Never look at the trombones. You'll only encourage them."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540083,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Joy is not in things; it is in us."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540084,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Imagination creates reality."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540085,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I hate this fast growing tendency to chain men to machines in big factories and deprive them of all joy in their efforts - the plan will lead to cheap men and cheap products."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540086,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I am convinced that there are universal currents of Divine Thought vibrating the ether everywhere and that any who can feel these vibrations is inspired."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540087,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I wish I could score everything for horns."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540088,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I write music with an exclamation point!"
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540089,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Wherever the fish are, that's where we go."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540090,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Achievements, seldom credited to their source, are the result of unspeakable drudgery and worries."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540091,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Divorce is one of the most financially traumatic things you can go through. Money spent on getting mad or getting even is money wasted."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540092,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I am fond of them, of the inferior beings of the abyss, of those who are full of longing."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540093,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Richard Wagner, a musician who wrote music which is better than it sounds."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540094,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Though German art can never be Bavarian, but simply German, yet Munich is the capital of this German Art; here, under shelter of a Prince who kindles my enthusiasm, to feel myself a native and member of the people was, to me, the homeless wanderer, a deep, a genuine need."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540095,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Everything lives and lasts by the inner necessity of its being, by its own nature's need."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540096,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I can't distract myself enough here, for sketches to a new opera are constantly buzzing around in my head, to the extent that I need all my strength to wrest myself from them."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540097,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I was in a state of gnawing, sensuous agitation that excited continually both blood and nerves when I sketched out the music for 'Tannhauser' and brought it to completion."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540098,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "The patriot subordinates himself to his State in order to raise it above all other States and thus, as it were, to find his personal sacrifice repaid with ample interest through the might and greatness of his fatherland."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540099,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "What manner of thing this 'public opinion' is, should be best known to those who have its name forever in their mouths and erect the regard for it into a positive article of religion. Its self-styled organ in our times is the 'Press.'"
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540100,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Here, everything is tragic through and through, and the will, that fain would shape a world according to its wish, at last can reach no greater satisfaction than the breaking of itself in dignified annulment."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540101,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Even if I know I shall never change the masses, never transform anything permanent, all I ask is that the good things also have their place, their refuge."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540102,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "Life is earnest - and always has been."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540103,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I have only a mind to live, to enjoy - i.e., to work as an artist, and produce my works; but not for the muddy brains of the common herd."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540104,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "In no State is there a weightier law than that which centers its stability in the supreme hereditary power of one particular family, unconnected and un-commingling with any other lineage in that State."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540105,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "I have long been convinced that my artistic ideal stands or falls with Germany. Only the Germany that we love and desire can help us achieve that ideal."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540106,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "How absurd these critics must seem to me, who in their modern wantonness have become so ingenious. They want to interpret my Tannhauser as specifically Christian and impute to him a tendency to impotent glorification!"
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 540107,
+        "fields": {
+            "composer": "Wagner",
+            "quote": "We find personal success and great, if not enduring, influence on the outer fashioning of the world allotted to the violent, the passionate individual who, unchaining the elemental principles of human impulse under favoring circumstances, points out to greed and self-indulgence the speedy pathways to their satisfaction."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659876,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Music should strike fire from the heart of man, and bring tears from the eyes of woman."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659886,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Music is a higher revelation than all wisdom and philosophy."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659900,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Only the pure in heart can make a good soup."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659909,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Don't only practice your art, but force your way into its secrets; art deserves that, for it and knowledge can raise man to the Divine."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659928,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "What you are, you are by accident of birth; what I am, I am by myself. There are and will be a thousand princes; there is only one Beethoven."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659940,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Music is the mediator between the spiritual and the sensual life."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659948,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "I will seize fate by the throat; it shall certainly never wholly overcome me."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659957,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Nothing is more intolerable than to have to admit to yourself your own errors."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659967,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "The true artist is not proud: he unfortunately sees that art has no limits; he feels darkly how far he is from the goal, and though he may be admired by others, he is sad not to have reached that point to which his better genius only appears as a distant, guiding sun."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659976,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Music is the one incorporeal entrance into the higher world of knowledge which comprehends mankind but which mankind cannot comprehend."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659985,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "This is the mark of a really admirable man: steadfastness in the face of trouble."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 659993,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Recommend virtue to your children; it alone, not money, can make them happy. I speak from experience."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660004,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "O, you men who think or say that I am malevolent, stubborn or misanthropic, how greatly do you wrong me. You do not know the secret cause which makes me seem that way to you, and I would have ended my life - it was only my art that held me back. Ah, it seemed impossible to leave the world until I had brought forth all that I felt was within me."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660013,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Music is the wine which inspires one to new generative processes, and I am Bacchus who presses out this glorious wine for mankind and makes them spiritually drunken."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660020,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Tones sound, and roar and storm about me until I have set them down in notes."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660030,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Music comes to me more readily than words."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660037,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "I joyfully hasten to meet death. If it come before I have had opportunity to develop all my artistic faculties, it will come, my hard fate notwithstanding, too soon, and I should probably wish it later - yet even then I shall be happy, for will it not deliver me from a state of endless suffering?"
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660044,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "The barriers are not erected which can say to aspiring talents and industry, 'Thus far and no farther.'"
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660055,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Beethoven can write music, thank God, but he can do nothing else on earth."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660065,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Art! Who comprehends her? With whom can one consult concerning this great goddess?"
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660075,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Friends applaud, the comedy is over."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660087,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "Off with you! You're a happy fellow, for you'll give happiness and joy to many other people. There is nothing better or greater than that!"
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660094,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "A great poet is the most precious jewel of a nation."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660105,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "I must confess that I lead a miserable life. For almost two years, I have ceased to attend any social functions, just because I find it impossible to say to people, 'I am deaf.' If I had any other profession, I might be able to cope with my infirmity; but in my profession, it is a terrible handicap."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 660111,
+        "fields": {
+            "composer": "Beethoven",
+            "quote": "There ought to be an artistic depot where the artist need only hand in his artwork in order to receive what he asks for. As things are, one must be half a business man, and how can one understand - good heavens! - that's what I really call troublesome."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 727424,
+        "fields": {
+            "composer": "Monteverdi",
+            "quote": "The end of all good music is to affect the soul."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 727430,
+        "fields": {
+            "composer": "Monteverdi",
+            "quote": "Music is spiritual. The music business is not."
+        }
+    },
+    {
+        "model": "composer.quote",
+        "pk": 727437,
+        "fields": {
+            "composer": "Monteverdi",
+            "quote": "The modern composer builds upon the foundation of truth."
+        }
+    }
+]

@@ -1,11 +1,13 @@
 __all__ = ["GENDER_CHOICES", "Composer", "Group", "Quote"]
 from django.db import models
 
+from melodramatick.utils.models import AbstractManySitesModel
+
 
 GENDER_CHOICES = [("M", "Male"), ("F", "Female")]
 
 
-class Composer(models.Model):
+class Composer(AbstractManySitesModel):
     surname = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     nationality = models.CharField(max_length=20)
@@ -17,14 +19,6 @@ class Composer(models.Model):
             models.UniqueConstraint(fields=['surname', 'first_name'], name='unique_composer')
         ]
         ordering = ['surname']
-
-    # @property
-    # def true_surname(self):
-    #     """
-    #     I stupidly assigned surname CharField as pk originally which appears incredibly difficult to rectify
-    #     without rebuilding the db, so this at least makes things more presentable.
-    #     """
-    #     return self.surname.split("(")[0].strip() if "(" in self.surname else self.surname
 
     def __str__(self):
         return "{}, {}".format(self.surname, self.first_name)
