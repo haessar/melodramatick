@@ -9,7 +9,6 @@ from django.db import models
 from django.db.models.signals import m2m_changed, pre_delete
 from django.dispatch import receiver
 from django.utils.safestring import mark_safe
-from notifications.signals import notify
 
 from melodramatick.performance.models import Performance
 from melodramatick.utils.models import AbstractSingleSiteModel
@@ -119,34 +118,12 @@ class Progress(models.Model):
 @receiver(m2m_changed, sender=Performance.work.through)
 @receiver(pre_delete, sender=Performance)
 def update_user_award(**kwargs):
+    from melodramatick.tasks import update_user_award_shared_task
     instance = kwargs.get("instance")
-    user = instance.user if instance else kwargs["user"]
-    for l in List.objects.filter(items__in=instance.work.all() if instance  # noqa: E741
-                                 else Work.objects.all()).distinct():
-        ticked = set()
-        for li in l.listitem_set.all():
-            if Performance.objects.filter(user=user, work=li.item, streamed=False):
-                ticked.add(li.position)
-        ratio = len(ticked) / l.length
-        progress, _ = Progress.objects.get_or_create(user=user, list=l)
-        progress.ratio = ratio
-        progress.count = len(ticked)
-        progress.save()
-        if ratio >= 0.5:
-            try:
-                award = Award.objects.get(user=user, list=l)
-            except Award.DoesNotExist:
-                award = Award.objects.create(user=user, list=l, level=AwardLevel.objects.get(rank=4))
-                new_award = True
-            else:
-                new_award = False
-            if ratio == 1.0:
-                award.level = AwardLevel.objects.get(rank=1)
-            elif ratio >= 0.9:
-                award.level = AwardLevel.objects.get(rank=2)
-            elif ratio >= 0.75:
-                award.level = AwardLevel.objects.get(rank=3)
-            if new_award:
-                notify.send(user, recipient=user, verb="achieved an award", target=award.level, action_object=award,
-                            description="for {}".format(l))
-            award.save()
+    if instance:
+        user_id = instance.user.id
+        instance_id = instance.id
+    else:
+        user_id = kwargs["user"].id
+        instance_id = None
+    update_user_award_shared_task.delay(user_id, instance_id)
