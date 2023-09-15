@@ -11,6 +11,8 @@ from melodramatick.work.models import Work
 def update_user_award_shared_task(user_id, performance_id=None):
     user = CustomUser.objects.get(id=user_id)
     performance = Performance.objects.get(id=performance_id) if performance_id else None
+    awards_issued = 0
+    lists_checked = 0
     for l in List.objects.filter(items__in=performance.work.all() if performance  # noqa: E741
                                  else Work.objects.all()).distinct():
         ticked = set()
@@ -39,4 +41,7 @@ def update_user_award_shared_task(user_id, performance_id=None):
             if new_award:
                 notify.send(user, recipient=user, verb="achieved an award", target=award.level, action_object=award,
                             description="for {}".format(l))
+                awards_issued += 1
             award.save()
+        lists_checked += 1
+    return {"awards_issued": awards_issued, "lists_checked": lists_checked}
