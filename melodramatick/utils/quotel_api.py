@@ -2,11 +2,11 @@ import datetime
 import random
 
 from django.conf import settings
-from django.contrib.sites.models import Site
 import requests
 
 if __name__ == "__main__":
     import melodramatick.utils.django_initialiser  # noqa: F401
+from django.contrib.sites.models import Site
 from melodramatick.composer.models import Composer, Quote
 
 
@@ -22,6 +22,21 @@ COMPOSER_AUTHOR_ID = {
     "Britten": 5077,
     "Strauss": 18300,
     "Stravinsky": 1694,
+    "Massenet": 30277,
+    "Rameau": 21603,
+    "Berlioz": 8033,
+    "Berg": 12676,
+    "Mussorgsky": 28978,
+    "Glass": 19614,
+    "Leoncavallo": 27101,
+    "Meyerbeer": 15663,
+    "Weber": 3831,
+    "Gershwin": 9837,
+    "Mascagni": 20929,
+    "Debussy": 24176,
+    "Ravel": 24023,
+    "Menotti": 15699,
+    "Dvořák": 14289,
 }
 
 
@@ -46,8 +61,11 @@ def populate_composer_quotes():
             continue
         payload = {"authorId": v}
         response = requests.post(url, json=payload, headers=headers)
-        for q in response.json():
-            Quote.objects.get_or_create(id=q["quoteId"], composer=composer, quote=q["quote"])
+        if response.status_code == 200:
+            for q in response.json():
+                _, created = Quote.objects.get_or_create(id=q["quoteId"], composer=composer, quote=q["quote"])
+                if created:
+                    print("added {} quote with ID {}".format(k, q["quoteId"]))
 
 
 if __name__ == "__main__":
