@@ -2,10 +2,11 @@ import datetime
 import random
 
 from django.conf import settings
+from django.contrib.sites.models import Site
 import requests
 
 if __name__ == "__main__":
-    import utils.django_initialiser  # noqa: F401
+    import melodramatick.utils.django_initialiser  # noqa: F401
 from melodramatick.composer.models import Composer, Quote
 
 
@@ -20,13 +21,14 @@ COMPOSER_AUTHOR_ID = {
     "Monteverdi": 24328,
     "Britten": 5077,
     "Strauss": 18300,
+    "Stravinsky": 1694,
 }
 
 
 def quote_of_the_day():
     day = datetime.datetime.today().strftime("%Y:%m:%d")
     random.seed(day)
-    quotes = Quote.objects.all()
+    quotes = Quote.objects.filter(composer__sites__in=[Site.objects.get_current()])
     if quotes:
         return quotes[random.randint(1, len(quotes))]
 
