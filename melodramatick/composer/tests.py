@@ -1,6 +1,11 @@
+from django.contrib.admin.sites import AdminSite
+from django.contrib.messages import get_messages
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db.utils import IntegrityError
+from django.http import HttpResponse, HttpResponseRedirect
 from django.test import TestCase
 
+from .admin import ComposerAdmin
 from .filters import ComposerFilter
 from .models import Composer
 from .views import ComposerAutocomplete, ComposerListView
@@ -23,6 +28,48 @@ class ComposerModelTestCase(TestCase):
         with self.assertRaisesMessage(IntegrityError, "UNIQUE"):
             # Shared surname and first_name, despite different nationality and complete values to those in db.
             Composer.all_sites.create(surname="Adam", first_name="Adolphe", nationality="Swiss", complete=True)
+
+
+class ComposerAdminTestCase(TestCase):
+    fixtures = ["composer.json", "sites.json"]
+
+    def setUp(self):
+        self.composer_admin = ComposerAdmin(model=Composer, admin_site=AdminSite())
+
+    def test_get_queryset(self):
+        request = self.client.get("/").wsgi_request
+        qs = self.composer_admin.get_queryset(request)
+        # All composers should be visible on composer admin, regardless of site
+        self.assertQuerysetEqual(qs, Composer.all_sites.all())
+
+    def test_import_csv(self):
+        endpoint = "/admin/composer/composer/import-csv/"
+        csv_str = b"surname,first_name,nationality,gender\nBerg,Alban,Austrian,M"
+
+        csv_file = SimpleUploadedFile("composers.csv", csv_str)
+        num_before = len(Composer.all_sites.all())
+        response = self.client.post(endpoint, {"csv_file": csv_file})
+        # Should add one composer to database, accessible from "all_sites" manager
+        # but not "objects" manager (i.e. it's not yet been assigned a site)
+        self.assertEqual(num_before + 1, len(Composer.all_sites.all()))
+        # POST request should redirect to previous page
+        self.assertIsInstance(response, HttpResponseRedirect)
+        self.assertEqual(response.url, "..")
+
+        csv_str = b"INCORRECT_FIELD,first_name,nationality,gender\nBerg,Alban,Austrian,M"
+        csv_file = SimpleUploadedFile("composers.csv", csv_str)
+        response = self.client.post(endpoint, {"csv_file": csv_file})
+        # Submission of faulty file will not add anything to database...
+        self.assertEqual(num_before + 1, len(Composer.all_sites.all()))
+        # ...but result in redirect to current page with error message
+        self.assertIsInstance(response, HttpResponseRedirect)
+        self.assertEqual(response.url, endpoint)
+        self.assertIn("Cannot resolve keyword 'INCORRECT_FIELD' into field",
+                      str(list(get_messages(response.wsgi_request))[-1]))
+
+        response = self.client.get(endpoint)
+        # GET request should return upload file form HTML
+        self.assertIsInstance(response, HttpResponse)
 
 
 class ComposerFilterTestCase(TestCase):

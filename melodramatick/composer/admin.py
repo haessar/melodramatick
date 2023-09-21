@@ -1,8 +1,9 @@
 import csv
 import io
 
-from django.contrib import admin
-from django.db.utils import IntegrityError
+from django.contrib import admin, messages
+from django.core.exceptions import FieldError
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import path
 
@@ -43,8 +44,9 @@ class ComposerAdmin(admin.ModelAdmin):
             for row in rows:
                 try:
                     Composer.all_sites.get_or_create(**dict(row, **{"complete": False}))
-                except IntegrityError:
-                    pass
+                except FieldError as e:
+                    self.message_user(request, str(e), messages.ERROR)
+                    return HttpResponseRedirect(request.META.get('PATH_INFO'))
             self.message_user(request, "Your csv file has been imported.")
             return redirect("..")
         form = CsvImportForm()
