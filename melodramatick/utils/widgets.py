@@ -11,15 +11,11 @@ class CustomRangeWidget(RangeWidget):
 
     def get_context(self, name, value, attrs):
         ctx = super().get_context(name, value, attrs)
-        if value is None:
+        if value is None or value == [None, None]:
             cur_min = ''
             cur_max = ''
         else:
             cur_min, cur_max = value
-        if cur_min is None:
-            cur_min = ctx['widget']['attrs']['data-range_min']
-        if cur_max is None:
-            cur_max = ctx['widget']['attrs']['data-range_max']
         ctx['widget']['attrs'].update({'data-cur_min': cur_min,
                                        'data-cur_max': cur_max})
         base_id = ctx['widget']['attrs']['id']
