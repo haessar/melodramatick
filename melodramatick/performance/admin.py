@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 
 from .models import Company, Performance, Venue
 
@@ -36,26 +36,29 @@ class PerformanceAdmin(admin.ModelAdmin):
 
     @admin.action(description='Merge selected performances')
     def merge_performances(self, request, queryset):
+        if queryset.values("user").distinct().count() > 1:
+            self.message_user(request, "Can not merge performances of multiple users.", messages.ERROR)
+            return
         works = []
-        p = Performance.objects.create(user=request.user)
         for performance in queryset:
             works.extend(performance.work.all())
             performance.delete()
+        p = Performance.objects.create(user=request.user, site=request.site)
         p.work.add(*set(works))
         self.message_user(request, "Your performances have been merged.")
 
     @admin.action(description='Split selected performance')
     def split_performance(self, request, queryset):
         if queryset.count() != 1:
-            self.message_user(request, "Can not split more than one selected performances.")
+            self.message_user(request, "Can not split more than one selected performances.", messages.ERROR)
             return
         performance = queryset.get()
         works = performance.work.all()
         if works.count() < 2:
-            self.message_user(request, "Can not split performance of single work.")
+            self.message_user(request, "Can not split performance of single work.", messages.ERROR)
             return
         for work in works:
-            p = Performance.objects.create(user=request.user)
+            p = Performance.objects.create(user=request.user, site=request.site)
             p.work.add(work)
         performance.delete()
         self.message_user(request, "Your performance has been split.")

@@ -1,0 +1,58 @@
+[
+    {
+        "model": "performance.performance",
+        "pk": 1,
+        "fields": {
+            "work": [230],
+            "date": "2023-08-04",
+            "company": 1,
+            "venue": 1,
+            "notes": "",
+            "user": 1,
+            "streamed": false,
+            "site": 1
+        }
+    },
+    {
+        "model": "performance.performance",
+        "pk": 2,
+        "fields": {
+            "work": [435],
+            "date": "2023-08-05",
+            "company": 1,
+            "venue": 1,
+            "notes": "",
+            "user": 1,
+            "streamed": false,
+            "site": 1
+        }
+    },
+    {
+        "model": "performance.performance",
+        "pk": 3,
+        "fields": {
+            "work": [230, 435],
+            "date": "2023-08-06",
+            "company": 1,
+            "venue": 1,
+            "notes": "",
+            "user": 1,
+            "streamed": false,
+            "site": 1
+        }
+    },
+    {
+        "model": "performance.performance",
+        "pk": 4,
+        "fields": {
+            "work": [230],
+            "date": "2023-08-04",
+            "company": 1,
+            "venue": 1,
+            "notes": "",
+            "user": 2,
+            "streamed": false,
+            "site": 1
+        }
+    }
+]

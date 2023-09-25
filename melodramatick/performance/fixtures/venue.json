@@ -1,0 +1,11 @@
+[
+    {
+        "model": "performance.venue",
+        "pk": 1,
+        "fields": {
+            "name": "Theatre Royal",
+            "location": "Glasgow, UK",
+            "sites": [1]
+        }
+    }
+]

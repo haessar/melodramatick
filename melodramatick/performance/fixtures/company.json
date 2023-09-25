@@ -1,0 +1,10 @@
+[
+    {
+        "model": "performance.company",
+        "pk": 1,
+        "fields": {
+            "name": "Scottish Opera",
+            "site": 1
+        }
+    }
+]
