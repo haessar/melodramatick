@@ -112,7 +112,7 @@
             <div class="card-body align-bottom">
               <h6 class="card-title">Most listened to</h5>
               <h5 class="card-subtitle  mb-2 text-muted"><a href="{% url 'work:work-detail' most_listened.work.id %}">{{ most_listened.work }}</a></h6>
-              <p class="card-text">({{most_listened.tally}} times)</p>
+              <p class="card-text">({{ most_listened.tally }} times)</p>
             </div>
           </div>
           {% endif %}
@@ -120,7 +120,7 @@
       </div>
       {% if customuser == user %}
       <h3>Listening history</h3>
-      <table class="table table-striped">
+      <table id="listeningHistoryTable" class="table table-striped">
         <thead>
           <tr>
             <th scope="col"></th>
