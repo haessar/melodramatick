@@ -109,7 +109,7 @@ class ComposerAutocompleteTestCase(TestCase):
             # Return <QuerySet [<Composer: Beethoven, Ludwig van>]> when q is starting letter
             self.assertQuerysetEqual(qs, Composer.objects.filter(surname="Beethoven"))
         elif self.request.site.id == 2:
-            # Return empty querysite when no composer on site contains q as starting letter
+            # Return empty queryset when no composer on site contains q as starting letter
             self.assertQuerysetEqual(qs, [])
 
 
