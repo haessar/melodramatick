@@ -43,50 +43,105 @@
       <h1>{{ customuser }}</h1>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-7">
-      <h3>Awards</h3>
-      <dl class="row" style="font-size:18px">
-        {% for award in awards %}
-        <dt class="col-sm-9"><a href="{% url 'work:index' %}?top_list={{ award.list.id }}">{{ award.list }}</a></dt>
-        <dd class="col-sm-3">{{ award.html_icon }}</dd>
-        {% endfor %}
-      </dl>
+
+  <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="awards-tab" data-toggle="tab" data-target="#awards" type="button" role="tab" aria-controls="awards" aria-selected="false">Awards</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="listen-tab" data-toggle="tab" data-target="#listen" type="button" role="tab" aria-controls="listen" aria-selected="false">Listens</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="profile-tab">...</div>
+    <div class="tab-pane fade" id="awards" role="tabpanel" aria-labelledby="awards-tab">
+      <div class="row">
+        <div class="col-sm-7">
+          <h3>Awards</h3>
+          <dl class="row" style="font-size:18px">
+            {% for award in awards %}
+            <dt class="col-sm-9"><a href="{% url 'work:index' %}?top_list={{ award.list.id }}">{{ award.list }}</a></dt>
+            <dd class="col-sm-3">{{ award.html_icon }}</dd>
+            {% endfor %}
+          </dl>
+        </div>
+        <div class="col-sm-5">
+          <h3>Progress</h3>
+          <ul class="list-group">
+            {% for prog in progress %}
+            <li class="list-group-item">
+              <div class="content d-flex w-100 justify-content-between">
+                <a href="{% url 'work:index' %}?top_list={{ prog.list.id }}" class="mb-1">{{ prog.list }}</a>
+                <span>{{ prog.count }} / {{ prog.list.length }}</span>
+              </div>
+              <div class="progress" style="background-color: rgba(225, 225, 225, 0.1);">
+                {% if prog.ratio < 0.5 %}
+                <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to bronze award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_BRONZE_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="width: {{ 50|sub:prog.as_percentage }}%;" aria-valuenow="{{ 50|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="bronze-marker" title="bronze award" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                {% elif prog.ratio < 0.75 %}
+                <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to silver award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_SILVER_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="width: {{ 75|sub:prog.as_percentage }}%;" aria-valuenow="{{ 75|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="silver-marker" title="silver award" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                {% elif prog.ratio < 0.9 %}
+                <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to gold award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_GOLD_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="width: {{ 90|sub:prog.as_percentage }}%;" aria-valuenow="{{ 90|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="gold-marker" title="gold award" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                {% elif prog.ratio < 1 %}
+                <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to platinum award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_PLATINUM_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="width: {{ 100|sub:prog.as_percentage }}%;" aria-valuenow="{{ 100|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="platinum-marker" title="platinum award" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                {% else %}
+                <div class="progress-bar" role="progressbar" style="width: 100%; background-color: {% settings_value 'AWARD_LEVEL_PLATINUM_HEX' %};" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                {% endif %}
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-5">
-      <h3>Progress</h3>
-      <ul class="list-group">
-        {% for prog in progress %}
-        <li class="list-group-item">
-          <div class="content d-flex w-100 justify-content-between">
-            <a href="{% url 'work:index' %}?top_list={{ prog.list.id }}" class="mb-1">{{ prog.list }}</a>
-            <span>{{ prog.count }} / {{ prog.list.length }}</span>
+    <div class="tab-pane fade" id="listen" role="tabpanel" aria-labelledby="listen-tab">
+      <div class="flex-row">
+        {% comment %} <div class="card-deck"> {% endcomment %}
+          {% if most_listened %}
+          <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
+            <div class="card-body align-bottom">
+              <h6 class="card-title">Most listened to</h5>
+              <h5 class="card-subtitle  mb-2 text-muted"><a href="{% url 'work:work-detail' most_listened.work.id %}">{{ most_listened.work }}</a></h6>
+              <p class="card-text">({{most_listened.tally}} times)</p>
+            </div>
           </div>
-          <div class="progress" style="background-color: rgba(225, 225, 225, 0.1);">
-            {% if prog.ratio < 0.5 %}
-            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to bronze award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_BRONZE_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar" role="progressbar" style="width: {{ 50|sub:prog.as_percentage }}%;" aria-valuenow="{{ 50|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="bronze-marker" title="bronze award" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-            {% elif prog.ratio < 0.75 %}
-            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to silver award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_SILVER_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar" role="progressbar" style="width: {{ 75|sub:prog.as_percentage }}%;" aria-valuenow="{{ 75|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="silver-marker" title="silver award" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            {% elif prog.ratio < 0.9 %}
-            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to gold award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_GOLD_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar" role="progressbar" style="width: {{ 90|sub:prog.as_percentage }}%;" aria-valuenow="{{ 90|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="gold-marker" title="gold award" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            {% elif prog.ratio < 1 %}
-            <div class="progress-bar progress-bar-striped progress-bar-animated" data-toggle="tooltip" data-placement="left" title="{{prog.ticks_to_next_award.0}} more tick to platinum award" role="progressbar" style="width: {{ prog.as_percentage }}%; background-color: {% settings_value 'AWARD_LEVEL_PLATINUM_HEX' %};" aria-valuenow="{{ prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar" role="progressbar" style="width: {{ 100|sub:prog.as_percentage }}%;" aria-valuenow="{{ 100|sub:prog.as_percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="platinum-marker" title="platinum award" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            {% else %}
-            <div class="progress-bar" role="progressbar" style="width: 100%; background-color: {% settings_value 'AWARD_LEVEL_PLATINUM_HEX' %};" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            {% endif %}
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
+          {% endif %}
+        {% comment %} </div> {% endcomment %}
+      </div>
+      {% if customuser == user %}
+      <h3>Listening history</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Work</th>
+            <th scope="col">Tally</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for listen in listens %}
+          <tr>
+            <td>{{ listen.updated_at }}</td>
+            <td><a href="{% url 'work:work-detail' listen.work.id %}">{{ listen.work }}</a></td>
+            <td><a href="{% url 'admin:listen_listen_change' listen.id %}">{{ listen.tally }}</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
   </div>
+
   <div class="row">
   </div>
 {% endblock %}

@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Listen
+
+
+@admin.register(Listen)
+class ListenAdmin(admin.ModelAdmin):
+    exclude = ['site']

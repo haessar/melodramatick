@@ -6,14 +6,17 @@ from django.db import models
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
-from melodramatick.utils.spotify_api import get_album_duration, get_album_image  # , get_playlist_duration, get_playlist_image
+from melodramatick.utils.models import AbstractSingleSiteModel
+from melodramatick.utils.spotify_api import get_album_duration, get_album_image, get_playlist_duration, get_playlist_image
 from melodramatick.work.models import Work
 
 
-class Listen(models.Model):
+class Listen(AbstractSingleSiteModel):
     work = models.ForeignKey(Work, on_delete=models.CASCADE, related_name='listen')
     tally = models.PositiveSmallIntegerField(default=0)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         constraints = [
@@ -21,6 +24,7 @@ class Listen(models.Model):
         ]
         verbose_name = "Listens"
         verbose_name_plural = "Listens"
+        ordering = ['-updated_at']
 
     def __str__(self):
         return self.user.username

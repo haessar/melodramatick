@@ -1,9 +1,11 @@
+from django.db.models import Max
 from django.urls import reverse_lazy
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
 
 from .forms import CustomUserCreationForm
 from .models import CustomUser
+from melodramatick.listen.models import Listen
 
 
 class SignUpView(CreateView):
@@ -27,4 +29,7 @@ class ProfileView(DetailView):
         context["awards"] = sorted(
             user.award.filter(list__site=self.request.site),
             key=lambda x: (x.level.rank, -x.list.length))
+        context["listens"] = Listen.objects.filter(user=user)
+        max_tally = context["listens"].aggregate(Max("tally"))["tally__max"]
+        context["most_listened"] = context["listens"].filter(tally=max_tally).first()
         return context
