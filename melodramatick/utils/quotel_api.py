@@ -1,3 +1,8 @@
+"""
+Run within Django shell:
+    exec(open("./melodramatick/utils/quotel_api.py").read())
+"""
+
 import datetime
 import random
 
