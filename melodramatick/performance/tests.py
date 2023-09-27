@@ -10,7 +10,8 @@ from melodramatick.work.models import Work
 
 
 class PerformanceAdminTestCase(TestCase):
-    fixtures = ['user.json', 'sites.json', 'company.json', 'performance.json', 'venue.json', 'composer.json', 'work.json']
+    fixtures = ['contenttypes.json', 'user.json', 'sites.json', 'company.json', 'performance.json', 'venue.json',
+                'composer.json', 'work.json', 'opera.json']
 
     def setUp(self):
         self.performance_admin = PerformanceAdmin(model=Performance, admin_site=AdminSite())
@@ -67,7 +68,7 @@ class PerformanceAdminTestCase(TestCase):
 
 
 class TickViewTestCase(TestCase):
-    fixtures = ['composer.json', 'sites.json', 'user.json', 'work.json']
+    fixtures = ['composer.json', 'sites.json', 'user.json', 'work.json', 'opera.json']
 
     def setUp(self):
         self.request = self.client.get("/").wsgi_request

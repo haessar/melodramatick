@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class ProfileViewTestCase(TestCase):
-    fixtures = ['user.json', 'listen.json', 'work.json', 'composer.json', 'sites.json']
+    fixtures = ['contenttypes.json', 'user.json', 'listen.json', 'work.json', 'opera.json', 'composer.json', 'sites.json']
 
     def setUp(self):
         self.response = self.client.get(reverse('profile', kwargs={'username': 'user1'}))

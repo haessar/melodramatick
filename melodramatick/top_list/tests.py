@@ -4,7 +4,7 @@ from .views import TopListView
 
 
 class TopListViewTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json", "top_list.json", "user.json", "work.json"]
+    fixtures = ["contenttypes.json", "composer.json", "sites.json", "top_list.json", "user.json", "work.json", "opera.json"]
 
     def setUp(self):
         response = self.client.get("/")

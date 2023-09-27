@@ -1,0 +1,19 @@
+[
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "operatick",
+            "model": "opera"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "balletick",
+            "model": "ballet"
+        }
+    }
+
+]

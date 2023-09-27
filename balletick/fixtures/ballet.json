@@ -1,0 +1,10 @@
+[
+    {
+        "model": "balletick.ballet",
+        "pk": 722,
+        "fields": {
+            "work_ptr": 722,
+            "choreographer": "Jean Coralli"
+        }
+    }
+]

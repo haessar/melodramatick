@@ -114,7 +114,7 @@ class ComposerAutocompleteTestCase(TestCase):
 
 
 class ComposerListViewTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json", "work.json"]
+    fixtures = ["contenttypes.json", "composer.json", "sites.json", "work.json", "opera.json"]
 
     def setUp(self):
         response = self.client.get("/")

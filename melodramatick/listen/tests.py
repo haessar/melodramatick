@@ -7,7 +7,7 @@ from melodramatick.work.models import Work
 
 
 class SpotifyPlaybackViewTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json", "user.json", "work.json"]
+    fixtures = ["contenttypes.json", "composer.json", "sites.json", "user.json", "work.json", "opera.json"]
 
     def setUp(self):
         response = self.client.get("/")

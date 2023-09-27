@@ -32,19 +32,19 @@
         }
     },
     {
-        "model": "operatick.opera",
-        "pk": 230,
+        "model": "work.work",
+        "pk": 722,
         "fields": {
-            "work_ptr": 230,
-            "language": "de"
-        }
-    },
-    {
-        "model": "operatick.opera",
-        "pk": 435,
-        "fields": {
-            "work_ptr": 435,
-            "language": "fr"
+            "polymorphic_ctype": [
+                "balletick",
+                "ballet"
+            ],
+            "composer": 1,
+            "title": "Giselle",
+            "year": 1841,
+            "notes": "",
+            "sub_genre": null,
+            "site": 2
         }
     }
 ]

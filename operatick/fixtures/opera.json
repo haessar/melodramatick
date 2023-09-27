@@ -1,0 +1,18 @@
+[
+    {
+        "model": "operatick.opera",
+        "pk": 230,
+        "fields": {
+            "work_ptr": 230,
+            "language": "de"
+        }
+    },
+    {
+        "model": "operatick.opera",
+        "pk": 435,
+        "fields": {
+            "work_ptr": 435,
+            "language": "fr"
+        }
+    }
+]
