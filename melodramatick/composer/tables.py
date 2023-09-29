@@ -35,4 +35,4 @@ class ComposerTable(tables.Table):
         Compensate for failure of accessor to correctly access fields from many-to-one relationships
         i.e. "sitecomplete__complete"
         """
-        return column.render(value.get().complete, record, bound_column)
+        return column.render(value.get(site=self.request.site).complete, record, bound_column)
