@@ -13,7 +13,7 @@ from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModel
 
 from .models import AKA, Genre, SubGenre, Work
 from melodramatick.forms import CsvImportForm
-from melodramatick.composer.models import Composer
+from melodramatick.composer.models import Composer, SiteComplete
 from melodramatick.listen.forms import AlbumForm
 from melodramatick.listen.models import Listen, Album
 from melodramatick.performance.models import Performance
@@ -87,8 +87,7 @@ class BaseWorkAdmin(PolymorphicChildModelAdmin):
                     pass
             # If CSV only contains work of single composer, assume it is full compilation of their work.
             if len(unique_composers) == 1:
-                composer.complete = True
-                composer.save()
+                SiteComplete.objects.get_or_create(composer=composer, site=request.site, complete=True)
             self.message_user(request, "Your csv file has been imported.")
             return redirect("..")
         form = CsvImportForm()

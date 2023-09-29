@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import path
 
-from .models import Composer, Group, Quote
+from .models import Composer, Group, Quote, SiteComplete
 from melodramatick.forms import CsvImportForm
 
 
@@ -24,9 +24,15 @@ class QuoteAdmin(admin.ModelAdmin):
     list_display = ("quote", "composer")
 
 
+class SiteCompleteInline(admin.StackedInline):
+    model = SiteComplete
+    extra = 0
+
+
 @admin.register(Composer)
 class ComposerAdmin(admin.ModelAdmin):
     change_list_template = "admin/import_csv_changelist.html"
+    inlines = [SiteCompleteInline]
 
     def get_queryset(self, request):
         return Composer.all_sites.all()
@@ -43,7 +49,7 @@ class ComposerAdmin(admin.ModelAdmin):
             rows = csv.DictReader(io_string)
             for row in rows:
                 try:
-                    Composer.all_sites.get_or_create(**dict(row, **{"complete": False}))
+                    Composer.all_sites.get_or_create(**row)
                 except FieldError as e:
                     self.message_user(request, str(e), messages.ERROR)
                     return HttpResponseRedirect(request.META.get('PATH_INFO'))

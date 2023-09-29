@@ -6,7 +6,6 @@
             "surname": "Adam",
             "first_name": "Adolphe",
             "nationality": "French",
-            "complete": false,
             "gender": "M",
             "sites": [
                 2,
@@ -21,7 +20,6 @@
             "surname": "Beethoven",
             "first_name": "Ludwig van",
             "nationality": "German",
-            "complete": true,
             "gender": "M",
             "sites": [
                 1

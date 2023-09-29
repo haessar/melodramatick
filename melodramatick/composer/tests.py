@@ -13,7 +13,7 @@ from melodramatick.accounts.models import CustomUser
 
 
 class ComposerModelTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json"]
+    fixtures = ["composer.json", "sites.json", "sitecomplete.json"]
 
     def setUp(self):
         self.composer = Composer.all_sites.get(surname="Adam")
@@ -26,8 +26,8 @@ class ComposerModelTestCase(TestCase):
 
     def test_unique_constraint(self):
         with self.assertRaisesMessage(IntegrityError, "UNIQUE"):
-            # Shared surname and first_name, despite different nationality and complete values to those in db.
-            Composer.all_sites.create(surname="Adam", first_name="Adolphe", nationality="Swiss", complete=True)
+            # Shared surname and first_name, despite different nationality value to that in db.
+            Composer.all_sites.create(surname="Adam", first_name="Adolphe", nationality="Swiss")
 
 
 class ComposerAdminTestCase(TestCase):

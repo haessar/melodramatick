@@ -1,0 +1,20 @@
+[
+    {
+        "model": "composer.sitecomplete",
+        "pk": 1,
+        "fields": {
+            "composer": 1,
+            "complete": false,
+            "site": 1
+        }
+    },
+    {
+        "model": "composer.sitecomplete",
+        "pk": 2,
+        "fields": {
+            "composer": 2,
+            "complete": true,
+            "site": 1
+        }
+    }
+]

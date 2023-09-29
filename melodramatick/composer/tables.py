@@ -12,14 +12,13 @@ class ComposerTable(tables.Table):
                                     verbose_name="Aggregate Top Lists count")
     impact = tables.Column(accessor="top_lists_to_works", verbose_name="Impact Factor", order_by="-top_lists_to_works",
                            attrs={"help_text": "Ratio of aggregated top list counts to total number of works composed."})
-    # TODO Find out why the following tooltip breaks the tick/cross image rendering in Complete column.
-    # complete = tables.Column(accessor="complete",
-    #                          attrs={"help_text": "All available operas for this composer are in the database."})
+    complete = tables.BooleanColumn(accessor="sitecomplete", verbose_name="Complete",
+                                    attrs={"help_text": "All available operas for this composer are in the database."})
 
     class Meta:
         model = Composer
         template_name = "composer/table.html"
-        sequence = ['first_name', 'surname']
+        sequence = ['first_name', 'surname', 'complete']
         exclude = ['id', 'group']
 
     def render_total_works(self, record):
@@ -30,3 +29,10 @@ class ComposerTable(tables.Table):
 
     def render_impact(self, record):
         return round(record.top_lists_to_works, 2)
+
+    def render_complete(self, value, record, column, bound_column):
+        """
+        Compensate for failure of accessor to correctly access fields from many-to-one relationships
+        i.e. "sitecomplete__complete"
+        """
+        return column.render(value.get().complete, record, bound_column)
