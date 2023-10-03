@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.utils.html import format_html
 import django_tables2 as tables
 
-from .models import Composer
+from .models import Composer, SiteComplete
 
 
 class ComposerTable(tables.Table):
@@ -35,4 +35,8 @@ class ComposerTable(tables.Table):
         Compensate for failure of accessor to correctly access fields from many-to-one relationships
         i.e. "sitecomplete__complete"
         """
-        return column.render(value.get(site=self.request.site).complete, record, bound_column)
+        try:
+            value = value.get(site=self.request.site).complete
+        except SiteComplete.DoesNotExist:
+            value = False
+        return column.render(value, record, bound_column)
