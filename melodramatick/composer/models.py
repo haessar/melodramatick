@@ -46,3 +46,9 @@ class Quote(models.Model):
 class SiteComplete(AbstractSingleSiteModel):
     composer = models.ForeignKey(Composer, on_delete=models.CASCADE, related_name="sitecomplete")
     complete = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['composer', 'site'], name='unique_sitecomplete')
+        ]
+        verbose_name_plural = "Site complete"

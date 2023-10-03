@@ -2,7 +2,9 @@ import csv
 import io
 
 from django.contrib import admin, messages
+from django.contrib.sites.models import Site
 from django.core.exceptions import FieldError
+from django.forms.models import BaseInlineFormSet
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import path
@@ -24,9 +26,19 @@ class QuoteAdmin(admin.ModelAdmin):
     list_display = ("quote", "composer")
 
 
-class SiteCompleteInline(admin.StackedInline):
+class SiteCompleteInlineFormSet(BaseInlineFormSet):
+    def get_queryset(self):
+        return SiteComplete.all_sites.filter(composer=self.instance)
+
+
+class SiteCompleteInline(admin.TabularInline):
     model = SiteComplete
     extra = 0
+    max_num = len(Site.objects.all())
+    formset = SiteCompleteInlineFormSet
+
+    def has_add_permission(self, request, obj):
+        return False
 
 
 @admin.register(Composer)
@@ -60,3 +72,8 @@ class ComposerAdmin(admin.ModelAdmin):
         return render(
             request, "admin/upload_file_form.html", payload
         )
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        for site in form.cleaned_data['sites']:
+            SiteComplete.all_sites.get_or_create(composer=obj, site=site)
