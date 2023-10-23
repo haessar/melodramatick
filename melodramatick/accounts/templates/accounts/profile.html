@@ -131,7 +131,7 @@
         <tbody>
           {% for listen in listens %}
           <tr>
-            <td>{{ listen.updated_at|date:"c" }}</td>
+            <td>{{ listen.updated_at|date:"Y-m-d H:i" }}</td>
             <td><a href="{% url 'work:work-detail' listen.work.id %}">{{ listen.work }}</a></td>
             <td><a href="{% url 'admin:listen_listen_change' listen.id %}">{{ listen.tally }}</a></td>
           </tr>
