@@ -24,7 +24,7 @@ class Listen(AbstractSingleSiteModel):
         ]
         verbose_name = "Listens"
         verbose_name_plural = "Listens"
-        ordering = ['updated_at']
+        ordering = ['-updated_at']
 
     def __str__(self):
         return self.user.username
