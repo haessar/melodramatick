@@ -27,7 +27,9 @@
         window.open(url, "_blank");
       });
       $('[data-toggle="tooltip"]').tooltip();
-      new DataTable('#listeningHistoryTable');
+      new DataTable('#listeningHistoryTable', {
+        order: [[0, 'desc']]
+      });
     });
   </script>
   <style>
