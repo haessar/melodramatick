@@ -1,4 +1,4 @@
-from django.db.models import Max
+from django.db.models import Count, Max
 from django.urls import reverse_lazy
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
@@ -6,6 +6,8 @@ from django.views.generic.edit import CreateView
 from .forms import CustomUserCreationForm
 from .models import CustomUser
 from melodramatick.listen.models import Listen
+from melodramatick.performance.models import Performance
+from melodramatick.work.models import Work
 
 
 class SignUpView(CreateView):
@@ -30,6 +32,9 @@ class ProfileView(DetailView):
             user.award.filter(list__site=self.request.site),
             key=lambda x: (x.level.rank, -x.list.length))
         context["listens"] = Listen.objects.filter(user=user)
+        context["performances"] = Performance.objects.filter(user=user).order_by('-date')
         max_tally = context["listens"].aggregate(Max("tally"))["tally__max"]
         context["most_listened"] = context["listens"].filter(tally=max_tally).first()
+        works_with_counts = Work.objects.filter(performance__in=context['performances']).annotate(Count('performance'))
+        context["most_watched"] = works_with_counts.order_by('-performance__count').first()
         return context

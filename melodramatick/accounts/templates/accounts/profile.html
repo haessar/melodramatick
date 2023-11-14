@@ -45,19 +45,22 @@
   </div>
 
   <ul class="nav nav-tabs" id="nav-tab" role="tablist">
-    <li class="nav-item" role="presentation">
+    {% comment %} <li class="nav-item" role="presentation">
       <button class="nav-link active" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profile</button>
+    </li> {% endcomment %}
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="awards-tab" data-toggle="tab" data-target="#awards" type="button" role="tab" aria-controls="awards" aria-selected="true">Awards</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="awards-tab" data-toggle="tab" data-target="#awards" type="button" role="tab" aria-controls="awards" aria-selected="false">Awards</button>
+      <button class="nav-link" id="performance-tab" data-toggle="tab" data-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false">Performances</button>
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="listen-tab" data-toggle="tab" data-target="#listen" type="button" role="tab" aria-controls="listen" aria-selected="false">Listens</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="profile-tab">...</div>
-    <div class="tab-pane fade" id="awards" role="tabpanel" aria-labelledby="awards-tab">
+    {% comment %} <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div> {% endcomment %}
+    <div class="tab-pane fade show active" id="awards" role="tabpanel" aria-labelledby="awards-tab">
       <div class="row">
         <div class="col-sm-7">
           <h3>Awards</h3>
@@ -103,6 +106,51 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div class="tab-pane fade" id="performance" role="tabpanel" aria-labelledby="performance-tab">
+      <div class="flex-row">
+        {% if most_watched %}
+        <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
+          <div class="card-body align-bottom">
+            <h6 class="card-title">Most watched</h5>
+            <h5 class="card-subtitle  mb-2 text-muted"><a href="{% url 'work:work-detail' most_watched.id %}">{{ most_watched.title }}</a></h6>
+            <p class="card-text">({{ most_watched.performance__count }} times)</p>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      {% if customuser == user %}
+      <h3>Performance history</h3>
+      <table id="performanceHistoryTable" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Work</th>
+            <th scope="col">Company</th>
+            <th scope="col">Venue</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for performance in performances %}
+          <tr>
+            <td><a href="{% url 'user-admin:performance_performance_change' performance.id %}">{{ performance.date }}</a></td>
+            <td>
+              {% for work in performance.work.all %}
+              <a href="{% url 'work:work-detail' work.id %}">{{ work.title }}</a>
+              {% if not forloop.last %}
+              &#8208;
+              {% endif %}
+              {% endfor %}
+            </td>
+            <td>{{performance.company}}</td>
+            <td>{{performance.venue}}</td>
+            <td>{{performance.notes}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
     </div>
     <div class="tab-pane fade" id="listen" role="tabpanel" aria-labelledby="listen-tab">
       <div class="flex-row">
