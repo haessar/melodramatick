@@ -3,15 +3,11 @@ Run within Django shell:
     exec(open("./melodramatick/utils/quotel_api.py").read())
 """
 
-import datetime
-import random
-
 from django.conf import settings
 import requests
 
 if __name__ == "__main__":
     import melodramatick.utils.django_initialiser  # noqa: F401
-from django.contrib.sites.models import Site
 from melodramatick.composer.models import Composer, Quote
 
 
@@ -43,14 +39,6 @@ COMPOSER_AUTHOR_ID = {
     "Menotti": 15699,
     "Dvořák": 14289,
 }
-
-
-def quote_of_the_day():
-    day = datetime.datetime.today().strftime("%Y:%m:%d")
-    random.seed(day)
-    quotes = Quote.objects.filter(composer__sites__in=[Site.objects.get_current()])
-    if quotes:
-        return quotes[random.randint(1, len(quotes))]
 
 
 def populate_composer_quotes():
