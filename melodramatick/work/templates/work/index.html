@@ -56,7 +56,7 @@
     }
 
     #hiddencell > p.streamed {
-      background-color: #d3d3d380;
+      background-color: {% settings_value "STREAMED_COLOUR" %}80;
     }
 
     #ticked {
@@ -64,7 +64,7 @@
     }
 
     #ticked-stream-only {
-      background-color: #d3d3d3;
+      background-color: {% settings_value "STREAMED_COLOUR" %};
     }
   </style>
 {% endblock %}

@@ -22,6 +22,14 @@
     .platinum-marker {
       border-left: 2px solid {% settings_value "AWARD_LEVEL_PLATINUM_HEX" %};
     }
+    .card-columns {
+      @include media-breakpoint-only(lg) {
+        column-count: 2;
+      }
+      @include media-breakpoint-only(xl) {
+        column-count: 3;
+      }
+    }
   </style>
 {% endblock %}
 
@@ -108,16 +116,23 @@
       </div>
     </div>
     <div class="tab-pane fade" id="performance" role="tabpanel" aria-labelledby="performance-tab">
-      <div class="flex-row">
-        {% if most_watched %}
-        <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
-          <div class="card-body align-bottom">
-            <h6 class="card-title">Most watched</h5>
-            <h5 class="card-subtitle  mb-2 text-muted"><a href="{% url 'work:work-detail' most_watched.id %}">{{ most_watched.title }}</a></h6>
-            <p class="card-text">({{ most_watched.performance__count }} times)</p>
-          </div>
+      <div class="row" style="padding-left: 20%;">
+        <div class="card-columns">
+          {% if most_watched %}
+            <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
+              <div class="card-body align-bottom">
+                <h6 class="card-title">Most watched</h5>
+                <h5 class="card-subtitle  mb-2 text-muted"><a href="{% url 'work:work-detail' most_watched.id %}">{{ most_watched.title }}</a></h6>
+                <p class="card-text">({{ most_watched.performance__count }} times)</p>
+              </div>
+            </div>
+          {% endif %}
+          {% if perfs_per_year %}
+            <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
+              <img class="card-img-top" src='data:image/png;base64,{{ perfs_per_year }}'>
+            </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
       {% if customuser == user %}
       <h3>Performance history</h3>

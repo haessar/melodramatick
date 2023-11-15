@@ -1,14 +1,14 @@
-import base64
 from collections import Counter
-import io
+
 import itertools
 
 from django.conf import settings
 from django.db.models import Avg, Count
 import matplotlib
-import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
 import seaborn as sns
+
+from melodramatick.utils.plots import to_bytes_fig
 
 matplotlib.use('Agg')
 
@@ -25,20 +25,6 @@ def era_from_years(yr_list):
                 eras.append(era)
                 break
     return eras
-
-
-def to_bytes_fig(f):
-    """
-    Decorator to track set of peaks that fail this criterion.
-    """
-    def wrapped(*args, **kwargs):
-        fig, ax = plt.subplots(figsize=kwargs.pop("figsize", (8, 4)))
-        f(ax, *args, **kwargs)
-        flike = io.BytesIO()
-        fig.savefig(flike, bbox_inches="tight")
-        return base64.b64encode(flike.getvalue()).decode()
-
-    return wrapped
 
 
 @to_bytes_fig
