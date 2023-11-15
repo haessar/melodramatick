@@ -13,7 +13,7 @@
 
 {% block content %}
   <div class="row" style="background-color: {% settings_value 'BACKGROUND_COLOUR' %}; padding: 16px;">
-    <img class="mx-auto d-block" src="{% static 'images/banner.png' %}" alt="">
+    <img class="mx-auto d-block img-fluid" src="{% static 'images/banner.png' %}" alt="">
   </div>
   <div class="row" style="margin: 50px;">
     {% if user.is_authenticated %}
