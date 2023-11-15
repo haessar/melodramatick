@@ -18,9 +18,10 @@ def plot_perfs_per_year(ax, qs):
         perfs_by_year = OrderedDict(sorted(Counter(y['year'] for y in years.filter(streamed=False)).items()))
         streams_by_year = OrderedDict(sorted(Counter(y['year'] for y in years.filter(streamed=True)).items()))
         all_years = [y['year'] for y in years.distinct().order_by('year')]
+        all_years = map(str, range(int(all_years[0]), int(all_years[-1]) + 1))
         df = pd.DataFrame(columns=all_years, data=[perfs_by_year, streams_by_year], index=['Live', 'Streamed'])
 
-        df.T.plot.bar(stacked=True, ax=ax, color=[settings.BACKGROUND_COLOUR, settings.STREAMED_COLOUR], rot=0)
+        df.T.plot.bar(stacked=True, ax=ax, color=[settings.BACKGROUND_COLOUR, settings.STREAMED_COLOUR], rot=45)
 
         ax.set_title('Performances per year')
         ax.yaxis.set_minor_locator(MultipleLocator(1))
