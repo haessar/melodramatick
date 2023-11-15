@@ -9,6 +9,7 @@ from melodramatick.utils.plots import to_bytes_fig
 
 @to_bytes_fig
 def plot_perfs_per_year(ax, qs):
+    qs = qs.exclude(date__isnull=True).exclude(date__exact='')
     if "sqlite3" in settings.DATABASES['default']['ENGINE']:
         years = qs.extra(select={'year': "strftime('%%Y', date)"}).values('year')
     else:
