@@ -38,7 +38,7 @@ class ProfileView(DetailView):
         context["most_listened"] = context["listens"].filter(tally=max_tally).first()
         works_with_counts = Work.objects.filter(performance__in=context['performances']).annotate(Count('performance'))
         context["most_watched"] = works_with_counts.order_by('-performance__count').first()
-        venues = Venue.objects.annotate(performance__count=Count("performance", filter=Q(performance__user=user)))
-        context["most_visited"] = venues.order_by('-performance__count').first()
+        venues = Venue.objects.annotate(venue_tally=Count("performance", filter=Q(performance__user=user)))
+        context["most_visited"] = venues.order_by('-venue_tally').first()
         context["perfs_per_year"] = plot_perfs_per_year(context["performances"], figsize=(6, 6))
         return context
