@@ -1,10 +1,11 @@
-from django.db.models import Count, Max, Q
+from django.db.models import Count, Max, Sum, Q
 from django.urls import reverse_lazy
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
 
 from .forms import CustomUserCreationForm
 from .models import CustomUser
+from melodramatick.composer.models import Composer
 from melodramatick.listen.models import Listen
 from melodramatick.performance.models import Company, Performance, Venue
 from melodramatick.performance.plots import plot_perfs_per_year
@@ -55,6 +56,11 @@ class ProfileView(DetailView):
         context["listens"] = Listen.objects.filter(user=self.user)
         max_tally = context["listens"].aggregate(Max("tally"))["tally__max"]
         context["most_listened"] = context["listens"].filter(tally=max_tally).first()
+        context["most_listened_composer"] = Composer.objects.annotate(
+            tally=Sum("work__listen__tally", filter=Q(
+                work__listen__user=self.user,
+                work__listen__site=self.request.site))
+            ).order_by("-tally").first()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
