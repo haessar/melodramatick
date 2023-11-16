@@ -121,9 +121,18 @@
           {% if most_watched %}
             <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
               <div class="card-body align-bottom">
-                <h6 class="card-title">Most watched</h5>
-                <h5 class="card-subtitle  mb-2 text-muted"><a href="{% url 'work:work-detail' most_watched.id %}">{{ most_watched.title }}</a></h6>
+                <h6 class="card-title">Most watched</h6>
+                <h5 class="card-subtitle  mb-2 text-muted"><a href="{% url 'work:work-detail' most_watched.id %}">{{ most_watched.title }}</a></h5>
                 <p class="card-text">({{ most_watched.performance__count }} times)</p>
+              </div>
+            </div>
+          {% endif %}
+          {% if most_visited %}
+            <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
+              <div class="card-body align-bottom">
+                <h6 class="card-title">Most visited venue</h6>
+                <h5 class="card-subtitle mb-2 text-muted">{{ most_visited.name }}</h5>
+                <p class="card-text">({{ most_visited.performance__count }} times)</p>
               </div>
             </div>
           {% endif %}

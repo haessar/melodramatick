@@ -1,4 +1,4 @@
-from django.db.models import Count, Max
+from django.db.models import Count, Max, Q
 from django.urls import reverse_lazy
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView
 from .forms import CustomUserCreationForm
 from .models import CustomUser
 from melodramatick.listen.models import Listen
-from melodramatick.performance.models import Performance
+from melodramatick.performance.models import Performance, Venue
 from melodramatick.performance.plots import plot_perfs_per_year
 from melodramatick.work.models import Work
 
@@ -38,5 +38,7 @@ class ProfileView(DetailView):
         context["most_listened"] = context["listens"].filter(tally=max_tally).first()
         works_with_counts = Work.objects.filter(performance__in=context['performances']).annotate(Count('performance'))
         context["most_watched"] = works_with_counts.order_by('-performance__count').first()
+        venues = Venue.objects.annotate(performance__count=Count("performance", filter=Q(performance__user=user)))
+        context["most_visited"] = venues.order_by('-performance__count').first()
         context["perfs_per_year"] = plot_perfs_per_year(context["performances"], figsize=(6, 6))
         return context
