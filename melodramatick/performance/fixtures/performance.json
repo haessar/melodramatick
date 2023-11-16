@@ -54,5 +54,19 @@
             "streamed": false,
             "site": 1
         }
+    },
+    {
+        "model": "performance.performance",
+        "pk": 5,
+        "fields": {
+            "work": [722],
+            "date": "2023-08-07",
+            "company": 1,
+            "venue": 1,
+            "notes": "",
+            "user": 1,
+            "streamed": false,
+            "site": 2
+        }
     }
 ]
