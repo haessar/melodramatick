@@ -3,7 +3,8 @@ from django.urls import reverse
 
 
 class ProfileViewTestCase(TestCase):
-    fixtures = ['contenttypes.json', 'user.json', 'listen.json', 'work.json', 'opera.json', 'composer.json', 'sites.json']
+    fixtures = ['contenttypes.json', 'user.json', 'listen.json', 'work.json', 'opera.json', 'composer.json', 'sites.json',
+                'performance.json', 'venue.json', 'company.json']
 
     def setUp(self):
         self.response = self.client.get(reverse('profile', kwargs={'username': 'user1'}))
@@ -13,6 +14,7 @@ class ProfileViewTestCase(TestCase):
         if self.response.wsgi_request.site.id == 1:
             self.assertEqual(self.response.context_data['most_listened'].tally, 2)
             self.assertEqual(len(self.response.context_data['listens']), 2)
+            self.assertEqual(self.response.context_data['most_visited'].venue_tally, 2)
         elif self.response.wsgi_request.site.id == 2:
             self.assertEqual(self.response.context_data['most_listened'].tally, 3)
             self.assertEqual(len(self.response.context_data['listens']), 1)

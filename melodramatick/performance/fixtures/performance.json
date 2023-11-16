@@ -23,7 +23,7 @@
             "venue": 1,
             "notes": "",
             "user": 1,
-            "streamed": false,
+            "streamed": true,
             "site": 1
         }
     },
