@@ -207,8 +207,8 @@
       {% endif %}
     </div>
     <div class="tab-pane fade" id="listen" role="tabpanel" aria-labelledby="listen-tab">
-      <div class="flex-row">
-        {% comment %} <div class="card-deck"> {% endcomment %}
+      <div class="row" style="padding-left: 20%;">
+        <div class="card-columns">
           {% if most_listened %}
           <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
             <div class="card-body align-bottom">
@@ -227,7 +227,12 @@
               </div>
             </div>
           {% endif %}
-        {% comment %} </div> {% endcomment %}
+          {% if listens_per_month %}
+            <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
+              <img class="card-img-top" src='data:image/png;base64,{{ listens_per_month }}'>
+            </div>
+          {% endif %}
+        </div>
       </div>
       {% if customuser == user %}
       <h3>Listening history</h3>

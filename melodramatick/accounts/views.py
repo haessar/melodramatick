@@ -7,6 +7,7 @@ from .forms import CustomUserCreationForm
 from .models import CustomUser
 from melodramatick.composer.models import Composer
 from melodramatick.listen.models import Listen
+from melodramatick.listen.plots import plot_listens_per_month
 from melodramatick.performance.models import Company, Performance, Venue
 from melodramatick.performance.plots import plot_perfs_per_year
 from melodramatick.work.models import Work
@@ -66,6 +67,7 @@ class ProfileView(DetailView):
                 work__listen__user=self.user,
                 work__listen__site=self.request.site))
             ).order_by("-tally").first()
+        context["listens_per_month"] = plot_listens_per_month(context["listens"], figsize=(6, 6))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
