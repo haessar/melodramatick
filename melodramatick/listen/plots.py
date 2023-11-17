@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 from django.conf import settings
-from django.db.models import Sum
+from django.db.models import Count
 import pandas as pd
 
 from melodramatick.utils.plots import EmptyFigure, to_bytes_fig
@@ -19,7 +19,9 @@ def plot_listens_per_week(ax, qs):
             start=datetime.now()-timedelta(weeks=WEEKS_AGO),
             end=datetime.now(), freq="W-MON").strftime(DATE_FORMAT)
         all_weeks_df = pd.DataFrame(index=week_idx)
-        df = pd.DataFrame(qs.values('updated_at__week', 'updated_at__year').annotate(tally=Sum('tally')))
+        # "Count" the number of listens, rather than "Sum" the tally. This is because a Listen that is updated
+        # with an increment to tally X will not necessarily have been listened to X times that week.
+        df = pd.DataFrame(qs.values('updated_at__week', 'updated_at__year').annotate(tally=Count('tally')))
         df = df.groupby(['updated_at__week', 'updated_at__year']).sum().reset_index()
         # Determine start date of week (from Monday)
         df['week'] = (
