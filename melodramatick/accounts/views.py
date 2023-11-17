@@ -50,6 +50,11 @@ class ProfileView(DetailView):
                 performance__user=self.user,
                 performance__site=self.request.site))
             ).order_by("-tally").first()
+        context["most_watched_composer"] = Composer.objects.annotate(
+            tally=Count("work__performance", filter=Q(
+                work__performance__user=self.user,
+                work__performance__site=self.request.site))
+            ).order_by("-tally").first()
         context["perfs_per_year"] = plot_perfs_per_year(context["performances"], figsize=(6, 6))
 
     def _set_listens_tab_context_data(self, context):
