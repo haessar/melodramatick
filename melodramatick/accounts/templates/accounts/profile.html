@@ -71,14 +71,25 @@
     <div class="tab-pane fade show active" id="awards" role="tabpanel" aria-labelledby="awards-tab">
       <div class="row">
         <div class="col-sm-7">
-          <h3>Awards</h3>
-          <dl class="row" style="font-size:18px">
-            {% for award in awards %}
-            <dt class="col-sm-9"><a href="{% url 'work:index' %}?top_list={{ award.list.id }}">{{ award.list }}</a></dt>
-            <dd class="col-sm-3">{{ award.html_icon }}</dd>
-            {% endfor %}
-          </dl>
+          {% if customuser == user %}
+            <h3>Awards</h3>
+            <dl class="row" style="font-size:18px">
+              {% for award in awards %}
+                <dt class="col-sm-9"><a href="{% url 'work:index' %}?top_list={{ award.list.id }}">{{ award.list }}</a></dt>
+                <dd class="col-sm-3">{{ award.html_icon }}</dd>
+              {% endfor %}
+            </dl>
+          {% else %}
+            <h3>Top 5 awards</h3>
+            <dl class="row" style="font-size:18px">
+              {% for award in awards|slice:":5" %}
+                <dt class="col-sm-9"><a href="{% url 'work:index' %}?top_list={{ award.list.id }}">{{ award.list }}</a></dt>
+                <dd class="col-sm-3">{{ award.html_icon }}</dd>
+              {% endfor %}
+            </dl>
+          {% endif %}
         </div>
+        {% if customuser == user %}
         <div class="col-sm-5">
           <h3>Progress</h3>
           <ul class="list-group">
@@ -113,6 +124,7 @@
             {% endfor %}
           </ul>
         </div>
+        {% endif %}
       </div>
     </div>
     <div class="tab-pane fade" id="performance" role="tabpanel" aria-labelledby="performance-tab">
