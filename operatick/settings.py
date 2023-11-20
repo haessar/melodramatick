@@ -71,6 +71,7 @@ LANGUAGE_CHOICES = sorted(
         ("fi", "Finnish"),
         ("sv", "Swedish"),
         ("lt", "Lithuanian"),
+        ("hy", "Armenian")
     ],
     key=lambda x: x[1]
 )
