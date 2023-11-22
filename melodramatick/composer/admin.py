@@ -4,6 +4,7 @@ import io
 from django.contrib import admin, messages
 from django.contrib.sites.models import Site
 from django.core.exceptions import FieldError
+from django.db.utils import OperationalError
 from django.forms.models import BaseInlineFormSet
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
@@ -31,10 +32,17 @@ class SiteCompleteInlineFormSet(BaseInlineFormSet):
         return SiteComplete.all_sites.filter(composer=self.instance)
 
 
+def _get_max_num():
+    try:
+        return len(Site.objects.all())
+    except OperationalError:
+        return 1
+
+
 class SiteCompleteInline(admin.TabularInline):
     model = SiteComplete
     extra = 0
-    max_num = len(Site.objects.all())
+    max_num = _get_max_num()
     formset = SiteCompleteInlineFormSet
 
     def has_add_permission(self, request, obj):
