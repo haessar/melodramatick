@@ -35,7 +35,6 @@ for c in composers:
             id=c['fields']['id'],
             first_name=c['fields']['first_name'],
             nationality=c['fields']['nationality'],
-            complete=c['fields']['complete'],
             gender=c['fields']['gender'],
             surname=c['pk']
         )
@@ -91,7 +90,7 @@ for sg in sub_genres:
     else:
         genre = None
     try:
-        SubGenre.objects.create(id=sg['pk'], genre=genre, name=g['fields']['name'], site=site)
+        SubGenre.objects.create(id=sg['pk'], genre=genre, name=sg['fields']['name'], site=site)
     except IntegrityError:
         print("SubGenres already loaded. Skipping")
         break
