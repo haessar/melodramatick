@@ -1,3 +1,5 @@
+from itertools import chain
+
 from dal import autocomplete
 import django_filters
 from django.conf import settings
@@ -9,7 +11,7 @@ from melodramatick.top_list.models import List
 from melodramatick.utils.filters import CustomEmptyLabelMixin
 from melodramatick.utils.widgets import CustomRangeWidget
 from .forms import WorkFilterFormHelper
-from .models import Genre, Work
+from .models import Genre, SubGenre, Work
 
 
 class EraChoiceFilter(django_filters.ChoiceFilter):
@@ -28,6 +30,31 @@ class AllRangeFilter(django_filters.RangeFilter):
         self.extra['widget'] = CustomRangeWidget(attrs={'data-range_min': min_value, 'data-range_max': max_value})
 
 
+class GenreChoiceFilter(django_filters.ChoiceFilter):
+    GENRE_PREFIX = ''
+    SUBGENRE_PREFIX = '> '
+
+    def __init__(self, *args, **kwargs):
+        self.choices = []
+        for obj in chain(Genre.objects.all(), SubGenre.objects.filter(genre=None, work__in=Work.objects.all()).distinct()):
+            if type(obj) is Genre:
+                name = "{}{}".format(self.GENRE_PREFIX, obj.name)
+            else:
+                name = "{}{}".format(self.SUBGENRE_PREFIX, obj.name)
+            self.choices.append((obj, name))
+        super().__init__(choices=self.choices, *args, **kwargs)
+
+    def filter(self, qs, value):
+        if value:
+            choice = [obj for obj, name in self.choices if
+                      name.replace(self.GENRE_PREFIX, '').replace(self.SUBGENRE_PREFIX, '') == value][0]
+            if type(choice) is Genre:
+                return qs.filter(sub_genre__genre=choice)
+            elif type(choice) is SubGenre:
+                return qs.filter(sub_genre=choice)
+        return qs
+
+
 class WorkFilter(CustomEmptyLabelMixin, django_filters.FilterSet):
     composer = django_filters.ModelChoiceFilter(
         queryset=Composer.objects.all(),
@@ -37,7 +64,7 @@ class WorkFilter(CustomEmptyLabelMixin, django_filters.FilterSet):
     top_list = django_filters.ModelChoiceFilter(queryset=List.objects.all(), method='filter_top_list', label="Top List")
     duration_range = AllRangeFilter(method='filter_duration_range', label="Album duration")
     era = EraChoiceFilter(choices=settings.ERAS_MAP)
-    genre = django_filters.ModelChoiceFilter(queryset=Genre.objects.all(), field_name='sub_genre__genre', lookup_expr='exact')
+    genre = GenreChoiceFilter()
     composer_group = django_filters.ModelChoiceFilter(
         queryset=Group.objects.filter(composer__sites__in=[settings.SITE_ID]).distinct(),
         field_name='composer__group',
