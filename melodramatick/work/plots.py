@@ -6,6 +6,7 @@ from django.conf import settings
 from django.db.models import Avg, Count
 import matplotlib
 from matplotlib.ticker import MultipleLocator
+import numpy as np
 import seaborn as sns
 
 from melodramatick.utils.plots import to_bytes_fig
@@ -184,3 +185,28 @@ def plot_duration_hist(ax, qs):
     ax.set_title('Album durations')
     ax.set_xlabel("Duration (minutes)")
     ax.set_ylabel("Count")
+
+
+@to_bytes_fig
+def plot_top_lists_by_decade(ax, qs):
+    by_decades = (
+        qs
+        .extra(select={'year': 'FLOOR(year/10)*10'})
+        .values('year')
+        .annotate(dcount=Count('list'))
+        .order_by()
+    )
+    decades = [int(x['year']) for x in by_decades]
+    counts = [x['dcount'] for x in by_decades]
+    ax.bar(decades, counts,  width=5)
+
+    ax.set_title('Top lists by decade')
+    ax.set_ylabel("Count")
+    ax.set_xlabel("Decade")
+    ax.set_xticks(range(min(decades), max(decades) + 1, 10))
+    ax.set_xticklabels(range(min(decades), max(decades) + 1, 10), rotation=45)
+    ax.yaxis.set_minor_locator(MultipleLocator(1))
+    ax.yaxis.grid(b=True, which='major', color='r', linestyle='-')
+    minor_ticks = np.arange(0, max(counts) + 10, 5)
+    ax.set_yticks(minor_ticks, minor=True)
+    ax.yaxis.grid(b=True, which='minor', linestyle='--')

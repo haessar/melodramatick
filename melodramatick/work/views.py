@@ -82,6 +82,7 @@ class WorkGraphsView(ListView):
         bottom_centre = plots.plot_perfs_per_era(qs, figsize=(3, 6))
         bottom_right = plots.plot_listens_per_era(qs, figsize=(3, 6))
         duration_hist = plots.plot_duration_hist(qs, figsize=(12, 6))
+        top_lists_bar = plots.plot_top_lists_by_decade(qs, figsize=(12, 6))
         context = {
             'top': top,
             'middle_left': middle_left,
@@ -91,6 +92,7 @@ class WorkGraphsView(ListView):
             'bottom_centre': bottom_centre,
             'bottom_right': bottom_right,
             'duration_hist': duration_hist,
+            'top_lists_bar': top_lists_bar,
             'work_count': self.object_list.count(),
             'user_performance_count': qs.aggregate(Sum('user_perfs'))['user_perfs__sum'],
             'user_listen_count': qs.aggregate(Sum('user_listens'))['user_listens__sum'],
