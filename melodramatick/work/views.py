@@ -18,7 +18,7 @@ class WorkTableView(SingleTableMixin, FilterView):
 
     def render_to_response(self, context, **kwargs):
         """
-        Add a randomly chosen spotify_link from the filtered queryset to context
+        Add a randomly chosen album uri from the filtered queryset to context
         """
         qs_with_links = self.object_list.exclude(album__id__isnull=True)
         if qs_with_links:

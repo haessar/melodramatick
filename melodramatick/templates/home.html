@@ -41,13 +41,13 @@
           <div class="card-header">
             Featured Work
           </div>
-          <a href="{{ wod.random_album.uri }}:play">
+          <a class="spotify_link" href="{{ wod.random_album.uri }}:play">
             <img class="card-img-top" src="{{ wod.random_album.image }}" alt="Album cover" style="max-width: 30em;">
           </a>
           <div class="card-body">
             <h3 class="card-title">{{ wod.title }} by {{ wod.composer.full_name }}</h3>
             <p class="card-text">{{ wod.notes }}</p>
-            <a class="spotify_link" href="/play/{{ wod.id }}/" title="Play on Spotify">
+            <a class="spotify_play" href="/play/{{ wod.id }}/" title="Play on Spotify">
               <img uri="{{ wod.random_album.uri }}:play" src="/static/images/Spotify-Play-Button.png" width="38px;">
             </a>
             <a class="btn btn-primary float-right" href="{% url 'work:work-detail' wod.id %}">More details</a>

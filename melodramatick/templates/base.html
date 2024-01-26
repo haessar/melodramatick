@@ -22,9 +22,22 @@
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
   <script>
     $(document).ready(function() {
-      $(document).on('click', '.spotify_link', function() {
+      get_web_app_url = (a, typ, id) => `https://open.spotify.com/${typ}/${id}`
+      var is_web_player = "{{ request.user.spotify_player }}" === "web";
+      $(document).on('click', '.spotify_play', function() {
         let url = $(this).find("img").attr("uri");
+        if( is_web_player ){
+          url = get_web_app_url(...url.split(":"));
+        }
         window.open(url, "_blank");
+      });
+      $(document).on('click', '.spotify_link', function() {
+        let url = $(this).attr("href");
+        if( is_web_player ){
+          url = get_web_app_url(...url.split(":"));
+        }
+        window.open(url, "_blank");
+        return false;
       });
       $('[data-toggle="tooltip"]').tooltip();
       new DataTable('#listeningHistoryTable', {

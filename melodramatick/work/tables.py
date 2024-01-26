@@ -11,7 +11,7 @@ from melodramatick.performance.models import Performance
 def playback_column(verbose_name):
     return tables.Column(
         linkify=("listen:playback", {'work': tables.A("id")}),
-        attrs={'a': {"class": "spotify_link"}},
+        attrs={'a': {"class": "spotify_play"}},
         verbose_name=verbose_name,
         orderable=False
     )

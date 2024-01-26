@@ -57,13 +57,13 @@
             <li class="list-group-item">
               <div class="content d-flex w-100 justify-content-between">
                 <div>
-                  <a href="{{ album.uri }}:play">
+                  <a class="spotify_link" href="{{ album.uri }}:play">
                     <img src="{{ album.image }}" width="120px;">
                   </a>
                 </div>
                 <div>
                   <p>Duration: {{ album.duration }} minutes</p>
-                  <a class="spotify_link" href="/play/{{ object.id }}/">
+                  <a class="spotify_play" href="/play/{{ object.id }}/">
                     <img uri="{{ album.uri }}:play" src="/static/images/Spotify-Play-Button.png" width="32px;">
                   </a>
                 </div>
