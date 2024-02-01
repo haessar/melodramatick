@@ -48,7 +48,7 @@
             <h3 class="card-title">{{ wod.title }} by {{ wod.composer.full_name }}</h3>
             <p class="card-text">
               {{ wod.year }}
-              {% if wod.sub_genre %}{{ wod.sub_genre }}{% else %}{{ wod.type|lower }}{% endif %}
+              {% if wod.sub_genre %}{{ wod.sub_genre }}{% else %}{{ wod.type|capfirst }}{% endif %}
               {% if wod.language %} in {{ wod.language_verbose }}{% endif %}
               {% if wod.notes %}<br>{{ wod.notes }}{% endif %}
             </p>
