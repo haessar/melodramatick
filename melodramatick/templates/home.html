@@ -46,7 +46,12 @@
           </a>
           <div class="card-body">
             <h3 class="card-title">{{ wod.title }} by {{ wod.composer.full_name }}</h3>
-            <p class="card-text">{{ wod.notes }}</p>
+            <p class="card-text">
+              {{ wod.year }}
+              {% if wod.sub_genre %}{{ wod.sub_genre|lower }}{% else %}{{ wod.type|lower }}{% endif %}
+              {% if wod.language %} in {{ wod.language_verbose }}{% endif %}
+              {% if wod.notes %}<br>{{ wod.notes }}{% endif %}
+            </p>
             <a class="spotify_play" href="/play/{{ wod.id }}/" title="Play on Spotify">
               <img uri="{{ wod.random_album.uri }}:play" src="/static/images/Spotify-Play-Button.png" width="38px;">
             </a>
