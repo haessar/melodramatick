@@ -46,6 +46,13 @@ def get_album_image(album_uri, sp=None):
     return al['images'][0]['url']
 
 
+def get_track_image(track_uri, sp=None):
+    if not sp:
+        sp = auth_manager()
+    tr = sp.track(track_uri)
+    return tr['album']['images'][0]['url']
+
+
 def get_album_duration(album_id, sp=None):
     if not sp:
         sp = auth_manager()
@@ -61,3 +68,10 @@ def get_album_duration(album_id, sp=None):
             break
     total_ms = sum(track['duration_ms'] for track in items)
     return str(round(total_ms/(1000*60)))
+
+
+def get_track_duration(track_uri, sp=None):
+    if not sp:
+        sp = auth_manager()
+    track = sp.track(track_uri)
+    return str(round(track['duration_ms']/(1000*60)))
