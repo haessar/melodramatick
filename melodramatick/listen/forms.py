@@ -1,13 +1,17 @@
+from urllib.parse import urlparse
+
 from django import forms
 
 from .models import Album
 
 
 class AlbumForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['uri'].initial = "spotify:album:"
+    def save(self, commit):
+        album_type, id = filter(None, urlparse(self.instance.url).path.split('/'))
+        self.instance.id = id
+        self.instance.uri = "spotify:{}:{}".format(album_type, id)
+        return super().save(commit)
 
     class Meta:
         model = Album
-        fields = ('duration', 'id', 'uri', 'image_url')
+        fields = ('duration', 'id', 'uri', 'image_url', 'url')

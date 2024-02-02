@@ -42,6 +42,7 @@ class Album(models.Model):
                           validators=[RegexValidator(regex=r"^([a-zA-Z0-9]{22}[,]?)+$")])
     uri = models.CharField(max_length=220)
     image_url = models.URLField(null=True, blank=True)
+    url = models.URLField(null=True, blank=True)
 
     @property
     def image(self):

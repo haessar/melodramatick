@@ -42,6 +42,7 @@ class AlbumInline(admin.TabularInline):
     model = Album
     extra = 0
     form = AlbumForm
+    readonly_fields = ('id', 'uri', 'duration', 'image_url')
 
 
 @admin.register(SubGenre)
