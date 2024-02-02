@@ -36,7 +36,7 @@ def get_playlist_duration(playlist_id, sp=None):
         sp = auth_manager(scope)
     track_durations = sp.playlist_tracks(playlist_id, fields=['items.track.duration_ms'])
     total_ms = sum(d['track']['duration_ms'] for d in track_durations['items'])
-    return str(int(total_ms/(1000*60)))
+    return str(round(total_ms/(1000*60)))
 
 
 def get_album_image(album_uri, sp=None):
@@ -60,4 +60,4 @@ def get_album_duration(album_id, sp=None):
         else:
             break
     total_ms = sum(track['duration_ms'] for track in items)
-    return str(int(total_ms/(1000*60)))
+    return str(round(total_ms/(1000*60)))
