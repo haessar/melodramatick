@@ -42,7 +42,8 @@ class AlbumInline(admin.TabularInline):
     model = Album
     extra = 0
     form = AlbumForm
-    readonly_fields = ('uri', 'duration', 'image_url')
+    readonly_fields = ('duration', 'image_url')
+    fields = ('url', 'uri', 'duration', 'image_url')
     exclude = ('id',)
 
 

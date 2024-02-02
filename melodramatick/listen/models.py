@@ -47,7 +47,7 @@ class Album(models.Model):
     duration = models.IntegerField(default=0)
     id = models.CharField(primary_key=True, max_length=220,
                           validators=[RegexValidator(regex=r"^([a-zA-Z0-9]{22}[,]?)+$")])
-    uri = models.CharField(max_length=220)
+    uri = models.CharField(max_length=220, null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
     url = models.URLField(null=True, blank=True)
 
@@ -62,7 +62,10 @@ class Album(models.Model):
         form but 'url' is) are deleted as expected.
         """
         if not self.id:
-            self = Album.objects.get(url=self.url)
+            if self.url:
+                self = Album.objects.get(url=self.url)
+            elif self.uri:
+                self = Album.objects.get(uri=self.uri)
         super().delete(*args, **kwargs)
 
 
