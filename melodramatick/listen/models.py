@@ -56,6 +56,15 @@ class Album(models.Model):
         if self.image_url:
             return self.image_url
 
+    def delete(self, *args, **kwargs):
+        """
+        Hack to ensure Albums deleted via AlbumInline (where 'id' is not visible in the
+        form but 'url' is) are deleted as expected.
+        """
+        if not self.id:
+            self = Album.objects.get(url=self.url)
+        super().delete(*args, **kwargs)
+
 
 @receiver(post_save, sender=Album)
 def set_image_url(sender, instance, **kwargs):

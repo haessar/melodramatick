@@ -14,4 +14,4 @@ class AlbumForm(forms.ModelForm):
 
     class Meta:
         model = Album
-        fields = ('duration', 'id', 'uri', 'image_url', 'url')
+        fields = "__all__"
