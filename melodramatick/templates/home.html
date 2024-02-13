@@ -2,6 +2,7 @@
 {% load settings %}
 {% load static %}
 {% load notifications_tags %}
+{% load humanize %}
 
 {% block title %}Home{% endblock %}
 
@@ -46,6 +47,9 @@
           </a>
           <div class="card-body">
             <h3 class="card-title">{{ wod.title }} by {{ wod.composer.full_name }}</h3>
+            {% if wod.composer.anniversary %}
+            <h5 class="cart-subtitle mb-2 text-muted">Happy {{ wod.composer.anniversary|ordinal }} Birthday!</h5>
+            {% endif %}
             <p class="card-text">
               {{ wod.year }}
               {% if wod.sub_genre %}{{ wod.sub_genre }}{% else %}{{ wod.type|capfirst }}{% endif %}

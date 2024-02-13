@@ -23,9 +23,13 @@ def quote_of_the_day():
 
 def work_of_the_day():
     _daily_seed()
+    today = datetime.datetime.now()
     albums = Album.objects.filter(work__site=Site.objects.get_current())
     works = Work.objects.filter(album__in=albums)
     if works:
+        anniversary_works = works.filter(composer__birth_date__month=today.month, composer__birth_date__day=today.day)
+        if anniversary_works:
+            works = anniversary_works
         work = works[random.randint(0, len(works))]
         work.random_album = random.choice(work.album.all())
         return work
