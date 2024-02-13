@@ -30,9 +30,10 @@ class Composer(AbstractManySitesModel):
 
     @property
     def anniversary(self):
-        today = datetime.now()
-        if self.birth_date.month == today.month and self.birth_date.day == today.day:
-            return today.year - self.birth_date.year
+        if self.birth_date:
+            today = datetime.now()
+            if self.birth_date.month == today.month and self.birth_date.day == today.day:
+                return today.year - self.birth_date.year
 
 
 class Group(models.Model):
