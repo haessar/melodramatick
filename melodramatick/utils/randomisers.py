@@ -30,6 +30,6 @@ def work_of_the_day():
         anniversary_works = works.filter(composer__birth_date__month=today.month, composer__birth_date__day=today.day)
         if anniversary_works:
             works = anniversary_works
-        work = works[random.randint(0, len(works))]
+        work = works[random.randint(0, len(works) - 1)]
         work.random_album = random.choice(work.album.all())
         return work
