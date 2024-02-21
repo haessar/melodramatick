@@ -18,7 +18,7 @@ def quote_of_the_day():
     _daily_seed()
     quotes = Quote.objects.filter(composer__sites__in=[Site.objects.get_current()])
     if quotes:
-        return quotes[random.randint(0, len(quotes))]
+        return quotes[random.randint(0, len(quotes) - 1)]
 
 
 def work_of_the_day():
