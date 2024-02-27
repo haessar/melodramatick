@@ -1,0 +1,26 @@
+from melodramatick.settings import *  # noqa: F401, F403
+from melodramatick.settings import INSTALLED_APPS as IMPORTED_APPS
+from melodramatick.settings import BASE_DIR, ALLOWED_HOSTS, TEMPLATES, STATICFILES_DIRS
+
+
+ALLOWED_HOSTS.extend(["vm", "127.0.0.1", "{{ app_name }}"])
+
+
+#  Application definition
+
+INSTALLED_APPS = ['{{ app_name }}'] + IMPORTED_APPS
+
+TEMPLATES[0]['DIRS'].extend([BASE_DIR / "{{ app_name }}" / "templates"])
+
+STATICFILES_DIRS = [BASE_DIR / "{{ app_name }}" / "static"] + STATICFILES_DIRS
+
+
+# Site-specific settings
+
+WORK_MODEL = '{{ app_name }}.{{ work|title }}'
+WORK_PLURAL_LABEL = '{{ work|lower }}s'
+
+SITE = '{{ camel_case_app_name }}'
+{% if colour_hex %}BACKGROUND_COLOUR = '{{ colour_hex }}'{% endif %}
+
+SITE_ID = NotImplemented

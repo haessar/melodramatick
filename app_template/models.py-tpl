@@ -1,0 +1,7 @@
+from django.db import models
+
+from melodramatick.work.models import Work
+
+
+class {{ work|title }}(Work):
+    pass

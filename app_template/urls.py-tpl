@@ -1,0 +1,12 @@
+from django.urls import path
+
+from .views import {{ work|title }}DetailView, {{ work|title }}TableView
+from melodramatick.work.views import WorkGraphsView
+
+
+app_name = 'work'
+urlpatterns = [
+    path('', {{ work|title }}TableView.as_view(), name='index'),
+    path('graphs/', WorkGraphsView.as_view(), name='graphs'),
+    path('<int:pk>', {{ work|title }}DetailView.as_view(), name='work-detail'),
+]

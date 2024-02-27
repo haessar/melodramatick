@@ -1,0 +1,15 @@
+from melodramatick.work.views import WorkDetailView, WorkTableView
+
+from .filters import {{ work|title }}Filter
+from .models import {{ work|title }}
+from .tables import {{ work|title }}Table
+
+
+class {{ work|title }}DetailView(WorkDetailView):
+    model = {{ work|title }}
+
+
+class {{ work|title }}TableView(WorkTableView):
+    model = {{ work|title }}
+    table_class = {{ work|title }}Table
+    filterset_class = {{ work|title }}Filter

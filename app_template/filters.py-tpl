@@ -1,0 +1,8 @@
+from .models import {{ work|title }}
+from melodramatick.work.filters import WorkFilter
+
+
+class {{ work|title }}Filter(WorkFilter):
+
+    class Meta(WorkFilter.Meta):
+        model = {{ work|title }}
