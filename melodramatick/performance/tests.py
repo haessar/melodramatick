@@ -55,6 +55,7 @@ class PerformanceAdminTestCase(TestCase):
 
     def test_split_performance_success(self):
         total_performance_count = len(Performance.objects.all())
+        # One performance consisting of two works
         qs = Performance.objects.filter(id=3)
         works = list(Work.objects.filter(id__in=qs.values('work')))
         self.performance_admin.split_performance(self.request, qs)
@@ -64,7 +65,7 @@ class PerformanceAdminTestCase(TestCase):
             qs.get()
         new_performances = Performance.objects.all().order_by('-id')[:2]
         # Original works should appear across the two new performances
-        self.assertQuerysetEqual(Work.objects.filter(id__in=new_performances.values('work')), works)
+        self.assertQuerysetEqual(Work.objects.filter(id__in=(id['work'] for id in new_performances.values('work'))), works)
 
 
 class TickViewTestCase(TestCase):

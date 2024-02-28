@@ -25,7 +25,7 @@ class ComposerModelTestCase(TestCase):
         self.assertEqual(self.composer.full_name(), "Adolphe Adam")
 
     def test_unique_constraint(self):
-        with self.assertRaisesMessage(IntegrityError, "UNIQUE"):
+        with self.assertRaisesMessage(IntegrityError, "Duplicate"):
             # Shared surname and first_name, despite different nationality value to that in db.
             Composer.all_sites.create(surname="Adam", first_name="Adolphe", nationality="Swiss")
 
