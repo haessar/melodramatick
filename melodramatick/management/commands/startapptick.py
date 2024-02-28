@@ -1,5 +1,4 @@
 from django.core.management.templates import TemplateCommand
-from django.conf import settings
 
 
 class Command(TemplateCommand):
@@ -12,6 +11,7 @@ class Command(TemplateCommand):
     def handle(self, **options):
         app_name = options.pop("name")
         target = options.pop("directory")
+        options["template"] = "app_template"
         super().handle("app", app_name, target, **options)
 
     def add_arguments(self, parser):
