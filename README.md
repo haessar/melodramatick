@@ -8,6 +8,14 @@ Set up environment
     source venv/bin/activate
     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10  # update pip; specific to my own dev env
     python setup.py sdist
+
+Create .env with minimum expected environment variables
+
+    SPOTIFY_CLIENT_ID=
+    SPOTIFY_CLIENT_SECRET=
+    RAPID_API_KEY=
+    DATABASE_URL=mysql://<username>:<password>@<host>/melodramatick
+
 Install Melodramatick and dependencies
 
     pip install dist/melodramatick-X.X.X.tar.gz
@@ -16,13 +24,6 @@ Install Melodramatick and dependencies
 Create super user
 
     python manage.py createsuperuser
-
-Fill in .env with minimum expected environment variables
-
-    SPOTIFY_CLIENT_ID=
-    SPOTIFY_CLIENT_SECRET=
-    RAPID_API_KEY=
-    DATABASE_URL=mysql://<username>:<password>@<host>/melodramatick
 
 ## Create a new Melodramatick app (balletick example)
 Initialise app
