@@ -122,10 +122,17 @@ if DEVELOPMENT_MODE is True:
     INSTALLED_APPS.extend(('debug_toolbar', 'pympler'))
 
 if config("DATABASE_URL", default=None) is None:
-    raise Exception("DATABASE_URL environment variable not defined")
-DATABASES = {
-    "default": dj_database_url.parse(config("DATABASE_URL"))
-}
+    # raise Exception("DATABASE_URL environment variable not defined")
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+else:
+    DATABASES = {
+        "default": dj_database_url.parse(config("DATABASE_URL"))
+    }
 
 
 # Password validation
@@ -184,10 +191,10 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # APIs
 
-SPOTIFY_CLIENT_ID = config('SPOTIFY_CLIENT_ID')
-SPOTIFY_CLIENT_SECRET = config('SPOTIFY_CLIENT_SECRET')
+SPOTIFY_CLIENT_ID = config('SPOTIFY_CLIENT_ID', default='')
+SPOTIFY_CLIENT_SECRET = config('SPOTIFY_CLIENT_SECRET', default='')
 
-RAPID_API_KEY = config('RAPID_API_KEY')
+RAPID_API_KEY = config('RAPID_API_KEY', default='')
 
 
 # Logging
