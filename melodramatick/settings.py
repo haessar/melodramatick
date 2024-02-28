@@ -14,7 +14,6 @@ import datetime
 import os
 import os.path
 from pathlib import Path
-import sys
 
 from decouple import UndefinedValueError, config
 from django.core.management.utils import get_random_secret_key
@@ -120,23 +119,13 @@ if DEVELOPMENT_MODE is True:
 
     MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
 
-    INSTALLED_APPS.append('debug_toolbar')
+    INSTALLED_APPS.extend(('debug_toolbar', 'pympler'))
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-            'TEST': {
-                "NAME": "test_db"
-            }
-        }
-    }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    if config("DATABASE_URL", default=None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-        "default": dj_database_url.parse(config("DATABASE_URL"))
-    }
+if config("DATABASE_URL", default=None) is None:
+    raise Exception("DATABASE_URL environment variable not defined")
+DATABASES = {
+    "default": dj_database_url.parse(config("DATABASE_URL"))
+}
 
 
 # Password validation
@@ -237,14 +226,18 @@ CACHES = {
     }
 }
 
-
-
+DEBUG_TOOLBAR_PANELS = (
+    'debug_toolbar.panels.timer.TimerPanel',
+    'pympler.panels.MemoryPanel',
+    )
 
 # Site-specific settings
 
 SITE = __package__.title()
+SITE_ID = 1
 
 
+WORK_MODEL = 'work.Work'
 WORK_PLURAL_LABEL = 'works'
 
 YEAR_CHOICES = []
