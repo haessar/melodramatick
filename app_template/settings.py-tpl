@@ -23,4 +23,4 @@ WORK_PLURAL_LABEL = '{{ work|lower }}s'
 SITE = '{{ camel_case_app_name }}'
 {% if colour_hex %}BACKGROUND_COLOUR = '{{ colour_hex }}'{% endif %}
 
-SITE_ID = NotImplemented
+SITE_ID = {{ siteid }}

@@ -1,3 +1,4 @@
+from django.contrib.sites.models import Site
 from django.core.management.templates import TemplateCommand
 
 
@@ -12,6 +13,7 @@ class Command(TemplateCommand):
         app_name = options.pop("name")
         target = options.pop("directory")
         options["template"] = "app_template"
+        options["siteid"] = Site.objects.order_by('-id')[0].id + 1
         super().handle("app", app_name, target, **options)
 
     def add_arguments(self, parser):
