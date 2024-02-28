@@ -17,6 +17,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Set up Redis
+    - uses: shogo82148/actions-setup-redis@v1
+      with:
+        redis-version: "4.6.0"
+    - run: redis-cli ping
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
