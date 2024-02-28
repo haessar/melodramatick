@@ -40,7 +40,6 @@ urlpatterns = [
 if settings.DEVELOPMENT_MODE is True:
     urlpatterns.append(path("__debug__/", include("debug_toolbar.urls")))
 
-if settings.SITE_ID == 1:
-    urlpatterns.append(path('works/', include('operatick.urls')))
-elif settings.SITE_ID == 2:
-    urlpatterns.append(path('works/', include('balletick.urls')))
+
+tick_app = settings.INSTALLED_APPS[0]
+urlpatterns.append(path('works/', include('{}.urls'.format(tick_app))))
