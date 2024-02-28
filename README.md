@@ -1,32 +1,37 @@
 # Melodramatick
-## Create a new Melodramatick project (balletick example)
+## Installation
 Set up environment
 
-    mkdir balletick
-    cd balletick
+    git clone git@github.com:haessar/melodramatick.git
+    cd melodramatick
     virtualenv --python=python3.10 venv
     source venv/bin/activate
     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10  # update pip; specific to my own dev env
+    python setup.py sdist
 Install Melodramatick and dependencies
 
-    pip install ../melodramatick/dist/melodramatick-X.X.X.tar.gz
-Start new django project in same dir
-
-    django-admin startproject balletick .
-    cp ../melodramatick/melodramatick/settings_template.py balletick/settings.py
-
-Create "work" app
-
-    python manage.py startapp ballet
-    <fill in app models, settings, etc, inheriting from melodramatick.work>
-**FILL IN .env WITH ENV VARIABLES**
-
-Prepare database
-
-    python manage.py makemigrations  # This will also create migrations for melodramatick models defined in your virtualenv
+    pip install dist/melodramatick-X.X.X.tar.gz
     python manage.py migrate
+
+Create super user
+
     python manage.py createsuperuser
 
-Launch site
+Fill in .env with minimum expected environment variables
+
+    SPOTIFY_CLIENT_ID=
+    SPOTIFY_CLIENT_SECRET=
+    RAPID_API_KEY=
+    DATABASE_URL=mysql://<username>:<password>@<host>/melodramatick
+
+## Create a new Melodramatick app (balletick example)
+Initialise app
+
+    python manage.py startapptick balletick --work ballet --colour-hex=#addde7
+    export DJANGO_SETTINGS_MODULE=balletick.settings
+    python manage.py makemigrations
+    python manage migrate
+
+When you are ready, launch site
 
     python manage.py runserver
