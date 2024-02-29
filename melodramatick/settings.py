@@ -129,6 +129,8 @@ if config("DATABASE_URL", default=None) is None:
             "NAME": "dummy_melodramatick",
             "USER": "root",
             "PASSWORD": "123abc",
+            "HOST": "127.0.0.1",
+            "PORT": "3306",
         }
     }
 else:
