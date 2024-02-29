@@ -125,8 +125,10 @@ if config("DATABASE_URL", default=None) is None:
     # raise Exception("DATABASE_URL environment variable not defined")
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": "dummy_melodramatick",
+            "USER": "root",
+            "PASSWORD": "123abc",
         }
     }
 else:
