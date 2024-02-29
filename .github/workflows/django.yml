@@ -37,4 +37,9 @@ jobs:
         pip install .
     - name: Run Tests
       run: |
-        DJANGO_SETTINGS_MODULE=operatick.settings python manage.py test
+        DJANGO_SETTINGS_MODULE=operatick.settings coverage run --source='.' manage.py test
+    - name: Get coverage
+      uses: orgoro/coverage@v3.1
+      with:
+        coverageFile: coverage.xml
+        token: ${{ secrets.GITHUB_TOKEN }}
