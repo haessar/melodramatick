@@ -26,5 +26,7 @@ BACKGROUND_COLOUR = '#eee80e'
 SITE_ID = 3
 
 INSTRUMENT_CHOICES = [
+    ("bassoon", "Bassoon"),
     ("piano", "Piano"),
+    ("violin", "Violin")
 ]
