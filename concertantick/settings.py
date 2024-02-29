@@ -21,7 +21,7 @@ WORK_MODEL = 'concertantick.Concerto'
 WORK_PLURAL_LABEL = 'concertos'
 
 SITE = 'Concertantick'
-BACKGROUND_COLOUR = '#9ad656'
+BACKGROUND_COLOUR = '#eee80e'
 
 SITE_ID = 3
 
