@@ -10,8 +10,8 @@ from melodramatick.utils.models import AbstractSingleSiteModel
 from melodramatick.utils.spotify_api import (
     get_album_duration,
     get_album_image,
-    # get_playlist_duration,
-    # get_playlist_image,
+    get_playlist_duration,
+    get_playlist_image,
     get_track_duration,
     get_track_image,
 )
@@ -76,8 +76,8 @@ def set_image_url(sender, instance, **kwargs):
             image_url = get_album_image(instance.uri)
         elif "track" in instance.uri:
             image_url = get_track_image(instance.uri)
-        # else:
-        #     image_url = get_playlist_image(instance.uri)
+        else:
+            image_url = get_playlist_image(instance.uri)
         if image_url:
             sender.objects.filter(pk=instance.pk).update(image_url=image_url)
 
@@ -89,7 +89,7 @@ def set_duration(sender, instance, **kwargs):
             duration = get_album_duration(instance.uri)
         elif "track" in instance.uri:
             duration = get_track_duration(instance.uri)
-        # else:
-        #     duration = get_playlist_duration(instance.uri)
+        else:
+            duration = get_playlist_duration(instance.uri)
         if duration:
             sender.objects.filter(pk=instance.pk).update(duration=duration)
