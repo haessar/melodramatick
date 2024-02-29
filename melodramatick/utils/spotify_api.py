@@ -24,16 +24,14 @@ def auth_manager(scope=None):
 
 def get_playlist_image(playlist_uri, sp=None):
     if not sp:
-        scope = "playlist-read-private playlist-read-collaborative"
-        sp = auth_manager(scope)
+        sp = auth_manager()
     pl = sp.playlist(playlist_uri)
     return pl['images'][0]['url'] if pl['images'] else ''
 
 
 def get_playlist_duration(playlist_id, sp=None):
     if not sp:
-        scope = "playlist-read-private playlist-read-collaborative"
-        sp = auth_manager(scope)
+        sp = auth_manager()
     track_durations = sp.playlist_tracks(playlist_id, fields=['items.track.duration_ms'])
     total_ms = sum(d['track']['duration_ms'] for d in track_durations['items'])
     return str(round(total_ms/(1000*60)))
