@@ -45,7 +45,7 @@ def clear_cache_listen(*args, **kwargs):
 class Album(models.Model):
     work = models.ForeignKey(Work, on_delete=models.CASCADE, related_name='album')
     duration = models.IntegerField(default=0)
-    id = models.CharField(primary_key=True, max_length=220,
+    id = models.CharField(primary_key=True, max_length=220, editable=False,
                           validators=[RegexValidator(regex=r"^([a-zA-Z0-9]{22}[,]?)+$")])
     uri = models.CharField(max_length=220, null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)

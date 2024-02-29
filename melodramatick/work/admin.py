@@ -44,7 +44,6 @@ class AlbumInline(admin.TabularInline):
     form = AlbumForm
     readonly_fields = ('duration', 'image_url')
     fields = ('url', 'uri', 'duration', 'image_url')
-    exclude = ('id',)
 
 
 @admin.register(SubGenre)
