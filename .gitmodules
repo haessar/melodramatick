@@ -1,0 +1,12 @@
+[submodule "operatick"]
+	path = operatick
+	url = git@github.com:haessar/operatick
+	branch = master
+[submodule "balletick"]
+	path = balletick
+	url = git@github.com:haessar/balletick
+	branch = master
+[submodule "concertantick"]
+	path = concertantick
+	url = git@github.com:haessar/concertantick
+	branch = master
