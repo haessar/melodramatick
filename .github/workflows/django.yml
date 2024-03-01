@@ -23,7 +23,8 @@ jobs:
     - name: Checkout repository with submodules
       uses: actions/checkout@v3
       with:
-        submodules: 'true'
+        submodules: recursive
+        token: ${{ secrets.PAT_TOKEN }}
     - name: Set up Redis
       uses: shogo82148/actions-setup-redis@v1
       with:
