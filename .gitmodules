@@ -1,4 +1,0 @@
-[submodule "operatick"]
-	path = operatick
-	url = git@github.com:haessar/operatick_test
-	branch = master
