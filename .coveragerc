@@ -1,0 +1,4 @@
+[run]
+omit =
+    melodramatick/asgi.py
+    melodramatick/wsgi.py
