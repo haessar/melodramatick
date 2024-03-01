@@ -41,11 +41,14 @@ jobs:
         pip install .
     - name: Run Tests
       run: |
-        DJANGO_SETTINGS_MODULE=operatick.settings coverage run --source='.' manage.py test
+        DJANGO_SETTINGS_MODULE=operatick.settings coverage run --source='melodramatick/' manage.py test
         coverage xml
     - name: Get coverage
       uses: orgoro/coverage@v3.1
       with:
         coverageFile: coverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
+        thresholdAll: 0.9
+        thresholdNew: 0.9
+        thresholdModified: 0.9
       if: github.event_name == 'pull_request'
