@@ -7,7 +7,7 @@ import pandas as pd
 from melodramatick.utils.plots import EmptyFigure, to_bytes_fig
 
 
-WEEKS_AGO = 16
+WEEKS_AGO = 7
 DATE_FORMAT = "%Y-%m-%d"
 
 
