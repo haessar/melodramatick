@@ -1,11 +1,11 @@
 from django.conf import settings
-from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 import django_tables2 as tables
 
 from melodramatick.performance.models import Performance
+from melodramatick.utils.rendering import render_playback_button, render_tickbox
 
 
 def playback_column(verbose_name):
@@ -15,10 +15,6 @@ def playback_column(verbose_name):
         verbose_name=verbose_name,
         orderable=False
     )
-
-
-def render_playback_button(value):
-    return format_html('<img uri="{}:play" src="{}" width="24px;"/>', value, static("images/Spotify-Play-Button.png"))
 
 
 class WorkTable(tables.Table):
@@ -68,13 +64,8 @@ class WorkTable(tables.Table):
         return render_playback_button(record.uri)
 
     def render_tickbox(self, record):
-        user = self.request.user
-        performances = Performance.objects.filter(user=user)
-        if performances.filter(work=record):
-            tickbox_img, width = "images/ticked.png", "28px"
-        else:
-            tickbox_img, width = "images/unticked.png", "24px"
-        return format_html('<img src="{}" width="{};"/>', static(tickbox_img), width)
+        _, tickbox = render_tickbox(self.request.user, record)
+        return tickbox
 
     def render_user_listens(self, record):
         return record.user_listens if record.user_listens else "—"

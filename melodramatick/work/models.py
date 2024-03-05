@@ -52,7 +52,7 @@ class Work(PolymorphicModel):
         ordering = ['title']
 
     def __str__(self):
-        if len(Work.objects.filter(title=self.title)) > 1:
+        if len(Work.objects.filter(title=self.title)) > 1 or settings.VERBOSE_TITLE:
             return "{} ({})".format(self.title, self.composer.surname)
         return self.title
 

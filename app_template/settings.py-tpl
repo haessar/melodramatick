@@ -3,7 +3,8 @@ from melodramatick.settings import INSTALLED_APPS as IMPORTED_APPS
 from melodramatick.settings import BASE_DIR, ALLOWED_HOSTS, TEMPLATES, STATICFILES_DIRS
 
 
-ALLOWED_HOSTS.extend(["vm", "127.0.0.1", "{{ app_name }}"])
+ALLOWED_HOSTS.extend(["127.0.0.1", "{{ app_name }}", "{{ app_name }}.com", "www.{{ app_name }}.com",
+                      "{{ app_name }}.melodramatick.com"])
 
 
 #  Application definition
@@ -12,6 +13,7 @@ INSTALLED_APPS = ['{{ app_name }}'] + IMPORTED_APPS
 
 TEMPLATES[0]['DIRS'].extend([BASE_DIR / "{{ app_name }}" / "templates"])
 
+STATIC_ROOT = '/var/www/{{ app_name }}/static'
 STATICFILES_DIRS = [BASE_DIR / "{{ app_name }}" / "static"] + STATICFILES_DIRS
 
 

@@ -43,10 +43,10 @@
           <img class="img-fluid" src='data:image/png;base64,{{ middle_left }}'>
         </div>
         <div class="col-4">
-          <img class="img-fluid" src='data:image/png;base64,{{ middle_centre }}'>
+          {% if middle_centre %}<img class="img-fluid" src='data:image/png;base64,{{ middle_centre }}'>{% endif %}
         </div>
         <div class="col-4">
-          <img class="img-fluid" src='data:image/png;base64,{{ middle_right }}'>
+          {% if middle_right %} <img class="img-fluid" src='data:image/png;base64,{{ middle_right }}'>{% endif %}
         </div>
       </div>
       <div class="row">
@@ -54,17 +54,17 @@
           <img class="img-fluid" src='data:image/png;base64,{{ bottom_left }}'>
         </div>
         <div class="col-4">
-          <img class="img-fluid" src='data:image/png;base64,{{ bottom_centre }}'>
+          {% if bottom_centre %}<img class="img-fluid" src='data:image/png;base64,{{ bottom_centre }}'>{% endif %}
         </div>
         <div class="col-4">
-          <img class="img-fluid" src='data:image/png;base64,{{ bottom_right }}'>
+          {% if bottom_right %}<img class="img-fluid" src='data:image/png;base64,{{ bottom_right }}'>{% endif %}
         </div>
       </div>
       <div class="row">
-        <img class="img-fluid" src='data:image/png;base64,{{ duration_hist }}'>
+        {% if duration_hist %}<img class="img-fluid" src='data:image/png;base64,{{ duration_hist }}'>{% endif %}
       </div>
       <div class="row">
-        <img class="img-fluid" src='data:image/png;base64,{{ top_lists_bar }}'>
+        {% if top_lists_bar %}<img class="img-fluid" src='data:image/png;base64,{{ top_lists_bar }}'>{% endif %}
       </div>
     </div>
     {% block additional_graphs %}{% endblock %}

@@ -227,6 +227,15 @@
               </div>
             </div>
           {% endif %}
+          {% if most_listened_era %}
+          <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
+            <div class="card-body align-bottom">
+              <h6 class="card-title">Most listened era</h6>
+              <h5 class="card-subtitle mb-2 text-muted">{{ most_listened_era.0 }}</h5>
+              <p class="card-text">({{ most_listened_era.1 }} times)</p>
+            </div>
+          </div>
+          {% endif %}
           {% if listens_per_week %}
             <div class="card text-center mx-auto" style="width: 18rem; margin: 10px;">
               <img class="card-img-top" src='data:image/png;base64,{{ listens_per_week }}'>

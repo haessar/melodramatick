@@ -8,6 +8,7 @@ from django_tables2 import SingleTableMixin
 
 from . import plots
 from .models import Work
+from melodramatick.utils.rendering import render_tickbox
 
 
 class WorkTableView(SingleTableMixin, FilterView):
@@ -102,3 +103,8 @@ class WorkGraphsView(ListView):
 
 class WorkDetailView(DetailView):
     model = Work
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["ticked"], context["tickbox"] = render_tickbox(self.request.user, self.object, scale=2)
+        return context
