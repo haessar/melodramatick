@@ -9,6 +9,7 @@ from matplotlib.ticker import MultipleLocator
 import numpy as np
 import seaborn as sns
 
+from melodramatick.utils.annotation import user_listens_per_era
 from melodramatick.utils.plots import EmptyFigure, to_bytes_fig
 
 matplotlib.use('Agg')
@@ -172,8 +173,7 @@ def plot_perfs_per_era(ax, qs):
 
 @to_bytes_fig
 def plot_listens_per_era(ax, qs):
-    by_era = sorted([(w.era, w.user_listens) for w in qs.exclude(user_listens=0)], key=lambda x: x[0])
-    by_era = [(key, sum(num for _, num in value)) for key, value in itertools.groupby(by_era, lambda x: x[0])]
+    by_era = user_listens_per_era(qs)
     if by_era:
         eras, listens = zip(*by_era)
         ax.pie(listens, labels=eras, colors=[ERAS_CMAP[e] for e in eras], autopct='%.0f%%')

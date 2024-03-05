@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 from django.db.models import Count, Max, Sum, Q
 from django.urls import reverse_lazy
 from django.views.generic import DetailView
@@ -10,6 +12,7 @@ from melodramatick.listen.models import Listen
 from melodramatick.listen.plots import plot_listens_per_week
 from melodramatick.performance.models import Company, Performance, Venue
 from melodramatick.performance.plots import plot_perfs_per_year
+from melodramatick.utils.annotation import user_listens_per_era
 from melodramatick.work.models import Work
 
 
@@ -67,6 +70,10 @@ class ProfileView(DetailView):
                 work__listen__user=self.user,
                 work__listen__site=self.request.site))
             ).order_by("-tally").first()
+        context["most_listened_era"] = max(
+            user_listens_per_era(Work.objects.all(), self.user),
+            key=itemgetter(1)
+        )
         context["listens_per_week"] = plot_listens_per_week(context["listens"], figsize=(6, 6))
 
     def get_context_data(self, **kwargs):
