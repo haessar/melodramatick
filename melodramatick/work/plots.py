@@ -9,7 +9,7 @@ from matplotlib.ticker import MultipleLocator
 import numpy as np
 import seaborn as sns
 
-from melodramatick.utils.plots import to_bytes_fig
+from melodramatick.utils.plots import EmptyFigure, to_bytes_fig
 
 matplotlib.use('Agg')
 
@@ -97,6 +97,8 @@ def plot_perfs_per_composer(ax, qs):
         .exclude(user_perfs=0)
         .annotate(avg_yr=Avg('year'))
     )[:10]
+    if len(by_composer) == 0:
+        raise EmptyFigure
 
     composers = [x['composer__surname'] for x in by_composer]
     perfs = [x['user_perfs'] for x in by_composer]
@@ -126,6 +128,8 @@ def plot_listens_per_composer(ax, qs):
         .exclude(user_listens=0)
         .annotate(avg_yr=Avg('year'))
     )[:10]
+    if len(by_composer) == 0:
+        raise EmptyFigure
 
     composers = [x['composer__surname'] for x in by_composer]
     listens = [x['user_listens'] for x in by_composer]
@@ -161,6 +165,8 @@ def plot_perfs_per_era(ax, qs):
     if by_era:
         eras, perfs = zip(*by_era)
         ax.pie(perfs, labels=eras, colors=[ERAS_CMAP[e] for e in eras], autopct='%.0f%%')
+    else:
+        raise EmptyFigure
     ax.set_title('Proportion of user performances per era')
 
 
@@ -171,6 +177,8 @@ def plot_listens_per_era(ax, qs):
     if by_era:
         eras, listens = zip(*by_era)
         ax.pie(listens, labels=eras, colors=[ERAS_CMAP[e] for e in eras], autopct='%.0f%%')
+    else:
+        raise EmptyFigure
     ax.set_title('Proportion of user listens per era')
 
 
@@ -181,7 +189,10 @@ def plot_duration_hist(ax, qs):
         .values('album__duration')
     )
 
-    ax.hist([x['album__duration'] for x in by_duration if x['album__duration']], bins=20)
+    data = [x['album__duration'] for x in by_duration if x['album__duration']]
+    if not data:
+        raise EmptyFigure
+    ax.hist(data, bins=20)
     ax.set_title('Album durations')
     ax.set_xlabel("Duration (minutes)")
     ax.set_ylabel("Count")
@@ -198,6 +209,8 @@ def plot_top_lists_by_decade(ax, qs):
     )
     decades = [int(x['year']) for x in by_decades]
     counts = [x['dcount'] for x in by_decades]
+    if set(counts) == {0}:
+        raise EmptyFigure
     ax.bar(decades, counts,  width=5)
 
     ax.set_title('Top lists by decade')
