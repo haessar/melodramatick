@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load settings %}
 {% load mathfilters %}
 
 {% block title %}{{ object.title }} ({{ object.year }}){% endblock %}
@@ -17,7 +17,7 @@
     </div>
     {% endif %}
   </div>
-  <div class="row">
+  <div class="row" {% if ticked %} style="background-color: {% settings_value 'BACKGROUND_COLOUR' %}80;" {% endif %}>
     <div class="col-sm-5">
       <h3>Information</h3>
       <dl class="row">
