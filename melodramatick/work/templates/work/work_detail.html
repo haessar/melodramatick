@@ -18,7 +18,7 @@
     {% endif %}
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-sm-5">
       <h3>Information</h3>
       <dl class="row">
         <dt class="col-sm-3">Year</dt>
@@ -75,7 +75,7 @@
       </div>
       {% endif %}
     </div>
-    <div class="col">
+    <div class="col-sm-6">
       <h3>In {{ object.top_lists }} top lists</h3>
       <ul class="list-group">
         {% for list_entry in object.list_item.all %}
@@ -95,6 +95,9 @@
         </li>
         {% endfor %}
       </ul>
+    </div>
+    <div class="col-sm-1">
+      <a href="{% url 'performance:tick' object.id %}">{{ tickbox }}</a>
     </div>
   </div>
 {% endblock %}
