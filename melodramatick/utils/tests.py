@@ -41,6 +41,8 @@ class QuotelAPITestCase(TestCase):
         self.assertEqual(Quote.objects.count(), 2)
 
 
+@patch("melodramatick.utils.spotify_api.SpotifyOAuth")
+@patch("melodramatick.utils.spotify_api.SpotifyClientCredentials")
 @patch("spotipy.Spotify")
 class SpotifyAPITestCase(TestCase):
     def setUp(self):
@@ -58,19 +60,17 @@ class SpotifyAPITestCase(TestCase):
         self.album_uri = "spotify:album:" + self.album_id
         self.track_uri = "spotify:track:2DhSQuGqHwxtrxuYfUuHRi"
 
-    def test_auth_manager(self, sp):
-        with patch("melodramatick.utils.spotify_api.SpotifyClientCredentials") as mock_auth_manager:
-            auth_manager()
-        sp.assert_called_with(auth_manager=mock_auth_manager())
-        with patch("melodramatick.utils.spotify_api.SpotifyOAuth") as mock_auth_manager:
-            auth_manager(scope="playlist-read-private")
-        sp.assert_called_with(auth_manager=mock_auth_manager())
+    def test_auth_manager(self, sp, cc, oa):
+        auth_manager()
+        sp.assert_called_with(auth_manager=cc())
+        auth_manager(scope="playlist-read-private")
+        sp.assert_called_with(auth_manager=oa())
 
-    def test_get_playlist_image(self, sp):
+    def test_get_playlist_image(self, sp, *args):
         sp().playlist.return_value = self.image_response
         self.assertEqual(get_playlist_image(self.playlist_uri), self.image_url)
 
-    def test_get_playlist_duration(self, sp):
+    def test_get_playlist_duration(self, sp, *args):
         sp().playlist_tracks.return_value = {
             "items": [
                 {"track": {"duration_ms": 300000}},
@@ -79,11 +79,11 @@ class SpotifyAPITestCase(TestCase):
         }
         self.assertEqual(get_playlist_duration(self.playlist_uri), "15")
 
-    def test_get_album_image(self, sp):
+    def test_get_album_image(self, sp, *args):
         sp().album.return_value = self.image_response
         self.assertEqual(get_album_image(self.album_uri), self.image_url)
 
-    def test_get_abum_duration(self, sp):
+    def test_get_abum_duration(self, sp, *args):
         sp().album_tracks.side_effect = [
             {"items": [
                 {"duration_ms": 300000},
@@ -93,7 +93,7 @@ class SpotifyAPITestCase(TestCase):
         ]
         self.assertEqual(get_album_duration(self.playlist_uri), "15")
 
-    def test_get_track(self, sp):
+    def test_get_track(self, sp, *args):
         sp().track.return_value = {
             "album": self.image_response,
             "duration_ms": 300000
