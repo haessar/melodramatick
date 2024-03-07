@@ -4,6 +4,10 @@ from django.test import TestCase
 import responses
 
 from .quotel_api import populate_composer_quotes
+from .spotify_api import (auth_manager,
+                          get_playlist_image, get_playlist_duration,
+                          get_album_image, get_album_duration,
+                          get_track_image, get_track_duration)
 from .widgets import CustomRangeWidget
 from melodramatick.composer.models import Quote
 
@@ -35,3 +39,64 @@ class QuotelAPITestCase(TestCase):
         self.assertEqual(Quote.objects.count(), 1)
         populate_composer_quotes()
         self.assertEqual(Quote.objects.count(), 2)
+
+
+@patch("spotipy.Spotify")
+class SpotifyAPITestCase(TestCase):
+    def setUp(self):
+        self.image_url = "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"
+        self.image_response = {
+            "images": [{
+                "url": self.image_url,
+                "height": 300,
+                "width": 300
+            }]
+        }
+        self.playlist_id = "01B72NX2L24VGRbO3bmHXm"
+        self.playlist_uri = "spotify:playlist:" + self.playlist_id
+        self.album_id = "0KWQDuT2B9dYb7DsUCwSj3"
+        self.album_uri = "spotify:album:" + self.album_id
+        self.track_uri = "spotify:track:2DhSQuGqHwxtrxuYfUuHRi"
+
+    def test_auth_manager(self, sp):
+        with patch("melodramatick.utils.spotify_api.SpotifyClientCredentials") as mock_auth_manager:
+            auth_manager()
+        sp.assert_called_with(auth_manager=mock_auth_manager())
+        with patch("melodramatick.utils.spotify_api.SpotifyOAuth") as mock_auth_manager:
+            auth_manager(scope="playlist-read-private")
+        sp.assert_called_with(auth_manager=mock_auth_manager())
+
+    def test_get_playlist_image(self, sp):
+        sp().playlist.return_value = self.image_response
+        self.assertEqual(get_playlist_image(self.playlist_uri), self.image_url)
+
+    def test_get_playlist_duration(self, sp):
+        sp().playlist_tracks.return_value = {
+            "items": [
+                {"track": {"duration_ms": 300000}},
+                {"track": {"duration_ms": 600000}}
+            ]
+        }
+        self.assertEqual(get_playlist_duration(self.playlist_uri), "15")
+
+    def test_get_album_image(self, sp):
+        sp().album.return_value = self.image_response
+        self.assertEqual(get_album_image(self.album_uri), self.image_url)
+
+    def test_get_abum_duration(self, sp):
+        sp().album_tracks.side_effect = [
+            {"items": [
+                {"duration_ms": 300000},
+                {"duration_ms": 600000}
+            ]},
+            {"items": []}
+        ]
+        self.assertEqual(get_album_duration(self.playlist_uri), "15")
+
+    def test_get_track(self, sp):
+        sp().track.return_value = {
+            "album": self.image_response,
+            "duration_ms": 300000
+        }
+        self.assertEqual(get_track_image(self.track_uri), self.image_url)
+        self.assertEqual(get_track_duration(self.track_uri), "5")
