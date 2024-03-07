@@ -77,7 +77,7 @@ class SpotifyAPITestCase(TestCase):
                 {"track": {"duration_ms": 600000}}
             ]
         }
-        self.assertEqual(get_playlist_duration(self.playlist_uri), "15")
+        self.assertEqual(get_playlist_duration(self.playlist_id), "15")
 
     def test_get_album_image(self, sp, *args):
         sp().album.return_value = self.image_response
@@ -91,7 +91,7 @@ class SpotifyAPITestCase(TestCase):
             ]},
             {"items": []}
         ]
-        self.assertEqual(get_album_duration(self.playlist_uri), "15")
+        self.assertEqual(get_album_duration(self.album_id), "15")
 
     def test_get_track(self, sp, *args):
         sp().track.return_value = {
