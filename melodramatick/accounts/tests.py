@@ -1,12 +1,15 @@
 from django.test import TestCase
 from django.urls import reverse
 
+from melodramatick.accounts.models import CustomUser
+
 
 class ProfileViewTestCase(TestCase):
     fixtures = ['contenttypes.json', 'user.json', 'listen.json', 'work.json', 'opera.json', 'composer.json', 'sites.json',
                 'performance.json', 'venue.json', 'company.json']
 
     def setUp(self):
+        self.client.force_login(CustomUser.objects.get(id=1))
         self.response = self.client.get(reverse('profile', kwargs={'username': 'user1'}))
 
     def test_get_context_data(self):
