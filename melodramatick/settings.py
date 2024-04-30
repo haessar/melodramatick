@@ -81,6 +81,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'login_required.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -191,6 +192,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# LoginRequiredMiddleware options
+
+LOGIN_REQUIRED_IGNORE_PATHS = [
+    r'/accounts/login/$',
+    r'/accounts/logout/$',
+    r'/accounts/signup/$',
+    r'/admin/$',
+]
+
+LOGIN_REQUIRED_IGNORE_VIEW_NAMES = [
+    'home',
+    'login',
+]
 
 
 # APIs
