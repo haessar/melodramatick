@@ -30,7 +30,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.DEPLOY_KEY }}
+          key: ${{ secrets.KEY }}
           script_stop: true
           envs: SETTINGS,PASSWORD
           script: |
