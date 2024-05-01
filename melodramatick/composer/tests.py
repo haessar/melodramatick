@@ -31,10 +31,11 @@ class ComposerModelTestCase(TestCase):
 
 
 class ComposerAdminTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json"]
+    fixtures = ["composer.json", "sites.json", "user.json"]
 
     def setUp(self):
         self.composer_admin = ComposerAdmin(model=Composer, admin_site=AdminSite())
+        self.client.force_login(CustomUser.objects.get(id=1))
 
     def test_get_queryset(self):
         request = self.client.get("/").wsgi_request
