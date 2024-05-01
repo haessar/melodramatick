@@ -26,13 +26,12 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         env:
           SETTINGS: "operatick.settings"
-          PASSWORD: ${{ secrets.PASSWORD }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script_stop: true
-          envs: SETTINGS,PASSWORD
+          envs: SETTINGS
           script: |
             cd melodramatick/
             source venv/bin/activate
@@ -40,7 +39,7 @@ jobs:
             git pull
             git stash pop
             DJANGO_SETTINGS_MODULE=$SETTINGS python manage.py migrate
-            echo "$PASSWORD" | sudo -S systemctl restart celery.target gunicorn.target
+            sudo systemctl restart celery.target gunicorn.target
             
       
       
