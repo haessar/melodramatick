@@ -70,10 +70,13 @@ class ProfileView(DetailView):
                 work__listen__user=self.user,
                 work__listen__site=self.request.site))
             ).order_by("-tally").first()
-        context["most_listened_era"] = max(
-            user_listens_per_era(Work.objects.all(), self.user),
-            key=itemgetter(1)
-        )
+        try:
+            context["most_listened_era"] = max(
+                user_listens_per_era(Work.objects.all(), self.user),
+                key=itemgetter(1)
+            )
+        except ValueError:
+            pass
         context["listens_per_week"] = plot_listens_per_week(context["listens"], figsize=(6, 6))
 
     def get_context_data(self, **kwargs):
