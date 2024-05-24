@@ -2,6 +2,9 @@ from operator import itemgetter
 
 from django.db.models import Count, Max, Sum, Q
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
 
@@ -22,6 +25,7 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 
+@method_decorator([vary_on_cookie, cache_page(60 * 1)], name='dispatch')
 class ProfileView(DetailView):
     model = CustomUser
     slug_field = "username"
