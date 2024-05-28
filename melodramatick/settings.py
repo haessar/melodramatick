@@ -255,6 +255,7 @@ CACHES = {
 DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.timer.TimerPanel',
     'pympler.panels.MemoryPanel',
+    'debug_toolbar.panels.profiling.ProfilingPanel'
     )
 
 # Site-specific settings

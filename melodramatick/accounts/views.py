@@ -2,6 +2,9 @@ from operator import itemgetter
 
 from django.db.models import Count, Max, Sum, Q
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
 
@@ -22,6 +25,7 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 
+@method_decorator([vary_on_cookie, cache_page(60 * 1)], name='dispatch')
 class ProfileView(DetailView):
     model = CustomUser
     slug_field = "username"
@@ -70,10 +74,13 @@ class ProfileView(DetailView):
                 work__listen__user=self.user,
                 work__listen__site=self.request.site))
             ).order_by("-tally").first()
-        context["most_listened_era"] = max(
-            user_listens_per_era(Work.objects.all(), self.user),
-            key=itemgetter(1)
-        )
+        try:
+            context["most_listened_era"] = max(
+                user_listens_per_era(Work.objects.all(), self.user),
+                key=itemgetter(1)
+            )
+        except ValueError:
+            pass
         context["listens_per_week"] = plot_listens_per_week(context["listens"], figsize=(6, 6))
 
     def get_context_data(self, **kwargs):
