@@ -11,6 +11,7 @@ from django_tables2 import SingleTableMixin
 
 from . import plots
 from .models import Work
+from melodramatick.listen.models import Listen
 from melodramatick.utils.rendering import render_tickbox
 
 
@@ -111,4 +112,8 @@ class WorkDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["ticked"], context["tickbox"] = render_tickbox(self.request.user, self.object, scale=2)
+        try:
+            context["listen_count"] = self.object.listen.get(user=self.request.user.id).tally
+        except Listen.DoesNotExist:
+            context["listen_count"] = 0
         return context
