@@ -1,7 +1,9 @@
+from django.http import HttpRequest
 from django.test import TestCase
 from django.urls import reverse
 
-from melodramatick.accounts.models import CustomUser
+from .forms import CustomUserCreationForm
+from .models import CustomUser
 
 
 class ProfileViewTestCase(TestCase):
@@ -27,3 +29,20 @@ class ProfileViewTestCase(TestCase):
             self.assertEqual(self.response.context_data['most_listened'].tally, 3)
             self.assertEqual(len(self.response.context_data['listens']), 1)
         self.assertTemplateUsed(self.response, 'accounts/profile.html')
+
+
+class SignUpViewTestCase(TestCase):
+    fixtures = ['user.json']
+
+    def test_custom_user_creation_form(self):
+        user = CustomUser.objects.all()[0]
+        self.assertEqual(user.user_permissions.count(), 0)
+        request = HttpRequest()
+        request.POST = {
+            "username": "testuser",
+            "password1": user.password,
+            "password2": user.password,
+        }
+        form = CustomUserCreationForm(request.POST)
+        testuser = form.save()
+        self.assertEqual(testuser.user_permissions.count(), 2)

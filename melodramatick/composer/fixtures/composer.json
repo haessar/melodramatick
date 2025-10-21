@@ -7,6 +7,7 @@
             "first_name": "Adolphe",
             "nationality": "French",
             "gender": "M",
+            "birth_date": "1803-07-24",
             "sites": [
                 2,
                 1
@@ -21,6 +22,7 @@
             "first_name": "Ludwig van",
             "nationality": "German",
             "gender": "M",
+            "birth_date": null,
             "sites": [
                 1
             ]

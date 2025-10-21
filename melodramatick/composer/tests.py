@@ -1,3 +1,6 @@
+import datetime
+from unittest.mock import patch
+
 from django.contrib.admin.sites import AdminSite
 from django.contrib.messages import get_messages
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -28,6 +31,13 @@ class ComposerModelTestCase(TestCase):
         with self.assertRaisesMessage(IntegrityError, "Duplicate"):
             # Shared surname and first_name, despite different nationality value to that in db.
             Composer.all_sites.create(surname="Adam", first_name="Adolphe", nationality="Swiss")
+
+    def test_anniversary(self):
+        with patch('melodramatick.composer.models.datetime') as mock_datetime:
+            mock_datetime.now.return_value = self.composer.birth_date
+            self.assertEqual(self.composer.anniversary, 0)
+            mock_datetime.now.return_value = self.composer.birth_date + datetime.timedelta(days=1)
+            self.assertIsNone(self.composer.anniversary)
 
 
 class ComposerAdminTestCase(TestCase):

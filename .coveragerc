@@ -1,0 +1,9 @@
+[run]
+omit =
+    melodramatick/asgi.py
+    melodramatick/wsgi.py
+    melodramatick/utils/django_initialiser.py
+
+[report]
+exclude_lines =
+    if __name__ == .__main__.:
