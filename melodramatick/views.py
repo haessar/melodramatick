@@ -9,5 +9,5 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["qod"] = quote_of_the_day()
-        context["wod"] = work_of_the_day()
+        context["wod"] = work_of_the_day(self.request.user)
         return context

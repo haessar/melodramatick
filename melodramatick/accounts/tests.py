@@ -11,6 +11,7 @@ class ProfileViewTestCase(TestCase):
                 'performance.json', 'venue.json', 'company.json']
 
     def setUp(self):
+        self.client.force_login(CustomUser.objects.get(id=1))
         self.response = self.client.get(reverse('profile', kwargs={'username': 'user1'}))
 
     def test_get_context_data(self):

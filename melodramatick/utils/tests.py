@@ -1,14 +1,17 @@
 from unittest.mock import patch
 
+from django.contrib.auth.models import AnonymousUser
 from django.test import TestCase
 import responses
 
 from .quotel_api import populate_composer_quotes
+from .randomisers import work_of_the_day
 from .spotify_api import (auth_manager,
                           get_playlist_image, get_playlist_duration,
                           get_album_image, get_album_duration,
                           get_track_image, get_track_duration)
 from .widgets import CustomRangeWidget
+from melodramatick.accounts.models import CustomUser
 from melodramatick.composer.models import Quote
 
 
@@ -100,3 +103,20 @@ class SpotifyAPITestCase(TestCase):
         }
         self.assertEqual(get_track_image(self.track_uri), self.image_url)
         self.assertEqual(get_track_duration(self.track_uri), "5")
+
+
+class RandomisersTestCase(TestCase):
+    fixtures = ['album.json', 'composer.json', 'contenttypes.json', 'listen.json',
+                'opera.json', 'sites.json', 'user.json', 'work.json']
+
+    def test_work_of_the_day(self):
+        anon_user = AnonymousUser()
+        user1 = CustomUser.objects.get(id=1)
+        user2 = CustomUser.objects.get(id=2)
+        wod = work_of_the_day(anon_user)
+        with self.assertRaises(AttributeError):
+            wod.listen_count
+        wod = work_of_the_day(user1)
+        self.assertEqual(wod.listen_count, 1)
+        wod = work_of_the_day(user2)
+        self.assertEqual(wod.listen_count, 3)

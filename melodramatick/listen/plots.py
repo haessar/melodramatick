@@ -27,7 +27,7 @@ def plot_listens_per_week(ax, qs):
         df['week'] = (
             df['updated_at__week'].astype(str) + '-' + df['updated_at__year'].astype(str)
             ).apply(lambda x: datetime.strptime(x + '-1', '%W-%Y-%w').strftime(DATE_FORMAT))
-        df = pd.concat([all_weeks_df, df.set_index('week')[['count']]], axis=1)
+        df = pd.concat([all_weeks_df, df.set_index('week')[['count']]], axis=1).sort_index()
 
         df.plot.bar(ax=ax, color=settings.BACKGROUND_COLOUR)
 

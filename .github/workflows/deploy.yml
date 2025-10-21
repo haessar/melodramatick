@@ -1,0 +1,31 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          SETTINGS: "operatick.settings"
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script_stop: true
+          envs: SETTINGS
+          script: |
+            cd melodramatick/
+            source venv/bin/activate
+            git stash
+            git pull
+            git submodule update --recursive --remote
+            git stash pop
+            pip install .
+            DJANGO_SETTINGS_MODULE=$SETTINGS python manage.py migrate
+            sudo systemctl restart celery.target gunicorn.target
+            sudo systemctl restart nginx

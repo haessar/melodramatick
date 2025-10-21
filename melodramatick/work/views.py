@@ -2,12 +2,16 @@ import random
 
 from django.db.models import Count, Q, Sum
 from django.db.models.functions import Coalesce
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
 from django.views.generic import DetailView, ListView
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
 
 from . import plots
 from .models import Work
+from melodramatick.listen.models import Listen
 from melodramatick.utils.rendering import render_tickbox
 
 
@@ -66,6 +70,7 @@ class WorkTableView(SingleTableMixin, FilterView):
         }
 
 
+@method_decorator([vary_on_cookie, cache_page(60 * 60)], name='dispatch')
 class WorkGraphsView(ListView):
     template_name = 'work/work_graphs.html'
     model = Work
@@ -107,4 +112,8 @@ class WorkDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["ticked"], context["tickbox"] = render_tickbox(self.request.user, self.object, scale=2)
+        try:
+            context["listen_count"] = self.object.listen.get(user=self.request.user.id).tally
+        except Listen.DoesNotExist:
+            context["listen_count"] = 0
         return context
