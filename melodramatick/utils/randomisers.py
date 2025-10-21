@@ -5,7 +5,7 @@ if __name__ == "__main__":
     import melodramatick.utils.django_initialiser  # noqa: F401
 from django.contrib.sites.models import Site
 from melodramatick.composer.models import Quote
-from melodramatick.listen.models import Album
+from melodramatick.listen.models import Album, Listen
 from melodramatick.work.models import Work
 
 
@@ -21,7 +21,7 @@ def quote_of_the_day():
         return quotes[random.randint(0, len(quotes) - 1)]
 
 
-def work_of_the_day():
+def work_of_the_day(user):
     _daily_seed()
     today = datetime.datetime.now()
     albums = Album.objects.filter(work__site=Site.objects.get_current())
@@ -32,4 +32,10 @@ def work_of_the_day():
             works = anniversary_works
         work = works[random.randint(0, len(works) - 1)]
         work.random_album = random.choice(work.album.all())
+        if user.is_authenticated:
+            try:
+                listen = work.listen.get(user=user.id)
+                work.listen_count = listen.tally
+            except Listen.DoesNotExist:
+                pass
         return work

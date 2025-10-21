@@ -60,6 +60,7 @@
             <a class="spotify_play" href="/play/{{ wod.id }}/" title="Play on Spotify">
               <img uri="{{ wod.random_album.uri }}:play" src="/static/images/Spotify-Play-Button.png" width="38px;">
             </a>
+            {% if wod.listen_count %}({{ wod.listen_count }} listen{{ wod.listen_count|pluralize:",s" }}){% endif %}
             <a class="btn btn-primary float-right" href="{% url 'work:work-detail' wod.id %}">More details</a>
           </div>
         </div>
