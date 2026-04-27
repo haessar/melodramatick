@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: melodramatick
+Version: 0.1
+Summary: A Django app containing common melodramatick site apps.
+Home-page: https://www.example.com/
+Author: Will Haese-Hill
+Author-email: wahhill@gmail.com
+License: BSD-3-Clause  # Example license
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+
+# Melodramatick
+## Installation
+Set up environment
+
+    git clone git@github.com:haessar/melodramatick.git
+    cd melodramatick
+    virtualenv --python=python3.10 venv
+    source venv/bin/activate
+    curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10  # update pip; specific to my own dev env
+    python setup.py sdist
+
+Create .env with minimum expected environment variables
+
+    SPOTIFY_CLIENT_ID=
+    SPOTIFY_CLIENT_SECRET=
+    RAPID_API_KEY=
+    DATABASE_URL=mysql://<username>:<password>@<host>/melodramatick
+
+Install Melodramatick and dependencies
+
+    pip install dist/melodramatick-X.X.X.tar.gz
+    python manage.py migrate
+
+Create super user
+
+    python manage.py createsuperuser
+
+## Create a new Melodramatick app (balletick example)
+Initialise app
+
+    python manage.py startapptick balletick --work ballet --colour-hex=#addde7
+    export DJANGO_SETTINGS_MODULE=balletick.settings
+    python manage.py makemigrations
+    python manage migrate
+
+When you are ready, launch site
+
+    python manage.py runserver
+
+
