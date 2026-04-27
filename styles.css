@@ -102,16 +102,42 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.example-banner-wrap {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+
+.example-banner {
+  max-width: 100%;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+}
+
 .example-card {
   display: block;
   height: 100%;
-  padding: 1.5rem;
-  background: var(--card);
+  padding: 1.25rem;
   border: 1px solid var(--border);
   border-radius: 1rem;
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.example-card-operatick {
+  background: #ecdff2;
+}
+
+.example-card-balletick {
+  background: #addde7;
+}
+
+.example-card-concertantick {
+  background: #eee80e;
 }
 
 .example-card:hover {
@@ -119,6 +145,7 @@ body {
   text-decoration: none;
   border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
 .example-card h3 {
