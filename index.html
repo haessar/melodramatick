@@ -2,70 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Melodramatick</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Melodramatick is an open-source platform for spinning up cultural engagement tracking sites.">
+  <meta name="description" content="Melodramatick is a reusable platform for spinning up cultural user engagement sites.">
+
+  <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <section class="hero">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <a class="navbar-brand" href="#top">
+      <img src="assets/images/banner.png" alt="Melodramatick" class="img-responsive site-banner">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#top">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#examples">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#developers">Developers</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/haessar/melodramatick" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    <section class="hero" id="top">
       <p class="eyebrow">Open-source cultural engagement platform</p>
       <h1>Melodramatick</h1>
       <p class="lead">
-        A reusable Django-based template for publishing cultural event data and collecting lightweight audience engagement signals.
+        Melodramatick is a reusable platform for spinning up cultural user engagement sites.
+        It provides a general template that can be adapted to specific domains, with
+        deployed proofs of concept including opera, ballet, and concert-based variants.
       </p>
-      <div class="actions">
-        <a href="https://github.com/haessar/melodramatick">View the GitHub repo</a>
-        <a href="#examples">See current examples</a>
+      <div class="hero-actions">
+        <a class="btn btn-outline-melodramatick" href="#examples">Current examples</a>
+        <a class="btn btn-outline-melodramatick" href="https://github.com/haessar/melodramatick" target="_blank" rel="noopener">View repository</a>
       </div>
     </section>
 
-    <section>
-      <h2>What is it?</h2>
-      <p>
-        Melodramatick provides a reusable pattern for creating themed audience engagement sites for cultural domains such as opera, ballet, and classical music. Each deployment can ingest structured event or performance data, publish browsable records, and allow users to mark performances they have attended.
-      </p>
-    </section>
-
-    <section id="examples">
+    <section id="examples" class="content-section">
       <h2>Current example deployments</h2>
-      <div class="cards">
-        <a class="card" href="https://operatick.melodramatick.com">
-          <h3>Operatick</h3>
-          <p>Opera engagement prototype.</p>
-        </a>
-        <a class="card" href="https://balletick.melodramatick.com">
-          <h3>Balletick</h3>
-          <p>Ballet engagement prototype.</p>
-        </a>
-        <a class="card" href="https://concertantick.melodramatick.com">
-          <h3>Concertantick</h3>
-          <p>Concert and classical music engagement prototype.</p>
-        </a>
+      <p class="section-intro">
+        These are current themed deployments in the Melodramatick ecosystem.
+      </p>
+
+      <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+          <a class="example-card" href="https://operatick.melodramatick.com" target="_blank" rel="noopener">
+            <h3>Operatick</h3>
+            <p>Opera engagement prototype.</p>
+            <span class="example-link">Visit site <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </a>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <a class="example-card" href="https://balletick.melodramatick.com" target="_blank" rel="noopener">
+            <h3>Balletick</h3>
+            <p>Ballet engagement prototype.</p>
+            <span class="example-link">Visit site <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </a>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <a class="example-card" href="https://concertantick.melodramatick.com" target="_blank" rel="noopener">
+            <h3>Concertantick</h3>
+            <p>Concert and classical music engagement prototype.</p>
+            <span class="example-link">Visit site <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>How it works</h2>
-      <ol>
-        <li>Ingest structured cultural event data.</li>
-        <li>Publish a themed engagement site.</li>
-        <li>Allow users to record attended performances.</li>
-        <li>Generate safe aggregate outputs for partners and pilots.</li>
-      </ol>
+    <section id="about" class="content-section">
+      <h2>About</h2>
+      <p>
+        The idea behind Melodramatick is that it acts as a template for creating themed cultural engagement sites.
+        A deployment can ingest structured cultural event or performance data, publish a browsable site, and allow
+        users to record attendance or engagement in a lightweight way.
+      </p>
+      <p>
+        The live examples above act as proofs of concept showing how the same underlying platform can be reused
+        across different cultural domains.
+      </p>
     </section>
 
-    <section>
+    <section id="developers" class="content-section">
       <h2>For developers</h2>
       <p>
-        The source code is available on GitHub and can be adapted to create new themed deployments.
+        The Melodramatick codebase is available on GitHub and can be adapted to create new deployments.
       </p>
-      <p>
-        <a href="https://github.com/haessar/melodramatick">github.com/haessar/melodramatick</a>
-      </p>
+      <ul class="developer-links">
+        <li>
+          <a href="https://github.com/haessar/melodramatick" target="_blank" rel="noopener">
+            GitHub repository
+          </a>
+        </li>
+        <li>
+          Start from the template and configure a new themed deployment.
+        </li>
+        <li>
+          Use the live examples as references for how the platform can be customised.
+        </li>
+      </ul>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="mb-0">
+        Melodramatick — a reusable platform for cultural user engagement sites.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 </html>
-<!-- Pages redeploy: 2026-04-27T15:25:35Z -->
