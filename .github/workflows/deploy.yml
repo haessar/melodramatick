@@ -6,6 +6,7 @@ on:
       - master
 jobs:
   build-and-deploy:
+    if: github.repository == 'haessar/melodramatick'
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands using ssh key
