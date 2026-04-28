@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <title>Profile</title>
+  <script src="{% static 'js/htmx.min.js' %}"></script>
+  <style>
+    .tabs { display:flex; gap:1rem; border-bottom:1px solid #ddd; }
+    .tab { padding:0.5rem 0.75rem; cursor:pointer; }
+    .is-active { border-bottom:2px solid currentColor; }
+    .loading { opacity:0.6; }
+    .htmx-indicator { display:none; }
+    .htmx-request .htmx-indicator { display:inline-block; }
+  </style>
+{% endblock %}
+
+{% block nav-profile %}
+{% if customuser == user %}
+  <li class="nav-item active">
+    <a class="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
+  </li>
+{% else %}
+  {{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="tabs">
+    <a class="tab is-active"
+       hx-get="{% url 'profile-tab-awards' username=view.kwargs.username %}"
+       hx-target="#tab-content"
+       hx-swap="innerHTML"
+       hx-push-url="{% url 'profile-shell' username=view.kwargs.username %}?tab=awards"
+       data-tab="awards">
+       Awards
+    </a>
+
+    <a class="tab"
+       hx-get="{% url 'profile-tab-performances' username=view.kwargs.username %}"
+       hx-target="#tab-content"
+       hx-swap="innerHTML"
+       hx-push-url="{% url 'profile-shell' username=view.kwargs.username %}?tab=performances"
+       data-tab="performances">
+       Performances
+    </a>
+
+    <a class="tab"
+       hx-get="{% url 'profile-tab-listens' username=view.kwargs.username %}"
+       hx-target="#tab-content"
+       hx-swap="innerHTML"
+       hx-push-url="{% url 'profile-shell' username=view.kwargs.username %}?tab=listens"
+       data-tab="listens">
+       Listens
+    </a>
+
+    <span class="htmx-indicator">Loading…</span>
+  </div>
+
+  <div id="tab-content" aria-live="polite">
+    <!-- stays empty; content loads after initial paint -->
+  </div>
+
+  <script>
+    // Load the correct tab on first paint without blocking initial render
+    document.addEventListener('DOMContentLoaded', () => {
+        const tab = new URLSearchParams(location.search).get('tab') || 'awards';
+        const el = document.querySelector(`[hx-push-url$="tab=${tab}"]`);
+        if (el) el.click();
+    });
+
+    // Visual active state
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('.tab');
+      if (!a) return;
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('is-active'));
+      a.classList.add('is-active');
+    });
+  </script>
+{% endblock %}
