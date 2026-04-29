@@ -33,7 +33,7 @@ class CustomRangeWidgetTestCase(TestCase):
 
 @patch("melodramatick.utils.quotel_api.COMPOSER_AUTHOR_ID", {"Adam": 10000, "Beethoven": 22212})
 class QuotelAPITestCase(TestCase):
-    fixtures = ["composer.json", "sites.json", "quote.json"]
+    fixtures = ["testtick_composer.json", "quote.json"]
 
     @responses.activate
     def test_populate_composer_quotes(self):
@@ -106,8 +106,8 @@ class SpotifyAPITestCase(TestCase):
 
 
 class RandomisersTestCase(TestCase):
-    fixtures = ['album.json', 'composer.json', 'contenttypes.json', 'listen.json',
-                'opera.json', 'sites.json', 'user.json', 'work.json']
+    fixtures = ['testtick_album.json', 'testtick_composer.json', 'testtick_listen.json',
+                'testtick_testitem.json', 'user.json', 'testtick_work.json']
 
     def test_work_of_the_day(self):
         anon_user = AnonymousUser()

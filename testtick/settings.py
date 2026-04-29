@@ -26,7 +26,10 @@ BACKGROUND_COLOUR = '#d9edf7'
 
 SITE_ID = 4
 
-TEST_RUNNER = 'testtick.runner.TesttickDiscoverRunner'
+CELERY_TASK_ALWAYS_EAGER = True
+CELERY_TASK_EAGER_PROPAGATES = True
+CELERY_BROKER_URL = 'memory://'
+CELERY_RESULT_BACKEND = 'cache+memory://'
 
 CACHES = {
     "default": {
@@ -34,3 +37,15 @@ CACHES = {
         "LOCATION": "testtick",
     }
 }
+
+try:
+    from melodramatick import celery_app
+except ImportError:
+    pass
+else:
+    celery_app.conf.update(
+        task_always_eager=CELERY_TASK_ALWAYS_EAGER,
+        task_eager_propagates=CELERY_TASK_EAGER_PROPAGATES,
+        broker_url=CELERY_BROKER_URL,
+        result_backend=CELERY_RESULT_BACKEND,
+    )

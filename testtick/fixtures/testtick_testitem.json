@@ -1,0 +1,23 @@
+[
+    {
+        "model": "testtick.testitem",
+        "pk": 230,
+        "fields": {
+            "work_ptr": 230
+        }
+    },
+    {
+        "model": "testtick.testitem",
+        "pk": 435,
+        "fields": {
+            "work_ptr": 435
+        }
+    },
+    {
+        "model": "testtick.testitem",
+        "pk": 722,
+        "fields": {
+            "work_ptr": 722
+        }
+    }
+]

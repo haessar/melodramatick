@@ -20,16 +20,8 @@ jobs:
         python-version: ["3.10"]
 
     steps:
-    - name: Checkout repository with submodules
+    - name: Checkout repository
       uses: actions/checkout@v3
-      with:
-        submodules: recursive
-        token: ${{ secrets.PAT_TOKEN }}
-    - name: Set up Redis
-      uses: shogo82148/actions-setup-redis@v1
-      with:
-        redis-version: "4.x"
-    - run: redis-cli ping
     - name: Set up MySQL
       uses: mirromutth/mysql-action@v1.1
       with:
@@ -45,7 +37,7 @@ jobs:
         pip install .
     - name: Run Tests
       run: |
-        DJANGO_SETTINGS_MODULE=operatick.settings coverage run --source='melodramatick/' manage.py test
+        DJANGO_SETTINGS_MODULE=testtick.settings coverage run --source='melodramatick/' manage.py test
         coverage xml
     - name: Get coverage
       uses: orgoro/coverage@v3.1

@@ -5,8 +5,8 @@ from melodramatick.top_list.models import Award, Progress
 
 
 class TasksTestCase(TestCase):
-    fixtures = ['contenttypes.json', 'user.json', 'performance.json', 'sites.json', 'company.json', 'venue.json',
-                'top_list.json', 'work.json', 'opera.json', 'composer.json']
+    fixtures = ['user.json', 'testtick_performance.json', 'testtick_company.json', 'testtick_venue.json',
+                'testtick_top_list.json', 'testtick_work.json', 'testtick_testitem.json', 'testtick_composer.json']
 
     def test_update_user_award_shared_task(self):
         report = update_user_award_shared_task(user_id=1)

@@ -1,0 +1,30 @@
+[
+    {
+        "model": "composer.composer",
+        "pk": 1,
+        "fields": {
+            "surname": "Adam",
+            "first_name": "Adolphe",
+            "nationality": "French",
+            "gender": "M",
+            "birth_date": "1803-07-24",
+            "sites": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "composer.composer",
+        "pk": 2,
+        "fields": {
+            "surname": "Beethoven",
+            "first_name": "Ludwig van",
+            "nationality": "German",
+            "gender": "M",
+            "birth_date": null,
+            "sites": [
+                4
+            ]
+        }
+    }
+]

@@ -4,7 +4,8 @@ from .views import TopListView
 
 
 class TopListViewTestCase(TestCase):
-    fixtures = ["contenttypes.json", "composer.json", "sites.json", "top_list.json", "user.json", "work.json", "opera.json"]
+    fixtures = ["testtick_composer.json", "testtick_top_list.json", "user.json", "testtick_work.json",
+                "testtick_testitem.json"]
 
     def setUp(self):
         response = self.client.get("/")
@@ -14,12 +15,8 @@ class TopListViewTestCase(TestCase):
 
     def test_get_table_data(self):
         table_data = self.view.get_table_data()
-        if self.request.site.id == 1:
-            self.assertListEqual(
-                list(table_data.values('max_position', 'list_work_count').order_by('id')),
-                [{'max_position': 2, 'list_work_count': 2},  # <List: Top operas - Example Dot Com>
-                 {'max_position': 1, 'list_work_count': 1}]  # <List: Another List - Example Dot Com>
-            )
-        elif self.request.site.id == 2:
-            # TODO - Write top_list fixtures for balletick
-            pass
+        self.assertListEqual(
+            list(table_data.values('max_position', 'list_work_count').order_by('id')),
+            [{'max_position': 2, 'list_work_count': 2},  # <List: Top test items - Example Dot Com>
+             {'max_position': 1, 'list_work_count': 1}]  # <List: Another Test List - Example Dot Com>
+        )

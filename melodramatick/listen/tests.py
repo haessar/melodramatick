@@ -7,7 +7,7 @@ from melodramatick.work.models import Work
 
 
 class SpotifyPlaybackViewTestCase(TestCase):
-    fixtures = ["contenttypes.json", "composer.json", "sites.json", "user.json", "work.json", "opera.json"]
+    fixtures = ["testtick_composer.json", "user.json", "testtick_work.json", "testtick_testitem.json"]
 
     def setUp(self):
         response = self.client.get("/")
@@ -16,7 +16,7 @@ class SpotifyPlaybackViewTestCase(TestCase):
         self.request.user = CustomUser.objects.get(id=1)
 
     def test_spotify_playback_view(self):
-        work_id = 230 if self.request.site.id == 1 else 722
+        work_id = 230
         spotify_playback_view(self.request, work=work_id)
         spotify_playback_view(self.request, work=work_id)
         qs = Listen.objects.all()

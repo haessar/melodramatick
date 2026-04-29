@@ -6,8 +6,8 @@ from melodramatick.accounts.models import CustomUser
 
 
 class WorkDetailViewTestCase(TestCase):
-    fixtures = ['contenttypes.json', 'user.json', 'listen.json', 'work.json',
-                'opera.json', 'composer.json', 'sites.json']
+    fixtures = ['user.json', 'testtick_listen.json', 'testtick_work.json',
+                'testtick_testitem.json', 'testtick_composer.json']
 
     def setUp(self):
         self.client.force_login(CustomUser.objects.get(id=2))
@@ -17,8 +17,6 @@ class WorkDetailViewTestCase(TestCase):
         response = self.client.get("/works/230")
         self.assertIn("ticked", response.context_data)
         self.assertIn("tickbox", response.context_data)
-        if response.wsgi_request.site.id == 1:
-            self.assertEqual(response.context_data['listen_count'], 3)
+        self.assertEqual(response.context_data['listen_count'], 3)
         response = self.client.get("/works/435")
-        if response.wsgi_request.site.id == 1:
-            self.assertEqual(response.context_data['listen_count'], 0)
+        self.assertEqual(response.context_data['listen_count'], 0)

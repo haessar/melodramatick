@@ -1,0 +1,12 @@
+[
+    {
+        "model": "listen.album",
+        "pk": "1234567890abcdefGHIJKL",
+        "fields": {
+            "work": 230,
+            "duration": 148,
+            "uri": "spotify:album:1234567890abcdefGHIJKL",
+            "image_url": "https://example.com/"
+        }
+    }
+]
