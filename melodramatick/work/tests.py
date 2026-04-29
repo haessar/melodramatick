@@ -1,21 +1,25 @@
 from unittest.mock import patch
 
+from django.conf import settings
 from django.contrib.admin.sites import AdminSite
 from django.contrib.messages import get_messages
 from django.contrib.messages.storage.fallback import FallbackStorage
+from django.contrib.sites.models import Site
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.http import HttpResponse
 from django.test import RequestFactory, TestCase
 
 from melodramatick.accounts.models import CustomUser
-from melodramatick.composer.models import Composer, SiteComplete
+from melodramatick.composer.models import Composer, Group, SiteComplete
 from melodramatick.performance.models import Performance
 from testtick.admin import TestitemAdmin
+from testtick.filters import TestitemFilter
 from testtick.models import Testitem
 from testtick.views import TestitemTableView
 
 from .admin import AKAInline, ListenInline, WorkParentAdmin
-from .models import Work
+from .filters import AllRangeFilter, EraChoiceFilter, GenreChoiceFilter
+from .models import Genre, SubGenre, Work
 from .views import WorkGraphsView
 
 
@@ -119,6 +123,111 @@ class WorkTableViewTestCase(TestCase):
         self.assertIn("random_uri", kwargs["exclude"])
         self.assertNotIn("duration", kwargs["exclude"])
         self.assertNotIn("uri", kwargs["exclude"])
+
+
+class WorkFilterTestCase(TestCase):
+    fixtures = [
+        'testtick_album.json',
+        'testtick_composer.json',
+        'testtick_testitem.json',
+        'testtick_top_list.json',
+        'testtick_work.json',
+    ]
+
+    def ids_for_filter(self, data):
+        filterset = TestitemFilter(data=data, queryset=Testitem.objects.all())
+
+        self.assertTrue(filterset.is_valid(), filterset.form.errors)
+        return list(filterset.qs.order_by("id").values_list("id", flat=True))
+
+    def test_filter_without_data_returns_all_works(self):
+        self.assertEqual(self.ids_for_filter({}), [230, 435, 722])
+
+    def test_era_choice_filter_returns_unfiltered_queryset_without_value(self):
+        filter_obj = EraChoiceFilter()
+        queryset = Testitem.objects.all()
+
+        self.assertEqual(
+            list(filter_obj.filter(queryset, "").order_by("id").values_list("id", flat=True)),
+            [230, 435, 722],
+        )
+
+    def test_era_choice_filter_filters_inclusive_year_range(self):
+        filter_obj = EraChoiceFilter()
+
+        self.assertEqual(
+            list(filter_obj.filter(Testitem.objects.all(), "1750-1809").order_by("id").values_list("id", flat=True)),
+            [230],
+        )
+
+    def test_all_range_filter_uses_custom_range_widget_bounds(self):
+        filter_obj = AllRangeFilter()
+
+        self.assertEqual(filter_obj.extra["widget"].attrs["data-range_min"], 0)
+        self.assertEqual(filter_obj.extra["widget"].attrs["data-range_max"], 360)
+
+    def test_genre_choice_filter_choices_include_genres_and_used_orphan_subgenres(self):
+        site = Site.objects.get(pk=settings.SITE_ID)
+        genre = Genre.objects.create(name="Fixture Genre", site=site)
+        child_sub_genre = SubGenre.objects.create(name="Child Subgenre", genre=genre, site=site)
+        orphan_sub_genre = SubGenre.objects.create(name="Orphan Subgenre", site=site)
+        Work.objects.filter(pk=230).update(sub_genre=child_sub_genre)
+        Work.objects.filter(pk=435).update(sub_genre=orphan_sub_genre)
+        filter_obj = GenreChoiceFilter()
+
+        self.assertEqual(
+            filter_obj.get_choices(),
+            [(genre, "Fixture Genre"), (orphan_sub_genre, "> Orphan Subgenre")],
+        )
+        self.assertEqual(list(filter_obj.field.choices), filter_obj.get_choices())
+
+    def test_filter_by_composer(self):
+        self.assertEqual(self.ids_for_filter({"composer": 1}), [435, 722])
+
+    def test_filter_by_composer_group(self):
+        group = Group.objects.create(name="Adam Group")
+        group.composer.add(Composer.objects.get(pk=1))
+
+        self.assertEqual(self.ids_for_filter({"composer_group": group.pk}), [435, 722])
+
+    def test_filter_by_era(self):
+        self.assertEqual(self.ids_for_filter({"era": "1810-1839"}), [435])
+
+    def test_filter_by_top_list_adds_list_rank_annotation(self):
+        filterset = TestitemFilter(data={"top_list": 1}, queryset=Testitem.objects.all())
+
+        self.assertTrue(filterset.is_valid(), filterset.form.errors)
+        self.assertEqual(
+            list(filterset.qs.order_by("list_rank").values_list("id", "list_rank")),
+            [(230, 1), (435, 2)],
+        )
+
+    def test_filter_by_duration_range_adds_album_annotations(self):
+        filterset = TestitemFilter(
+            data={"duration_range_min": 100, "duration_range_max": 200},
+            queryset=Testitem.objects.all(),
+        )
+
+        self.assertTrue(filterset.is_valid(), filterset.form.errors)
+        self.assertEqual(
+            list(filterset.qs.values_list("id", "duration", "uri")),
+            [(230, 148, "spotify:album:1234567890abcdefGHIJKL")],
+        )
+
+    def test_filter_by_genre(self):
+        site = Site.objects.get(pk=settings.SITE_ID)
+        genre = Genre.objects.create(name="Fixture Genre", site=site)
+        sub_genre = SubGenre.objects.create(name="Fixture Subgenre", genre=genre, site=site)
+        Work.objects.filter(pk=230).update(sub_genre=sub_genre)
+
+        self.assertEqual(self.ids_for_filter({"genre": "Fixture Genre"}), [230])
+
+    def test_filter_by_orphan_subgenre(self):
+        site = Site.objects.get(pk=settings.SITE_ID)
+        sub_genre = SubGenre.objects.create(name="Orphan Subgenre", site=site)
+        Work.objects.filter(pk=435).update(sub_genre=sub_genre)
+
+        self.assertEqual(self.ids_for_filter({"genre": "Orphan Subgenre"}), [435])
 
 
 class WorkGraphsViewTestCase(TestCase):
