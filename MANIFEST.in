@@ -5,3 +5,5 @@ recursive-include melodramatick/accounts/templates *
 recursive-include melodramatick/composer/templates *
 recursive-include melodramatick/top_list/templates *
 recursive-include melodramatick/work/templates *
+recursive-include testtick/static *
+recursive-include testtick/templates *
