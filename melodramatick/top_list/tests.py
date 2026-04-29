@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from django.contrib.admin.sites import AdminSite
 from django.contrib.messages import get_messages
 from django.contrib.messages.storage.fallback import FallbackStorage
@@ -8,8 +10,9 @@ from django.test import TestCase
 from django.urls import reverse
 
 from melodramatick.accounts.models import CustomUser
+from melodramatick.performance.models import Performance
 from .admin import ListAdmin, ListItemAdmin, ListItemInline
-from .models import List, ListItem
+from .models import Award, AwardLevel, List, ListItem, Progress, update_user_award
 from .views import TopListView
 
 
@@ -30,6 +33,88 @@ class TopListViewTestCase(TestCase):
             [{'max_position': 2, 'list_work_count': 2},  # <List: Top test items - Example Dot Com>
              {'max_position': 1, 'list_work_count': 1}]  # <List: Another Test List - Example Dot Com>
         )
+
+
+class TopListModelTestCase(TestCase):
+    fixtures = ["testtick_composer.json", "testtick_top_list.json", "user.json", "testtick_work.json",
+                "testtick_testitem.json"]
+
+    def test_list_str_and_length(self):
+        list_obj = List.objects.get(id=1)
+
+        self.assertEqual(str(list_obj), "Top test items - Example Dot Com")
+        self.assertEqual(list_obj.length, 2)
+
+    def test_list_item_str(self):
+        list_item = ListItem.objects.get(id=1)
+
+        self.assertEqual(str(list_item), "Template Validation Work - Top test items - Example Dot Com")
+
+    def test_award_level_str(self):
+        self.assertEqual(str(AwardLevel.objects.get(rank=1)), "platinum")
+
+    def test_award_html_icon(self):
+        award = Award.objects.create(
+            user=CustomUser.objects.get(id=1),
+            list=List.objects.get(id=1),
+            level=AwardLevel.objects.get(rank=2),
+        )
+
+        self.assertEqual(
+            award.html_icon,
+            '<i class="fa-solid fa-trophy fa-xl" style="color: #FFD700;" title="Gold"></i>',
+        )
+
+    def test_progress_as_percentage(self):
+        progress = Progress(ratio=0.756)
+
+        self.assertEqual(progress.as_percentage, 76)
+
+    def test_ticks_to_next_award_for_platinum_progress(self):
+        progress = Progress(list=List.objects.get(id=1), ratio=0.9)
+
+        self.assertEqual(progress.ticks_to_next_award, (1, 1))
+
+    def test_ticks_to_next_award_for_gold_progress(self):
+        progress = Progress(list=List.objects.get(id=1), ratio=0.75)
+
+        self.assertEqual(progress.ticks_to_next_award, (1, 2))
+
+    def test_ticks_to_next_award_for_silver_progress(self):
+        progress = Progress(list=List.objects.get(id=1), ratio=0.5)
+
+        self.assertEqual(progress.ticks_to_next_award, (1, 3))
+
+    def test_ticks_to_next_award_for_bronze_progress(self):
+        progress = Progress(list=List.objects.get(id=1), ratio=0.25)
+
+        self.assertEqual(progress.ticks_to_next_award, (1, 4))
+
+    def test_ticks_to_next_award_when_complete(self):
+        progress = Progress(list=List.objects.get(id=1), ratio=1.0)
+
+        self.assertEqual(progress.ticks_to_next_award, (0, 0))
+
+
+class UpdateUserAwardSignalTestCase(TestCase):
+    fixtures = ["user.json", "testtick_company.json", "testtick_composer.json", "testtick_performance.json",
+                "testtick_testitem.json", "testtick_venue.json", "testtick_work.json"]
+
+    @patch("melodramatick.tasks.update_user_award_shared_task.delay")
+    def test_update_user_award_with_instance(self, delay):
+        performance = Performance.objects.get(id=1)
+
+        update_user_award(instance=performance)
+
+        delay.assert_called_once_with(1, 1)
+
+    @patch("melodramatick.tasks.update_user_award_shared_task.delay")
+    def test_update_user_award_with_login_user(self, delay):
+        user = CustomUser.objects.get(id=2)
+
+        update_user_award(user=user)
+
+        delay.assert_called_once_with(2, None)
 
 
 class ListAdminTestCase(TestCase):
