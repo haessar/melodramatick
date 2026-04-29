@@ -179,7 +179,10 @@ class WorkFilterTestCase(TestCase):
             filter_obj.get_choices(),
             [(genre, "Fixture Genre"), (orphan_sub_genre, "> Orphan Subgenre")],
         )
-        self.assertEqual(list(filter_obj.field.choices), filter_obj.get_choices())
+        self.assertEqual(
+            list(filter_obj.field.choices),
+            [("", "---------"), (genre, "Fixture Genre"), (orphan_sub_genre, "> Orphan Subgenre")],
+        )
 
     def test_filter_by_composer(self):
         self.assertEqual(self.ids_for_filter({"composer": 1}), [435, 722])
