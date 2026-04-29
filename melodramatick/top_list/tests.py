@@ -75,6 +75,19 @@ class TopListModelTestCase(TestCase):
 
         self.assertEqual(progress.ticks_to_next_award, (1, 1))
 
+    def test_ticks_to_next_award_uses_tick_count_for_platinum_progress(self):
+        list_obj = List.objects.get(id=1)
+        works = list(ListItem.objects.filter(list=list_obj).values_list("item", flat=True))
+        for position in range(3, 13):
+            ListItem.objects.create(
+                item_id=works[position % len(works)],
+                list=list_obj,
+                position=position,
+            )
+        progress = Progress(list=list_obj, ratio=11 / 12, count=11)
+
+        self.assertEqual(progress.ticks_to_next_award, (1, 1))
+
     def test_ticks_to_next_award_for_gold_progress(self):
         progress = Progress(list=List.objects.get(id=1), ratio=0.75)
 

@@ -97,21 +97,26 @@ class Progress(models.Model):
             2. rank of the next award
         Will return (0, 0) if top award has already been achieved
         """
+        length = self.list.length
+        current_count = self.count
+        if current_count == 0 and self.ratio > 0:
+            current_count = math.floor((self.ratio * length) + 1e-9)
+
         if 0.9 <= self.ratio < 1.0:
-            distance = 1.0 - self.ratio
+            target_count = length
             rank = 1
         elif 0.75 <= self.ratio < 0.9:
-            distance = 0.9 - self.ratio
+            target_count = (9 * length + 9) // 10
             rank = 2
         elif 0.5 <= self.ratio < 0.75:
-            distance = 0.75 - self.ratio
+            target_count = (3 * length + 3) // 4
             rank = 3
         elif self.ratio < 0.5:
-            distance = 0.5 - self.ratio
+            target_count = (length + 1) // 2
             rank = 4
         else:
             return 0, 0
-        return math.ceil(distance * self.list.length), rank
+        return max(target_count - current_count, 0), rank
 
 
 @receiver(user_logged_in)
