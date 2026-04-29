@@ -77,8 +77,12 @@ class WorkGraphsView(ListView):
 
     def get_context_data(self, **kwargs):
         qs = self.object_list.annotate(
-                user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=self.request.user)), 0),
-                user_perfs=Count('performance', filter=Q(performance__user=self.request.user) & Q(performance__streamed=False))
+                user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=self.request.user), distinct=True), 0),
+                user_perfs=Count(
+                    'performance',
+                    filter=Q(performance__user=self.request.user) & Q(performance__streamed=False),
+                    distinct=True,
+                )
             )
         top = plots.plot_works_by_decade(qs, figsize=(12, 6))
         middle_left = plots.plot_works_per_composer(qs, figsize=(4, 6))
