@@ -3,7 +3,7 @@ from collections import Counter
 import itertools
 
 from django.conf import settings
-from django.db.models import Avg, Count
+from django.db.models import Avg, Count, Q
 import matplotlib
 from matplotlib.ticker import MultipleLocator
 import numpy as np
@@ -34,20 +34,24 @@ def plot_works_by_decade(ax, qs):
     by_decades = (
         qs
         .extra(select={'year': 'FLOOR(year/10)*10'})
-        .values('year', 'user_listens', 'user_perfs')
-        .annotate(dcount=Count('year'))
+        .values('year')
+        .annotate(
+            works=Count('id'),
+            listened=Count('id', filter=Q(user_listened=True)),
+            ticked=Count('id', filter=Q(user_ticked=True)),
+        )
         .order_by()
     )
 
     decades = [int(x['year']) for x in by_decades]
-    counts = [x['dcount'] for x in by_decades]
-    listens = [x['user_listens'] for x in by_decades]
-    perfs = [x['user_perfs'] for x in by_decades]
+    counts = [x['works'] for x in by_decades]
+    listens = [x['listened'] for x in by_decades]
+    ticked = [x['ticked'] for x in by_decades]
 
     label = settings.WORK_PLURAL_LABEL.title()
     ax.bar(decades, counts, width=5, label=label)
-    ax.bar(decades, listens, width=4, label='User listens')
-    ax.bar(decades, perfs, width=3, label='User performances')
+    ax.bar(decades, listens, width=4, label='User listened works')
+    ax.bar(decades, ticked, width=3, label='User ticked works')
 
     ax.set_title('{} by decade'.format(label))
     ax.set_ylabel("Count")

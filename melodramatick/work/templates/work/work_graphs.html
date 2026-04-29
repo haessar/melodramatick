@@ -22,14 +22,20 @@
         </div>
         <div class="card text-center">
           <div class="card-body align-bottom">
+            <p class="card-title">Total {{ label }} ticked:</p>
+            <h2 class="card-text">{{ user_ticked_work_count }} ({{ user_ticked_work_percentage }}%)</h2>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body align-bottom">
             <p class="card-title">Total user performances (excl. streams):</p>
             <h2 class="card-text">{{ user_performance_count }}</h2>
           </div>
         </div>
         <div class="card text-center">
           <div class="card-body align-bottom">
-            <p class="card-title">Total user listens:</p>
-            <h2 class="card-text">{{ user_listen_count }}</h2>
+            <p class="card-title">Total {{ label }} listened:</p>
+            <h2 class="card-text">{{ user_listened_work_count }}</h2>
           </div>
         </div>
       </div>

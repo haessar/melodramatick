@@ -248,6 +248,7 @@ class WorkGraphsViewTestCase(TestCase):
     def setUp(self):
         self.request = RequestFactory().get("/works/graphs/")
         self.request.user = CustomUser.objects.get(id=1)
+        self.request.site = Site.objects.get(pk=settings.SITE_ID)
 
     @patch("melodramatick.work.views.plots.plot_top_lists_by_decade", return_value="top_lists_bar")
     @patch("melodramatick.work.views.plots.plot_duration_hist", return_value="duration_hist")
@@ -264,6 +265,14 @@ class WorkGraphsViewTestCase(TestCase):
         view.object_list = Testitem.objects.all()
 
         context = view.get_context_data()
+        decade_qs = plot_mocks[0].call_args.args[0]
+        decade_counts = {}
+        for item in decade_qs.order_by("id").values("year", "user_listened", "user_ticked"):
+            decade = int(item["year"] / 10) * 10
+            decade_counts.setdefault(decade, {"works": 0, "listened": 0, "ticked": 0})
+            decade_counts[decade]["works"] += 1
+            decade_counts[decade]["listened"] += int(item["user_listened"])
+            decade_counts[decade]["ticked"] += int(item["user_ticked"])
 
         self.assertEqual(context["top"], "top")
         self.assertEqual(context["middle_left"], "middle_left")
@@ -275,8 +284,18 @@ class WorkGraphsViewTestCase(TestCase):
         self.assertEqual(context["duration_hist"], "duration_hist")
         self.assertEqual(context["top_lists_bar"], "top_lists_bar")
         self.assertEqual(context["work_count"], 3)
-        self.assertEqual(context["user_performance_count"], 3)
-        self.assertEqual(context["user_listen_count"], 3)
+        self.assertEqual(context["user_performance_count"], 2)
+        self.assertEqual(context["user_ticked_work_count"], 2)
+        self.assertEqual(context["user_ticked_work_percentage"], 67)
+        self.assertEqual(context["user_listened_work_count"], 2)
+        self.assertEqual(
+            decade_counts,
+            {
+                1800: {"works": 1, "listened": 1, "ticked": 1},
+                1830: {"works": 1, "listened": 1, "ticked": 1},
+                1840: {"works": 1, "listened": 0, "ticked": 0},
+            },
+        )
 
 
 class WorkAdminTestCase(TestCase):

@@ -1,7 +1,6 @@
 import random
 
-from django.db.models import Count, Q, Sum
-from django.db.models.functions import Coalesce
+from django.db.models import Count, Exists, OuterRef, Q, Sum
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
@@ -12,6 +11,7 @@ from django_tables2 import SingleTableMixin
 from . import plots
 from .models import Work
 from melodramatick.listen.models import Listen
+from melodramatick.performance.models import Performance
 from melodramatick.utils.rendering import render_tickbox
 
 
@@ -75,16 +75,39 @@ class WorkGraphsView(ListView):
     template_name = 'work/work_graphs.html'
     model = Work
 
+    def get_ticked_work_percentage(self, ticked_work_count):
+        work_count = self.object_list.count()
+        if not work_count:
+            return 0
+        return round((ticked_work_count / work_count) * 100)
+
     def get_context_data(self, **kwargs):
         qs = self.object_list.annotate(
-                user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=self.request.user), distinct=True), 0),
+                user_listens=Count('listen', filter=Q(listen__user=self.request.user), distinct=True),
                 user_perfs=Count(
                     'performance',
                     filter=Q(performance__user=self.request.user) & Q(performance__streamed=False),
                     distinct=True,
                 )
             )
-        top = plots.plot_works_by_decade(qs, figsize=(12, 6))
+        decade_qs = self.object_list.annotate(
+            user_listened=Exists(
+                Listen.objects.filter(
+                    work=OuterRef('pk'),
+                    user=self.request.user,
+                    site=self.request.site,
+                )
+            ),
+            user_ticked=Exists(
+                Performance.objects.filter(
+                    work=OuterRef('pk'),
+                    user=self.request.user,
+                    site=self.request.site,
+                    streamed=False,
+                )
+            ),
+        )
+        top = plots.plot_works_by_decade(decade_qs, figsize=(12, 6))
         middle_left = plots.plot_works_per_composer(qs, figsize=(4, 6))
         middle_centre = plots.plot_perfs_per_composer(qs, figsize=(4, 6))
         middle_right = plots.plot_listens_per_composer(qs, figsize=(4, 6))
@@ -93,6 +116,12 @@ class WorkGraphsView(ListView):
         bottom_right = plots.plot_listens_per_era(qs, figsize=(3, 6))
         duration_hist = plots.plot_duration_hist(qs, figsize=(12, 6))
         top_lists_bar = plots.plot_top_lists_by_decade(qs, figsize=(12, 6))
+        ticked_work_count = Work.objects.filter(
+            site=self.request.site,
+            performance__user=self.request.user,
+            performance__site=self.request.site,
+            performance__streamed=False,
+        ).distinct().count()
         context = {
             'top': top,
             'middle_left': middle_left,
@@ -104,8 +133,18 @@ class WorkGraphsView(ListView):
             'duration_hist': duration_hist,
             'top_lists_bar': top_lists_bar,
             'work_count': self.object_list.count(),
-            'user_performance_count': qs.aggregate(Sum('user_perfs'))['user_perfs__sum'],
-            'user_listen_count': qs.aggregate(Sum('user_listens'))['user_listens__sum'],
+            'user_performance_count': Performance.objects.filter(
+                user=self.request.user,
+                site=self.request.site,
+                streamed=False,
+            ).count(),
+            'user_ticked_work_count': ticked_work_count,
+            'user_ticked_work_percentage': self.get_ticked_work_percentage(ticked_work_count),
+            'user_listened_work_count': Work.objects.filter(
+                site=self.request.site,
+                listen__user=self.request.user,
+                listen__site=self.request.site,
+            ).distinct().count(),
         }
         return context
 
