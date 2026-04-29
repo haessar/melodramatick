@@ -53,7 +53,7 @@ class ListAdmin(admin.ModelAdmin):
             except ValueError:
                 self.message_user(request, "Ensure filename {} is in correct format".format(txt_file.name))
                 return redirect("..")
-            list = List.objects.create(name=list_name, publication=pub_name)
+            list = List.objects.create(name=list_name, publication=pub_name, site=request.site)
             decoded_file = txt_file.read().decode('utf-8')
             titles = decoded_file.split(',')
             for idx, title in enumerate(titles, 1):
@@ -61,6 +61,7 @@ class ListAdmin(admin.ModelAdmin):
                     work = Work.objects.get(title=title)
                     ListItem.objects.create(list=list, item=work, position=idx)
                 except ObjectDoesNotExist:
+                    list.delete()
                     self.message_user(request,
                                       "Work '{}' not recognised. Please ensure title matches that in database.".format(title))
                     return redirect("..")

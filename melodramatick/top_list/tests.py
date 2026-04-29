@@ -1,5 +1,15 @@
+from django.contrib.admin.sites import AdminSite
+from django.contrib.messages import get_messages
+from django.contrib.messages.storage.fallback import FallbackStorage
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.http import HttpResponse
+from django.test import RequestFactory
 from django.test import TestCase
+from django.urls import reverse
 
+from melodramatick.accounts.models import CustomUser
+from .admin import ListAdmin, ListItemAdmin, ListItemInline
+from .models import List, ListItem
 from .views import TopListView
 
 
@@ -20,3 +30,115 @@ class TopListViewTestCase(TestCase):
             [{'max_position': 2, 'list_work_count': 2},  # <List: Top test items - Example Dot Com>
              {'max_position': 1, 'list_work_count': 1}]  # <List: Another Test List - Example Dot Com>
         )
+
+
+class ListAdminTestCase(TestCase):
+    fixtures = ["testtick_composer.json", "testtick_top_list.json", "user.json", "testtick_work.json",
+                "testtick_testitem.json"]
+
+    def setUp(self):
+        self.admin = ListAdmin(model=List, admin_site=AdminSite())
+        self.factory = RequestFactory()
+        self.client.force_login(CustomUser.objects.get(id=1))
+        self.request = self.client.get("/").wsgi_request
+        self.request.user = CustomUser.objects.get(id=1)
+
+    def get_admin_post_request(self, txt_file):
+        request = self.factory.post("/admin/top_list/list/import-txt/", {"txt_file": txt_file})
+        request.user = self.request.user
+        request.site = self.request.site
+        setattr(request, "session", self.client.session)
+        setattr(request, "_messages", FallbackStorage(request))
+        return request
+
+    def test_list_item_inline_uses_item_autocomplete(self):
+        self.assertEqual(ListItemInline.autocomplete_fields, ["item"])
+
+    def test_get_urls_adds_import_txt_endpoint(self):
+        self.assertEqual(self.admin.get_urls()[0].pattern._route, "import-txt/")
+
+    def test_parse_filename(self):
+        txt_file = SimpleUploadedFile("top_template_works-example_publication.txt", b"")
+
+        self.assertEqual(
+            self.admin.parse_filename(txt_file),
+            ("Top Template Works", "Example Publication"),
+        )
+
+    def test_save_model_sets_current_site(self):
+        obj = List(name="Admin Saved List", publication="Test Publisher", year=2024)
+
+        self.admin.save_model(self.request, obj, form=None, change=False)
+
+        self.assertEqual(obj.site, self.request.site)
+        self.assertTrue(List.objects.filter(name="Admin Saved List", site=self.request.site).exists())
+
+    def test_import_txt_get_renders_form_with_docs(self):
+        response = self.admin.import_txt(self.request)
+
+        self.assertIsInstance(response, HttpResponse)
+        self.assertContains(response, "Body should contain comma-separated list")
+
+    def test_import_txt_rejects_bad_filename(self):
+        txt_file = SimpleUploadedFile("bad_filename.txt", b"Template Validation Work")
+        request = self.get_admin_post_request(txt_file)
+
+        response = self.admin.import_txt(request)
+
+        self.assertEqual(response.url, "..")
+        self.assertIn("correct format", str(list(get_messages(request))[-1]))
+
+    def test_import_txt_rejects_unknown_work(self):
+        txt_file = SimpleUploadedFile("top_items-example.txt", b"Not A Real Work")
+        request = self.get_admin_post_request(txt_file)
+
+        response = self.admin.import_txt(request)
+
+        self.assertEqual(response.url, "..")
+        self.assertFalse(List.objects.filter(name="Top Items", publication="Example").exists())
+        self.assertIn("not recognised", str(list(get_messages(request))[-1]))
+
+    def test_import_txt_creates_list_items(self):
+        txt_file = SimpleUploadedFile(
+            "top_items-example.txt",
+            b"Template Validation Work,Secondary Template Work",
+        )
+        request = self.get_admin_post_request(txt_file)
+
+        response = self.admin.import_txt(request)
+
+        imported = List.objects.get(name="Top Items", publication="Example")
+        self.assertEqual(response.url, "..")
+        self.assertEqual(imported.site, self.request.site)
+        self.assertQuerysetEqual(
+            imported.listitem_set.order_by("position").values_list("item_id", "position"),
+            [(230, 1), (435, 2)],
+            transform=tuple,
+        )
+        self.assertIn("txt file has been imported", str(list(get_messages(request))[-1]))
+
+
+class ListItemAdminTestCase(TestCase):
+    fixtures = ["testtick_composer.json", "testtick_top_list.json", "user.json", "testtick_work.json",
+                "testtick_testitem.json"]
+
+    def setUp(self):
+        self.admin = ListItemAdmin(model=ListItem, admin_site=AdminSite())
+        self.factory = RequestFactory()
+
+    def test_response_add_redirects_to_incremented_addanother_url(self):
+        request = self.factory.post("/", {"_addanother": "1", "list": "1", "position": "2"})
+
+        response = self.admin.response_add(request, ListItem.objects.get(id=1))
+
+        self.assertEqual(
+            response.url,
+            "{}?list=1&position=3".format(reverse("admin:top_list_listitem_add")),
+        )
+
+    def test_response_add_redirects_to_changelist_without_addanother(self):
+        request = self.factory.post("/", {"list": "1", "position": "2"})
+
+        response = self.admin.response_add(request, ListItem.objects.get(id=1))
+
+        self.assertEqual(response.url, reverse("admin:top_list_listitem_changelist"))
