@@ -6,18 +6,19 @@ on:
       - master
 jobs:
   build-and-deploy:
+    if: github.repository == 'haessar/melodramatick'
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v1.0.3
         env:
-          SETTINGS: "operatick.settings"
+          SETTINGS_MODULES: "operatick.settings balletick.settings concertantick.settings"
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script_stop: true
-          envs: SETTINGS
+          envs: SETTINGS_MODULES
           script: |
             cd melodramatick/
             source venv/bin/activate
@@ -26,6 +27,9 @@ jobs:
             git submodule update --recursive --remote
             git stash pop
             pip install .
-            DJANGO_SETTINGS_MODULE=$SETTINGS python manage.py migrate
+            for settings in $SETTINGS_MODULES; do
+              DJANGO_SETTINGS_MODULE=$settings python manage.py migrate
+              DJANGO_SETTINGS_MODULE=$settings python manage.py collectstatic --noinput
+            done
             sudo systemctl restart celery.target gunicorn.target
             sudo systemctl restart nginx

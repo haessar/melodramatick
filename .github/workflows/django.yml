@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   build:
-
+    if: github.repository == 'haessar/melodramatick' || vars.MELODRAMATICK_ENABLE_CI == 'true'
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4

@@ -76,6 +76,7 @@ class ListAdmin(admin.ModelAdmin):
 @admin.register(ListItem)
 class ListItemAdmin(admin.ModelAdmin):
     list_display = ("id", "item", "list")
+    search_fields = ("item__title", "list__name", "list__publication")
 
     def response_add(self, request, obj, post_url_continue=None):
         """

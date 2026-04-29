@@ -87,6 +87,8 @@
             <a href="{% url 'work:index' %}?top_list={{ list_entry.list.id }}" class="mb-1">{{ list_entry.list }}</a>
             <span>{{ list_entry.position }}</span>
           </div>
+          {% block top_list_item_extra %}
+          {% endblock %}
           <div class="progress" style="opacity: 0.5;">
             {% widthratio list_entry.position|sub:1 list_entry.list.length 100 as width %}
             {% if list_entry.position == 1 %}
