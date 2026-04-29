@@ -12,9 +12,11 @@ from melodramatick.composer.models import Composer, SiteComplete
 from melodramatick.performance.models import Performance
 from testtick.admin import TestitemAdmin
 from testtick.models import Testitem
+from testtick.views import TestitemTableView
 
 from .admin import AKAInline, ListenInline, WorkParentAdmin
 from .models import Work
+from .views import WorkGraphsView
 
 
 class WorkDetailViewTestCase(TestCase):
@@ -32,6 +34,137 @@ class WorkDetailViewTestCase(TestCase):
         self.assertEqual(response.context_data['listen_count'], 3)
         response = self.client.get("/works/435")
         self.assertEqual(response.context_data['listen_count'], 0)
+
+
+class WorkTableViewTestCase(TestCase):
+    fixtures = [
+        'user.json',
+        'testtick_album.json',
+        'testtick_company.json',
+        'testtick_composer.json',
+        'testtick_listen.json',
+        'testtick_performance.json',
+        'testtick_testitem.json',
+        'testtick_top_list.json',
+        'testtick_venue.json',
+        'testtick_work.json',
+    ]
+
+    def setUp(self):
+        self.factory = RequestFactory()
+        self.user = CustomUser.objects.get(id=1)
+        self.client.force_login(self.user)
+
+    @patch("melodramatick.work.views.random.randint", return_value=0)
+    def test_render_to_response_adds_random_playback_context(self, randint):
+        response = self.client.get("/works/")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context_data["random_uri"], "spotify:album:1234567890abcdefGHIJKL")
+        self.assertEqual(response.context_data["work_id"], 230)
+
+    def test_get_table_data_adds_user_annotations(self):
+        request = self.factory.get("/works/")
+        request.user = self.user
+        view = TestitemTableView()
+        view.setup(request)
+        view.object_list = Testitem.objects.all()
+
+        data = {
+            item["id"]: item
+            for item in view.get_table_data().values(
+                "id",
+                "user_listens",
+                "user_performances",
+                "total_lists",
+            )
+        }
+
+        self.assertEqual(data[230]["user_listens"], 1)
+        self.assertEqual(data[230]["user_performances"], 2)
+        self.assertEqual(data[230]["total_lists"], 2)
+        self.assertEqual(data[435]["user_listens"], 2)
+        self.assertEqual(data[435]["user_performances"], 2)
+        self.assertEqual(data[435]["total_lists"], 1)
+        self.assertIsNone(data[722]["user_listens"])
+        self.assertEqual(data[722]["user_performances"], 0)
+        self.assertEqual(data[722]["total_lists"], 0)
+
+    def get_table_kwargs_for_querystring(self, path):
+        request = self.factory.get(path)
+        request.user = self.user
+        view = TestitemTableView()
+        view.setup(request)
+        return view.get_table_kwargs()
+
+    def test_get_table_kwargs_defaults(self):
+        kwargs = self.get_table_kwargs_for_querystring("/works/")
+
+        self.assertEqual(kwargs["order_by"], ("total_lists", "year"))
+        self.assertEqual(kwargs["exclude"], {"position", "duration", "uri"})
+
+    def test_get_table_kwargs_for_top_list_filter(self):
+        kwargs = self.get_table_kwargs_for_querystring("/works/?top_list=1")
+
+        self.assertEqual(kwargs["order_by"], ("position",))
+        self.assertIn("top_list", kwargs["exclude"])
+        self.assertIn("total_lists", kwargs["exclude"])
+        self.assertNotIn("position", kwargs["exclude"])
+
+    def test_get_table_kwargs_for_duration_filter(self):
+        kwargs = self.get_table_kwargs_for_querystring("/works/?duration_range_min=100")
+
+        self.assertEqual(kwargs["order_by"], ("duration",))
+        self.assertIn("duration_range_min", kwargs["exclude"])
+        self.assertIn("random_uri", kwargs["exclude"])
+        self.assertNotIn("duration", kwargs["exclude"])
+        self.assertNotIn("uri", kwargs["exclude"])
+
+
+class WorkGraphsViewTestCase(TestCase):
+    fixtures = [
+        'user.json',
+        'testtick_company.json',
+        'testtick_composer.json',
+        'testtick_listen.json',
+        'testtick_performance.json',
+        'testtick_testitem.json',
+        'testtick_venue.json',
+        'testtick_work.json',
+    ]
+
+    def setUp(self):
+        self.request = RequestFactory().get("/works/graphs/")
+        self.request.user = CustomUser.objects.get(id=1)
+
+    @patch("melodramatick.work.views.plots.plot_top_lists_by_decade", return_value="top_lists_bar")
+    @patch("melodramatick.work.views.plots.plot_duration_hist", return_value="duration_hist")
+    @patch("melodramatick.work.views.plots.plot_listens_per_era", return_value="bottom_right")
+    @patch("melodramatick.work.views.plots.plot_perfs_per_era", return_value="bottom_centre")
+    @patch("melodramatick.work.views.plots.plot_works_per_era", return_value="bottom_left")
+    @patch("melodramatick.work.views.plots.plot_listens_per_composer", return_value="middle_right")
+    @patch("melodramatick.work.views.plots.plot_perfs_per_composer", return_value="middle_centre")
+    @patch("melodramatick.work.views.plots.plot_works_per_composer", return_value="middle_left")
+    @patch("melodramatick.work.views.plots.plot_works_by_decade", return_value="top")
+    def test_get_context_data(self, *plot_mocks):
+        view = WorkGraphsView()
+        view.setup(self.request)
+        view.object_list = Testitem.objects.all()
+
+        context = view.get_context_data()
+
+        self.assertEqual(context["top"], "top")
+        self.assertEqual(context["middle_left"], "middle_left")
+        self.assertEqual(context["middle_centre"], "middle_centre")
+        self.assertEqual(context["middle_right"], "middle_right")
+        self.assertEqual(context["bottom_left"], "bottom_left")
+        self.assertEqual(context["bottom_centre"], "bottom_centre")
+        self.assertEqual(context["bottom_right"], "bottom_right")
+        self.assertEqual(context["duration_hist"], "duration_hist")
+        self.assertEqual(context["top_lists_bar"], "top_lists_bar")
+        self.assertEqual(context["work_count"], 3)
+        self.assertEqual(context["user_performance_count"], 3)
+        self.assertEqual(context["user_listen_count"], 3)
 
 
 class WorkAdminTestCase(TestCase):
