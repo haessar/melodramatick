@@ -1,0 +1,10 @@
+[
+    {
+        "model": "performance.company",
+        "pk": 1,
+        "fields": {
+            "name": "Test Company",
+            "site": 4
+        }
+    }
+]

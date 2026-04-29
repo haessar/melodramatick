@@ -1,0 +1,10 @@
+[
+    {
+        "model": "composer.quote",
+        "pk": 200,
+        "fields": {
+            "composer": 2,
+            "quote": "This is a quote by Beethoven."
+        }
+    }
+]

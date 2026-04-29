@@ -1,0 +1,13 @@
+[
+    {
+        "model": "performance.venue",
+        "pk": 1,
+        "fields": {
+            "name": "Test Venue",
+            "location": "Test City",
+            "sites": [
+                4
+            ]
+        }
+    }
+]

@@ -35,18 +35,27 @@ class GenreChoiceFilter(django_filters.ChoiceFilter):
     SUBGENRE_PREFIX = '> '
 
     def __init__(self, *args, **kwargs):
-        self.choices = []
+        super().__init__(choices=[], *args, **kwargs)
+
+    def get_choices(self):
+        choices = []
         for obj in chain(Genre.objects.all(), SubGenre.objects.filter(genre=None, work__in=Work.objects.all()).distinct()):
             if type(obj) is Genre:
                 name = "{}{}".format(self.GENRE_PREFIX, obj.name)
             else:
                 name = "{}{}".format(self.SUBGENRE_PREFIX, obj.name)
-            self.choices.append((obj, name))
-        super().__init__(choices=self.choices, *args, **kwargs)
+            choices.append((obj, name))
+        return choices
+
+    @property
+    def field(self):
+        field = super().field
+        field.choices = self.get_choices()
+        return field
 
     def filter(self, qs, value):
         if value:
-            choice = [obj for obj, name in self.choices if
+            choice = [obj for obj, name in self.get_choices() if
                       name.replace(self.GENRE_PREFIX, '').replace(self.SUBGENRE_PREFIX, '') == value][0]
             if type(choice) is Genre:
                 return qs.filter(sub_genre__genre=choice)

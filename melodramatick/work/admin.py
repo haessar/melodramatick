@@ -83,8 +83,7 @@ class BaseWorkAdmin(PolymorphicChildModelAdmin):
                         'Composer not recognised. Please add an entry for the composer whose work you wish to import.')
                     return redirect("..")
                 try:
-                    # TODO add site to creation?
-                    Work.objects.get_or_create(**row)
+                    self.model.objects.get_or_create(site=request.site, **row)
                 except IntegrityError:
                     pass
             # If CSV only contains work of single composer, assume it is full compilation of their work.
@@ -108,7 +107,7 @@ class BaseWorkAdmin(PolymorphicChildModelAdmin):
     @admin.action(description='Add performance for each work')
     def save_performance(self, request, queryset):
         for work in queryset:
-            p = Performance(user=request.user)
+            p = Performance(user=request.user, site=request.site)
             p.save()
             p.work.add(work)
         self.message_user(request, "Your performances have been logged.")

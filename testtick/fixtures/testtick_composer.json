@@ -9,8 +9,7 @@
             "gender": "M",
             "birth_date": "1803-07-24",
             "sites": [
-                2,
-                1
+                4
             ]
         }
     },
@@ -24,7 +23,7 @@
             "gender": "M",
             "birth_date": null,
             "sites": [
-                1
+                4
             ]
         }
     }

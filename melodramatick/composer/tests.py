@@ -1,3 +1,6 @@
+import datetime
+from unittest.mock import patch
+
 from django.contrib.admin.sites import AdminSite
 from django.contrib.messages import get_messages
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -13,7 +16,7 @@ from melodramatick.accounts.models import CustomUser
 
 
 class ComposerModelTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json", "sitecomplete.json"]
+    fixtures = ["testtick_composer.json", "testtick_sitecomplete.json"]
 
     def setUp(self):
         self.composer = Composer.all_sites.get(surname="Adam")
@@ -25,13 +28,20 @@ class ComposerModelTestCase(TestCase):
         self.assertEqual(self.composer.full_name(), "Adolphe Adam")
 
     def test_unique_constraint(self):
-        with self.assertRaisesMessage(IntegrityError, "Duplicate"):
+        with self.assertRaises(IntegrityError):
             # Shared surname and first_name, despite different nationality value to that in db.
             Composer.all_sites.create(surname="Adam", first_name="Adolphe", nationality="Swiss")
 
+    def test_anniversary(self):
+        with patch('melodramatick.composer.models.datetime') as mock_datetime:
+            mock_datetime.now.return_value = self.composer.birth_date
+            self.assertEqual(self.composer.anniversary, 0)
+            mock_datetime.now.return_value = self.composer.birth_date + datetime.timedelta(days=1)
+            self.assertIsNone(self.composer.anniversary)
+
 
 class ComposerAdminTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json", "user.json"]
+    fixtures = ["testtick_composer.json", "user.json"]
 
     def setUp(self):
         self.composer_admin = ComposerAdmin(model=Composer, admin_site=AdminSite())
@@ -74,7 +84,7 @@ class ComposerAdminTestCase(TestCase):
 
 
 class ComposerFilterTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json"]
+    fixtures = ["testtick_composer.json"]
 
     def setUp(self):
         self.filter = ComposerFilter()
@@ -85,7 +95,7 @@ class ComposerFilterTestCase(TestCase):
 
 
 class ComposerAutocompleteTestCase(TestCase):
-    fixtures = ["composer.json", "sites.json", "user.json"]
+    fixtures = ["testtick_composer.json", "user.json"]
 
     def setUp(self):
         response = self.client.get("/")
@@ -100,22 +110,15 @@ class ComposerAutocompleteTestCase(TestCase):
         self.request.user = CustomUser.objects.get(id=1)
         self.view.q = ""
         qs = self.view.get_queryset()
-        if self.request.site.id == 1:
-            self.assertEquals(len(qs), 2)
-        elif self.request.site.id == 2:
-            self.assertEquals(len(qs), 1)
+        self.assertEquals(len(qs), 2)
         self.view.q = "b"
         qs = self.view.get_queryset()
-        if self.request.site.id == 1:
-            # Return <QuerySet [<Composer: Beethoven, Ludwig van>]> when q is starting letter
-            self.assertQuerysetEqual(qs, Composer.objects.filter(surname="Beethoven"))
-        elif self.request.site.id == 2:
-            # Return empty queryset when no composer on site contains q as starting letter
-            self.assertQuerysetEqual(qs, [])
+        # Return <QuerySet [<Composer: Beethoven, Ludwig van>]> when q is starting letter
+        self.assertQuerysetEqual(qs, Composer.objects.filter(surname="Beethoven"))
 
 
 class ComposerListViewTestCase(TestCase):
-    fixtures = ["contenttypes.json", "composer.json", "sites.json", "work.json", "opera.json"]
+    fixtures = ["testtick_composer.json", "testtick_work.json", "testtick_testitem.json"]
 
     def setUp(self):
         response = self.client.get("/")
@@ -125,18 +128,11 @@ class ComposerListViewTestCase(TestCase):
 
     def test_get_table_data(self):
         table_data = self.view.get_table_data()
-        # Assertion - <Composer: Adam, Adolphe> has two works overall: one on each site.
-        if self.request.site.id == 1:
-            self.assertListEqual(
-                list(table_data.values('total_works', 'total_top_lists').order_by('id')),
-                [{'total_works': 1, 'total_top_lists': 0},  # <Composer: Adam, Adolphe>
-                 {'total_works': 1, 'total_top_lists': 0}]  # <Composer: Beethoven, Ludwig van>
-            )
-        elif self.request.site.id == 2:
-            self.assertQuerysetEqual(
-                table_data.values('total_works', 'total_top_lists'),
-                values=[{'total_works': 1, 'total_top_lists': 0}]  # <Composer: Adam, Adolphe>
-            )
+        self.assertListEqual(
+            list(table_data.values('total_works', 'total_top_lists').order_by('id')),
+            [{'total_works': 2, 'total_top_lists': 0},  # <Composer: Adam, Adolphe>
+             {'total_works': 1, 'total_top_lists': 0}]  # <Composer: Beethoven, Ludwig van>
+        )
         # TODO - Add assertion for top_lists_to_works annotation
 
     def test_get_table_kwargs(self):

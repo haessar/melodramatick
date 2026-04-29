@@ -10,8 +10,8 @@ from melodramatick.work.models import Work
 
 
 class PerformanceAdminTestCase(TestCase):
-    fixtures = ['contenttypes.json', 'user.json', 'sites.json', 'company.json', 'performance.json', 'venue.json',
-                'composer.json', 'work.json', 'opera.json']
+    fixtures = ['user.json', 'testtick_company.json', 'testtick_performance.json', 'testtick_venue.json',
+                'testtick_composer.json', 'testtick_work.json', 'testtick_testitem.json']
 
     def setUp(self):
         self.performance_admin = PerformanceAdmin(model=Performance, admin_site=AdminSite())
@@ -69,7 +69,7 @@ class PerformanceAdminTestCase(TestCase):
 
 
 class TickViewTestCase(TestCase):
-    fixtures = ['composer.json', 'sites.json', 'user.json', 'work.json', 'opera.json']
+    fixtures = ['testtick_composer.json', 'user.json', 'testtick_work.json', 'testtick_testitem.json']
 
     def setUp(self):
         self.request = self.client.get("/").wsgi_request
@@ -77,7 +77,7 @@ class TickViewTestCase(TestCase):
         self.request.user = CustomUser.objects.get(id=1)
 
     def test_tick_view(self):
-        work_id = 230 if self.request.site.id == 1 else 722
+        work_id = 230
         tick_view(self.request, work=work_id)
         qs = Performance.objects.all()
         # Only 1 performance object should be created...
