@@ -6,12 +6,16 @@ from django.contrib.messages import get_messages
 from django.contrib.messages.storage.fallback import FallbackStorage
 from django.contrib.sites.models import Site
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.db.models import Count, Exists, OuterRef, Q, Sum, Value
+from django.db.models.functions import Coalesce
 from django.http import HttpResponse
 from django.test import RequestFactory, TestCase
 
 from melodramatick.accounts.models import CustomUser
 from melodramatick.composer.models import Composer, Group, SiteComplete
+from melodramatick.listen.models import Album, Listen
 from melodramatick.performance.models import Performance
+from melodramatick.top_list.models import List as TopList, ListItem
 from testtick.admin import TestitemAdmin
 from testtick.filters import TestitemFilter
 from testtick.models import Testitem
@@ -20,6 +24,7 @@ from testtick.views import TestitemTableView
 from .admin import AKAInline, ListenInline, WorkParentAdmin
 from .filters import AllRangeFilter, EraChoiceFilter, GenreChoiceFilter
 from .models import Genre, SubGenre, Work
+from . import plots as work_plots
 from .views import WorkGraphsView
 
 
@@ -236,6 +241,116 @@ class WorkFilterTestCase(TestCase):
 class WorkGraphsViewTestCase(TestCase):
     fixtures = [
         'user.json',
+        'testtick_album.json',
+        'testtick_company.json',
+        'testtick_composer.json',
+        'testtick_listen.json',
+        'testtick_performance.json',
+        'testtick_testitem.json',
+        'testtick_top_list.json',
+        'testtick_venue.json',
+        'testtick_work.json',
+    ]
+
+    def setUp(self):
+        self.request = RequestFactory().get("/works/graphs/")
+        self.request.user = CustomUser.objects.get(id=1)
+        self.request.site = Site.objects.get(pk=settings.SITE_ID)
+        streamed_tick = Performance.objects.create(user=self.request.user, site=self.request.site, streamed=True)
+        streamed_tick.work.add(Work.objects.get(id=722))
+        same_composer_performance = Performance.objects.create(user=self.request.user, site=self.request.site, streamed=False)
+        same_composer_performance.work.add(Work.objects.get(id=435), Work.objects.get(id=722))
+
+    @patch("melodramatick.work.views.plots.plot_top_lists_by_decade", return_value="top_lists_bar")
+    @patch("melodramatick.work.views.plots.plot_duration_hist", return_value="duration_hist")
+    @patch("melodramatick.work.views.plots.plot_listens_per_era", return_value="bottom_far_right")
+    @patch("melodramatick.work.views.plots.plot_user_performances_per_era", return_value="bottom_right")
+    @patch("melodramatick.work.views.plots.plot_user_ticks_per_era", return_value="bottom_centre")
+    @patch("melodramatick.work.views.plots.plot_works_per_era", return_value="bottom_left")
+    @patch("melodramatick.work.views.plots.plot_listens_per_composer", return_value="middle_far_right")
+    @patch("melodramatick.work.views.plots.plot_user_performances_per_composer", return_value="middle_right")
+    @patch("melodramatick.work.views.plots.plot_user_ticks_per_composer", return_value="middle_centre")
+    @patch("melodramatick.work.views.plots.plot_works_per_composer", return_value="middle_left")
+    @patch("melodramatick.work.views.plots.plot_works_by_decade", return_value="top")
+    def test_get_context_data(self, *plot_mocks):
+        view = WorkGraphsView()
+        view.setup(self.request)
+        view.object_list = Testitem.objects.all()
+
+        context = view.get_context_data()
+        decade_qs = plot_mocks[0].call_args.args[0]
+        tick_composer_qs = plot_mocks[2].call_args.args[0]
+        performance_composer_qs = plot_mocks[3].call_args.args[0]
+        listen_composer_qs = plot_mocks[4].call_args.args[0]
+        tick_era_qs = plot_mocks[6].call_args.args[0]
+        performance_era_qs = plot_mocks[7].call_args.args[0]
+        listen_era_qs = plot_mocks[8].call_args.args[0]
+        decade_counts = {}
+        for item in decade_qs.order_by("id").values("year", "user_listened", "user_ticks"):
+            decade = int(item["year"] / 10) * 10
+            decade_counts.setdefault(decade, {"works": 0, "listened": 0, "ticked": 0})
+            decade_counts[decade]["works"] += 1
+            decade_counts[decade]["listened"] += int(item["user_listened"])
+            decade_counts[decade]["ticked"] += int(item["user_ticks"])
+
+        self.assertEqual(context["top"], "top")
+        self.assertEqual(context["middle_left"], "middle_left")
+        self.assertEqual(context["middle_centre"], "middle_centre")
+        self.assertEqual(context["middle_right"], "middle_right")
+        self.assertEqual(context["middle_far_right"], "middle_far_right")
+        self.assertEqual(context["bottom_left"], "bottom_left")
+        self.assertEqual(context["bottom_centre"], "bottom_centre")
+        self.assertEqual(context["bottom_right"], "bottom_right")
+        self.assertEqual(context["bottom_far_right"], "bottom_far_right")
+        self.assertEqual(context["duration_hist"], "duration_hist")
+        self.assertEqual(context["top_lists_bar"], "top_lists_bar")
+        self.assertEqual(context["work_count"], 3)
+        self.assertEqual(context["user_performance_count"], 3)
+        self.assertEqual(context["user_ticked_work_count"], 3)
+        self.assertEqual(context["user_ticked_work_percentage"], 100)
+        self.assertEqual(context["user_listened_work_count"], 2)
+        self.assertEqual(context["user_listened_work_percentage"], 67)
+        self.assertEqual(
+            decade_counts,
+            {
+                1800: {"works": 1, "listened": 1, "ticked": 1},
+                1830: {"works": 1, "listened": 1, "ticked": 1},
+                1840: {"works": 1, "listened": 0, "ticked": 1},
+            },
+        )
+        self.assertEqual(
+            list(tick_composer_qs.order_by("id").values_list("id", "user_ticks")),
+            [(230, True), (435, True), (722, True)],
+        )
+        self.assertEqual(
+            list(performance_composer_qs.order_by("id").values_list("id", "user_perfs")),
+            [(230, 2), (435, 2), (722, 1)],
+        )
+        self.assertEqual(
+            list(listen_composer_qs.order_by("id").values_list("id", "user_listens")),
+            [(230, 1), (435, 2), (722, 0)],
+        )
+        self.assertEqual(plot_mocks[3].call_args.kwargs["user"], self.request.user)
+        self.assertEqual(plot_mocks[4].call_args.kwargs["user"], self.request.user)
+        self.assertEqual(
+            list(tick_era_qs.order_by("id").values_list("id", "user_ticks")),
+            [(230, True), (435, True), (722, True)],
+        )
+        self.assertEqual(
+            list(performance_era_qs.order_by("id").values_list("id", "user_perfs")),
+            [(230, 2), (435, 2), (722, 1)],
+        )
+        self.assertEqual(
+            list(listen_era_qs.order_by("id").values_list("id", "user_listens")),
+            [(230, 1), (435, 2), (722, 0)],
+        )
+        self.assertEqual(plot_mocks[7].call_args.kwargs["user"], self.request.user)
+        self.assertEqual(plot_mocks[8].call_args.kwargs["user"], self.request.user)
+
+
+class WorkGraphsPlotTestCase(TestCase):
+    fixtures = [
+        'user.json',
         'testtick_company.json',
         'testtick_composer.json',
         'testtick_listen.json',
@@ -246,37 +361,196 @@ class WorkGraphsViewTestCase(TestCase):
     ]
 
     def setUp(self):
-        self.request = RequestFactory().get("/works/graphs/")
-        self.request.user = CustomUser.objects.get(id=1)
+        self.user = CustomUser.objects.get(id=1)
+        site = Site.objects.get(pk=settings.SITE_ID)
+        streamed_tick = Performance.objects.create(user=self.user, site=site, streamed=True)
+        streamed_tick.work.add(Work.objects.get(id=722))
+        same_composer_performance = Performance.objects.create(user=self.user, site=site, streamed=False)
+        same_composer_performance.work.add(Work.objects.get(id=435), Work.objects.get(id=722))
+        self.qs = Testitem.objects.annotate(
+            user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=self.user), distinct=True), 0),
+            user_ticks=Exists(
+                Performance.objects.filter(
+                    work=OuterRef('pk'),
+                    user=self.user,
+                    site_id=settings.SITE_ID,
+                )
+            ),
+            user_perfs=Count(
+                'performance',
+                filter=Q(performance__user=self.user) & Q(performance__streamed=False),
+                distinct=True,
+            ),
+        )
 
-    @patch("melodramatick.work.views.plots.plot_top_lists_by_decade", return_value="top_lists_bar")
-    @patch("melodramatick.work.views.plots.plot_duration_hist", return_value="duration_hist")
-    @patch("melodramatick.work.views.plots.plot_listens_per_era", return_value="bottom_right")
-    @patch("melodramatick.work.views.plots.plot_perfs_per_era", return_value="bottom_centre")
-    @patch("melodramatick.work.views.plots.plot_works_per_era", return_value="bottom_left")
-    @patch("melodramatick.work.views.plots.plot_listens_per_composer", return_value="middle_right")
-    @patch("melodramatick.work.views.plots.plot_perfs_per_composer", return_value="middle_centre")
-    @patch("melodramatick.work.views.plots.plot_works_per_composer", return_value="middle_left")
-    @patch("melodramatick.work.views.plots.plot_works_by_decade", return_value="top")
-    def test_get_context_data(self, *plot_mocks):
-        view = WorkGraphsView()
-        view.setup(self.request)
-        view.object_list = Testitem.objects.all()
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_works_by_decade_uses_work_listen_and_tick_counts(self, bar):
+        qs = Testitem.objects.annotate(
+            user_listened=Exists(
+                Listen.objects.filter(
+                    work=OuterRef('pk'),
+                    user=self.user,
+                    site_id=settings.SITE_ID,
+                )
+            ),
+            user_ticks=Exists(
+                Performance.objects.filter(
+                    work=OuterRef('pk'),
+                    user=self.user,
+                    site_id=settings.SITE_ID,
+                )
+            ),
+        )
 
-        context = view.get_context_data()
+        work_plots.plot_works_by_decade(qs, figsize=(4, 6))
 
-        self.assertEqual(context["top"], "top")
-        self.assertEqual(context["middle_left"], "middle_left")
-        self.assertEqual(context["middle_centre"], "middle_centre")
-        self.assertEqual(context["middle_right"], "middle_right")
-        self.assertEqual(context["bottom_left"], "bottom_left")
-        self.assertEqual(context["bottom_centre"], "bottom_centre")
-        self.assertEqual(context["bottom_right"], "bottom_right")
-        self.assertEqual(context["duration_hist"], "duration_hist")
-        self.assertEqual(context["top_lists_bar"], "top_lists_bar")
-        self.assertEqual(context["work_count"], 3)
-        self.assertEqual(context["user_performance_count"], 3)
-        self.assertEqual(context["user_listen_count"], 3)
+        self.assertEqual(list(bar.call_args_list[0].args[1]), [1800, 1830, 1840])
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [1, 1, 1])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [1, 1, 0])
+        self.assertEqual(list(bar.call_args_list[2].args[2]), [1, 1, 1])
+
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_works_per_composer_stacks_works_by_era(self, bar):
+        work_plots.plot_works_per_composer(self.qs, figsize=(4, 6))
+
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 1])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [1, 0])
+        self.assertEqual(list(bar.call_args_list[2].args[2]), [1, 0])
+
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_user_ticks_per_composer_aggregates_user_ticks(self, bar):
+        work_plots.plot_user_ticks_per_composer(self.qs, figsize=(4, 6))
+
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 1])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [1, 0])
+        self.assertEqual(list(bar.call_args_list[2].args[2]), [1, 0])
+
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_listens_per_composer_aggregates_listen_tallies(self, bar):
+        Listen.objects.create(
+            work=Work.objects.get(id=722),
+            tally=2,
+            user=self.user,
+            site=Site.objects.get(pk=settings.SITE_ID),
+        )
+
+        work_plots.plot_listens_per_composer(self.qs, user=self.user, figsize=(4, 6))
+
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 1])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [2, 0])
+        self.assertEqual(list(bar.call_args_list[2].args[2]), [2, 0])
+
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_user_performances_per_composer_aggregates_live_performances(self, bar):
+        work_plots.plot_user_performances_per_composer(self.qs, user=self.user, figsize=(4, 6))
+
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 2])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [2, 0])
+
+    @patch("matplotlib.axes.Axes.pie", autospec=True)
+    def test_plot_works_per_era_uses_work_eras(self, pie):
+        work_plots.plot_works_per_era(self.qs, figsize=(3, 6))
+
+        self.assertEqual(list(pie.call_args.args[1]), [1, 1, 1])
+
+    @patch("matplotlib.axes.Axes.pie", autospec=True)
+    def test_plot_user_ticks_per_era_uses_user_ticks(self, pie):
+        work_plots.plot_user_ticks_per_era(self.qs, figsize=(3, 6))
+
+        self.assertEqual(list(pie.call_args.args[1]), [1, 1, 1])
+
+    @patch("matplotlib.axes.Axes.pie", autospec=True)
+    def test_plot_user_performances_per_era_uses_live_performances(self, pie):
+        site = Site.objects.get(pk=settings.SITE_ID)
+        same_era_work = Testitem.objects.create(
+            composer=Composer.objects.get(id=1),
+            title="Same Era Template Work",
+            year=1837,
+            site=site,
+        )
+        same_era_performance = Performance.objects.create(user=self.user, site=site, streamed=False)
+        same_era_performance.work.add(Work.objects.get(id=435), same_era_work)
+
+        work_plots.plot_user_performances_per_era(self.qs, user=self.user, figsize=(3, 6))
+
+        self.assertEqual(list(pie.call_args.args[1]), [2, 3, 1])
+
+    @patch("matplotlib.axes.Axes.pie", autospec=True)
+    def test_plot_listens_per_era_uses_listen_tallies(self, pie):
+        site = Site.objects.get(pk=settings.SITE_ID)
+        same_era_work = Testitem.objects.create(
+            composer=Composer.objects.get(id=1),
+            title="Same Era Listen Work",
+            year=1837,
+            site=site,
+        )
+        Listen.objects.create(work=same_era_work, tally=2, user=self.user, site=site)
+        Listen.objects.create(work=Work.objects.get(id=722), tally=2, user=self.user, site=site)
+
+        work_plots.plot_listens_per_era(self.qs, user=self.user, figsize=(3, 6))
+
+        self.assertEqual(list(pie.call_args.args[1]), [1, 4, 2])
+
+    @patch("matplotlib.axes.Axes.hist", autospec=True)
+    def test_plot_duration_hist_uses_album_durations(self, hist):
+        Album.objects.all().delete()
+        Album.objects.create(
+            id="coveragealbum123456789",
+            work=Work.objects.get(id=230),
+            duration=148,
+            uri="spotify:album:coveragealbum123456789",
+            image_url="https://example.com/coverage.jpg",
+        )
+
+        work_plots.plot_duration_hist(self.qs, figsize=(4, 6))
+
+        self.assertEqual(hist.call_args.args[1], [148])
+
+    def test_plot_duration_hist_returns_empty_for_no_durations(self):
+        self.assertIsNone(work_plots.plot_duration_hist(Testitem.objects.exclude(id=230), figsize=(4, 6)))
+
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_top_lists_by_decade_uses_list_counts(self, bar):
+        top_list, _ = TopList.objects.update_or_create(
+            name="Coverage Top List",
+            publication="Example",
+            defaults={"site": Site.objects.get(pk=settings.SITE_ID), "year": 2026},
+        )
+        ListItem.objects.update_or_create(item=Work.objects.get(id=230), list=top_list, position=1)
+        ListItem.objects.update_or_create(item=Work.objects.get(id=435), list=top_list, position=2)
+
+        work_plots.plot_top_lists_by_decade(Testitem.objects.all(), figsize=(4, 6))
+
+        self.assertEqual(list(bar.call_args.args[1]), [1800, 1830, 1840])
+        self.assertEqual(list(bar.call_args.args[2]), [1, 1, 0])
+
+    def test_plot_top_lists_by_decade_returns_empty_for_no_list_counts(self):
+        self.assertIsNone(work_plots.plot_top_lists_by_decade(Testitem.objects.filter(id=722), figsize=(4, 6)))
+
+    def test_empty_user_plots_return_empty_figures(self):
+        user_without_data = CustomUser.objects.create(username="user_without_plot_data")
+
+        self.assertIsNone(
+            work_plots.plot_user_ticks_per_composer(
+                Testitem.objects.annotate(user_ticks=Value(False)),
+                figsize=(4, 6),
+            )
+        )
+        self.assertIsNone(work_plots.plot_user_ticks_per_era(Testitem.objects.none(), figsize=(3, 6)))
+        self.assertIsNone(work_plots.plot_user_performances_per_era(self.qs, user=user_without_data, figsize=(3, 6)))
+        self.assertIsNone(work_plots.plot_listens_per_era(self.qs, user=user_without_data, figsize=(3, 6)))
+
+    def test_composer_plot_skips_works_outside_configured_eras(self):
+        site = Site.objects.get(pk=settings.SITE_ID)
+        outside_era_work = Testitem.objects.create(
+            composer=Composer.objects.get(id=1),
+            title="Outside Era Template Work",
+            year=1500,
+            site=site,
+        )
+        Listen.objects.create(work=outside_era_work, tally=1, user=self.user, site=site)
+
+        self.assertIsNone(work_plots.plot_listens_per_composer(Testitem.objects.filter(id=outside_era_work.id), user=self.user, figsize=(4, 6)))
 
 
 class WorkAdminTestCase(TestCase):

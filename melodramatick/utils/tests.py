@@ -13,6 +13,8 @@ from .spotify_api import (auth_manager,
 from .widgets import CustomRangeWidget
 from melodramatick.accounts.models import CustomUser
 from melodramatick.composer.models import Quote
+from melodramatick.utils.annotation import user_listens_per_era
+from melodramatick.work.models import Work
 
 
 class CustomRangeWidgetTestCase(TestCase):
@@ -120,3 +122,15 @@ class RandomisersTestCase(TestCase):
         self.assertEqual(wod.listen_count, 1)
         wod = work_of_the_day(user2)
         self.assertEqual(wod.listen_count, 3)
+
+
+class AnnotationTestCase(TestCase):
+    fixtures = ['user.json', 'testtick_composer.json', 'testtick_listen.json', 'testtick_testitem.json', 'testtick_work.json']
+
+    def test_user_listens_per_era_sums_listen_tallies(self):
+        user = CustomUser.objects.get(id=1)
+
+        self.assertEqual(
+            user_listens_per_era(Work.objects.all(), user),
+            [('Classical', 1), ('Early Romantic', 2)],
+        )
