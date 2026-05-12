@@ -1,18 +1,15 @@
 from collections import Counter
 
-import itertools
-
 from django.conf import settings
 from django.db.models import Avg, Count, Q, Sum
-from django.db.models.functions import Coalesce
 import matplotlib
 from matplotlib.ticker import MultipleLocator
 import numpy as np
 import seaborn as sns
 
-from melodramatick.utils.annotation import user_listens_per_era
 from melodramatick.utils.plots import EmptyFigure, to_bytes_fig
 from melodramatick.listen.models import Listen
+from melodramatick.performance.models import Performance
 
 matplotlib.use('Agg')
 
@@ -21,6 +18,9 @@ ERAS_ORDER = {v: idx for idx, (_, v) in enumerate(settings.ERAS_MAP)}
 
 
 def era_from_years(yr_list):
+    if isinstance(yr_list, (int, float)):
+        yr_list = [yr_list]
+
     eras = []
     for yr in yr_list:
         for yr_rng, era in settings.ERAS_MAP:
@@ -125,29 +125,18 @@ def plot_perfs_per_composer(ax, qs):
 
 
 @to_bytes_fig
-def plot_listens_per_composer(ax, qs, user=None):
-    if user is not None:
-        by_composer = (
-            Listen.objects
-            .filter(user=user, work__in=qs)
-            .values('work__composer__surname')
-            .annotate(user_listens=Sum('tally'), avg_yr=Avg('work__year'))
-            .order_by('-user_listens', 'work__composer__surname')
-        )[:10]
-    else:
-        by_composer = (
-            qs
-            .values('composer__surname')
-            .order_by()
-            .annotate(user_listens=Coalesce(Sum('listen__tally'), 0))
-            .order_by('-user_listens', 'composer__surname')
-            .exclude(user_listens=0)
-            .annotate(avg_yr=Avg('year'))
-        )[:10]
+def plot_listens_per_composer(ax, qs, user):
+    by_composer = (
+        Listen.objects
+        .filter(user=user, work__in=qs)
+        .values('work__composer__surname')
+        .annotate(user_listens=Sum('tally'), avg_yr=Avg('work__year'))
+        .order_by('-user_listens', 'work__composer__surname')
+    )[:10]
     if len(by_composer) == 0:
         raise EmptyFigure
 
-    composers = [x.get('work__composer__surname') or x.get('composer__surname') for x in by_composer]
+    composers = [x['work__composer__surname'] for x in by_composer]
     listens = [x['user_listens'] for x in by_composer]
     yrs = [x['avg_yr'] for x in by_composer]
     eras = era_from_years(yrs)
@@ -165,7 +154,7 @@ def plot_listens_per_composer(ax, qs, user=None):
 
 
 @to_bytes_fig
-def plot_user_performances_per_composer(ax, qs, user=None):
+def plot_user_performances_per_composer(ax, qs, user):
     by_composer = (
         qs
         .values('composer__surname')
@@ -222,9 +211,18 @@ def plot_perfs_per_era(ax, qs):
 
 
 @to_bytes_fig
-def plot_user_performances_per_era(ax, qs):
-    by_era = sorted([(w.era, w.user_perfs) for w in qs.exclude(user_perfs=0)], key=lambda x: x[0])
-    by_era = [(key, sum(num for _, num in value)) for key, value in itertools.groupby(by_era, lambda x: x[0])]
+def plot_user_performances_per_era(ax, qs, user):
+    era_performances = set()
+    for perf_id, year in (
+        Performance.objects
+        .filter(user=user, streamed=False, work__in=qs)
+        .values_list('id', 'work__year')
+        .distinct()
+    ):
+        eras = era_from_years(year)
+        if eras:
+            era_performances.add((eras[0], perf_id))
+    by_era = sorted(Counter(era for era, _ in era_performances).items(), key=lambda x: x[0])
     if by_era:
         eras, perfs = zip(*by_era)
         ax.pie(perfs, labels=eras, colors=[ERAS_CMAP[e] for e in eras], autopct='%.0f%%')
@@ -234,8 +232,17 @@ def plot_user_performances_per_era(ax, qs):
 
 
 @to_bytes_fig
-def plot_listens_per_era(ax, qs):
-    by_era = user_listens_per_era(qs)
+def plot_listens_per_era(ax, qs, user):
+    era_listens = Counter()
+    for year, tally in (
+        Listen.objects
+        .filter(user=user, work__in=qs)
+        .values_list('work__year', 'tally')
+    ):
+        eras = era_from_years(year)
+        if eras:
+            era_listens[eras[0]] += tally
+    by_era = sorted(era_listens.items(), key=lambda x: x[0])
     if by_era:
         eras, listens = zip(*by_era)
         ax.pie(listens, labels=eras, colors=[ERAS_CMAP[e] for e in eras], autopct='%.0f%%')

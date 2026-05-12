@@ -340,6 +340,8 @@ class WorkGraphsViewTestCase(TestCase):
             list(listen_era_qs.order_by("id").values_list("id", "user_listens")),
             [(230, 1), (435, 2), (722, 0)],
         )
+        self.assertEqual(plot_mocks[7].call_args.kwargs["user"], self.request.user)
+        self.assertEqual(plot_mocks[8].call_args.kwargs["user"], self.request.user)
 
 
 class WorkGraphsPlotTestCase(TestCase):
@@ -413,9 +415,35 @@ class WorkGraphsPlotTestCase(TestCase):
 
     @patch("matplotlib.axes.Axes.pie", autospec=True)
     def test_plot_user_performances_per_era_uses_live_performances(self, pie):
-        work_plots.plot_user_performances_per_era(self.qs, figsize=(3, 6))
+        site = Site.objects.get(pk=settings.SITE_ID)
+        same_era_work = Testitem.objects.create(
+            composer=Composer.objects.get(id=1),
+            title="Same Era Template Work",
+            year=1837,
+            site=site,
+        )
+        same_era_performance = Performance.objects.create(user=self.user, site=site, streamed=False)
+        same_era_performance.work.add(Work.objects.get(id=435), same_era_work)
 
-        self.assertEqual(list(pie.call_args.args[1]), [2, 2, 1])
+        work_plots.plot_user_performances_per_era(self.qs, user=self.user, figsize=(3, 6))
+
+        self.assertEqual(list(pie.call_args.args[1]), [2, 3, 1])
+
+    @patch("matplotlib.axes.Axes.pie", autospec=True)
+    def test_plot_listens_per_era_uses_listen_tallies(self, pie):
+        site = Site.objects.get(pk=settings.SITE_ID)
+        same_era_work = Testitem.objects.create(
+            composer=Composer.objects.get(id=1),
+            title="Same Era Listen Work",
+            year=1837,
+            site=site,
+        )
+        Listen.objects.create(work=same_era_work, tally=2, user=self.user, site=site)
+        Listen.objects.create(work=Work.objects.get(id=722), tally=2, user=self.user, site=site)
+
+        work_plots.plot_listens_per_era(self.qs, user=self.user, figsize=(3, 6))
+
+        self.assertEqual(list(pie.call_args.args[1]), [1, 4, 2])
 
 
 class WorkAdminTestCase(TestCase):

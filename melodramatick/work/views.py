@@ -121,8 +121,8 @@ class WorkGraphsView(ListView):
         middle_far_right = plots.plot_listens_per_composer(qs, user=self.request.user, figsize=(4, 6))
         bottom_left = plots.plot_works_per_era(qs, figsize=(3, 6))
         bottom_centre = plots.plot_perfs_per_era(qs, figsize=(3, 6))
-        bottom_right = plots.plot_user_performances_per_era(qs, figsize=(3, 6))
-        bottom_far_right = plots.plot_listens_per_era(qs, figsize=(3, 6))
+        bottom_right = plots.plot_user_performances_per_era(qs, user=self.request.user, figsize=(3, 6))
+        bottom_far_right = plots.plot_listens_per_era(qs, user=self.request.user, figsize=(3, 6))
         duration_hist = plots.plot_duration_hist(qs, figsize=(12, 6))
         top_lists_bar = plots.plot_top_lists_by_decade(qs, figsize=(12, 6))
         ticked_work_count = Work.objects.filter(
