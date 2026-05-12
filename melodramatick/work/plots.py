@@ -12,6 +12,7 @@ import seaborn as sns
 
 from melodramatick.utils.annotation import user_listens_per_era
 from melodramatick.utils.plots import EmptyFigure, to_bytes_fig
+from melodramatick.listen.models import Listen
 
 matplotlib.use('Agg')
 
@@ -125,19 +126,28 @@ def plot_perfs_per_composer(ax, qs):
 
 @to_bytes_fig
 def plot_listens_per_composer(ax, qs, user=None):
-    by_composer = (
-        qs
-        .values('composer__surname')
-        .order_by()
-        .annotate(user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=user), distinct=True), 0))
-        .order_by('-user_listens')
-        .exclude(user_listens=0)
-        .annotate(avg_yr=Avg('year'))
-    )[:10]
+    if user is not None:
+        by_composer = (
+            Listen.objects
+            .filter(user=user, work__in=qs)
+            .values('work__composer__surname')
+            .annotate(user_listens=Sum('tally'), avg_yr=Avg('work__year'))
+            .order_by('-user_listens', 'work__composer__surname')
+        )[:10]
+    else:
+        by_composer = (
+            qs
+            .values('composer__surname')
+            .order_by()
+            .annotate(user_listens=Coalesce(Sum('listen__tally'), 0))
+            .order_by('-user_listens', 'composer__surname')
+            .exclude(user_listens=0)
+            .annotate(avg_yr=Avg('year'))
+        )[:10]
     if len(by_composer) == 0:
         raise EmptyFigure
 
-    composers = [x['composer__surname'] for x in by_composer]
+    composers = [x.get('work__composer__surname') or x.get('composer__surname') for x in by_composer]
     listens = [x['user_listens'] for x in by_composer]
     yrs = [x['avg_yr'] for x in by_composer]
     eras = era_from_years(yrs)

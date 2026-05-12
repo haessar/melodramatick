@@ -13,6 +13,7 @@ from django.test import RequestFactory, TestCase
 
 from melodramatick.accounts.models import CustomUser
 from melodramatick.composer.models import Composer, Group, SiteComplete
+from melodramatick.listen.models import Listen
 from melodramatick.performance.models import Performance
 from testtick.admin import TestitemAdmin
 from testtick.filters import TestitemFilter
@@ -385,10 +386,17 @@ class WorkGraphsPlotTestCase(TestCase):
 
     @patch("melodramatick.work.plots.sns.barplot")
     def test_plot_listens_per_composer_aggregates_listen_tallies(self, barplot):
+        Listen.objects.create(
+            work=Work.objects.get(id=722),
+            tally=2,
+            user=self.user,
+            site=Site.objects.get(pk=settings.SITE_ID),
+        )
+
         work_plots.plot_listens_per_composer(self.qs, user=self.user, figsize=(4, 6))
 
         self.assertEqual(barplot.call_args.kwargs["x"], ["Adam", "Beethoven"])
-        self.assertEqual(barplot.call_args.kwargs["y"], [2, 1])
+        self.assertEqual(barplot.call_args.kwargs["y"], [4, 1])
 
     @patch("melodramatick.work.plots.sns.barplot")
     def test_plot_user_performances_per_composer_aggregates_live_performances(self, barplot):
