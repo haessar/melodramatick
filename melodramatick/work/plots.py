@@ -3,7 +3,8 @@ from collections import Counter
 import itertools
 
 from django.conf import settings
-from django.db.models import Avg, Count, Q
+from django.db.models import Avg, Count, Q, Sum
+from django.db.models.functions import Coalesce
 import matplotlib
 from matplotlib.ticker import MultipleLocator
 import numpy as np
@@ -38,7 +39,7 @@ def plot_works_by_decade(ax, qs):
         .annotate(
             works=Count('id'),
             listened=Count('id', filter=Q(user_listened=True)),
-            ticked=Count('id', filter=Q(user_ticked=True)),
+            ticked=Count('id', filter=Q(user_ticks=True)),
         )
         .order_by()
     )
@@ -95,9 +96,75 @@ def plot_works_per_composer(ax, qs):
 def plot_perfs_per_composer(ax, qs):
     by_composer = (
         qs
-        .values('composer__surname', 'user_perfs')
+        .values('composer__surname')
         .order_by()
-        .annotate(ocount=Count('composer'))
+        .annotate(user_ticks=Count('id', filter=Q(user_ticks=True), distinct=True))
+        .order_by('-user_ticks')
+        .exclude(user_ticks=0)
+        .annotate(avg_yr=Avg('year'))
+    )[:10]
+    if len(by_composer) == 0:
+        raise EmptyFigure
+
+    composers = [x['composer__surname'] for x in by_composer]
+    perfs = [x['user_ticks'] for x in by_composer]
+    yrs = [x['avg_yr'] for x in by_composer]
+    eras = era_from_years(yrs)
+
+    sns.set_theme(style="whitegrid")
+    if composers:
+        sns.barplot(x=composers, y=perfs, hue=eras, palette=ERAS_CMAP, dodge=False, ax=ax)
+
+    ax.set_title('User ticks per composer')
+    ax.set_xticklabels(composers, rotation=45)
+    ax.set_ylabel("Ticks")
+    ax.yaxis.grid(which="minor")
+    handles, labels = ax.get_legend_handles_labels()
+    ax.legend(*zip(*sorted(list(zip(handles, labels)), key=lambda x: ERAS_ORDER.get(x[1]))), title='Era', loc='upper right')
+
+
+@to_bytes_fig
+def plot_listens_per_composer(ax, qs, user=None):
+    by_composer = (
+        qs
+        .values('composer__surname')
+        .order_by()
+        .annotate(user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=user), distinct=True), 0))
+        .order_by('-user_listens')
+        .exclude(user_listens=0)
+        .annotate(avg_yr=Avg('year'))
+    )[:10]
+    if len(by_composer) == 0:
+        raise EmptyFigure
+
+    composers = [x['composer__surname'] for x in by_composer]
+    listens = [x['user_listens'] for x in by_composer]
+    yrs = [x['avg_yr'] for x in by_composer]
+    eras = era_from_years(yrs)
+
+    sns.set_theme(style="whitegrid")
+    if composers:
+        sns.barplot(x=composers, y=listens, hue=eras, palette=ERAS_CMAP, dodge=False, ax=ax)
+
+    ax.set_title('User listen tallies per composer')
+    ax.set_xticklabels(composers, rotation=45)
+    ax.set_ylabel("Listen tally")
+    ax.yaxis.grid(which="minor")
+    handles, labels = ax.get_legend_handles_labels()
+    ax.legend(*zip(*sorted(list(zip(handles, labels)), key=lambda x: ERAS_ORDER.get(x[1]))), title='Era', loc='upper right')
+
+
+@to_bytes_fig
+def plot_user_performances_per_composer(ax, qs, user=None):
+    by_composer = (
+        qs
+        .values('composer__surname')
+        .order_by()
+        .annotate(user_perfs=Count(
+            'performance',
+            filter=Q(performance__user=user) & Q(performance__streamed=False),
+            distinct=True,
+        ))
         .order_by('-user_perfs')
         .exclude(user_perfs=0)
         .annotate(avg_yr=Avg('year'))
@@ -116,38 +183,7 @@ def plot_perfs_per_composer(ax, qs):
 
     ax.set_title('User performances per composer')
     ax.set_xticklabels(composers, rotation=45)
-    ax.set_ylabel("Count")
-    ax.yaxis.grid(which="minor")
-    handles, labels = ax.get_legend_handles_labels()
-    ax.legend(*zip(*sorted(list(zip(handles, labels)), key=lambda x: ERAS_ORDER.get(x[1]))), title='Era', loc='upper right')
-
-
-@to_bytes_fig
-def plot_listens_per_composer(ax, qs):
-    by_composer = (
-        qs
-        .values('composer__surname', 'user_listens')
-        .order_by()
-        .annotate(ocount=Count('composer'))
-        .order_by('-user_listens')
-        .exclude(user_listens=0)
-        .annotate(avg_yr=Avg('year'))
-    )[:10]
-    if len(by_composer) == 0:
-        raise EmptyFigure
-
-    composers = [x['composer__surname'] for x in by_composer]
-    listens = [x['user_listens'] for x in by_composer]
-    yrs = [x['avg_yr'] for x in by_composer]
-    eras = era_from_years(yrs)
-
-    sns.set_theme(style="whitegrid")
-    if composers:
-        sns.barplot(x=composers, y=listens, hue=eras, palette=ERAS_CMAP, dodge=False, ax=ax)
-
-    ax.set_title('User listens per composer')
-    ax.set_xticklabels(composers, rotation=45)
-    ax.set_ylabel("Count")
+    ax.set_ylabel("Performances")
     ax.yaxis.grid(which="minor")
     handles, labels = ax.get_legend_handles_labels()
     ax.legend(*zip(*sorted(list(zip(handles, labels)), key=lambda x: ERAS_ORDER.get(x[1]))), title='Era', loc='upper right')
@@ -165,6 +201,18 @@ def plot_works_per_era(ax, qs):
 
 @to_bytes_fig
 def plot_perfs_per_era(ax, qs):
+    by_era = Counter([w.era for w in qs if w.user_ticks])
+    by_era = sorted(by_era.items(), key=lambda x: x[0])
+    if by_era:
+        eras, perfs = zip(*by_era)
+        ax.pie(perfs, labels=eras, colors=[ERAS_CMAP[e] for e in eras], autopct='%.0f%%')
+    else:
+        raise EmptyFigure
+    ax.set_title('Proportion of user ticks per era')
+
+
+@to_bytes_fig
+def plot_user_performances_per_era(ax, qs):
     by_era = sorted([(w.era, w.user_perfs) for w in qs.exclude(user_perfs=0)], key=lambda x: x[0])
     by_era = [(key, sum(num for _, num in value)) for key, value in itertools.groupby(by_era, lambda x: x[0])]
     if by_era:
@@ -183,7 +231,7 @@ def plot_listens_per_era(ax, qs):
         ax.pie(listens, labels=eras, colors=[ERAS_CMAP[e] for e in eras], autopct='%.0f%%')
     else:
         raise EmptyFigure
-    ax.set_title('Proportion of user listens per era')
+    ax.set_title('Proportion of user listen tallies per era')
 
 
 @to_bytes_fig
