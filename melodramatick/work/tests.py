@@ -306,6 +306,7 @@ class WorkGraphsViewTestCase(TestCase):
         self.assertEqual(context["user_ticked_work_count"], 3)
         self.assertEqual(context["user_ticked_work_percentage"], 100)
         self.assertEqual(context["user_listened_work_count"], 2)
+        self.assertEqual(context["user_listened_work_percentage"], 67)
         self.assertEqual(
             decade_counts,
             {

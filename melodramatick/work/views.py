@@ -76,11 +76,11 @@ class WorkGraphsView(ListView):
     template_name = 'work/work_graphs.html'
     model = Work
 
-    def get_ticked_work_percentage(self, ticked_work_count):
+    def get_work_percentage(self, count):
         work_count = self.object_list.count()
         if not work_count:
             return 0
-        return round((ticked_work_count / work_count) * 100)
+        return round((count / work_count) * 100)
 
     def get_context_data(self, **kwargs):
         qs = self.object_list.annotate(
@@ -130,6 +130,11 @@ class WorkGraphsView(ListView):
             performance__user=self.request.user,
             performance__site=self.request.site,
         ).distinct().count()
+        listened_work_count = Work.objects.filter(
+            site=self.request.site,
+            listen__user=self.request.user,
+            listen__site=self.request.site,
+        ).distinct().count()
         context = {
             'top': top,
             'middle_left': middle_left,
@@ -149,12 +154,9 @@ class WorkGraphsView(ListView):
                 streamed=False,
             ).count(),
             'user_ticked_work_count': ticked_work_count,
-            'user_ticked_work_percentage': self.get_ticked_work_percentage(ticked_work_count),
-            'user_listened_work_count': Work.objects.filter(
-                site=self.request.site,
-                listen__user=self.request.user,
-                listen__site=self.request.site,
-            ).distinct().count(),
+            'user_ticked_work_percentage': self.get_work_percentage(ticked_work_count),
+            'user_listened_work_count': listened_work_count,
+            'user_listened_work_percentage': self.get_work_percentage(listened_work_count),
         }
         return context
 
