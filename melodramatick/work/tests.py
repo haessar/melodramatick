@@ -262,11 +262,11 @@ class WorkGraphsViewTestCase(TestCase):
     @patch("melodramatick.work.views.plots.plot_duration_hist", return_value="duration_hist")
     @patch("melodramatick.work.views.plots.plot_listens_per_era", return_value="bottom_far_right")
     @patch("melodramatick.work.views.plots.plot_user_performances_per_era", return_value="bottom_right")
-    @patch("melodramatick.work.views.plots.plot_perfs_per_era", return_value="bottom_centre")
+    @patch("melodramatick.work.views.plots.plot_user_ticks_per_era", return_value="bottom_centre")
     @patch("melodramatick.work.views.plots.plot_works_per_era", return_value="bottom_left")
     @patch("melodramatick.work.views.plots.plot_listens_per_composer", return_value="middle_far_right")
     @patch("melodramatick.work.views.plots.plot_user_performances_per_composer", return_value="middle_right")
-    @patch("melodramatick.work.views.plots.plot_perfs_per_composer", return_value="middle_centre")
+    @patch("melodramatick.work.views.plots.plot_user_ticks_per_composer", return_value="middle_centre")
     @patch("melodramatick.work.views.plots.plot_works_per_composer", return_value="middle_left")
     @patch("melodramatick.work.views.plots.plot_works_by_decade", return_value="top")
     def test_get_context_data(self, *plot_mocks):
@@ -379,15 +379,24 @@ class WorkGraphsPlotTestCase(TestCase):
             ),
         )
 
-    @patch("melodramatick.work.plots.sns.barplot")
-    def test_plot_perfs_per_composer_aggregates_user_ticks(self, barplot):
-        work_plots.plot_perfs_per_composer(self.qs, figsize=(4, 6))
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_works_per_composer_stacks_works_by_era(self, bar):
+        work_plots.plot_works_per_composer(self.qs, figsize=(4, 6))
 
-        self.assertEqual(barplot.call_args.kwargs["x"], ["Adam", "Beethoven"])
-        self.assertEqual(barplot.call_args.kwargs["y"], [2, 1])
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 1])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [1, 0])
+        self.assertEqual(list(bar.call_args_list[2].args[2]), [1, 0])
 
-    @patch("melodramatick.work.plots.sns.barplot")
-    def test_plot_listens_per_composer_aggregates_listen_tallies(self, barplot):
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_user_ticks_per_composer_aggregates_user_ticks(self, bar):
+        work_plots.plot_user_ticks_per_composer(self.qs, figsize=(4, 6))
+
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 1])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [1, 0])
+        self.assertEqual(list(bar.call_args_list[2].args[2]), [1, 0])
+
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_listens_per_composer_aggregates_listen_tallies(self, bar):
         Listen.objects.create(
             work=Work.objects.get(id=722),
             tally=2,
@@ -397,19 +406,20 @@ class WorkGraphsPlotTestCase(TestCase):
 
         work_plots.plot_listens_per_composer(self.qs, user=self.user, figsize=(4, 6))
 
-        self.assertEqual(barplot.call_args.kwargs["x"], ["Adam", "Beethoven"])
-        self.assertEqual(barplot.call_args.kwargs["y"], [4, 1])
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 1])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [2, 0])
+        self.assertEqual(list(bar.call_args_list[2].args[2]), [2, 0])
 
-    @patch("melodramatick.work.plots.sns.barplot")
-    def test_plot_user_performances_per_composer_aggregates_live_performances(self, barplot):
+    @patch("matplotlib.axes.Axes.bar", autospec=True)
+    def test_plot_user_performances_per_composer_aggregates_live_performances(self, bar):
         work_plots.plot_user_performances_per_composer(self.qs, user=self.user, figsize=(4, 6))
 
-        self.assertEqual(barplot.call_args.kwargs["x"], ["Adam", "Beethoven"])
-        self.assertEqual(barplot.call_args.kwargs["y"], [2, 2])
+        self.assertEqual(list(bar.call_args_list[0].args[2]), [0, 2])
+        self.assertEqual(list(bar.call_args_list[1].args[2]), [2, 0])
 
     @patch("matplotlib.axes.Axes.pie", autospec=True)
-    def test_plot_perfs_per_era_uses_user_ticks(self, pie):
-        work_plots.plot_perfs_per_era(self.qs, figsize=(3, 6))
+    def test_plot_user_ticks_per_era_uses_user_ticks(self, pie):
+        work_plots.plot_user_ticks_per_era(self.qs, figsize=(3, 6))
 
         self.assertEqual(list(pie.call_args.args[1]), [1, 1, 1])
 
