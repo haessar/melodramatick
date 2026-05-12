@@ -163,8 +163,9 @@ def plot_user_performances_per_composer(ax, qs, user=None):
         .annotate(user_perfs=Count(
             'performance',
             filter=Q(performance__user=user) & Q(performance__streamed=False),
+            distinct=True,
         ))
-        .order_by('-user_perfs')
+        .order_by('-user_perfs', 'composer__surname')
         .exclude(user_perfs=0)
         .annotate(avg_yr=Avg('year'))
     )[:10]

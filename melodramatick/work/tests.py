@@ -395,7 +395,7 @@ class WorkGraphsPlotTestCase(TestCase):
         work_plots.plot_user_performances_per_composer(self.qs, user=self.user, figsize=(4, 6))
 
         self.assertEqual(barplot.call_args.kwargs["x"], ["Adam", "Beethoven"])
-        self.assertEqual(barplot.call_args.kwargs["y"], [3, 2])
+        self.assertEqual(barplot.call_args.kwargs["y"], [2, 2])
 
     @patch("matplotlib.axes.Axes.pie", autospec=True)
     def test_plot_perfs_per_era_uses_user_ticks(self, pie):
