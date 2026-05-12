@@ -163,7 +163,6 @@ def plot_user_performances_per_composer(ax, qs, user=None):
         .annotate(user_perfs=Count(
             'performance',
             filter=Q(performance__user=user) & Q(performance__streamed=False),
-            distinct=True,
         ))
         .order_by('-user_perfs')
         .exclude(user_perfs=0)

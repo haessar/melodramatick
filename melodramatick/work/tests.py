@@ -252,6 +252,10 @@ class WorkGraphsViewTestCase(TestCase):
         self.request = RequestFactory().get("/works/graphs/")
         self.request.user = CustomUser.objects.get(id=1)
         self.request.site = Site.objects.get(pk=settings.SITE_ID)
+        streamed_tick = Performance.objects.create(user=self.request.user, site=self.request.site, streamed=True)
+        streamed_tick.work.add(Work.objects.get(id=722))
+        same_composer_performance = Performance.objects.create(user=self.request.user, site=self.request.site, streamed=False)
+        same_composer_performance.work.add(Work.objects.get(id=435), Work.objects.get(id=722))
 
     @patch("melodramatick.work.views.plots.plot_top_lists_by_decade", return_value="top_lists_bar")
     @patch("melodramatick.work.views.plots.plot_duration_hist", return_value="duration_hist")
@@ -297,25 +301,25 @@ class WorkGraphsViewTestCase(TestCase):
         self.assertEqual(context["duration_hist"], "duration_hist")
         self.assertEqual(context["top_lists_bar"], "top_lists_bar")
         self.assertEqual(context["work_count"], 3)
-        self.assertEqual(context["user_performance_count"], 2)
-        self.assertEqual(context["user_ticked_work_count"], 2)
-        self.assertEqual(context["user_ticked_work_percentage"], 67)
+        self.assertEqual(context["user_performance_count"], 3)
+        self.assertEqual(context["user_ticked_work_count"], 3)
+        self.assertEqual(context["user_ticked_work_percentage"], 100)
         self.assertEqual(context["user_listened_work_count"], 2)
         self.assertEqual(
             decade_counts,
             {
                 1800: {"works": 1, "listened": 1, "ticked": 1},
                 1830: {"works": 1, "listened": 1, "ticked": 1},
-                1840: {"works": 1, "listened": 0, "ticked": 0},
+                1840: {"works": 1, "listened": 0, "ticked": 1},
             },
         )
         self.assertEqual(
             list(tick_composer_qs.order_by("id").values_list("id", "user_ticks")),
-            [(230, True), (435, True), (722, False)],
+            [(230, True), (435, True), (722, True)],
         )
         self.assertEqual(
             list(performance_composer_qs.order_by("id").values_list("id", "user_perfs")),
-            [(230, 2), (435, 1), (722, 0)],
+            [(230, 2), (435, 2), (722, 1)],
         )
         self.assertEqual(
             list(listen_composer_qs.order_by("id").values_list("id", "user_listens")),
@@ -325,11 +329,11 @@ class WorkGraphsViewTestCase(TestCase):
         self.assertEqual(plot_mocks[4].call_args.kwargs["user"], self.request.user)
         self.assertEqual(
             list(tick_era_qs.order_by("id").values_list("id", "user_ticks")),
-            [(230, True), (435, True), (722, False)],
+            [(230, True), (435, True), (722, True)],
         )
         self.assertEqual(
             list(performance_era_qs.order_by("id").values_list("id", "user_perfs")),
-            [(230, 2), (435, 1), (722, 0)],
+            [(230, 2), (435, 2), (722, 1)],
         )
         self.assertEqual(
             list(listen_era_qs.order_by("id").values_list("id", "user_listens")),
@@ -351,6 +355,11 @@ class WorkGraphsPlotTestCase(TestCase):
 
     def setUp(self):
         self.user = CustomUser.objects.get(id=1)
+        site = Site.objects.get(pk=settings.SITE_ID)
+        streamed_tick = Performance.objects.create(user=self.user, site=site, streamed=True)
+        streamed_tick.work.add(Work.objects.get(id=722))
+        same_composer_performance = Performance.objects.create(user=self.user, site=site, streamed=False)
+        same_composer_performance.work.add(Work.objects.get(id=435), Work.objects.get(id=722))
         self.qs = Testitem.objects.annotate(
             user_listens=Coalesce(Sum('listen__tally', filter=Q(listen__user=self.user), distinct=True), 0),
             user_ticks=Exists(
@@ -358,7 +367,6 @@ class WorkGraphsPlotTestCase(TestCase):
                     work=OuterRef('pk'),
                     user=self.user,
                     site_id=settings.SITE_ID,
-                    streamed=False,
                 )
             ),
             user_perfs=Count(
@@ -372,8 +380,8 @@ class WorkGraphsPlotTestCase(TestCase):
     def test_plot_perfs_per_composer_aggregates_user_ticks(self, barplot):
         work_plots.plot_perfs_per_composer(self.qs, figsize=(4, 6))
 
-        self.assertEqual(barplot.call_args.kwargs["x"], ["Beethoven", "Adam"])
-        self.assertEqual(barplot.call_args.kwargs["y"], [1, 1])
+        self.assertEqual(barplot.call_args.kwargs["x"], ["Adam", "Beethoven"])
+        self.assertEqual(barplot.call_args.kwargs["y"], [2, 1])
 
     @patch("melodramatick.work.plots.sns.barplot")
     def test_plot_listens_per_composer_aggregates_listen_tallies(self, barplot):
@@ -386,20 +394,20 @@ class WorkGraphsPlotTestCase(TestCase):
     def test_plot_user_performances_per_composer_aggregates_live_performances(self, barplot):
         work_plots.plot_user_performances_per_composer(self.qs, user=self.user, figsize=(4, 6))
 
-        self.assertEqual(barplot.call_args.kwargs["x"], ["Beethoven", "Adam"])
-        self.assertEqual(barplot.call_args.kwargs["y"], [2, 1])
+        self.assertEqual(barplot.call_args.kwargs["x"], ["Adam", "Beethoven"])
+        self.assertEqual(barplot.call_args.kwargs["y"], [3, 2])
 
     @patch("matplotlib.axes.Axes.pie", autospec=True)
     def test_plot_perfs_per_era_uses_user_ticks(self, pie):
         work_plots.plot_perfs_per_era(self.qs, figsize=(3, 6))
 
-        self.assertEqual(list(pie.call_args.args[1]), [1, 1])
+        self.assertEqual(list(pie.call_args.args[1]), [1, 1, 1])
 
     @patch("matplotlib.axes.Axes.pie", autospec=True)
     def test_plot_user_performances_per_era_uses_live_performances(self, pie):
         work_plots.plot_user_performances_per_era(self.qs, figsize=(3, 6))
 
-        self.assertEqual(list(pie.call_args.args[1]), [2, 1])
+        self.assertEqual(list(pie.call_args.args[1]), [2, 2, 1])
 
 
 class WorkAdminTestCase(TestCase):

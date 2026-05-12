@@ -90,7 +90,6 @@ class WorkGraphsView(ListView):
                         work=OuterRef('pk'),
                         user=self.request.user,
                         site=self.request.site,
-                        streamed=False,
                     )
                 ),
                 user_perfs=Count(
@@ -112,7 +111,6 @@ class WorkGraphsView(ListView):
                     work=OuterRef('pk'),
                     user=self.request.user,
                     site=self.request.site,
-                    streamed=False,
                 )
             ),
         )
@@ -131,7 +129,6 @@ class WorkGraphsView(ListView):
             site=self.request.site,
             performance__user=self.request.user,
             performance__site=self.request.site,
-            performance__streamed=False,
         ).distinct().count()
         context = {
             'top': top,
