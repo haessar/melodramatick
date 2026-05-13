@@ -36,3 +36,10 @@ Initialise app
 When you are ready, launch site
 
     python manage.py runserver
+
+## Example deployments
+The live example ecosystem is maintained on the `production` branch, where currently Operatick, Balletick and Concertantick are linked as submodules.
+
+## Contributing
+### testtick dummy app for testing
+Due to the polymorphic nature of core Melodramatick models, we have provided a dummy "testtick" validation app to provide class instantiations for unit testing of core functionality, rather than relying on submodules. It is not intended as a real engagement site for deployment.
