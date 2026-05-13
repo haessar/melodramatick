@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - production
 jobs:
   build-and-deploy:
     if: github.repository == 'haessar/melodramatick'
@@ -23,10 +23,12 @@ jobs:
             cd melodramatick/
             source venv/bin/activate
             git stash
-            git pull
-            git submodule update --recursive --remote
+            git fetch origin
+            git checkout production
+            git pull origin production
+            git submodule update --init --recursive
             git stash pop
-            pip install .
+            pip install -e .
             for settings in $SETTINGS_MODULES; do
               DJANGO_SETTINGS_MODULE=$settings python manage.py migrate
               DJANGO_SETTINGS_MODULE=$settings python manage.py collectstatic --noinput
