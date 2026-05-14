@@ -12,37 +12,59 @@ Create your local environment file
 
     cp .env-sample .env
 
+You can edit `.env` to configure local or deployment-specific settings. The
+sample file includes the available settings and their default local values.
+
 Install Melodramatick and dependencies
 
     python -m pip install -e .
-    python manage.py migrate
 
 By default, Melodramatick uses a local SQLite database at `db.sqlite3`.
 To use MySQL instead, install the MySQL extra and set `DATABASE_URL` in `.env`:
 
     python -m pip install -e ".[mysql]"
 
-Composer quotes are optional. If you want to populate quotes from RapidAPI,
-add `RAPID_API_KEY` to `.env` before running the quote import helper.
+## Create a new Melodramatick app (`balletick` example)
+You should now have your instance of Melodramatick installed and may want to create a bespoke site to track audience engagement in some performing arts context. Let's take "Balletick" as an example - a site for tracking engagement with ballet works across the ages.
 
-Create super user
-
-    python manage.py createsuperuser
-
-## Create a new Melodramatick app (balletick example)
-Initialise app
+Let's initialise the app
 
     python manage.py startapptick balletick --work ballet --colour-hex=#addde7
     export DJANGO_SETTINGS_MODULE=balletick.settings
+
+*Note: Remember to re-run this `export` command whenever you have a fresh terminal session to ensure DJANGO_SETTINGS_MODULE is set correctly.*
+
+This will have created a custom `Ballet` model. You might want to add some bespoke fields to allow recording of, for example, a work's choreographer. You can do this by editing the `class Ballet` definition in `balletick/models.py`.
+
+When you are happy with the custom model code, migrate the models to your configured database
+
     python manage.py makemigrations
     python manage.py migrate
 
-When you are ready, launch site
+To begin populating your site, you will need to create a "superuser" to access the admin interface:
+
+    python manage.py createsuperuser
+
+When you are ready, launch the site locally
 
     python manage.py runserver
 
+and visit http://127.0.0.1:8000/ in your browser, where you can sign in with your superuser account and click "Admin".
+
+### Optional data imports
+Rather than manually entering all your data via the admin interface to populate your site, you might want to use some provided automations. Both the `Composers` and `Works` (or in this case `Ballets`) admin pages have an `Import CSV` button to allow instant population of these objects from prepared CSV files (see `guides/csv_imports.md` for formatting advice).
+
+Composer quotes are optional; when populated they will appear on the home page of your site. If you want to populate quotes from RapidAPI,
+add `RAPID_API_KEY` to `.env` before opening a Django shell
+
+    python manage.py shell
+
+and running the quote import helper:
+
+    exec(open("./melodramatick/utils/quotel_api.py").read())
+
 ## Example deployments
-The live example ecosystem is maintained on the `production` branch, where currently Operatick, Balletick and Concertantick are linked as submodules.
+The live example ecosystem is maintained on https://github.com/haessar/melodramatick/tree/production, where currently Operatick, Balletick and Concertantick are linked as submodules. These live sites can each be accessed via https://melodramatick.com/.
 
 ## Contributing
 ### testtick dummy app for testing
