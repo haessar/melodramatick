@@ -37,7 +37,7 @@ urlpatterns = [
     path('inbox/notifications/', include(notifications.urls, namespace='notifications')),
 ]
 
-if settings.DEVELOPMENT_MODE is True:
+if settings.ENABLE_DEBUG_TOOLBAR is True:
     urlpatterns.append(path("__debug__/", include("debug_toolbar.urls")))
 
 
