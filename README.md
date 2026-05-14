@@ -35,7 +35,7 @@ Initialise app
     python manage.py startapptick balletick --work ballet --colour-hex=#addde7
     export DJANGO_SETTINGS_MODULE=balletick.settings
     python manage.py makemigrations
-    python manage migrate
+    python manage.py migrate
 
 When you are ready, launch site
 
