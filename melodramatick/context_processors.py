@@ -1,7 +1,11 @@
-from melodramatick.version import __version__
+from importlib.metadata import PackageNotFoundError, version
 
 
 def melodramatick_version(request):
+    try:
+        package_version = "v" + version("melodramatick")
+    except PackageNotFoundError:
+        package_version = "development"
     return {
-        "MELODRAMATICK_VERSION": __version__,
+        "MELODRAMATICK_VERSION": package_version
     }

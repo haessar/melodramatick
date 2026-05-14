@@ -15,7 +15,7 @@ import os
 import os.path
 from pathlib import Path
 
-from decouple import UndefinedValueError, config
+from decouple import config
 from django.core.management.utils import get_random_secret_key
 import dj_database_url
 
@@ -27,18 +27,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("DJANGO_SECRET_KEY", default=get_random_secret_key())
+SECRET_KEY = config("DJANGO_SECRET_KEY", default="") or get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-try:
-    ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS").split(",")
-except UndefinedValueError:
-    ALLOWED_HOSTS = []
+DJANGO_ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="")
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in DJANGO_ALLOWED_HOSTS.split(",")
+    if host.strip()
+]
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
 
 # Application definition
 
@@ -113,31 +115,27 @@ WSGI_APPLICATION = 'melodramatick.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DEVELOPMENT_MODE = config("DEVELOPMENT_MODE", default=False, cast=bool)
-if DEVELOPMENT_MODE is True:
-    INTERNAL_IPS = [
-        "127.0.0.1",
-    ]
+ENABLE_DEBUG_TOOLBAR = config("ENABLE_DEBUG_TOOLBAR", default=DEBUG, cast=bool)
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
+if ENABLE_DEBUG_TOOLBAR is True:
     MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
 
     INSTALLED_APPS.extend(('debug_toolbar', 'pympler'))
 
-if config("DATABASE_URL", default=None) is None:
-    # raise Exception("DATABASE_URL environment variable not defined")
+DATABASE_URL = config("DATABASE_URL", default=None)
+if DATABASE_URL:
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": "dummy_melodramatick",
-            "USER": "root",
-            "PASSWORD": "123abc",
-            "HOST": "127.0.0.1",
-            "PORT": "3306",
-        }
+        "default": dj_database_url.parse(DATABASE_URL)
     }
 else:
     DATABASES = {
-        "default": dj_database_url.parse(config("DATABASE_URL"))
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
 
 
@@ -201,6 +199,7 @@ LOGIN_REQUIRED_IGNORE_PATHS = [
     r'/accounts/logout/$',
     r'/accounts/signup/$',
     r'/admin/$',
+    r'/admin/.*$',
 ]
 
 LOGIN_REQUIRED_IGNORE_VIEW_NAMES = [

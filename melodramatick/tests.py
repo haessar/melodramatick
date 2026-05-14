@@ -4,6 +4,14 @@ from melodramatick.tasks import update_user_award_shared_task
 from melodramatick.top_list.models import Award, Progress
 
 
+class AdminAccessTestCase(TestCase):
+    def test_admin_login_page_is_not_intercepted_by_site_login_middleware(self):
+        response = self.client.get('/admin/login/?next=/admin/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'admin/css/base.css')
+
+
 class TasksTestCase(TestCase):
     fixtures = ['user.json', 'testtick_performance.json', 'testtick_company.json', 'testtick_venue.json',
                 'testtick_top_list.json', 'testtick_work.json', 'testtick_testitem.json', 'testtick_composer.json']

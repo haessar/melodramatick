@@ -1,3 +1,5 @@
+# Branding your app
+
 ## Design theme for app
 - Navigate to https://new.express.adobe.com/your-stuff/files to use Adobe Express interface
 - Duplicate an existing image, alter text and tick colour and make background colour to transparent
