@@ -2,12 +2,11 @@
 ## Installation
 Set up environment
 
-    git clone git@github.com:haessar/melodramatick.git
-    cd melodramatick
+    git clone <your-new-template-repo-url>
+    cd <your-new-template-repo>
     virtualenv --python=python3.10 venv
     source venv/bin/activate
-    curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10  # update pip; specific to my own dev env
-    python setup.py sdist
+    python -m pip install --upgrade pip
 
 Create .env with minimum expected environment variables
 
@@ -18,7 +17,7 @@ Create .env with minimum expected environment variables
 
 Install Melodramatick and dependencies
 
-    pip install dist/melodramatick-X.X.X.tar.gz
+    python -m pip install -e .
     python manage.py migrate
 
 Create super user
