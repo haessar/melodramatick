@@ -25,6 +25,9 @@ To use MySQL instead, install the MySQL extra and set `DATABASE_URL` in `.env`:
 
     python -m pip install -e ".[mysql]"
 
+Composer quotes are optional. If you want to populate quotes from RapidAPI,
+add `RAPID_API_KEY` to `.env` before running the quote import helper.
+
 Create super user
 
     python manage.py createsuperuser

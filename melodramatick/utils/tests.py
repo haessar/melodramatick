@@ -1,11 +1,11 @@
 from unittest.mock import patch
 
 from django.contrib.auth.models import AnonymousUser
-from django.test import TestCase
+from django.test import TestCase, override_settings
 import responses
 
 from .quotel_api import populate_composer_quotes
-from .randomisers import work_of_the_day
+from .randomisers import quote_of_the_day, work_of_the_day
 from .spotify_api import (auth_manager,
                           get_playlist_image, get_playlist_duration,
                           get_album_image, get_album_duration,
@@ -37,7 +37,14 @@ class CustomRangeWidgetTestCase(TestCase):
 class QuotelAPITestCase(TestCase):
     fixtures = ["testtick_composer.json", "quote.json"]
 
+    @override_settings(RAPID_API_KEY="")
+    def test_populate_composer_quotes_without_api_key_is_noop(self):
+        self.assertEqual(Quote.objects.count(), 1)
+        populate_composer_quotes()
+        self.assertEqual(Quote.objects.count(), 1)
+
     @responses.activate
+    @override_settings(RAPID_API_KEY="test-key")
     def test_populate_composer_quotes(self):
         responses.add(responses.POST, "https://quotel-quotes.p.rapidapi.com/quotes",
                       json=[{"quoteId": "100", "quote": "This is a quote by Adam."}])
@@ -110,6 +117,9 @@ class SpotifyAPITestCase(TestCase):
 class RandomisersTestCase(TestCase):
     fixtures = ['testtick_album.json', 'testtick_composer.json', 'testtick_listen.json',
                 'testtick_testitem.json', 'user.json', 'testtick_work.json']
+
+    def test_quote_of_the_day_without_quotes(self):
+        self.assertIsNone(quote_of_the_day())
 
     def test_work_of_the_day(self):
         anon_user = AnonymousUser()
