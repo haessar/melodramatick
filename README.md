@@ -73,7 +73,7 @@ and running the quote import helper:
     exec(open("./melodramatick/utils/quotel_api.py").read())
 
 ## Example deployments
-The live example ecosystem is maintained on https://github.com/haessar/melodramatick/tree/production, where currently Operatick, Balletick and Concertantick are linked as submodules. These live sites can each be accessed via https://melodramatick.com/.
+The live example ecosystem is maintained on https://github.com/haessar/melodramatick/tree/production, where currently Operatick, Balletick and Concertantick are linked as submodules. Guidance for promoting releases to `production` from `master`, as well as host-specific deployment information, can be found in the `deployments/` directory on this branch. These live sites can each be accessed via https://melodramatick.com/.
 
 ## Contributing
 
