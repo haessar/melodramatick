@@ -61,6 +61,14 @@ local_settings.py
 db*.sqlite3
 db.sqlite3-journal
 
+# Data dumps and local database snapshots
+*.sql
+*.dump
+*.sqlite3
+*.sqlite3-journal
+*.db
+full_db.json
+
 # Flask stuff:
 instance/
 .webassets-cache
