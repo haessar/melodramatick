@@ -123,21 +123,17 @@ if DEVELOPMENT_MODE is True:
 
     INSTALLED_APPS.extend(('debug_toolbar', 'pympler'))
 
-if config("DATABASE_URL", default=None) is None:
-    # raise Exception("DATABASE_URL environment variable not defined")
+DATABASE_URL = config("DATABASE_URL", default=None)
+if DATABASE_URL:
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": "dummy_melodramatick",
-            "USER": "root",
-            "PASSWORD": "123abc",
-            "HOST": "127.0.0.1",
-            "PORT": "3306",
-        }
+        "default": dj_database_url.parse(DATABASE_URL)
     }
 else:
     DATABASES = {
-        "default": dj_database_url.parse(config("DATABASE_URL"))
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
 
 

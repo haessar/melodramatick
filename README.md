@@ -20,6 +20,11 @@ Install Melodramatick and dependencies
     python -m pip install -e .
     python manage.py migrate
 
+By default, Melodramatick uses a local SQLite database at `db.sqlite3`.
+To use MySQL instead, install the MySQL extra and set `DATABASE_URL` in `.env`:
+
+    python -m pip install -e ".[mysql]"
+
 Create super user
 
     python manage.py createsuperuser
