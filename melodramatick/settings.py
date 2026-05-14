@@ -199,6 +199,7 @@ LOGIN_REQUIRED_IGNORE_PATHS = [
     r'/accounts/logout/$',
     r'/accounts/signup/$',
     r'/admin/$',
+    r'/admin/.*$',
 ]
 
 LOGIN_REQUIRED_IGNORE_VIEW_NAMES = [
