@@ -8,12 +8,9 @@ Set up environment
     source venv/bin/activate
     python -m pip install --upgrade pip
 
-Create .env with minimum expected environment variables
+Create your local environment file
 
-    SPOTIFY_CLIENT_ID=
-    SPOTIFY_CLIENT_SECRET=
-    RAPID_API_KEY=
-    DATABASE_URL=mysql://<username>:<password>@<host>/melodramatick
+    cp .env-sample .env
 
 Install Melodramatick and dependencies
 
